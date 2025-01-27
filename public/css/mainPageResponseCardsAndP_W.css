@@ -1,0 +1,462 @@
+/* Card & K.SZ. Response */
+@media screen and (min-width: 820px) and (max-width: 1200px) {
+    /*------------------Cards-------------------*/
+    .flip-card {
+        background-color: transparent;
+        width: 18vw;
+        height: 14vw;
+        perspective: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .row {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .flip-card-front h2 {
+        font-size: 2.5vw;
+        margin: 10px 10px 0px 10px;
+    }
+
+    .flip-card-front h2:last-of-type {
+        font-size: 2vw;
+        margin: 10px 10px 0 10px;
+    }
+
+    .flip-card-front p {
+        font-size: 2.5vw;
+    }
+
+    .flip-card-back p:first-of-type {
+        font-size: 1.4vw;
+        margin: 10px 10px 0px 10px;
+    }
+
+    .flip-card-back p:last-of-type {
+        font-size: 2vw;
+    }
+
+    .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    .flip-card-front {
+        background-color: #bbb;
+        color: black;
+    }
+
+    .flip-card-back {
+        background-color: #2980b9;
+        color: white;
+        transform: rotateY(180deg);
+    }
+
+    /*-------------------/Cards-------------------*/
+
+    /*--------------------Sz&P--------------------*/
+
+    #msz li {
+        font-size: 1.5vw;
+        margin-bottom: 10px;
+        margin-left: 20px;
+    }
+
+    #msz h2 {
+        font-size: 2vw;
+        padding-left: 0px;
+        margin: 0;
+    }
+
+    /*--------------------/Sz&P-------------------*/
+}
+
+@media screen and (min-width: 720px) and (max-width: 819px) {
+    /*------------------Cards-------------------*/
+    .flip-card {
+        background-color: transparent;
+        width: 18vw;
+        height: 14vw;
+        perspective: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .row {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .flip-card-front h2 {
+        font-size: 2.5vw;
+        margin: 10px 10px 0px 10px;
+    }
+
+    .flip-card-front h2:last-of-type {
+        font-size: 2vw;
+        margin: 10px 10px 0 10px;
+    }
+
+    .flip-card-front p {
+        font-size: 2.5vw;
+    }
+
+    .flip-card-back p:first-of-type {
+        font-size: 1.4vw;
+        margin: 10px 10px 0px 10px;
+    }
+
+    .flip-card-back p:last-of-type {
+        font-size: 2vw;
+    }
+
+    /*-------------------/Cards-------------------*/
+
+    /*--------------------Sz&P--------------------*/
+
+    .d-flex {
+        flex-direction: column;
+    }
+
+    #msz li {
+        font-size: 1.5vw;
+        margin-bottom: 10px;
+        margin-left: 20px;
+    }
+
+    #msz h2 {
+        font-size: 2.5vw;
+        padding-left: 0px;
+        margin: 0;
+    }
+
+    #msz {
+        margin-top: 20px;
+        width: 100%;
+        padding-left: 0px;
+    }
+
+    /*--------------------/Sz&P-------------------*/
+}
+
+@media screen and (min-width: 620px) and (max-width: 719px) {
+    /*------------------Cards-------------------*/
+    .flip-card {
+        background-color: transparent;
+        width: 20vw;
+        height: 16vw;
+        perspective: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .row {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .flip-card-front h2 {
+        font-size: 3.5vw;
+        margin: 10px 10px 0px 10px;
+    }
+
+    .flip-card-front h2:last-of-type {
+        font-size: 2vw;
+        margin: 10px 10px 0 10px;
+    }
+
+    .flip-card-front p {
+        font-size: 2.5vw;
+    }
+
+    .flip-card-back p:first-of-type {
+        font-size: 1.8vw;
+        margin: 10px 10px 0px 10px;
+    }
+
+    .flip-card-back p:last-of-type {
+        font-size: 2.5vw;
+    }
+
+    /*-------------------/Cards-------------------*/
+
+    /*--------------------Sz&P--------------------*/
+
+    .d-flex {
+        flex-direction: column;
+    }
+
+    #msz li {
+        font-size: 2vw;
+        margin-bottom: 10px;
+        margin-left: 20px;
+    }
+
+    #msz h2 {
+        font-size: 3vw;
+        padding-left: 0px;
+        margin: 0;
+    }
+
+    #msz {
+        margin-top: 20px;
+        width: 100%;
+        padding-left: 0px;
+    }
+
+    /*--------------------/Sz&P-------------------*/
+}
+
+@media screen and (min-width: 520px) and (max-width: 619px) {
+    /*------------------Cards-------------------*/
+    .flip-card {
+        background-color: transparent;
+        width: 25vw;
+        height: 20vw;
+        perspective: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .col {
+        margin-right: 20px;
+    }
+
+    .row {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .flip-card-front h2 {
+        font-size: 3.5vw;
+        margin: 10px 10px 0px 10px;
+    }
+
+    .flip-card-front h2:last-of-type {
+        font-size: 2.5vw;
+        margin: 10px 10px 0 10px;
+    }
+
+    .flip-card-front p {
+        font-size: 3.5vw;
+    }
+
+    .flip-card-back p:first-of-type {
+        font-size: 2vw;
+        margin: 10px 10px 0px 10px;
+    }
+
+    .flip-card-back p:last-of-type {
+        /**/
+        font-size: 3vw;
+    }
+
+    /*-------------------/Cards-------------------*/
+
+    /*--------------------Sz&P--------------------*/
+
+    .d-flex {
+        flex-direction: column;
+    }
+
+    #msz li {
+        font-size: 2vw;
+        margin-bottom: 10px;
+        margin-left: 20px;
+    }
+
+    #msz h2 {
+        font-size: 3vw;
+        padding-left: 0px;
+        margin: 0;
+    }
+
+    #msz {
+        margin-top: 20px;
+        width: 100%;
+        padding-left: 0px;
+    }
+
+    /*--------------------/Sz&P-------------------*/
+}
+
+@media screen and (min-width: 420px) and (max-width: 519px) {
+    /*------------------Cards-------------------*/
+    .flip-card {
+        background-color: transparent;
+        width: 35vw;
+        height: 22vw;
+        perspective: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .col {
+        margin-bottom: 15px;
+    }
+
+    .row {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .flip-card-front h2 {
+        font-size: 4vw;
+        margin: 10px 10px 0px 10px;
+    }
+
+    .flip-card-front h2:last-of-type {
+        font-size: 3vw;
+        margin: 5px 5px 0 5px;
+    }
+
+    .flip-card-front p {
+        font-size: 4vw;
+    }
+
+    .flip-card-back p:first-of-type {
+        font-size: 2.5vw;
+        margin: 10px 10px 0px 10px;
+    }
+
+    .flip-card-back p:last-of-type {
+        /**/
+        font-size: 3.5vw;
+    }
+
+    /*-------------------/Cards-------------------*/
+    /*--------------------Sz&P--------------------*/
+
+    .d-flex {
+        flex-direction: column;
+    }
+
+    #msz li {
+        font-size: 3vw;
+        margin-bottom: 10px;
+        margin-left: 20px;
+    }
+
+    #msz h2 {
+        font-size: 4vw;
+        padding-left: 0px;
+        margin: 0;
+    }
+
+    #msz {
+        margin-top: 20px;
+        width: 100%;
+        padding-left: 0px;
+    }
+
+    /*--------------------/Sz&P-------------------*/
+}
+
+@media screen and (min-width: 320px) and (max-width: 419px) {
+    /*------------------Cards-------------------*/
+    .flip-card {
+        background-color: transparent;
+        width: 50vw;
+        height: 25vw;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .row {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        flex-direction: column;
+    }
+
+    .col {
+        margin-bottom: 15px;
+    }
+
+    .flip-card-front h2 {
+        font-size: 5vw;
+        margin: 10px 10px 0px 10px;
+    }
+
+    .flip-card-front h2:last-of-type {
+        font-size: 3.5vw;
+        margin: 10px 10px 0 10px;
+    }
+
+    .flip-card-front p {
+        font-size: 5vw;
+    }
+
+    .flip-card-back p:first-of-type {
+        font-size: 3vw;
+        margin: 10px 10px 0px 10px;
+    }
+
+    .flip-card-back p:last-of-type {
+        font-size: 5vw;
+    }
+
+    /*-------------------/Cards-------------------*/
+    /*--------------------Sz&P--------------------*/
+
+    .d-flex {
+        flex-direction: column;
+    }
+
+    #msz li {
+        font-size: 3.5vw;
+        margin-bottom: 10px;
+        margin-left: 20px;
+    }
+
+    #msz h2 {
+        font-size: 4.5vw;
+        padding-left: 0px;
+        margin: 0;
+    }
+
+    #msz {
+        margin-top: 20px;
+        width: 100%;
+        padding-left: 0px;
+    }
+
+    /*--------------------/Sz&P-------------------*/
+}

@@ -1,0 +1,251 @@
+/*------------------Pictures-------------------*/
+
+#uppictures {
+    width: 100%;
+    height: 300px;
+}
+
+/*------------------/Pictures-------------------*/
+/*------------------Cards-------------------*/
+.flip-card {
+    background-color: transparent;
+    width: 12vw;
+    height: 8vw;
+    perspective: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.row {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.flip-card-front h2 {
+    font-size: 1vw;
+    margin: 10px 10px 0px 10px;
+}
+
+.flip-card-front h2:last-of-type {
+    font-size: 1.2vw;
+    margin: 10px 10px 0 10px;
+}
+
+.flip-card-front p {
+    font-size: 1.5vw;
+}
+
+.flip-card-back p:first-of-type {
+    font-size: 1vw;
+    margin: 10px 10px 0px 10px;
+}
+
+.flip-card-back p:last-of-type {
+    font-size: 1.5vw;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.flip-card-front {
+    background-color: #bbb;
+    color: black;
+}
+
+.flip-card-back {
+    background-color: #2980b9;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+/*-------------------/Cards-------------------*/
+/*--------------------Sz&P--------------------*/
+#mkep {
+    flex: 50%;
+    padding-right: 1vw;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+}
+
+#mkep img {
+    width: 100%;
+    height: 100%;
+}
+
+#msz {
+    width: 50%;
+    padding-left: 30px;
+    margin-top: 10px;
+}
+
+#msz li {
+    font-size: 1vw;
+}
+
+#msz p {
+    margin: 0.5vw;
+}
+
+#msz ul {
+    padding-left: 4vw;
+}
+
+#msz h2 {
+    font-size: 2vw;
+}
+
+/*--------------------/Sz&P-------------------*/
+
+/*--------------------TimeLine--------------------*/
+#timeline_alap {
+    position: relative;
+    margin-top: 6vw;
+}
+
+h3 {
+    text-align: center;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1200vw;
+    margin: 0 auto;
+    margin-top: 80px;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100vw;
+    background: #d3d3d3;
+    outline: none;
+}
+
+input[type="range"] {
+    position: absolute;
+    writing-mode: vertical-lr;
+    height: 42vw;
+    top: 240px;
+    z-index: 2;
+    width: 20px;
+    border-radius: 20px;
+    left: 50%;
+}
+
+.slider::-webkit-slider-thumb {
+    appearance: inherit;
+    width: 70px;
+    height: 30px;
+    background: MediumTurquoise;
+    border-radius: 10px;
+}
+
+.timeline .container {
+    padding: 10px 10px;
+    border-radius: 25px;
+    position: relative;
+    background-color: inherit;
+    width: 30vw;
+    height: 100%;
+}
+
+.left {
+    right: 25%;
+    padding-left: 25px;
+    padding-right: 25px;
+    border: solid 1px black;
+}
+
+.right {
+    left: 25%;
+    padding-left: 25px;
+    padding-right: 25px;
+    border: solid 1px black;
+}
+
+.content h2 {
+    font-size: 1.5vw;
+}
+
+.content {
+    font-size: 1vw;
+    background-color: white;
+    position: relative;
+    border-radius: 6px;
+    margin: 10px;
+}
+
+#c1 {
+    user-select: none;
+    color: transparent;
+    text-shadow: 0 0 0px black;
+}
+
+#c1_h5 {
+    user-select: none;
+    color: transparent;
+    text-shadow: 0 0 0px goldenrod;
+}
+
+#c2 {
+    user-select: none;
+    color: transparent;
+    text-shadow: 0 0 14px black;
+}
+
+#c2_h5 {
+    user-select: none;
+    color: transparent;
+    text-shadow: 0 0 14px goldenrod;
+}
+
+#c3 {
+    user-select: none;
+    color: transparent;
+    text-shadow: 0 0 14px black;
+}
+
+#c3_h5 {
+    user-select: none;
+    color: transparent;
+    text-shadow: 0 0 14px goldenrod;
+}
+
+#c4 {
+    user-select: none;
+    color: transparent;
+    text-shadow: 0 0 14px black;
+}
+
+#c4_h5 {
+    user-select: none;
+    color: transparent;
+    text-shadow: 0 0 14px goldenrod;
+}
+
+.line {
+    margin-top: 5px;
+}
+/*--------------------/TimeLine--------------------*/
