@@ -14,7 +14,7 @@
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
                                 <h2><i class="bi bi-globe2"></i></h2>
-                                <h2>Globális elérhetőség</h2>
+                                <h2>Globális elérhetőség12345</h2>
                                 <p>&#10555;</p>
                             </div>
                             <div class="flip-card-back">
