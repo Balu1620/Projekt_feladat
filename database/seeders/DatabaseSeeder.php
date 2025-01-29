@@ -18,8 +18,6 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
-            'phoneNumber' => '06202130321',
-            'drivingLicenceType' => "B2"
         ]);
     }
 }
