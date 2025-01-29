@@ -74,9 +74,9 @@
                                 <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">Dropdown</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownId">
-                                    <a class="dropdown-item" href="#">Action 1</a>
+                                    <a class="dropdown-item" href="{{ route('motors') }}">Motorok</a>
                                     <hr class="dropdownHr">
-                                    <a class="dropdown-item" href="#">Action 2</a>
+                                    <a class="dropdown-item" href="{{ route('helyszin') }}">Helyszínek</a>
                                 </div>
                             </li>
                             @guest
@@ -101,7 +101,7 @@
                             @endauth
                             <hr>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Rólunk</a>
+                                <a class="nav-link" href="{{ route('about')}}">Rólunk</a>
                             </li>
                         </ul>
 
