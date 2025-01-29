@@ -41,7 +41,7 @@
                         <img src="kepek/kep.jpg" alt="" width="80" height="40">
                     </a>
                     @auth
-                        <h2 style="color:red; padding-top:5px;">User neve</h2>
+                        <h2 style="color:red; padding-top:5px;">User {{ auth()->user()->name }}</h2>
                     @endauth
                     @guest
                         <h2 style="color:white; padding-top:5px;"></h2>
