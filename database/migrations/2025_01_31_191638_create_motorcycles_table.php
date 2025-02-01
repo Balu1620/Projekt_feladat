@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('motorcycles', function (Blueprint $table) {
             $table->id();
-            $table->string("brand", 20);
+            $table->string("brand", 20)->n;
             $table->string("type", 100);
-            $table->string("licencePlate", 7);
+            $table->string("licencePlate", 7)->unique();
             $table->unsignedSmallInteger("year");
             $table->string("gearbox", 25);
             $table->string("fuel", 1);
