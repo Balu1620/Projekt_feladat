@@ -15,6 +15,7 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
+
     <script src="{{ asset('js/mainPageTimeline.js') }}"></script>
 
     <!-- Scripts -->
@@ -37,13 +38,13 @@
             <div class="container-fluid">
                 <div class="d-flex">
                     <a class="navbar-brand" href="/">
-                        <img src="kepek/kep.jpg" alt="" width="80" height="40">
+                        <img src="kepek/kep.jpg" alt="motor logó" width="80" height="40">
                     </a>
                     @auth
-                        <h2 style="color:red; padding-top:5px;">User {{ auth()->user()->name }}</h2>
+                        <h2 style="color:red; padding-top:10px;">{{ Str::of(auth()->user()->name)->explode(' ')->last()/*v. ->first()*/ }}</h2>
                     @endauth
                     @guest
-                        <h2 style="color:white; padding-top:5px;"></h2>
+                        
                     @endguest
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
@@ -53,13 +54,13 @@
                 <div class="offcanvas offcanvas-end menu" tabindex="-1" id="offcanvasNavbar"
                     aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-                            @auth
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel"> Menü
+                            <!-- @auth
                                 Menü'Simon
                             @endauth
                             @guest
                                 Menü
-                            @endguest
+                            @endguest -->
                         </h5>
                         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                             aria-label="Close"></button>

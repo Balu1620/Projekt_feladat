@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('password');
 
             $table->string("phoneNumber");
-            $table->
+            $table->string("drivingLicenceNumber");
+            $table->string("drivingLicenceType");
 
             $table->rememberToken();
             $table->timestamps();

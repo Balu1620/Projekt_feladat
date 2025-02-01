@@ -6,7 +6,12 @@
     color: white;
     text-decoration: none;
   }
-  
+  .search{
+    margin-top: 1.5rem ;
+}
+.opening{
+  margin-top: 1.5rem;
+}
   @media screen and (max-width: 990px){
     .opening{
         margin-top: 1.5rem;
