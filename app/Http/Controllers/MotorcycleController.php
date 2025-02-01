@@ -13,7 +13,38 @@ class MotorcycleController extends Controller
      */
     public function index()
     {
-        //
+        $motors = Motorcycle::all();
+        return view('motors.index', ['motors' => $motors]);
+
+        /*
+        $query = Motorcycle::query();
+
+        
+        if ($request->has('brand')) {
+            $query->where('brand', $request->input('brand'));
+        }
+        if ($request->has('year')) {
+            $query->where('year', $request->input('year'));
+        }
+        if ($request->has('gearbox')) {
+            $query->where('gearbox', $request->input('gearbox'));
+        }
+        if ($request->has('fuel')) {
+            $query->where('fuel', $request->input('fuel'));
+        }
+        if ($request->has('location')) {
+            $query->where('location', 'LIKE', '%' . $request->input('location') . '%');
+        }
+
+        
+        $motors = $query->get();
+
+        $brands = Motorcycle::distinct()->pluck('brand');
+        $years = Motorcycle::distinct()->orderBy('year')->pluck('year');
+        $gearboxs = Motorcycle::distinct()->pluck('gearbox');
+        $locations = Motorcycle::distinct()->pluck('location');
+
+        return view('motors.motor', compact($motors, $brands, $years, $gearboxs, $locations));*/
     }
 
     /**

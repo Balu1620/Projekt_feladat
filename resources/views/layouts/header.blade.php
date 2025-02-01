@@ -15,13 +15,12 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
-    <script src="{{ asset('js/mainPageTimeline.js') }}"></script> 
+    <script src="{{ asset('js/mainPageTimeline.js') }}"></script>
 
     <!-- Scripts -->
     @vite([
     'resources/sass/app.scss',
     'resources/js/app.js',
-    'public/css/headerPage.css',
     'public/css/header.css',
     'public/css/mainPage.css',
     'public/css/mainPageResponseTimeLime.css',
@@ -74,9 +73,9 @@
                                 <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">Dropdown</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownId">
-                                    <a class="dropdown-item" href="{{ route('motors') }}">Motorok</a>
+                                    <a class="dropdown-item" href="{{ route('motors.index') }}">Motorok</a>
                                     <hr class="dropdownHr">
-                                    <a class="dropdown-item" href="{{ route('helyszin') }}">Helyszínek</a>
+                                    <a class="dropdown-item" href="{{ route('location') }}">Helyszínek</a>
                                 </div>
                             </li>
                             @guest

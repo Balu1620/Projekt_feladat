@@ -12,6 +12,6 @@ class MotorcycleSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        
     }
 }

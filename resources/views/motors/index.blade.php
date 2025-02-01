@@ -1,6 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.header')
 
 @section('content')
+
 <div class="container">
     <h2 class="text-center">Motorok</h2>
 
@@ -20,24 +21,24 @@
                 <div class="mb-3">
                     <select name="Marka" class="form-select">
                         <option value="" disabled selected>Márka</option>
-                        @foreach($markak as $marka)
-                            <option value="{{ $marka }}">{{ $marka }}</option>
+                        @foreach($motors as $item)
+                            <option value="{{ $item }}">{{ $item }}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="mb-3">
                     <select name="Kor" class="form-select">
                         <option value="" disabled selected>Kor</option>
-                        @foreach($korok as $kor)
-                            <option value="{{ $kor }}">{{ $kor }}</option>
+                        @foreach($motors as $item)
+                            <option value="{{ $item }}">{{ $item }}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="mb-3">
                     <select name="Sebessegvalto" class="form-select">
                         <option value="" disabled selected>Sebességváltó</option>
-                        @foreach($valtok as $valto)
-                            <option value="{{ $valto }}">{{ $valto }}</option>
+                        @foreach($motors as $item)
+                            <option value="{{ $item }}">{{ $item }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -55,18 +56,21 @@
 
     <!-- Motorok listája -->
     <div class="row">
-        @foreach($motors as $motor)
+        @foreach($motors as $item)
         <div class="col-md-4 mb-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">{{ $motor->Marka }}</h5>
-                    <p class="card-text">Kor: {{ $motor->Kor }}</p>
-                    <p class="card-text">Sebességváltó: {{ $motor->Sebessegvalto }}</p>
-                    <p class="card-text">Üzemanyag: {{ $motor->Uzemanyag }}</p>
+                    <h5 class="card-title">{{ $item->marka }}</h5>
+                    <p class="card-text">Kor: {{ $motor->kor }}</p>
+                    <p class="card-text">Sebességváltó: {{ $motor->gearbox }}</p>
+                    <p class="card-text">Üzemanyag: {{ $motor->fuel }}</p>
                 </div>
             </div>
         </div>
         @endforeach
     </div>
 </div>
+
 @endsection
+
+@extends('layouts.footer')
