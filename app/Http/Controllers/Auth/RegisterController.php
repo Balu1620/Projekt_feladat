@@ -54,7 +54,8 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'phoneNumber' => ['required', 'string', 'max:255'],
             'drivingLicenceNumber'=> ['required', 'string', 'size:8', 'max:255'],
-            'drivingLicenceType' => ['required', 'string', 'max:255']
+            'drivingLicenceType' => ['required', 'string', 'max:255'],
+            'drivingLicenceImage' => ['image','nullable','mimes:jpeg,png,jpg,gif','max:2048']
         ]);
     }
 
@@ -73,6 +74,7 @@ class RegisterController extends Controller
             'phoneNumber'=> $data['phoneNumber'],
             'drivingLicenceNumber'=> $data['drivingLicenceNumber'],
             'drivingLicenceType'=> $data['drivingLicenceType'],
+            'drivingLicenceImage' => $data['drivingLicenceImage'],
         ]);
     }
 }
