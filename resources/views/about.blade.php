@@ -7,7 +7,7 @@
         <div class="responsive-container-block Container">
           <div class="imgContainer">
             <img class="blueDots" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/aw3.svg">
-            <img class="mainImg" src="../public/img/motor_about.webp">
+            <img class="mainImg" src="{{ asset('storage/img/motor_about.webp') }}">
           </div>
           <div class="responsive-container-block textSide">
             <p class="text-blk heading">
