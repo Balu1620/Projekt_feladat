@@ -28,7 +28,8 @@
     'public/css/mainPageResponseCardsAndP_W.css',
     'public/css/mainPageFooter.css',
     'public/css/regist.css',
-    'public/css/motor.css'
+    'public/css/motor.css',
+    'public/css/about.css'
 ])
 
 </head>
