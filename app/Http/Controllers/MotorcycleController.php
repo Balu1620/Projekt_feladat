@@ -16,7 +16,7 @@ class MotorcycleController extends Controller
         $motors = Motorcycle::all();
         return view('motors.index', ['motors' => $motors]);
 
-        /*
+        
         $query = Motorcycle::query();
 
         
@@ -44,7 +44,7 @@ class MotorcycleController extends Controller
         $gearboxs = Motorcycle::distinct()->pluck('gearbox');
         $locations = Motorcycle::distinct()->pluck('location');
 
-        return view('motors.motor', compact($motors, $brands, $years, $gearboxs, $locations));*/
+        return view('motors.motor', compact($motors, $brands, $years, $gearboxs, $locations));
     }
 
     /**

@@ -65,10 +65,10 @@
             <div class="col-md-4 mb-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">{{ $item->marka }}</h5>
-                        <p class="card-text">Kor: {{ $motor->kor }}</p>
-                        <p class="card-text">Sebességváltó: {{ $motor->gearbox }}</p>
-                        <p class="card-text">Üzemanyag: {{ $motor->fuel }}</p>
+                        <h5 class="card-title">{{ $item->brand }}</h5>
+                        <p class="card-text">Kor: {{ $item->year }}</p>
+                        <p class="card-text">Sebességváltó: {{ $item->gearbox }}</p>
+                        <p class="card-text">Üzemanyag: {{ $item->fuel }}</p>
                     </div>
                 </div>
             </div>
