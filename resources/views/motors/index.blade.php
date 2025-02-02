@@ -68,7 +68,15 @@
                         <h5 class="card-title">{{ $item->brand }}</h5>
                         <p class="card-text">Kor: {{ $item->year }}</p>
                         <p class="card-text">Sebességváltó: {{ $item->gearbox }}</p>
-                        <p class="card-text">Üzemanyag: {{ $item->fuel }}</p>
+                        <p class="card-text">Üzemanyag: 
+
+                        @if ($item->fuel === "B")
+                            Benzines
+                        @elseif($item->fuel === "E")
+                            Elektromos
+                        @else
+                        @endif
+                        </p>
                     </div>
                 </div>
             </div>
