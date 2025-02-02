@@ -27,7 +27,8 @@
     'public/css/mainPageResponseTimeLime.css',
     'public/css/mainPageResponseCardsAndP_W.css',
     'public/css/mainPageFooter.css',
-    'public/css/regist.css'
+    'public/css/regist.css',
+    'public/css/motor.css'
 ])
 
 </head>
