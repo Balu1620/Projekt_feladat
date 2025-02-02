@@ -26,7 +26,7 @@ return new class extends Migration
             $table->unsignedInteger("price");
             $table->unsignedInteger("deposit");
             $table->date("trafficDate");
-            $table->string("location");
+            $table->string("location")->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

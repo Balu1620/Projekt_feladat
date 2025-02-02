@@ -14,3 +14,4 @@ Route::resource('/motors', MotorcycleController::class);
 Route::get('/about', function () {return view('about');})->name('about');
 
 Route::get('/location', function () {return view('location');})->name('location');
+
