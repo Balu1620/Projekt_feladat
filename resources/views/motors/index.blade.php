@@ -23,7 +23,7 @@
                         <select name="Marka" class="form-select">
                             <option value="" disabled selected>Márka</option>
                             @foreach($motors as $item)
-                                <option value="{{ $item }}">{{ $item }}</option>
+                                <option value="{{ $item->brand }}">{{ $item->brand }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -31,7 +31,7 @@
                         <select name="Kor" class="form-select">
                             <option value="" disabled selected>Kor</option>
                             @foreach($motors as $item)
-                                <option value="{{ $item }}">{{ $item }}</option>
+                                <option value="{{ $item->year }}">{{ $item->year }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -39,7 +39,7 @@
                         <select name="Sebessegvalto" class="form-select">
                             <option value="" disabled selected>Sebességváltó</option>
                             @foreach($motors as $item)
-                                <option value="{{ $item }}">{{ $item }}</option>
+                                <option value="{{ $item->gearbox }}">{{ $item->gearbox }}</option>
                             @endforeach
                         </select>
                     </div>
