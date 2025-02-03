@@ -14,6 +14,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 
     <script src="{{ asset('js/mainPageTimeline.js') }}"></script>
@@ -29,7 +30,8 @@
     'public/css/mainPageFooter.css',
     'public/css/regist.css',
     'public/css/motor.css',
-    'public/css/about.css'
+    'public/css/about.css',
+    'public/css/motorAbout.css'
 ])
 
 </head>

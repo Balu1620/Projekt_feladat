@@ -1,0 +1,203 @@
+.motor-details {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    padding-bottom: 5%;
+    margin: 0 auto;
+    background-color: #f4f4f4;
+    border-radius: 15px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    max-width: 1200px;
+    flex-wrap: wrap;
+}
+
+.motor-image img {
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    transition: transform 0.3s ease;
+}
+
+.motor-image img:hover {
+    transform: scale(1.05); 
+}
+
+.details-text {
+    width: 50%;
+    line-height: 1.8;
+    padding-left: 20px;
+}
+
+.details-text h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.details-text p {
+    font-size: 18px;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.details-text ul {
+    list-style: none;
+    padding: 0;
+}
+
+.details-text li {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.details-text li i {
+    margin-right: 10px;
+    color: #ffcc00;
+}
+
+.pricing {
+    width: 100%;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.pricing h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.pricing-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.pricing-buttons button {
+    background: linear-gradient(45deg, #ffcc00, #ff6600);
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    width: 200px;
+}
+
+.pricing-buttons button:hover {
+    background: linear-gradient(45deg, #ff6600, #ffcc00);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px);
+}
+
+.details-text li {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.details-text li i {
+    margin-right: 10px; 
+    font-size: 20px; 
+}
+
+.details-text li i.fa-heart {
+    color: #e63946; 
+}
+
+.details-text li i.fa-lightning {
+    color: #f1faee; 
+}
+
+.details-text li i.fa-calendar-alt {
+    color: #a8dadc; 
+}
+
+.details-text li i.fa-cogs {
+    color: #fca311; 
+}
+
+.details-text li i.fa-map-marker-alt {
+    color: #457b9d; 
+}
+
+
+@media (max-width: 1024px) {
+    .motor-details {
+        flex-direction: column;
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+
+    .motor-image img {
+        width: 100%;
+        max-width: none; 
+        margin-bottom: 20px;
+    }
+
+    .details-text {
+        width: 100%;
+        text-align: center;
+        padding-left: 0;
+    }
+
+    .pricing-buttons {
+        width: 100%;
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .motor-details {
+        flex-direction: column;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .motor-image img {
+        width: 100%;
+        max-width: none; 
+        margin-bottom: 20px;
+    }
+
+    .details-text {
+        width: 100%;
+        text-align: center;
+        padding-left: 0;
+    }
+
+    .pricing-buttons {
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .details-text h2 {
+        font-size: 22px;
+    }
+
+    .details-text p {
+        font-size: 16px;
+    }
+
+    .pricing-buttons button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}

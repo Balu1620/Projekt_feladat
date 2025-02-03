@@ -65,17 +65,20 @@
             <div class="col-md-4 mb-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">{{ $item->brand }}</h5>
+                        <h5 class="card-title">
+                            <a href="{{ route('motor.about', $item->id) }}">
+                                {{ $item->brand }}
+                            </a>
+                        </h5>
                         <p class="card-text">Kor: {{ $item->year }}</p>
                         <p class="card-text">Sebességváltó: {{ $item->gearbox }}</p>
-                        <p class="card-text">Üzemanyag: 
-
-                        @if ($item->fuel === "B")
-                            Benzines
-                        @elseif($item->fuel === "E")
-                            Elektromos
-                        @else
-                        @endif
+                        <p class="card-text">Üzemanyag:
+                            @if ($item->fuel === "B")
+                                Benzines
+                            @elseif($item->fuel === "E")
+                                Elektromos
+                            @else
+                            @endif
                         </p>
                         <p class="card-text">Helyszín: {{$item->location}}</p>
                     </div>
@@ -83,6 +86,8 @@
             </div>
         @endforeach
     </div>
+
+
 </div>
 
 @endsection

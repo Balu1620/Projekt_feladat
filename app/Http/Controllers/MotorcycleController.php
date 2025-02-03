@@ -16,6 +16,7 @@ class MotorcycleController extends Controller
         $motors = Motorcycle::all();
         return view('motors.index', ['motors' => $motors]);
 
+
         /*
         $query = Motorcycle::query();
 
@@ -66,9 +67,10 @@ class MotorcycleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Motorcycle $motorcycle)
+    public function show($id)
     {
-        //
+        $motor = Motorcycle::findOrFail($id); 
+        return view('motors.MotorAbout', compact('motor'));
     }
 
     /**
