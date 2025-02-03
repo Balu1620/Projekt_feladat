@@ -1,6 +1,44 @@
 #filter .filter{
     width: 250px;
 }
-#motorcycle .d-flex{
-    flex-direction:unset;
+.mCard{
+    margin-left: auto;
+    margin-right: auto;
+}
+.motorGrid{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+}
+
+@media screen and (max-width: 576px){
+    .motorGrid{
+        display: grid;
+        grid-template-columns: auto;
+    }
+}
+
+@media screen and (min-width: 578px) and (max-width: 999px){
+    .motorGrid{
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1024px){
+    .motorGrid{
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+}
+@media screen and (min-width: 1025px) and (max-width: 1400px){
+    .motorGrid{
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+}
+@media screen and (min-width: 1401px) and (max-width: 2000px){
+    .motorGrid{
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+    }
 }

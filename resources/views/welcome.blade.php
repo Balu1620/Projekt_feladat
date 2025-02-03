@@ -58,7 +58,7 @@
         </section>
         <hr>
         <section>
-            <div id="miert">
+            <div id="pw">
                 <div class="d-flex justify-content-around align-items-center mb-3">
                     <div class="" id="mkep">
                         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">

@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="mcontent">
-    <h2 style="text-align: center;">Motorok</h2>
+    <h2 class="text-center my-5 pt-4">Motorok</h2>
 
     <div class="ms-5" id="">
         <button class="open-btn btn btn-primary mb-4" type="button" data-bs-toggle="offcanvas"
@@ -74,10 +74,10 @@
         </div>
     </div>
 
-    <div class="row justify-content-center" id="margin" >
+    <div class="row motorGrid" id="margin" >
         @foreach($motorcycles as $motorcycle)
-            <div class="col-sm-4 col-md-12 col-lg-6 col-xl-12 col-xxl-12 mb-4 d-flex justify-content-center" id="motorcycle">
-                <div class="card" style="width: 18rem;">
+            <div class=" mb-4 justify-content-center" id="motorcycle">
+                <div class="card mCard" style="width: 18rem;">
                     <img src="..." class="card-img-top" alt="Motor képe">
                     <div class="card-body">
                         <h5 class="card-title">
