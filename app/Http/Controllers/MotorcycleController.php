@@ -13,11 +13,7 @@ class MotorcycleController extends Controller
     
     public function index(Request $request)
     {
-        $motors = Motorcycle::all();
-        return view('motors.index', ['motors' => $motors]);
-
-        /*
-        $query = Motorcycle::query();
+        $query = DB::table('motorcycles');
 
         // Feltételek hozzáadása
         if ($request->has('brand')) {
@@ -37,13 +33,12 @@ class MotorcycleController extends Controller
         }
 
         // Lekérdezés végrehajtása
-        $motorcycles = $query->whereNotNull('location')->get();
+        $motorcycles = $query->get();
 
         // Kiegészítő lekérdezések
         $brands = DB::table('motorcycles')->select('brand')->distinct()->get();
         $locations = DB::table('motorcycles')
             ->select(DB::raw('SUBSTRING(location, 2, 2) AS location'))
-            ->whereNotNull('location')
             ->distinct()
             ->orderBy('location', 'asc')
             ->get();
@@ -56,7 +51,6 @@ class MotorcycleController extends Controller
             ->get();
 
         return view('motors.index', compact('motorcycles', 'brands', 'locations', 'years', 'gearboxes'));
-        */
     }
 
     
