@@ -55,8 +55,6 @@
                         <div class="col-3">
                             <label for="B">Benzin:</label>
                             <input class="form-check-input" type="checkbox" name="fuel" value="B">
-                            <label for="D">Dízel:</label>
-                            <input class="form-check-input" type="checkbox" name="fuel" value="D">
                             <label for="E">Elektromos:</label>
                             <input class="form-check-input" type="checkbox" name="fuel" value="E">
                         </div>
@@ -85,7 +83,7 @@
                             <li class="list-group-item">{{ $motorcycle->location }}</li>
                         </ul>
                         <div class="card-body">
-                            <a href="{{ route('motor.about', $motorcycle->id) }}" class="card-link">Részletek</a>
+                            <a href="{{ route('motors.show', $motorcycle->id) }}" class="card-link">Részletek</a>
                         </div>
                     </div>
                 </div>

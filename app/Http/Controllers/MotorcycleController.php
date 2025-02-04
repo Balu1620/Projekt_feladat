@@ -73,7 +73,7 @@ class MotorcycleController extends Controller
     public function show($id)
     {
         $motor = Motorcycle::findOrFail($id); 
-        return view('motors.MotorAbout', compact('motor'));
+        return view('motors.show', compact('motor'));
     }
 
     /**

@@ -11,7 +11,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('/motors', MotorcycleController::class);
 
-Route::get('/motor/{id}', [MotorcycleController::class, 'show'])->name('motor.about');
+//Route::get('/motor/{id}', [MotorcycleController::class, 'show'])->name('motor.about');
 
 
 Route::get('/about', function () {return view('about');})->name('about');

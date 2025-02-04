@@ -10,5 +10,5 @@ class Motorcycle extends Model
     /** @use HasFactory<\Database\Factories\MotorcycleFactory> */
     use HasFactory;
 
-    //protected $table = 'motordata';
+    
 }
