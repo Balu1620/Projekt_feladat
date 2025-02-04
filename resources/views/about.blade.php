@@ -11,7 +11,7 @@
           </div>
           <div class="responsive-container-block textSide">
             <p class="text-blk heading">
-              A cég
+              A Motorkirálya
             </p>
             <p class="text-blk subHeading">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget purus lectus viverra in semper nec pretium mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget purus lectus viverra in semper nec pretium mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget purus lectus viverra in semper nec pretium mus.
