@@ -85,7 +85,7 @@
                             <li class="list-group-item">{{ $motorcycle->location }}</li>
                         </ul>
                         <div class="card-body">
-                            <a href="#" class="card-link">Részletek</a>
+                            <a href="{{ route('motor.about', $motorcycle->id) }}" class="card-link">Részletek</a>
                         </div>
                     </div>
                 </div>
