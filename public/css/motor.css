@@ -42,3 +42,7 @@
         grid-template-columns: auto auto auto auto;
     }
 }
+
+.form-check-reverse{
+    text-align: start;
+}

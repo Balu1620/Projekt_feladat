@@ -2,12 +2,12 @@
 
 @section('content')
 
-<div class="mcontent">
-    <h2 style="text-align: center;">Motorok</h2>
+<div class="mcontent" id="filter">
+    <h2 class="text-center mt-5 pt-2">Motorok</h2>
 
-    <button class="open-btn btn btn-primary mb-4" type="button" data-bs-toggle="offcanvas"
+    <button class="open-btn btn btn-primary m-5" type="button" data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
-        Szűrés <i class="fa-solid fa-sliders"></i>
+        Szűrés <i class="bi bi-sliders"></i>
     </button>
 
     <div class="filter offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
@@ -51,10 +51,12 @@
                             @endforeach
                         </select>
                     </div>
-                    <div id="radio" class="mt-1">
-                        <div class="col-3">
+                    <div id="radio" class="mt-3" >
+                        <div class="form-check form-switch form-check-reverse text-left">
                             <label for="B">Benzin:</label>
                             <input class="form-check-input" type="checkbox" name="fuel" value="B">
+                        </div>
+                        <div class="form-check form-switch form-check-reverse">
                             <label for="E">Elektromos:</label>
                             <input class="form-check-input" type="checkbox" name="fuel" value="E">
                         </div>
@@ -67,9 +69,9 @@
         </div>
     </div>
 
-    <div class="row" id="margin">
+    <div class="motorGrid" id="margin">
         @foreach($motorcycles as $motorcycle)
-            <div class="col-md-4 mb-4 d-flex justify-content-center">
+            <div class="mb-5 mCard">
                 <div class="card" style="width: 18rem;">
                     <img src="..." class="card-img-top" alt="Motor képe">
                     <div class="card-body">
@@ -83,7 +85,7 @@
                             <li class="list-group-item">{{ $motorcycle->location }}</li>
                         </ul>
                         <div class="card-body">
-                            <a href="{{ route('motors.show', $motorcycle->id) }}" class="card-link">Részletek</a>
+                            <a href="{{ route('motors.show', $motorcycle->id) }}" class="btn btn-outline-secondary">Részletek</a>
                         </div>
                     </div>
                 </div>
