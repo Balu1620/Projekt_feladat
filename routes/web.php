@@ -18,3 +18,7 @@ Route::get('/about', function () {return view('about');})->name('about');
 
 Route::get('/location', function () {return view('location');})->name('location');
 
+Route::get('/privacy', function () {return view('privacy');})->name('privacy');
+
+Route::get('/TermsOfUse', function () {return view('TermsOfUse');})->name('TermsOfUse');
+

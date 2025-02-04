@@ -21,7 +21,7 @@
                                             class="ms-2">Rólunk</span></a>
                                 </li>
                                 <li class="mb-3 text-start">
-                                    <span class="fa-li"><i class="bi bi-lock-fill"></i></span><a href=""><span
+                                    <span class="fa-li"><i class="bi bi-lock-fill"></i></span><a href="{{route('privacy')}}"><span
                                             class="ms-2">Adatvédelem</span></a>
                                 </li>
                                 <li class="mb-3 text-start">
