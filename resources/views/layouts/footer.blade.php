@@ -1,7 +1,7 @@
 
 @section("footer")
-<footer>
-        <div class="mt-5">
+<footer class="lent">
+        <div class="mt-5 ">
             <div class="cell text-white text-center text-lg-start bg-primary">
                 <!-- Grid container -->
                 <div class="container p-4">

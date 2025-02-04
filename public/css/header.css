@@ -48,3 +48,8 @@ h5{
     font-size: 1.25rem;
 }
 /*------------------/Header-------------------*/
+
+#logo{
+    width: 5vw;
+    margin: 0;
+}
