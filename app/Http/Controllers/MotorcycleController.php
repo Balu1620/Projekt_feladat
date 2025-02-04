@@ -5,22 +5,23 @@ namespace App\Http\Controllers;
 use App\Models\Motorcycle;
 use App\Http\Requests\StoreMotorcycleRequest;
 use App\Http\Requests\UpdateMotorcycleRequest;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 class MotorcycleController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $motors = Motorcycle::all();
         return view('motors.index', ['motors' => $motors]);
 
-
         /*
         $query = Motorcycle::query();
 
-        
+        // Feltételek hozzáadása
         if ($request->has('brand')) {
             $query->where('brand', $request->input('brand'));
         }
@@ -34,18 +35,30 @@ class MotorcycleController extends Controller
             $query->where('fuel', $request->input('fuel'));
         }
         if ($request->has('location')) {
-            $query->where('location', 'LIKE', '%' . $request->input('location') . '%');
+            $query->where('location', 'LIKE', "_{$request->input('location')}%");
         }
 
-        
-        $motors = $query->get();
+        // Lekérdezés végrehajtása
+        $motorcycles = $query->whereNotNull('location')->get();
 
-        $brands = Motorcycle::distinct()->pluck('brand');
-        $years = Motorcycle::distinct()->orderBy('year')->pluck('year');
-        $gearboxs = Motorcycle::distinct()->pluck('gearbox');
-        $locations = Motorcycle::distinct()->pluck('location');
+        // Kiegészítő lekérdezések
+        $brands = DB::table('motorcycles')->select('brand')->distinct()->get();
+        $locations = DB::table('motorcycles')
+            ->select(DB::raw('SUBSTRING(location, 2, 2) AS location'))
+            ->whereNotNull('location')
+            ->distinct()
+            ->orderBy('location', 'asc')
+            ->get();
+        $years = DB::table('motorcycles')->select('year')->distinct()->orderBy('year', 'asc')->get();
+        $gearboxes = DB::table('motorcycles')
+            ->select(DB::raw("'Automata' AS gearbox"))
+            ->union(
+                DB::table('motorcycles')->select('gearbox')->distinct()->where('gearbox', '<>', 'automata')
+            )
+            ->get();
 
-        return view('motors.motor', compact($motors, $brands, $years, $gearboxs, $locations));*/
+        return view('motors.index', compact('motorcycles', 'brands', 'locations', 'years', 'gearboxes'));
+
     }
 
     /**
