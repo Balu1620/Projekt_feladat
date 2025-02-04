@@ -10,9 +10,7 @@ use Illuminate\Http\Request;
 
 class MotorcycleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    
     public function index(Request $request)
     {
         $motors = Motorcycle::all();
@@ -58,12 +56,10 @@ class MotorcycleController extends Controller
             ->get();
 
         return view('motors.index', compact('motorcycles', 'brands', 'locations', 'years', 'gearboxes'));
-
+        */
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    
     public function create()
     {
         //
