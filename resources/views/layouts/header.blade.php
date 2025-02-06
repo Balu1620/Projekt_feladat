@@ -31,10 +31,10 @@
     'public/css/regist.css',
     'public/css/motor.css',
     'public/css/about.css',
+    'public/css/motorAbout.css',
+    'resources/css/app.css',	
 	'public/css/Terms.css',
 	'public/css/privacy.css',
-    'public/css/motorAbout.css',
-    'resources/css/app.css',
 ])
 
 </head>
