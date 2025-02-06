@@ -224,17 +224,19 @@
 .csatlakozz-hozzank {
   padding: 40px 20px;
   border-radius: 10px;
-  text-align: center;
-}
+/*   text-align: center;
+ */}
 
 .csatlakozz-hozzank h1 {
   font-size: 32px;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  margin-top: 20px;
 }
 
 .csatlakozz-hozzank p {
-  font-size: 18px;
+  font-size: 20px;
+  margin-bottom: 5px;
   line-height: 1.6;
   color: #333;
 }
@@ -245,11 +247,15 @@
 }
 
 .csatlakozz-hozzank ul li {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.6;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
+}
+
+.csatlakozz-hozzank div ul li {
+  margin-top: 10px;
 }
 
 .csatlakozz-hozzank ul li strong {
@@ -267,20 +273,4 @@
 .csatlakozz-hozzank p strong {
   font-weight: 700;
   color: #d9534f;
-}
-
-.csatlakozz-hozzank .explore {
-  font-size: 18px;
-  font-weight: 700;
-  background-color: #f49692;
-  padding: 15px 30px;
-  color: white;
-  border-radius: 30px;
-  cursor: pointer;
-  box-shadow: rgba(244, 152, 146, 0.25) 0px 10px 20px;
-  transition: background-color 0.3s ease;
-}
-
-.csatlakozz-hozzank .explore:hover {
-  background-color: #f4b6b0;
 }
