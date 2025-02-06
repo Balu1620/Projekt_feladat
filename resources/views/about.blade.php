@@ -73,6 +73,26 @@
           </div>
           <img class="redDots" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/cw3.svg">
         </div>
+          <div class="csatlakozz-hozzank">
+                  
+            <h1>🚀 Csatlakozz hozzánk, és fedezd fel a motorozás új élményét!</h1>
+            <p>A <strong>Motorkirálya</strong> nemcsak egy motorbérlő szolgáltatás, hanem egy <strong>kényelmes, modern és közösségközpontú megoldás</strong> azok számára, akik gyorsan és rugalmasan szeretnének közlekedni. 🏍️</p>
+            
+            <ul>
+                <li> <strong>Bármikor, bárhol</strong> – Foglalj egy motort pillanatok alatt, és használd, ameddig csak szeretnéd.</li>
+                <li> <strong>Nincs felesleges kötöttség</strong> – Nem kell saját motort fenntartanod, tankolnod vagy szervizeltetned.</li>
+                <li> <strong>Egyszerű és gyors rendszer</strong> – Egy érintéssel indíthatsz, és egy kijelölt ponton hagyhatod a motort.</li>
+                <li> <strong>Rád szabva</strong> – Legyen szó munkába járásról, kiruccanásról vagy egy spontán városi túráról, nálunk mindig találsz megfelelő járművet.</li>
+            </ul>
+
+            <p>🚦 <strong>Biztonság és kényelem</strong> első helyen! Minden motorunk rendszeresen karbantartott, így mindig megbízható járművet kapsz. Emellett egy egyszerű, <strong>felhasználóbarát</strong> rendszert biztosítunk, hogy a bérlés <strong>zökkenőmentes és gyors</strong> legyen.</p>
+
+            <p>🤝 <strong>Velünk egy közösség részévé is válsz!</strong> Célunk, hogy a motorozás szabadságát és élményét mindenki számára elérhetővé tegyük, miközben egy fenntarthatóbb és okosabb városi közlekedést támogatunk.</p>
+
+            <p>🔥 <strong>Ne hagyd ki! Regisztrálj még ma, pattanj motorra, és éld át a két keréken való szabadságot!</strong></p>
+        
+</div>
+
       </div>
 
 <!-- END Main Content Div lezárás előtt-->
