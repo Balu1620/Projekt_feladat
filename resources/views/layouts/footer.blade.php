@@ -14,7 +14,7 @@
 
                             <ul class="fa-ul link" style="margin-left: 1.65em;">
                                 <li class="mb-3 text-start">
-                                    <span class="fa-li"> <i class="bi bi-house-door-fill"></i></span><a href="{{route('home')}}"><span class="ms-2 ">Kezdőlap</span></a>
+                                    <span class="fa-li"> <i class="bi bi-house-door-fill"></i></span><a href="/"><span class="ms-2 ">Kezdőlap</span></a>
                                 </li>
                                 <li class="mb-3 text-start">
                                     <span class="fa-li"><i class="bi bi-person-lines-fill"></i></span><a href="{{route('about')}}"><span
