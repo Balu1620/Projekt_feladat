@@ -274,3 +274,161 @@
   font-weight: 700;
   color: #d9534f;
 }
+
+/* RESPONSIVE STÍLUSOK */
+
+/* Mobilnézet (max-width: 767px) */
+@media (max-width: 767px) {
+  .csatlakozz-hozzank {
+    padding: 20px 10px;
+  }
+
+  .csatlakozz-hozzank h1 {
+    font-size: 24px;
+    margin-bottom: 10px;  
+  }
+
+  .csatlakozz-hozzank p {
+    font-size: 16px;
+    margin-top: 0; 
+    margin-bottom: 10px;  
+  }
+
+  .csatlakozz-hozzank ul li {
+    font-size: 14px;
+  }
+
+  .csatlakozz-hozzank .explore {
+    padding: 12px 25px;
+    font-size: 16px;
+  }
+
+  .cardImgContainer {
+    padding: 0px;
+    padding-left: 80px;
+  }
+
+  .mainImg {
+    height: 600px;
+    width: 100%;
+    object-fit: cover;
+    margin-top: 10px;  
+  }
+
+  .responsive-container-block {
+    padding: 0;
+    width: auto;
+    flex-direction: column; 
+  }
+
+  .imgContainer {
+    width: 100%;
+    margin-top: 10px;  
+    margin-bottom: 10px; 
+  }
+
+  .textSide {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .text-blk.subHeading {
+      margin-bottom: 80px;
+      padding-bottom: 20px;
+      height: 500px;
+      text-align: center;
+  }
+
+  .responsive-cell-block{
+    margin-top: 30px;
+    height: 300px;
+    text-align: center;
+  }
+
+  .responsive-container-block.bigContainer {
+    padding: 0px; 
+  }
+}
+
+/* Tablet nézet (max-width: 1024px) */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .csatlakozz-hozzank {
+    padding: 30px 15px;
+  }
+
+  .csatlakozz-hozzank h1 {
+    font-size: 28px;
+  }
+
+  .csatlakozz-hozzank p {
+    font-size: 17px;
+  }
+
+  .csatlakozz-hozzank ul li {
+    font-size: 15px;
+  }
+
+  .csatlakozz-hozzank .explore {
+    padding: 14px 28px;
+    font-size: 17px;
+  }
+
+  .mainImg {
+    height: 700px;
+  }
+
+  .responsive-container-block {
+    flex-direction: row;
+  }
+
+  .imgContainer {
+    width: 50%; /* A képet a szöveg mellett jelenítjük meg */
+    margin-bottom: 0;
+  }
+
+  .textSide {
+    width: 50%;
+  }
+}
+
+/* Desktop nézet (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .csatlakozz-hozzank {
+    padding: 40px 20px;
+  }
+
+  .csatlakozz-hozzank h1 {
+    font-size: 32px;
+  }
+
+  .csatlakozz-hozzank p {
+    font-size: 20px;
+  }
+
+  .csatlakozz-hozzank ul li {
+    font-size: 18px;
+  }
+
+  .csatlakozz-hozzank .explore {
+    padding: 17px 40px;
+    font-size: 18px;
+  }
+
+  .mainImg {
+    height: 800px;
+  }
+
+  .responsive-container-block {
+    flex-direction: row;
+  }
+
+  .imgContainer {
+    width: 50%;
+    margin-bottom: 0;
+  }
+
+  .textSide {
+    width: 50%;
+  }
+}

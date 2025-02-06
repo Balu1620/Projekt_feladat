@@ -15,9 +15,9 @@
             </p>
             <p class="text-blk subHeading">
             Szenvedélyünk a motorozás és a szabad mozgás! A Motorkirálya egy innovatív motorkölcsönző szolgáltatás, amelyet azoknak hoztunk létre, akik szeretik a kétkerekűek nyújtotta élményt, de nem akarnak saját motort fenntartani. Nálunk a bérlés épp olyan egyszerű, mint egy Lime vagy Bubi esetében – nincs szükség fix leadási pontra, bármelyik telephelyünkön visszaadhatod a járművet!
-<br><br>
-🌍 Miért válassz minket?</p>
-            <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
+            <br><br>
+            🌍 Miért válassz minket?</p>
+            <div class="responsive-cell-block ">
               <div class="cardImgContainer">
                 <div class="cardImg"><i class=" bi bi-speedometer2"></i></div>
               </div>
@@ -30,7 +30,7 @@
                 </p>
               </div>
             </div>
-            <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
+            <div class="responsive-cell-block">
               <div class="cardImgContainer">
               <div class="cardImg"><i class="bi bi-wrench-adjustable-circle"></i></div>
               </div>
@@ -43,7 +43,7 @@
                 </p>
               </div>
             </div>
-            <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
+            <div class="responsive-cell-block ">
               <div class="cardImgContainer">
               <div class="cardImg"><i class="bi bi-gear-wide-connected"></i></div>
               </div>
@@ -56,7 +56,7 @@
                 </p>
               </div>
             </div>
-            <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
+            <div class="responsive-cell-block ">
               <div class="cardImgContainer">
               <div class="cardImg"><i class="bi bi-headset"></i></div>
               </div>
@@ -79,10 +79,10 @@
             
             <div>
               <ul>
-                  <li> <strong>Bármikor, bárhol</strong> – Foglalj egy motort pillanatok alatt, és használd, ameddig csak szeretnéd.</li>
-                  <li> <strong>Nincs felesleges kötöttség</strong> – Nem kell saját motort fenntartanod, tankolnod vagy szervizeltetned.</li>
-                  <li> <strong>Egyszerű és gyors rendszer</strong> – Egy érintéssel indíthatsz, és egy kijelölt ponton hagyhatod a motort.</li>
-                  <li> <strong>Rád szabva</strong> – Legyen szó munkába járásról, kiruccanásról vagy egy spontán városi túráról, nálunk mindig találsz megfelelő járművet.</li>
+                  <li> <strong>Bármikor, bárhol</strong>  Foglalj egy motort pillanatok alatt, és használd, ameddig csak szeretnéd.</li>
+                  <li> <strong>Nincs felesleges kötöttség</strong>  Nem kell saját motort fenntartanod, tankolnod vagy szervizeltetned.</li>
+                  <li> <strong>Egyszerű és gyors rendszer</strong>  Egy érintéssel indíthatsz, és egy kijelölt ponton hagyhatod a motort.</li>
+                  <li> <strong>Rád szabva</strong>  Legyen szó munkába járásról, kiruccanásról vagy egy spontán városi túráról, nálunk mindig találsz megfelelő járművet.</li>
               </ul>
             </div>
 
