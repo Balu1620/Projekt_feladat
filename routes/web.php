@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MotorcycleAPIController;
 use App\Http\Controllers\MotorcycleController;
 use Illuminate\Support\Facades\Route;
 
@@ -11,14 +12,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('/motors', MotorcycleController::class);
 
-//Route::get('/motor/{id}', [MotorcycleController::class, 'show'])->name('motor.about');
-
-
 Route::get('/about', function () {return view('about');})->name('about');
 
 Route::get('/location', function () {return view('location');})->name('location');
 
 Route::get('/privacy', function () {return view('privacy');})->name('privacy');
 
-Route::get('/TermsOfUse', function () {return view('TermsOfUse');})->name('TermsOfUse');
+Route::get('/termsOfUse', function () {return view('termsOfUse');})->name('termsOfUse');
 
+Route::apiResource("/apiMotorcycle", MotorcycleAPIController::class);
