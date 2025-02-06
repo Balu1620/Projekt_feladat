@@ -26,7 +26,7 @@
                                 </li>
                                 <li class="mb-3 text-start">
                                     <span class="fa-li"><i class="bi bi-file-earmark-person-fill"></i></span><a
-                                        href=""><span class="ms-2">Felhasználási feltételek</span></a>
+                                        href="{{route('termsOfUse')}}"><span class="ms-2">Felhasználási feltételek</span></a>
                                 </li>
                             </ul>
                         </div>

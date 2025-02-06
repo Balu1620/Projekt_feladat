@@ -16,8 +16,8 @@ Route::get('/about', function () {return view('about');})->name('about');
 
 Route::get('/location', function () {return view('location');})->name('location');
 
-Route::get('/privacy', function () {return view('privacy');})->name('privacy');
+Route::get('/privacy', function () {return view('layouts.privacy');})->name('privacy');
 
-Route::get('/termsOfUse', function () {return view('termsOfUse');})->name('termsOfUse');
+Route::get('/termsOfUse', function () {return view('layouts.termsOfUse');})->name('termsOfUse');
 
 Route::apiResource("/apiMotorcycle", MotorcycleAPIController::class);
