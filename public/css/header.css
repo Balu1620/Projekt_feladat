@@ -50,6 +50,10 @@ h5{
 /*------------------/Header-------------------*/
 
 #logo{
-    width: 5vw;
+    width: 3vw;
     margin: 0;
+}
+
+.navText li a{
+    font-size: large;
 }

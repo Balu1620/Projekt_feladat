@@ -40,8 +40,8 @@
 </head>
 
 <body class="">
-	<nav class="relative px-4 py-4 flex justify-between items-center bg-white">
-		<a class="text-3xl font-bold leading-none" href="#">
+	<nav class="relative px-4 py-3 flex justify-between items-center bg-white">
+		<a class="text-3xl font-bold leading-none" href="/">
 			<div id="logo">
 				<img src="{{ asset('storage/img/logo.png') }}"  alt="logo">
 			</div>
@@ -60,7 +60,7 @@
 				</svg>
 			</button>
 		</div>
-		<ul class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
+		<ul class="hidden navText absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
 			<li><a class="text-sm text-gray-400 hover:text-gray-500" href="/">Főoldal</a></li>
 			<li class="text-gray-300">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
