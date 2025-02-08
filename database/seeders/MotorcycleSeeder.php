@@ -29,7 +29,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 32767,
                 'deposit' => 145800,
                 'trafficDate' => '2028-03-15',
-                'location' => '1042 Budapest, István út 14.'
+                'location' => '1044 Budapest, Megyeri út 20.'
             ],
             [
                 'brand' => 'Aprilia',
@@ -45,7 +45,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 20700,
                 'deposit' => 62100,
                 'trafficDate' => '2025-07-20',
-                'location' => '1092 Budapest, Ráday utca 6.'
+                'location' => '1096 Budapest, Haller utca 89.'
             ],
             [
                 'brand' => 'Aprilia',
@@ -61,7 +61,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 32767,
                 'deposit' => 99300,
                 'trafficDate' => '2026-11-08',
-                'location' => '1122 Budapest, Városmajor utca 16.'
+                'location' => '1126 Budapest, Böszörményi út 38.'
             ],
             [
                 'brand' => 'Aprilia',
@@ -77,7 +77,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 32767,
                 'deposit' => 133200,
                 'trafficDate' => '2027-04-01',
-                'location' => '1122 Budapest, Városmajor utca 16.'
+                'location' => '1126 Budapest, Böszörményi út 38.'
             ],
             [
                 'brand' => 'Aprilia',
@@ -93,7 +93,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 24800,
                 'deposit' => 74400,
                 'trafficDate' => '2028-12-18',
-                'location' => '1102 Budapest, Kőrösi Csoma Sándor út 1.'
+                'location' => '1103 Budapest, Gyömrői út 50.'
             ],
             [
                 'brand' => 'Aprilia',
@@ -109,7 +109,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 31100,
                 'deposit' => 93300,
                 'trafficDate' => '2029-09-30',
-                'location' => '1191 Budapest, Kossuth tér 7.'
+                'location' => '1195 Budapest, Ady Endre út 134.'
             ],
             [
                 'brand' => 'Aprilia',
@@ -125,8 +125,8 @@ class MotorcycleSeeder extends Seeder
                 'price' => 32767,
                 'deposit' => 147900,
                 'trafficDate' => '2028-05-22',
-                'location' => '1163 Budapest, Veres Péter út 49.'
-            ],
+                'location' => '1161 Budapest, Rákosi út 88.'
+            ],       
             [
                 'brand' => 'BMW',
                 'type' => 'C 400 GT',
@@ -141,7 +141,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 32767,
                 'deposit' => 99300,
                 'trafficDate' => '2025-10-10',
-                'location' => '1092 Budapest, Ráday utca 6.'
+                'location' => '1096 Budapest, Haller utca 89.'
             ],
             [
                 'brand' => 'BMW',
@@ -157,7 +157,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 32767,
                 'deposit' => 101700,
                 'trafficDate' => '2026-02-28',
-                'location' => '1211 Budapest, Kossuth Lajos utca 3.'
+                'location' => '1211 Budapest, Szállító utca 6.'
             ],
             [
                 'brand' => 'BMW',
@@ -173,7 +173,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 32767,
                 'deposit' => 145200,
                 'trafficDate' => '2027-08-14',
-                'location' => '1061 Budapest, Andrássy út 20.'
+                'location' => '1064 Budapest, Podmaniczky utca 63.'
             ],
             [
                 'brand' => 'BMW',
@@ -189,7 +189,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 28400,
                 'deposit' => 85200,
                 'trafficDate' => '2028-01-09',
-                'location' => '1146 Budapest, Dózsa György út 1.'
+                'location' => '1148 Budapest, Fogarasi út 45.'
             ],
             [
                 'brand' => 'BMW',
@@ -205,7 +205,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 32767,
                 'deposit' => 126300,
                 'trafficDate' => '2029-05-19',
-                'location' => '1152 Budapest, Szentmihályi út 23.'
+                'location' => '1151 Budapest, Károlyi Sándor út 76.'
             ],
             [
                 'brand' => 'BMW',
@@ -221,7 +221,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 15700,
                 'deposit' => 47100,
                 'trafficDate' => '2025-02-11',
-                'location' => '1182 Budapest, Bercsényi utca 2.'
+                'location' => '1185 Budapest, Üllői út 780.'
             ],
 
             [
@@ -254,7 +254,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 31400,
                 'deposit' => 94200,
                 'trafficDate' => '2026-04-16',
-                'location' => '1042 Budapest, István út 14.'
+                'location' => '1044 Budapest, Megyeri út 20.'
             ],
             [
                 'brand' => 'BMW',
@@ -270,7 +270,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 32767,
                 'deposit' => 112200,
                 'trafficDate' => '2027-11-25',
-                'location' => '1201 Budapest, Kossuth Lajos utca 30.'
+                'location' => '1205 Budapest, Kossuth Lajos utca 120.'
             ],
             [
                 'brand' => 'BMW',
@@ -286,7 +286,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 23100,
                 'deposit' => 69300,
                 'trafficDate' => '2028-06-02',
-                'location' => '1201 Budapest, Kossuth Lajos utca 30.'
+                'location' => '1205 Budapest, Kossuth Lajos utca 120.'
             ],
             [
                 'brand' => 'BMW',
@@ -302,7 +302,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 20800,
                 'deposit' => 62400,
                 'trafficDate' => '2029-03-21',
-                'location' => '1033 Budapest, Fő tér 1.'
+                'location' => '1037 Budapest, Bojtár utca 43.'
             ],
             [
                 'brand' => 'BMW',
@@ -318,7 +318,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 32767,
                 'deposit' => 123000,
                 'trafficDate' => '2028-10-18',
-                'location' => '1033 Budapest, Fő tér 1.'
+                'location' => '1037 Budapest, Bojtár utca 43.'
             ],
             [
                 'brand' => 'Ducati',
@@ -334,7 +334,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 32300,
                 'deposit' => 96900,
                 'trafficDate' => '2025-03-11',
-                'location' => '1191 Budapest, Kossuth tér 7.'
+                'location' => '1195 Budapest, Ady Endre út 134.'
             ],
             [
                 'brand' => 'Ducati',
@@ -350,7 +350,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 32767,
                 'deposit' => 102900,
                 'trafficDate' => '2026-07-23',
-                'location' => '1011 Budapest, Fő utca 5.'
+                'location' => '1012 Budapest, Logodi utca 34'
             ],
             [
                 'brand' => 'Ducati',
@@ -366,7 +366,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 27900,
                 'deposit' => 83700,
                 'trafficDate' => '2027-09-07',
-                'location' => '1113 Budapest, Bartók Béla út 32.'
+                'location' => '1117 Budapest, Szerémi út 67.'
             ],
             [
                 'brand' => 'Ducati',
@@ -382,7 +382,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 32767,
                 'deposit' => 105900,
                 'trafficDate' => '2028-05-15',
-                'location' => '1042 Budapest, István út 14.'
+                'location' => '1044 Budapest, Megyeri út 20.'
             ],
             [
                 'brand' => 'Ducati',
@@ -398,7 +398,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 32767,
                 'deposit' => 129600,
                 'trafficDate' => '2029-10-29',
-                'location' => '1113 Budapest, Bartók Béla út 32.'
+                'location' => '1117 Budapest, Szerémi út 67.'
             ],
             [
                 'brand' => 'Ducati',
@@ -414,7 +414,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 32767,
                 'deposit' => 112500,
                 'trafficDate' => '2028-02-14',
-                'location' => '1146 Budapest, Dózsa György út 1.'
+                'location' => '1148 Budapest, Fogarasi út 45.'
             ],
             [
                 'brand' => 'Ducati',
@@ -430,7 +430,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 24500,
                 'deposit' => 73500,
                 'trafficDate' => '2025-06-18',
-                'location' => '1163 Budapest, Veres Péter út 49.'
+                'location' => '1161 Budapest, Rákosi út 88.'
             ],
             [
                 'brand' => 'Ducati',
@@ -446,7 +446,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 30300,
                 'deposit' => 90900,
                 'trafficDate' => '2026-09-13',
-                'location' => '1238 Budapest, Grassalkovich út 160.'
+                'location' => '1239 Budapest, Haraszti út 42.'
             ],
             [
                 'brand' => 'Ducati',
@@ -478,7 +478,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 21900,
                 'deposit' => 65700,
                 'trafficDate' => '2028-08-06',
-                'location' => '1075 Budapest, Király utca 13.'
+                'location' => '1077 Budapest, Rottenbiller utca 25.'
             ],
             [
                 'brand' => 'Harley-Davidson',
@@ -494,7 +494,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 32767,
                 'deposit' => 147900,
                 'trafficDate' => '2029-12-10',
-                'location' => '1152 Budapest, Szentmihályi út 23.'
+                'location' => '1151 Budapest, Károlyi Sándor út 76.'
             ],
             [
                 'brand' => 'Harley-Davidson',
@@ -510,7 +510,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 32600,
                 'deposit' => 97800,
                 'trafficDate' => '2028-04-30',
-                'location' => '1122 Budapest, Városmajor utca 16.'
+                'location' => '1126 Budapest, Böszörményi út 38.'
             ],
             [
                 'brand' => 'Harley-Davidson',
@@ -526,7 +526,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 27200,
                 'deposit' => 81600,
                 'trafficDate' => '2025-11-22',
-                'location' => '1122 Budapest, Városmajor utca 16.'
+                'location' => '1126 Budapest, Böszörményi út 38.'
             ],
             [
                 'brand' => 'Harley-Davidson',
@@ -542,7 +542,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 32767,
                 'deposit' => 102900,
                 'trafficDate' => '2026-05-27',
-                'location' => '1033 Budapest, Fő tér 1.'
+                'location' => '1037 Budapest, Bojtár utca 43.'
             ],
             [
                 'brand' => 'Harley-Davidson',
@@ -558,7 +558,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 25600,
                 'deposit' => 76800,
                 'trafficDate' => '2027-03-08',
-                'location' => '1033 Budapest, Fő tér 1.'
+                'location' => '1037 Budapest, Bojtár utca 43.'
             ],
             [
                 'brand' => 'Harley-Davidson',
@@ -574,7 +574,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 32767,
                 'deposit' => 145200,
                 'trafficDate' => '2028-09-17',
-                'location' => '1051 Budapest, Váci utca 1.'
+                'location' => '1051 Budapest, Bajcsy-Zsilinszky út 24'
             ],
             [
                 'brand' => 'Harley-Davidson',
@@ -590,7 +590,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 32767,
                 'deposit' => 143700,
                 'trafficDate' => '2029-02-05',
-                'location' => '1238 Budapest, Grassalkovich út 160.'
+                'location' => '1239 Budapest, Haraszti út 42.'
             ],
             [
                 'brand' => 'Harley-Davidson',
@@ -606,7 +606,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 30900,
                 'deposit' => 92700,
                 'trafficDate' => '2028-01-26',
-                'location' => '1201 Budapest, Kossuth Lajos utca 30.'
+                'location' => '1205 Budapest, Kossuth Lajos utca 120. '
             ],
             [
                 'brand' => 'Honda',
@@ -622,7 +622,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 29700,
                 'deposit' => 89100,
                 'trafficDate' => '2025-04-05',
-                'location' => '1221 Budapest, Leányka utca 2.'
+                'location' => '1223 Budapest, Nagytétényi út 190.'
             ],
             [
                 'brand' => 'Honda',
@@ -638,7 +638,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 20000,
                 'deposit' => 60000,
                 'trafficDate' => '2026-08-11',
-                'location' => '1163 Budapest, Veres Péter út 49.'
+                'location' => '1161 Budapest, Rákosi út 88.'
             ],
             [
                 'brand' => 'Honda',
@@ -654,7 +654,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 15100,
                 'deposit' => 45300,
                 'trafficDate' => '2027-10-12',
-                'location' => '1191 Budapest, Kossuth tér 7.'
+                'location' => '1195 Budapest, Ady Endre út 134.'
             ],
             [
                 'brand' => 'Honda',
@@ -670,7 +670,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 32767,
                 'deposit' => 112200,
                 'trafficDate' => '2028-07-21',
-                'location' => '1102 Budapest, Kőrösi Csoma Sándor út 1.'
+                'location' => '1103 Budapest, Gyömrői út 50.'
             ],
             [
                 'brand' => 'Honda',
@@ -686,7 +686,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 32767,
                 'deposit' => 109500,
                 'trafficDate' => '2029-11-04',
-                'location' => '1183 Budapest, Üllői út 400.'
+                'location' => '1185 Budapest, Üllői út 780.'
             ],
             [
                 'brand' => 'Honda',
@@ -702,7 +702,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 31200,
                 'deposit' => 93600,
                 'trafficDate' => '2028-08-29',
-                'location' => '1211 Budapest, Kossuth Lajos utca 3.'
+                'location' => '1211 Budapest, Szállító utca 6.'
             ],
             [
                 'brand' => 'Honda',
@@ -718,7 +718,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 32767,
                 'deposit' => 142200,
                 'trafficDate' => '2025-01-07',
-                'location' => '1201 Budapest, Kossuth Lajos utca 30.'
+                'location' => '1205 Budapest, Kossuth Lajos utca 120.'
             ],
             [
                 'brand' => 'Honda',
@@ -734,7 +734,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 32767,
                 'deposit' => 109200,
                 'trafficDate' => '2026-06-15',
-                'location' => '1113 Budapest, Bartók Béla út 32.'
+                'location' => '1117 Budapest, Szerémi út 67.'
             ],
             [
                 'brand' => 'Honda',
@@ -750,7 +750,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 32767,
                 'deposit' => 146100,
                 'trafficDate' => '2027-12-09',
-                'location' => '1082 Budapest, Baross utca 3.'
+                'location' => '1087 Budapest, Könyves Kálmán körút 52.'
             ],
             [
                 'brand' => 'Honda',
@@ -766,7 +766,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 21800,
                 'deposit' => 65400,
                 'trafficDate' => '2028-03-30',
-                'location' => '1238 Budapest, Grassalkovich út 160.'
+                'location' => '1239 Budapest, Haraszti út 42.'
             ],
             [
                 'brand' => 'Honda',
@@ -782,7 +782,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 28000,
                 'deposit' => 84000,
                 'trafficDate' => '2029-09-15',
-                'location' => '1051 Budapest, Váci utca 1.'
+                'location' => '1051 Budapest, Bajcsy-Zsilinszky út 24'
             ],
             [
                 'brand' => 'Honda',
@@ -814,7 +814,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 32767,
                 'deposit' => 141600,
                 'trafficDate' => '2025-08-02',
-                'location' => '1152 Budapest, Szentmihályi út 23.'
+                'location' => '1151 Budapest, Károlyi Sándor út 76.'
             ],
             [
                 'brand' => 'Honda',
@@ -830,7 +830,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 32767,
                 'deposit' => 147600,
                 'trafficDate' => '2026-12-03',
-                'location' => '1122 Budapest, Városmajor utca 16.'
+                'location' => '1126 Budapest, Böszörményi út 38.'
             ],
             [
                 'brand' => 'Honda',
@@ -846,7 +846,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 32767,
                 'deposit' => 126000,
                 'trafficDate' => '2028-04-14',
-                'location' => '1033 Budapest, Fő tér 1.'
+                'location' => '1037 Budapest, Bojtár utca 43.'
             ],
             [
                 'brand' => 'Honda',
@@ -862,7 +862,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 32767,
                 'deposit' => 110100,
                 'trafficDate' => '2029-06-25',
-                'location' => '1061 Budapest, Andrássy út 20.'
+                'location' => '1064 Budapest, Podmaniczky utca 63.'
             ],
             [
                 'brand' => 'Honda',
@@ -878,7 +878,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 32767,
                 'deposit' => 123000,
                 'trafficDate' => '2028-11-24',
-                'location' => '1122 Budapest, Városmajor utca 16.'
+                'location' => '1126 Budapest, Böszörményi út 38.'
             ],
 
             [
@@ -895,7 +895,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 32500,
                 'deposit' => 97500,
                 'trafficDate' => '2025-05-19',
-                'location' => '1042 Budapest, István út 14.'
+                'location' => '1044 Budapest, Megyeri út 20.'
             ],
             [
                 'brand' => 'Honda',
@@ -911,7 +911,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 27100,
                 'deposit' => 81300,
                 'trafficDate' => '2026-10-31',
-                'location' => '1152 Budapest, Szentmihályi út 23.'
+                'location' => '1151 Budapest, Károlyi Sándor út 76.'
             ],
             [
                 'brand' => 'Honda',
@@ -927,7 +927,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 16100,
                 'deposit' => 48300,
                 'trafficDate' => '2027-06-19',
-                'location' => '1163 Budapest, Veres Péter út 49.'
+                'location' => '1161 Budapest, Rákosi út 88.'
             ],
             [
                 'brand' => 'Honda',
@@ -943,7 +943,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 18000,
                 'deposit' => 54000,
                 'trafficDate' => '2028-12-21',
-                'location' => '1183 Budapest, Üllői út 400.'
+                'location' => '1185 Budapest, Üllői út 780.'
             ],
             [
                 'brand' => 'Honda',
@@ -959,7 +959,7 @@ class MotorcycleSeeder extends Seeder
                 'price' => 20000,
                 'deposit' => 60000,
                 'trafficDate' => '2029-07-07',
-                'location' => '1132 Budapest, Váci út 24.'
+                'location' => '1138 Budapest, Váci út 152.'
             ],
             [
                 "brand" => "Honda",
@@ -975,7 +975,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 32767,
                 "deposit" => 127800,
                 "trafficDate" => "2028-12-29",
-                "location" => "1075 Budapest, Király utca 13."
+                "location" => "1077 Budapest, Rottenbiller utca 25."
             ],
             [
                 "brand" => "Honda",
@@ -991,7 +991,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 20500,
                 "deposit" => 61500,
                 "trafficDate" => "2025-02-04",
-                "location" => "1102 Budapest, Kőrösi Csoma Sándor út 1."
+                "location" => "1103 Budapest, Gyömrői út 50."
             ],
             [
                 "brand" => "Honda",
@@ -1007,7 +1007,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 32767,
                 "deposit" => 101400,
                 "trafficDate" => "2026-03-02",
-                "location" => "1152 Budapest, Szentmihályi út 23."
+                "location" => "1151 Budapest, Károlyi Sándor út 76."
             ],
             [
                 "brand" => "Honda",
@@ -1023,7 +1023,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 16600,
                 "deposit" => 49800,
                 "trafficDate" => "2027-08-28",
-                "location" => "1163 Budapest, Veres Péter út 49."
+                "location" => "1161 Budapest, Rákosi út 88."
             ],
             [
                 "brand" => "Honda",
@@ -1039,7 +1039,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 16300,
                 "deposit" => 48900,
                 "trafficDate" => "2028-10-08",
-                "location" => "1113 Budapest, Bartók Béla út 32."
+                "location" => "1117 Budapest, Szerémi út 67."
             ],
             [
                 "brand" => "Honda",
@@ -1055,7 +1055,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 30400,
                 "deposit" => 91200,
                 "trafficDate" => "2029-04-12",
-                "location" => "1183 Budapest, Üllői út 400."
+                "location" => "1185 Budapest, Üllői út 780."
             ],
             [
                 "brand" => "Honda",
@@ -1071,7 +1071,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 32767,
                 "deposit" => 110700,
                 "trafficDate" => "2028-09-14",
-                "location" => "1146 Budapest, Dózsa György út 1."
+                "location" => "1148 Budapest, Fogarasi út 45."
             ],
             [
                 "brand" => "Honda",
@@ -1119,7 +1119,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 32767,
                 "deposit" => 117600,
                 "trafficDate" => "2027-04-26",
-                "location" => "1051 Budapest, Váci utca 1."
+                "location" => "1051 Budapest, Bajcsy-Zsilinszky út 24"
             ],
             [
                 "brand" => "Honda",
@@ -1135,7 +1135,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 15800,
                 "deposit" => 47400,
                 "trafficDate" => "2028-05-29",
-                "location" => "1183 Budapest, Üllői út 400."
+                "location" => "1185 Budapest, Üllői út 780."
             ],
             [
                 "brand" => "Honda",
@@ -1151,7 +1151,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 16300,
                 "deposit" => 48900,
                 "trafficDate" => "2029-10-20",
-                "location" => "1082 Budapest, Baross utca 3."
+                "location" => "1087 Budapest, Könyves Kálmán körút 52."
             ],
             [
                 "brand" => "Honda",
@@ -1167,7 +1167,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 32767,
                 "deposit" => 137700,
                 "trafficDate" => "2028-03-19",
-                "location" => "1092 Budapest, Ráday utca 6."
+                "location" => "1096 Budapest, Haller utca 89."
             ],
             [
                 "brand" => "Honda",
@@ -1183,7 +1183,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 31400,
                 "deposit" => 94200,
                 "trafficDate" => "2025-09-23",
-                "location" => "1092 Budapest, Ráday utca 6."
+                "location" => "1096 Budapest, Haller utca 89."
             ],
             [
                 "brand" => "Honda",
@@ -1199,7 +1199,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 30200,
                 "deposit" => 90600,
                 "trafficDate" => "2026-07-30",
-                "location" => "1152 Budapest, Szentmihályi út 23."
+                "location" => "1151 Budapest, Károlyi Sándor út 76."
             ],
             [
                 "brand" => "Honda",
@@ -1215,7 +1215,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 15100,
                 "deposit" => 45300,
                 "trafficDate" => "2027-11-15",
-                "location" => '1122 Budapest, Városmajor utca 16.'
+                "location" => '1126 Budapest, Böszörményi út 38.'
             ],
             [
                 "brand" => "Honda",
@@ -1231,7 +1231,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 26600,
                 "deposit" => 79800,
                 "trafficDate" => "2028-06-09",
-                "location" => "1152 Budapest, Szentmihályi út 23."
+                "location" => "1151 Budapest, Károlyi Sándor út 76."
             ],
             [
                 "brand" => "Super Soco",
@@ -1247,7 +1247,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 17100,
                 "deposit" => 51300,
                 "trafficDate" => "2029-01-14",
-                "location" => "1122 Budapest, Városmajor utca 16."
+                "location" => "1126 Budapest, Böszörményi út 38."
             ],
             [
                 "brand" => "Super Soco",
@@ -1263,7 +1263,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 32767,
                 "deposit" => 140400,
                 "trafficDate" => "2028-05-28",
-                "location" => "1033 Budapest, Fő tér 1."
+                "location" => "1037 Budapest, Bojtár utca 43."
             ],
             [
                 "brand" => "Yamaha",
@@ -1279,7 +1279,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 26200,
                 "deposit" => 78600,
                 "trafficDate" => "2025-10-06",
-                "location" => "1238 Budapest, Grassalkovich út 160."
+                "location" => "1239 Budapest, Haraszti út 42."
             ],
             [
                 "brand" => "Yamaha",
@@ -1295,7 +1295,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 17400,
                 "deposit" => 52200,
                 "trafficDate" => "2026-04-08",
-                "location" => "1191 Budapest, Kossuth tér 7."
+                "location" => "1195 Budapest, Ady Endre út 134."
             ],
             [
                 "brand" => "Yamaha",
@@ -1311,7 +1311,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 32767,
                 "deposit" => 111000,
                 "trafficDate" => "2027-03-18",
-                "location" => "1075 Budapest, Király utca 13."
+                "location" => "1077 Budapest, Rottenbiller utca 25."
             ],
             [
                 "brand" => "Yamaha",
@@ -1327,7 +1327,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 24600,
                 "deposit" => 73800,
                 "trafficDate" => "2028-02-07",
-                "location" => "1011 Budapest, Fő utca 5."
+                "location" => "1012 Budapest, Logodi utca 34"
             ],
             [
                 "brand" => "Yamaha",
@@ -1343,7 +1343,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 18200,
                 "deposit" => 54600,
                 "trafficDate" => "2029-08-03",
-                "location" => "1191 Budapest, Kossuth tér 7."
+                "location" => "1195 Budapest, Ady Endre út 134."
             ],
             [
                 "brand" => "Yamaha",
@@ -1359,7 +1359,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 16100,
                 "deposit" => 48300,
                 "trafficDate" => "2028-02-25",
-                "location" => "1051 Budapest, Váci utca 1."
+                "location" => "1051 Budapest, Bajcsy-Zsilinszky út 24"
             ],
             [
                 "brand" => "Yamaha",
@@ -1375,7 +1375,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 18900,
                 "deposit" => 56700,
                 "trafficDate" => "2025-03-31",
-                "location" => "1113 Budapest, Bartók Béla út 32."
+                "location" => "1117 Budapest, Szerémi út 67."
             ],
             [
                 "brand" => "Yamaha",
@@ -1391,7 +1391,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 32767,
                 "deposit" => 108600,
                 "trafficDate" => "2026-09-04",
-                "location" => "1238 Budapest, Grassalkovich út 160."
+                "location" => "1239 Budapest, Haraszti út 42."
             ],
             [
                 "brand" => "Yamaha",
@@ -1407,7 +1407,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 19800,
                 "deposit" => 59400,
                 "trafficDate" => "2027-12-22",
-                "location" => "1092 Budapest, Ráday utca 6."
+                "location" => "1096 Budapest, Haller utca 89."
             ],
             [
                 "brand" => "Yamaha",
@@ -1423,7 +1423,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 16700,
                 "deposit" => 50100,
                 "trafficDate" => "2028-11-18",
-                "location" => "1082 Budapest, Baross utca 3."
+                "location" => "1087 Budapest, Könyves Kálmán körút 52."
             ],
             [
                 "brand" => "Suzuki",
@@ -1439,7 +1439,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 22400,
                 "deposit" => 67200,
                 "trafficDate" => "2029-05-06",
-                "location" => "1102 Budapest, Kőrösi Csoma Sándor út 1."
+                "location" => "1103 Budapest, Gyömrői út 50."
             ],
             [
                 "brand" => "Suzuki",
@@ -1455,7 +1455,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 28300,
                 "deposit" => 84900,
                 "trafficDate" => "2028-01-15",
-                "location" => "1051 Budapest, Váci utca 1."
+                "location" => "1051 Budapest, Bajcsy-Zsilinszky út 24"
             ],
             [
                 "brand" => "Suzuki",
@@ -1471,7 +1471,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 22200,
                 "deposit" => 66600,
                 "trafficDate" => "2025-06-27",
-                "location" => "1221 Budapest, Leányka utca 2."
+                "location" => "1223 Budapest, Nagytétényi út 190."
             ],
             [
                 "brand" => "Suzuki",
@@ -1487,7 +1487,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 22200,
                 "deposit" => 66600,
                 "trafficDate" => "2026-12-20",
-                "location" => "1042 Budapest, István út 14."
+                "location" => "1044 Budapest, Megyeri út 20."
             ],
             [
                 "brand" => "Suzuki",
@@ -1503,7 +1503,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 16600,
                 "deposit" => 49800,
                 "trafficDate" => "2027-07-01",
-                "location" => "1163 Budapest, Veres Péter út 49."
+                "location" => "1161 Budapest, Rákosi út 88."
             ],
             [
                 "brand" => "Suzuki",
@@ -1519,7 +1519,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 32767,
                 "deposit" => 102600,
                 "trafficDate" => "2028-09-12",
-                "location" => "1152 Budapest, Szentmihályi út 23."
+                "location" => "1151 Budapest, Károlyi Sándor út 76."
             ],
             [
                 "brand" => "Suzuki",
@@ -1535,7 +1535,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 20200,
                 "deposit" => 60600,
                 "trafficDate" => "2029-03-08",
-                "location" => "1011 Budapest, Fő utca 5."
+                "location" => "1012 Budapest, Logodi utca 34"
             ],
             [
                 "brand" => "Suzuki",
@@ -1551,7 +1551,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 16400,
                 "deposit" => 49200,
                 "trafficDate" => "2028-10-02",
-                "location" => "1024 Budapest, Keleti Károly utca 5."
+                "location" => "1021 Budapest, Hűvösvölgyi út 136."
             ],
             [
                 "brand" => "Suzuki",
@@ -1567,7 +1567,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 32767,
                 "deposit" => 110700,
                 "trafficDate" => "2025-12-14",
-                "location" => "1211 Budapest, Kossuth Lajos utca 3."
+                "location" => "1211 Budapest, Szállító utca 6."
             ],
             [
                 "brand" => "Suzuki",
@@ -1583,7 +1583,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 25400,
                 "deposit" => 76200,
                 "trafficDate" => "2026-02-07",
-                "location" => "1113 Budapest, Bartók Béla út 32."
+                "location" => "1117 Budapest, Szerémi út 67."
             ],
             [
                 "brand" => "Suzuki",
@@ -1599,7 +1599,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 28100,
                 "deposit" => 84300,
                 "trafficDate" => "2027-05-05",
-                "location" => "1221 Budapest, Leányka utca 2."
+                "location" => "1223 Budapest, Nagytétényi út 190."
             ],
             [
                 "brand" => "Peugeot",
@@ -1615,7 +1615,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 17900,
                 "deposit" => 53700,
                 "trafficDate" => "2028-08-16",
-                "location" => "1183 Budapest, Üllői út 400."
+                "location" => "1185 Budapest, Üllői út 780."
             ],
             [
                 "brand" => "Peugeot",
@@ -1631,7 +1631,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 32767,
                 "deposit" => 116100,
                 "trafficDate" => "2029-07-30",
-                "location" => "1183 Budapest, Üllői út 400."
+                "location" => "1185 Budapest, Üllői út 780."
             ],
             [
                 "brand" => "Peugeot",
@@ -1647,7 +1647,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 20400,
                 "deposit" => 61200,
                 "trafficDate" => "2027-06-08",
-                "location" => "1146 Budapest, Dózsa György út 1."
+                "location" => "1148 Budapest, Fogarasi út 45."
             ],
             [
                 "brand" => "Peugeot",
@@ -1663,7 +1663,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 16500,
                 "deposit" => 49500,
                 "trafficDate" => "2025-11-30",
-                "location" => "1092 Budapest, Ráday utca 6."
+                "location" => "1096 Budapest, Haller utca 89."
             ],
             [
                 "brand" => "Peugeot",
@@ -1679,7 +1679,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 18500,
                 "deposit" => 55500,
                 "trafficDate" => "2026-03-23",
-                "location" => "1092 Budapest, Ráday utca 6."
+                "location" => "1096 Budapest, Haller utca 89."
             ],
             [
                 "brand" => "Peugeot",
@@ -1695,7 +1695,7 @@ class MotorcycleSeeder extends Seeder
                 "price" => 25600,
                 "deposit" => 76800,
                 "trafficDate" => "2027-09-26",
-                "location" => "1102 Budapest, Kőrösi Csoma Sándor út 1."
+                "location" => "1103 Budapest, Gyömrői út 50."
             ]
 
         ]);

@@ -8,11 +8,11 @@
     <select name="keruletek" id="keruletek" onchange="valaszt(value)">
         <option value="..." selected disabled>Kerületek</option>
         <option value="1">I. kerület – Logodi utca 34.</option>
-        <option value="2">II. kerület – Szépvölgyi út 109.</option>
+        <option value="2">II. kerület – Hűvösvölgyi út 136.</option>
         <option value="3">III. kerület – Bojtár utca 43.</option>
         <option value="4">IV. kerület – Megyeri út 20.</option>
-        <option value="5">V. kerület – Vámház körút 15.</option>
-        <option value="6">VI. kerület – Vörösmarty utca 18.</option>
+        <option value="5">V. kerület – Bajcsy-Zsilinszky út 24.</option>
+        <option value="6">VI. kerület – Podmaniczky utca 63.</option>
         <option value="7">VII. kerület – Rottenbiller utca 25.</option>
         <option value="8">VIII. kerület – Könyves Kálmán körút 52.</option>
         <option value="9">IX. kerület – Haller utca 89.</option>
@@ -26,7 +26,7 @@
         <option value="17">XVII. kerület – Pesti út 237.</option>
         <option value="18">XVIII. kerület – Üllői út 780.</option>
         <option value="19">XIX. kerület – Ady Endre út 134.</option>
-        <option value="20">XX. kerület – Nagykőrösi út 110.</option>
+        <option value="20">XX. kerület – Kossuth Lajos utca 120.</option>
         <option value="21">XXI. kerület – Szállító utca 6.</option>
         <option value="22">XXII. kerület – Nagytétényi út 190.</option>
         <option value="23">XXIII. kerület – Haraszti út 42.</option>
