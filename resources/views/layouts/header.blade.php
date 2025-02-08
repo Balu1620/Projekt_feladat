@@ -17,8 +17,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 
-    <script src="{{ asset('js/mainPageTimeline.js') }}"></script>
-
+    <script src="{{ asset('js/locationPage.js') }}"></script>
+	<script src="{{ asset('js/mainPageTimeline.js') }}"></script>
     <!-- Scripts -->
     @vite([
     'resources/sass/app.scss',
@@ -35,6 +35,7 @@
     'resources/css/app.css',	
 	'public/css/Terms.css',
 	'public/css/privacy.css',
+	'public/css/location.css',
 ])
 
 </head>
@@ -140,7 +141,7 @@
 			</div>
 		</nav>
 	</div>
-    <main class="py-4 mt-5">
+    <main class="mt-4">
         @yield('content')
     </main>
     <footer>

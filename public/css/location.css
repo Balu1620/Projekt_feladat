@@ -1,0 +1,33 @@
+.containerLoc {
+    padding: 40px, 20px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    border: solid 1px black;
+}
+
+#Loch1 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+#terkep {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#keruletek {
+    width: 50vw;
+    position: relative;
+    margin-left: auto;
+}
+
+#map-container {
+    padding-top: 10px;
+}
+#terkep {
+    padding: 0;
+}
