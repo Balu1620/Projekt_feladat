@@ -73,7 +73,7 @@
         @foreach($motorcycles as $motorcycle)
             <div class="mb-5 mCard">
                 <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="Motor képe">
+                    <img src="{{ asset('storage/img/placeholder.png') }}" class="card-img-top" alt="Motor képe">
                     <div class="card-body">
                         <h5 class="card-title">
                             <span class="brand">{{ $motorcycle->brand }}</span> - {{ number_format($motorcycle->price) }} Ft/nap

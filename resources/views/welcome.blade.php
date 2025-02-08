@@ -4,7 +4,7 @@
 <div class=" mx-4 mt-2">
     <div class="justify-content-center ">
         <div id="uppictures">
-            <img src={{ asset('storage/img/placeholder.png') }} alt="Nature" id="onePhoto">
+            <img src="{{ asset('storage/img/placeholder.png') }}" alt="Nature" id="onePhoto">
         </div>
         <hr>
         <section>
@@ -72,13 +72,13 @@
                             </div>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src={{ asset('storage/img/placeholder.png') }} alt="...">
+                                    <img src="{{ asset('storage/img/placeholder.png') }}" alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src={{ asset('storage/img/placeholder.png') }} alt="...">
+                                    <img src="{{ asset('storage/img/placeholder.png') }}" alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src={{ asset('storage/img/placeholder.png') }} alt="...">
+                                    <img src="{{ asset('storage/img/placeholder.png') }}" alt="...">
                                 </div>
                             </div>
                             <button class="carousel-control-prev" type="button"

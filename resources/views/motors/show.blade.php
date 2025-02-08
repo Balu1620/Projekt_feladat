@@ -5,7 +5,7 @@
 
 <div class="motor-details">
     <div class="motor-image">
-        <img src="{{ asset('storage/img/motor_about.webp') }}" alt="Motor image" />
+        <img src="{{ asset('storage/img/placeholder.png') }}" alt="Motor image" />
     </div>
     <div class="details-text">
         <h2>{{ $motor->brand }} - {{ $motor->type }}</h2>
