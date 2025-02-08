@@ -8,7 +8,7 @@
         </div>
         <hr>
         <section>
-            <div class="row justify-content-center ">
+            <div class="row py-4 justify-content-center ">
                 <div class="col p-0 col-sm-3 col-md-3 col-lg-3 col-xl-3">
                     <div class="flip-card">
                         <div class="flip-card-inner">
@@ -57,7 +57,7 @@
             </div>
         </section>
         <hr>
-        <section>
+        <section class="pt-4">
             <div id="pw">
                 <div class="d-flex justify-content-around align-items-center mb-3">
                     <div class="" id="mkep">
