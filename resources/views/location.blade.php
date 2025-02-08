@@ -2,9 +2,9 @@
 
 @section('content')
     <h1 id="Loch1">Telephelyek</h1>
+
 <div class="containerLoc">
-        
-        <div id="alma">
+        <div id="SelectLoc" class="my-2 ms-5">
             <select name="keruletek" id="keruletek" onchange="valaszt(value)">
                 <option value="..." selected disabled>Kerületek</option>
                 <option value="1">I. kerület – Logodi utca 34.</option>
@@ -22,7 +22,7 @@
         </div>
 
         <div id="map-container">
-            <iframe id="terkep" src="" width="100%" height="450" style="border:0;" allowfullscreen="true" loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe id="terkep" class="mb-3" src="" width="90%" height="450" style="border:0;" allowfullscreen="true" loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
 
