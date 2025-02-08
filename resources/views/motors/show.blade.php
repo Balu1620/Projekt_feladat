@@ -30,4 +30,3 @@
 
 @endsection
 
-@extends('layouts.footer')

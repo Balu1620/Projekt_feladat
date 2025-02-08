@@ -10,6 +10,10 @@
     grid-template-columns: auto auto auto auto auto;
 }
 
+.brand{
+    font-weight:900;
+}
+
 @media screen and (max-width: 576px){
     .motorGrid{
         display: grid;
