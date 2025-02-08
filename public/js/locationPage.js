@@ -23,7 +23,7 @@ function valaszt() {
       kerulet.options[1].disabled = true;
       break;
     case '2':
-      terkep.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2693.868027459364!2d19.015190077915857!3d47.53143229316305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741d9499f2a1f57%3A0x1ca287a445276e9c!2zQnVkYXBlc3QsIFN6w6lwdsO2bGd5aSDDunQgMTA5LCAxMDM3!5e0!3m2!1shu!2shu!4v1731178646395!5m2!1shu!2shu";
+      terkep.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2693.5661378071336!2d18.964689476719265!3d47.537309192759274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741d8cc716fb13f%3A0x422b7d47024cfed7!2zQnVkYXBlc3QsIEjFsXbDtnN2w7ZsZ3lpIMO6dCAxMzYsIDEwMjE!5e0!3m2!1shu!2shu!4v1739041181429!5m2!1shu!2shu";
       district.forEach(element => {
         element.options.disabled = false;
         console.log(element);
@@ -47,7 +47,7 @@ function valaszt() {
       kerulet.options[4].disabled = true;
       break;
     case '5':
-      terkep.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2696.083679363187!2d19.057685877914967!3d47.488283196138205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741dc5abc40edb5%3A0x7431133ea3dc1759!2zQnVkYXBlc3QsIFbDoW1ow6F6IGtydC4gMTUsIDEwOTM!5e0!3m2!1shu!2shu!4v1731178798699!5m2!1shu!2shu";
+      terkep.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2695.3625308859164!2d19.052019076717652!3d47.50233059517153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741dc6b3800e7c3%3A0x88eb3cb193d0348e!2sBudapest%2C%20Bajcsy-Zsilinszky%20%C3%BAt%2024%2C%201051!5e0!3m2!1shu!2shu!4v1739041255838!5m2!1shu!2shu";
       district.forEach(element => {
         element.options.disabled = false;
         console.log(element);
@@ -55,7 +55,7 @@ function valaszt() {
       kerulet.options[5].disabled = true;
       break;
     case '6':
-      terkep.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2695.2383924418436!2d19.06649027791529!3d47.504748395003276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741dc6f9241a5bf%3A0x1fc0b69aa1caa8c3!2sBudapest%2C%20V%C3%B6r%C3%B6smarty%20u.%2018%2C%201074!5e0!3m2!1shu!2shu!4v1731178857377!5m2!1shu!2shu";
+      terkep.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2694.837777305042!2d19.06197637671809!3d47.512550394466835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741dc747d0c9a29%3A0xd15606d61b95d7ec!2sBudapest%2C%20Podmaniczky%20u.%2063%2C%201064!5e0!3m2!1shu!2shu!4v1739041288888!5m2!1shu!2shu";
       district.forEach(element => {
         element.options.disabled = false;
         console.log(element);
@@ -167,7 +167,7 @@ function valaszt() {
       kerulet.options[19].disabled = true;
       break;
     case '20':
-      terkep.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2698.61076828218!2d19.135684376889646!3d47.439032571174856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741c293cea6bc9f%3A0x926821895a2f9cb4!2zQnVkYXBlc3QsIE5hZ3lrxZFyw7ZzaSDDunQgMTEwLCAxMTk0!5e0!3m2!1shu!2shu!4v1739032825905!5m2!1shu!2shu";
+      terkep.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2698.2885946136507!2d19.112999676715198!3d47.44531359910079!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741c2b7a36309cd%3A0xa58f64aa172c023c!2sBudapest%2C%20Kossuth%20Lajos%20utca%20120%2C%201205!5e0!3m2!1shu!2shu!4v1739041123280!5m2!1shu!2shu";
       district.forEach(element => {
         element.options.disabled = false;
         console.log(element);
