@@ -55,7 +55,7 @@ class RegisterController extends Controller
             'phoneNumber' => ['required', 'string', 'max:255'],
             'drivingLicenceNumber'=> ['required', 'string', 'size:8', 'max:255'],
             'drivingLicenceType' => ['required', 'string', 'max:255'],
-            'drivingLicenceImage' => ['image','nullable','mimes:jpeg,png,jpg,gif','max:2048']
+            'drivingLicenceImage' => ['required', 'nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048']
         ]);
     }
 
