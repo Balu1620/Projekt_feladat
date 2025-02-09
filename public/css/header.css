@@ -50,6 +50,45 @@ h5{
 /*------------------/Header-------------------*/
 
 #logo{
-    width: 5vw;
+    width: 5%;
     margin: 0;
+}
+
+.navText li a{
+    font-size: large;
+}
+
+@media screen and (max-width: 1030px){
+    #logo{
+        width: 7%;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 880px){
+    #logo{
+        width: 7%;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 768px){
+    #logo{
+        width: 10%;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 540px){
+    #logo{
+        width: 13%;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 420px){
+    #logo{
+        width: 17%;
+        margin: 0;
+    }
 }

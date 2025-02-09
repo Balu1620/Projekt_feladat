@@ -1,8 +1,13 @@
 /*------------------Pictures-------------------*/
 
 #uppictures {
-    width: 100%;
-    height: 300px;
+    width: 90%;
+    margin-bottom: 30px;
+}
+
+#onePhoto{
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /*------------------/Pictures-------------------*/

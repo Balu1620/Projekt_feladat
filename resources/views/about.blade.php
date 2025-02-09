@@ -3,6 +3,8 @@
 @section('content')
 <!-- Main Content Div után-->
 
+<h2 id="abultH2">Rólunk</h2>
+
 <div class="responsive-container-block bigContainer">
         <div class="responsive-container-block Container">
           <div class="imgContainer">

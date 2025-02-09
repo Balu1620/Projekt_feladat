@@ -4,11 +4,11 @@
 <div class=" mx-4 mt-2">
     <div class="justify-content-center ">
         <div id="uppictures">
-            <img src="img_nature.jpg" alt="Nature" class="img-fluid">
+            <img src="{{ asset('storage/img/placeholder.png') }}" alt="Nature" id="onePhoto">
         </div>
         <hr>
         <section>
-            <div class="row justify-content-center ">
+            <div class="row py-4 justify-content-center ">
                 <div class="col p-0 col-sm-3 col-md-3 col-lg-3 col-xl-3">
                     <div class="flip-card">
                         <div class="flip-card-inner">
@@ -57,7 +57,7 @@
             </div>
         </section>
         <hr>
-        <section>
+        <section class="pt-4">
             <div id="pw">
                 <div class="d-flex justify-content-around align-items-center mb-3">
                     <div class="" id="mkep">
@@ -72,13 +72,13 @@
                             </div>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="../kepek/placeholder.png" alt="...">
+                                    <img src="{{ asset('storage/img/placeholder.png') }}" alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="../kepek/placeholder.png" alt="...">
+                                    <img src="{{ asset('storage/img/placeholder.png') }}" alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="../kepek/placeholder.png" alt="...">
+                                    <img src="{{ asset('storage/img/placeholder.png') }}" alt="...">
                                 </div>
                             </div>
                             <button class="carousel-control-prev" type="button"

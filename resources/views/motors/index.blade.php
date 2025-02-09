@@ -3,9 +3,9 @@
 @section('content')
 
 <div class="mcontent" id="filter">
-    <h2 class="text-center mt-5 pt-2">A Motorok</h2>
+    <h2 class="text-center fs-2">A Motorok</h2>
 
-    <button class="open-btn btn btn-primary m-5" type="button" data-bs-toggle="offcanvas"
+    <button class="open-btn btn btn-primary m-4" type="button" data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
         Szűrés <i class="bi bi-sliders"></i>
     </button>
@@ -73,7 +73,7 @@
         @foreach($motorcycles as $motorcycle)
             <div class="mb-5 mCard">
                 <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="Motor képe">
+                    <img src="{{ asset('storage/img/placeholder.png') }}" class="card-img-top" alt="Motor képe">
                     <div class="card-body">
                         <h5 class="card-title">
                             <span class="brand">{{ $motorcycle->brand }}</span> - {{ number_format($motorcycle->price) }} Ft/nap

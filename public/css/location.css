@@ -1,0 +1,49 @@
+.containerLoc {
+    padding: 40px, 20px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    border: solid 1px black;
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-bottom: 100px;
+}
+
+
+
+#Loch1 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+#terkep {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#keruletek {
+    
+    width:auto;
+    position: relative;
+    margin-left: auto;
+    height: 40px;
+    font-size: medium;
+    border: solid black 1px;
+    border-radius: 5px;
+}
+
+#map-container {
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+#terkep {
+    padding: 0;
+    
+}
+
+#SelectLoc{
+   text-align: center;
+}

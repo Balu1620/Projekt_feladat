@@ -17,8 +17,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 
-    <script src="{{ asset('js/mainPageTimeline.js') }}"></script>
-
+    <script src="{{ asset('js/locationPage.js' ) }} " defer></script>
+	<script src="{{ asset('js/mainPageTimeline.js') }}"></script>
     <!-- Scripts -->
     @vite([
     'resources/sass/app.scss',
@@ -35,15 +35,16 @@
     'resources/css/app.css',	
 	'public/css/Terms.css',
 	'public/css/privacy.css',
+	'public/css/location.css',
 ])
 
 </head>
 
 <body class="">
-	<nav class="relative px-4 py-4 flex justify-between items-center bg-white">
-		<a class="text-3xl font-bold leading-none" href="#">
+	<nav class="relative px-4 py-2 flex justify-between items-center bg-white">
+		<a class="text-3xl font-bold leading-none" href="/">
 			<div id="logo">
-				<img src="{{ asset('storage/img/logo.png') }}"  alt="logo">
+				<img src="{{ asset('storage/img/logo.png') }}" alt="logo">
 			</div>
             @auth
                 <h2 style="color:red; padding-top:10px;">
@@ -60,14 +61,8 @@
 				</svg>
 			</button>
 		</div>
-		<ul class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
+		<ul class="hidden navText absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
 			<li><a class="text-sm text-gray-400 hover:text-gray-500" href="/">Főoldal</a></li>
-			<li class="text-gray-300">
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-				</svg>
-			</li>
-			<li><a class="text-sm text-gray-400 hover:text-gray-500" href="{{ route('about') }}">Rólunk</a></li>
 			<li class="text-gray-300">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
@@ -80,6 +75,13 @@
 				</svg>
 			</li>
 			<li><a class="text-sm text-gray-400 hover:text-gray-500" href="{{ route('location') }}">Helyszínek</a></li>
+			<li class="text-gray-300">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+				</svg>
+			</li>
+			
+			<li><a class="text-sm text-gray-400 hover:text-gray-500" href="{{ route('about') }}">Rólunk</a></li>
 		</ul>
         @guest
 		<a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200" href="{{ route('login') }}">Bejelentkezés</a>
@@ -140,7 +142,7 @@
 			</div>
 		</nav>
 	</div>
-    <main class="py-4 mt-5">
+    <main class="mt-4">
         @yield('content')
     </main>
     <footer>
