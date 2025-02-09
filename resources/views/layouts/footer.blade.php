@@ -43,7 +43,7 @@
                                 </li>
                                 <li class="mb-3 text-start">
                                     <span class="fa-li"><i class="bi bi-envelope-at-fill"></i></span>
-                                    <a href="mailto:info@example.com"><span class="ms-2">kapcsolat@motorkiralya.hu></span></a>
+                                    <a href="mailto:kapcsolat@motorkiralya.hu"><span class="ms-2">kapcsolat@motorkiralya.hu</span></a>
 
                                     <!-- Emoji is link -->
                                     <!--<a href="mailto:info@example.com"><span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">info@example.com</span></a>-->
