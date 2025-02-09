@@ -1,9 +1,14 @@
-
 * {
     font-family: Nunito, sans-serif;
-  }
-  
-  .text-blk {
+}
+
+#abultH2 {
+  text-align: center;
+  font-size: 40px;
+  margin-top: 30px;
+}
+
+.text-blk {
     margin-top: 0px;
     margin-right: 0px;
     margin-bottom: 0px;
@@ -13,13 +18,13 @@
     padding-right: 0px;
     padding-bottom: 0px;
     padding-left: 0px;
-  }
-  
-  .responsive-cell-block {
+}
+
+.responsive-cell-block {
     min-height: 75px;
-  }
-  
-  .responsive-container-block {
+}
+
+.responsive-container-block {
     min-height: 75px;
     height: fit-content;
     width: 100%;
@@ -34,9 +39,9 @@
     margin-bottom: 0px;
     margin-left: auto;
     justify-content: flex-start;
-  }
-  
-  .responsive-container-block.bigContainer {
+}
+
+.responsive-container-block.bigContainer {
     padding-top: 0px;
     padding-right: 50px;
     padding-bottom: 0px;
@@ -45,9 +50,9 @@
     margin-right: 0px;
     margin-bottom: 50px;
     margin-left: 0px;
-  }
-  
-  .responsive-container-block.Container {
+}
+
+.responsive-container-block.Container {
     max-width: 1320px;
     justify-content: space-evenly;
     align-items: center;
@@ -62,15 +67,15 @@
     margin-right: auto;
     margin-bottom: 0px;
     margin-left: auto;
-  }
-  
-  .mainImg {
+}
+
+.mainImg {
     width: 100%;
     height: 800px;
     object-fit: cover;
-  }
-  
-  .blueDots {
+}
+
+.blueDots {
     position: absolute;
     top: 150px;
     right: 15%;
@@ -79,48 +84,48 @@
     width: 80%;
     height: 500px;
     object-fit: cover;
-  }
-  
-  .imgContainer {
+}
+
+.imgContainer {
     position: relative;
     width: 48%;
-  }
-  
-  .responsive-container-block.textSide {
+}
+
+.responsive-container-block.textSide {
     width: 48%;
     padding-top: 0px;
     padding-right: 0px;
     padding-bottom: 0px;
     padding-left: 0px;
     z-index: 100;
-  }
-  
-  .text-blk.heading {
-    font-size: 36px;
+}
+
+.text-blk.heading {
+    font-size: 30px;
     line-height: 40px;
     font-weight: 700;
     margin-top: 0px;
     margin-right: 0px;
     margin-bottom: 20px;
     margin-left: 0px;
-  }
-  
-  .text-blk.subHeading {
+}
+
+.text-blk.subHeading {
     font-size: 18px;
     line-height: 26px;
     margin-top: 0px;
     margin-right: 0px;
     margin-bottom: 20px;
     margin-left: 0px;
-  }
-  
-  .cardImg {
+}
+
+.cardImg {
     width: 31px;
     font-size: 40px;
     margin-top: 10px;
-  }
-  
-  .cardImgContainer {
+}
+
+.cardImgContainer {
     padding-top: 20px;
     padding-right: 20px;
     padding-bottom: 20px;
@@ -129,9 +134,9 @@
     margin-right: 10px;
     margin-bottom: 0px;
     margin-left: 0px;
-  }
-  
-  .responsive-cell-block.wk-desk-6.wk-ipadp-6.wk-tab-12.wk-mobile-12 {
+}
+
+.responsive-cell-block.wk-desk-6.wk-ipadp-6.wk-tab-12.wk-mobile-12 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -139,9 +144,9 @@
     padding-right: 15px;
     padding-bottom: 10px;
     padding-left: 0px;
-  }
-  
-  .text-blk.cardHeading {
+}
+
+.text-blk.cardHeading {
     font-size: 18px;
     line-height: 28px;
     font-weight: 700;
@@ -149,14 +154,14 @@
     margin-right: 0px;
     margin-bottom: 10px;
     margin-left: 0px;
-  }
-  
-  .text-blk.cardSubHeading {
+}
+
+.text-blk.cardSubHeading {
     color: rgb(153, 153, 153);
     line-height: 22px;
-  }
-  
-  .explore {
+}
+
+.explore {
     font-size: 18px;
     line-height: 20px;
     font-weight: 700;
@@ -189,28 +194,28 @@
     padding-right: 40px;
     padding-bottom: 17px;
     padding-left: 40px;
-  }
-  
-  .explore:hover {
+}
+
+.explore:hover {
     background-image: initial;
     background-position-x: initial;
     background-position-y: initial;
     background-size: initial;
-    background-repeat: initial ;
+    background-repeat: initial;
     background-attachment: initial;
     background-origin: initial;
     background-clip: initial;
     background-color: rgb(244, 182, 176);
-  }
-  
-  #ixvck {
+}
+
+#ixvck {
     margin-top: 60px;
     margin-right: 0px;
     margin-bottom: 0px;
     margin-left: 0px;
-  }
-  
-  .redDots {
+}
+
+.redDots {
     position: absolute;
     bottom: -350px;
     right: -100px;
@@ -218,217 +223,218 @@
     width: 400px;
     object-fit: cover;
     top: auto;
-  }
- 
- /* alsó rész */
+}
+
+/* alsó rész */
 .csatlakozz-hozzank {
-  padding: 40px 20px;
-  border-radius: 10px;
-/*   text-align: center;
- */}
+    padding: 40px 20px;
+    border-radius: 10px;
+    /*   text-align: center;
+ */
+}
 
 .csatlakozz-hozzank h1 {
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 30px;
-  margin-top: 20px;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    margin-top: 20px;
 }
 
 .csatlakozz-hozzank p {
-  font-size: 20px;
-  margin-bottom: 5px;
-  line-height: 1.6;
-  color: #333;
+    font-size: 20px;
+    margin-bottom: 5px;
+    line-height: 1.6;
+    color: #333;
 }
 
 .csatlakozz-hozzank ul {
-  list-style: none;
-  padding-left: 50px;
+    list-style: none;
+    padding-left: 50px;
 }
 
 .csatlakozz-hozzank ul li {
-  font-size: 18px;
-  line-height: 1.6;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
 }
 
 .csatlakozz-hozzank div ul li {
-  margin-top: 10px;
+    margin-top: 10px;
 }
 
 .csatlakozz-hozzank ul li strong {
-  margin-right: 8px;
-  color: #007bff;
+    margin-right: 8px;
+    color: #007bff;
 }
 
 .csatlakozz-hozzank ul li::before {
-  content: '🔹';
-  color: #28a745;
-  font-size: 20px;
-  margin-right: 15px;
+    content: "🔹";
+    color: #28a745;
+    font-size: 20px;
+    margin-right: 15px;
 }
 
 .csatlakozz-hozzank p strong {
-  font-weight: 700;
-  color: #d9534f;
+    font-weight: 700;
+    color: #d9534f;
 }
 
 /* RESPONSIVE STÍLUSOK */
 
 /* Mobilnézet (max-width: 767px) */
 @media (max-width: 767px) {
-  .csatlakozz-hozzank {
-    padding: 20px 10px;
-  }
+    .csatlakozz-hozzank {
+        padding: 20px 10px;
+    }
 
-  .csatlakozz-hozzank h1 {
-    font-size: 24px;
-    margin-bottom: 10px;  
-  }
+    .csatlakozz-hozzank h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
 
-  .csatlakozz-hozzank p {
-    font-size: 16px;
-    margin-top: 0; 
-    margin-bottom: 10px;  
-  }
+    .csatlakozz-hozzank p {
+        font-size: 16px;
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
 
-  .csatlakozz-hozzank ul li {
-    font-size: 14px;
-  }
+    .csatlakozz-hozzank ul li {
+        font-size: 14px;
+    }
 
-  .csatlakozz-hozzank .explore {
-    padding: 12px 25px;
-    font-size: 16px;
-  }
+    .csatlakozz-hozzank .explore {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
 
-  .cardImgContainer {
-    padding: 0px;
-    padding-left: 80px;
-  }
+    .cardImgContainer {
+        padding: 0px;
+        padding-left: 80px;
+    }
 
-  .mainImg {
-    height: 600px;
-    width: 100%;
-    object-fit: cover;
-    margin-top: 10px;  
-  }
+    .mainImg {
+        height: 600px;
+        width: 100%;
+        object-fit: cover;
+        margin-top: 10px;
+    }
 
-  .responsive-container-block {
-    padding: 0;
-    width: auto;
-    flex-direction: column; 
-  }
+    .responsive-container-block {
+        padding: 0;
+        width: auto;
+        flex-direction: column;
+    }
 
-  .imgContainer {
-    width: 100%;
-    margin-top: 10px;  
-    margin-bottom: 10px; 
-  }
+    .imgContainer {
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
 
-  .textSide {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-  }
+    .textSide {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
 
-  .text-blk.subHeading {
-      margin-bottom: 80px;
-      padding-bottom: 20px;
-      height: 500px;
-      text-align: center;
-  }
+    .text-blk.subHeading {
+        margin-bottom: 80px;
+        padding-bottom: 20px;
+        height: 500px;
+        text-align: center;
+    }
 
-  .responsive-cell-block{
-    margin-top: 30px;
-    height: 300px;
-    text-align: center;
-  }
+    .responsive-cell-block {
+        margin-top: 30px;
+        height: 300px;
+        text-align: center;
+    }
 
-  .responsive-container-block.bigContainer {
-    padding: 0px; 
-  }
+    .responsive-container-block.bigContainer {
+        padding: 0px;
+    }
 }
 
 /* Tablet nézet (max-width: 1024px) */
 @media (max-width: 1024px) and (min-width: 768px) {
-  .csatlakozz-hozzank {
-    padding: 30px 15px;
-  }
+    .csatlakozz-hozzank {
+        padding: 30px 15px;
+    }
 
-  .csatlakozz-hozzank h1 {
-    font-size: 28px;
-  }
+    .csatlakozz-hozzank h1 {
+        font-size: 28px;
+    }
 
-  .csatlakozz-hozzank p {
-    font-size: 17px;
-  }
+    .csatlakozz-hozzank p {
+        font-size: 17px;
+    }
 
-  .csatlakozz-hozzank ul li {
-    font-size: 15px;
-  }
+    .csatlakozz-hozzank ul li {
+        font-size: 15px;
+    }
 
-  .csatlakozz-hozzank .explore {
-    padding: 14px 28px;
-    font-size: 17px;
-  }
+    .csatlakozz-hozzank .explore {
+        padding: 14px 28px;
+        font-size: 17px;
+    }
 
-  .mainImg {
-    height: 700px;
-  }
+    .mainImg {
+        height: 700px;
+    }
 
-  .responsive-container-block {
-    flex-direction: row;
-  }
+    .responsive-container-block {
+        flex-direction: row;
+    }
 
-  .imgContainer {
-    width: 50%; /* A képet a szöveg mellett jelenítjük meg */
-    margin-bottom: 0;
-  }
+    .imgContainer {
+        width: 50%; /* A képet a szöveg mellett jelenítjük meg */
+        margin-bottom: 0;
+    }
 
-  .textSide {
-    width: 50%;
-  }
+    .textSide {
+        width: 50%;
+    }
 }
 
 /* Desktop nézet (min-width: 1024px) */
 @media (min-width: 1024px) {
-  .csatlakozz-hozzank {
-    padding: 40px 20px;
-  }
+    .csatlakozz-hozzank {
+        padding: 40px 20px;
+    }
 
-  .csatlakozz-hozzank h1 {
-    font-size: 32px;
-  }
+    .csatlakozz-hozzank h1 {
+        font-size: 32px;
+    }
 
-  .csatlakozz-hozzank p {
-    font-size: 20px;
-  }
+    .csatlakozz-hozzank p {
+        font-size: 20px;
+    }
 
-  .csatlakozz-hozzank ul li {
-    font-size: 18px;
-  }
+    .csatlakozz-hozzank ul li {
+        font-size: 18px;
+    }
 
-  .csatlakozz-hozzank .explore {
-    padding: 17px 40px;
-    font-size: 18px;
-  }
+    .csatlakozz-hozzank .explore {
+        padding: 17px 40px;
+        font-size: 18px;
+    }
 
-  .mainImg {
-    height: 800px;
-  }
+    .mainImg {
+        height: 800px;
+    }
 
-  .responsive-container-block {
-    flex-direction: row;
-  }
+    .responsive-container-block {
+        flex-direction: row;
+    }
 
-  .imgContainer {
-    width: 50%;
-    margin-bottom: 0;
-  }
+    .imgContainer {
+        width: 50%;
+        margin-bottom: 0;
+    }
 
-  .textSide {
-    width: 50%;
-  }
+    .textSide {
+        width: 50%;
+    }
 }
