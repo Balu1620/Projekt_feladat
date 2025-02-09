@@ -5,7 +5,7 @@
     margin-bottom: 30px;
 }
 
-#onePhoto{
+#onePhoto {
     margin-left: auto;
     margin-right: auto;
 }
@@ -90,7 +90,8 @@
 /*--------------------Sz&P--------------------*/
 #mkep {
     flex: 50%;
-    padding-right: 1vw;
+    padding-right: 2vw;
+    padding-left: 2vw;
     margin-top: 2vw;
     margin-bottom: 2vw;
 }
@@ -123,11 +124,11 @@
 }
 
 /*--------------------/Sz&P-------------------*/
-
 /*--------------------TimeLine--------------------*/
 #timeline_alap {
     position: relative;
     margin-top: 6vw;
+    margin-bottom: 120px;
 }
 
 h3 {
@@ -158,6 +159,12 @@ input[type="range"] {
     border-radius: 20px;
     left: 50%;
 }
+
+
+input[type="range"]:hover::-webkit-slider-thumb {
+    background: blueviolet;
+}
+
 
 .slider::-webkit-slider-thumb {
     appearance: inherit;
