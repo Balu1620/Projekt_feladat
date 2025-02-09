@@ -38,19 +38,19 @@
 
                             <ul class="fa-ul link" style="margin-left: 1.65em;">
                                 <li class="mb-3 text-start">
-                                    <span class="fa-li"><i class="bi bi-geo-alt-fill"></i></span><span class="ms-2">New
-                                        York, NY 10012, US</span>
+                                    <span class="fa-li"><i class="bi bi-geo-alt-fill"></i></span>
+                                    <span class="ms-2"> 1051 Budapest, Deák Ferenc tér 3.</span>
                                 </li>
                                 <li class="mb-3 text-start">
-                                    <span class="fa-li"><i class="bi bi-envelope-at-fill"></i></span><a
-                                        href="mailto:info@example.com"><span class="ms-2">info@example.com</span></a>
+                                    <span class="fa-li"><i class="bi bi-envelope-at-fill"></i></span>
+                                    <a href="mailto:info@example.com"><span class="ms-2">kapcsolat@motorkiralya.hu></span></a>
 
                                     <!-- Emoji is link -->
                                     <!--<a href="mailto:info@example.com"><span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">info@example.com</span></a>-->
                                 </li>
                                 <li class="mb-3 text-start">
                                     <span class="fa-li"><i class="bi bi-telephone-fill"></i></span><a href="tel:+"><span
-                                            class="ms-2">+ 01 234 567 88</span></a>
+                                            class="ms-2">+36 70 234 567</span></a>
                                 </li>
                             </ul>
                         </div>

@@ -4,7 +4,7 @@
 
 <div class="adatvedelem">
     <h2>Adatvédelmi szabályzat</h2>
-    <p><strong>Hatályba lépés dátuma:</strong> [Dátum]</p>
+    <p><strong>Hatályba lépés dátuma:</strong> 2025.02.10</p>
     
     <h3>1. Az adatkezelő adatai</h3>
     <ul>
@@ -43,7 +43,7 @@
         <li>Marketing célú adatkezelés elleni tiltakozás.</li>
     </ul>
 
-    <p><strong>📩 Kapcsolat adatvédelmi ügyekben:</strong> kapcsolat@motorkiralya.hu</p>
+    <p class="kap"><strong>📩 Kapcsolat adatvédelmi ügyekben:</strong> kapcsolat@motorkiralya.hu</p>
 </div>
 
 @endsection
