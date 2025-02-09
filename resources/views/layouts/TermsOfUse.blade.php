@@ -4,7 +4,7 @@
 
 <div class="felhasznalasi-feltetelek">
     <h2>Felhasználási feltételek</h2>
-    <p><strong>Hatályba lépés dátuma:</strong> [Dátum]</p>
+    <p><strong>Hatályba lépés dátuma:</strong> 2025.02.10</p>
 
     <h3>1. A szolgáltatás igénybevételének feltételei</h3>
     <ul>
