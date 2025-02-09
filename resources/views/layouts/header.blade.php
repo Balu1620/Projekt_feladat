@@ -41,10 +41,10 @@
 </head>
 
 <body class="">
-	<nav class="relative px-4 py-3 flex justify-between items-center bg-white">
+	<nav class="relative px-4 py-2 flex justify-between items-center bg-white">
 		<a class="text-3xl font-bold leading-none" href="/">
 			<div id="logo">
-				<img src="{{ asset('storage/img/logo.png') }}"  alt="logo">
+				<img src="{{ asset('storage/img/logo.png') }}" alt="logo">
 			</div>
             @auth
                 <h2 style="color:red; padding-top:10px;">
