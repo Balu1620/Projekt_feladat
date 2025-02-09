@@ -39,7 +39,7 @@
         <li>A <strong>Motorkirálya</strong> fenntartja a jogot a felhasználási feltételek módosítására.</li>
     </ul>
 
-    <p><strong>📩 Kapcsolat:</strong> kapcsolat@motorkiralya.hu</p>
+    <p class="kap"><strong>📩 Kapcsolat:</strong> kapcsolat@motorkiralya.hu</p>
 </div>
 
 @endsection
