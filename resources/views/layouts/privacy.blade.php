@@ -22,7 +22,7 @@
     </ul>
 
     <h4>2.2. Technikai adatok</h4>
-    <p>A rendszer automatikusan rögzítheti az IP-címet, eszközazonosítót, böngészési adatokat a szolgáltatás biztonságának és teljesítményének fenntartása érdekében.</p>
+    <p id="marad">A rendszer automatikusan rögzítheti az IP-címet, eszközazonosítót, böngészési adatokat a szolgáltatás biztonságának és teljesítményének fenntartása érdekében.</p>
 
     <h3>3. Az adatok megőrzési ideje</h3>
     <ul>
