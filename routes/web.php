@@ -20,4 +20,3 @@ Route::get('/privacy', function () {return view('layouts.privacy');})->name('pri
 
 Route::get('/termsOfUse', function () {return view('layouts.termsOfUse');})->name('termsOfUse');
 
-Route::apiResource("/apiMotorcycle", MotorcycleAPIController::class);
