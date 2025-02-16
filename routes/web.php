@@ -22,9 +22,9 @@ Route::get("/tools", [ToolController::class, "index"])->name("tools.index");
 Route::get("/tools/{tool}", [ToolController::class, "show"])->name("tools.show");
 
 
-Route::get('/about', function () {return view('pages.about');})->name('about');
+Route::get('/about', function () {return view('about');})->name('about');
 
-Route::get('/location', function () {return view('pages.location');})->name('location');
+Route::get('/location', function () {return view('location');})->name('location');
 
 Route::get('/privacy', function () {return view('layouts.privacy');})->name('privacy');
 

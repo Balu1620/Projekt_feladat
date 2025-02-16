@@ -42,7 +42,7 @@
 
 <body class="">
 	<nav class="relative px-4 py-2 flex justify-between items-center bg-white">
-		<a class="text-3xl font-bold leading-none" href="/">
+		<a class="text-3m font-bold leading-none" href="/">
 			<div id="logo">
 				<img src="{{ asset('storage/img/logo.png') }}" alt="logo">
             @auth
