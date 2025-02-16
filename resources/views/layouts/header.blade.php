@@ -45,13 +45,12 @@
 		<a class="text-3xl font-bold leading-none" href="/">
 			<div id="logo">
 				<img src="{{ asset('storage/img/logo.png') }}" alt="logo">
-			</div>
             @auth
-                <h2 style="color:red; padding-top:10px;">
+                <h2 style="color:red; padding-top:15px; padding-left:10px;">
                     {{ Str::of(auth()->user()->name)->explode(' ')->last() }}
                 </h2>
             @endauth
-
+			</div>
 		</a>
 		<div class="lg:hidden">
 			<button class="navbar-burger flex items-center text-blue-600 p-3">

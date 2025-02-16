@@ -5,7 +5,7 @@ use App\Http\Controllers\MotorcycleController;
 use App\Http\Controllers\ToolController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {return view('pages.welcome');});
+Route::get('/', function () {return view('welcome');});
 
 Auth::routes();
 
