@@ -7,7 +7,7 @@
             <div class="table-responsive">
                 <table class="table table-danger">
                     <tbody>
-                        <tr class="">
+                        <tr class="text-center">
                             <td>
                                 Sisakok:
                             </td>
@@ -31,7 +31,7 @@
                             </td>
                         </tr>
                         
-                        <tr class="">
+                        <tr class="text-center">
                             <td>Protektoros ruhák</td>
                             <td>
                                 <div>

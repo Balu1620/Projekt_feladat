@@ -1,0 +1,16 @@
+#Ssize select{
+    margin-right: 5px;
+}
+#Rsize select{
+    margin-right: 5px;
+}
+
+#Ssize{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#Rsize{
+    display: flex;
+    justify-content: space-evenly;
+}

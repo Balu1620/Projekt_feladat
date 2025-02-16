@@ -37,6 +37,7 @@
 	'public/css/Terms.css',
 	'public/css/privacy.css',
 	'public/css/location.css',
+	'public/css/tools.css',
 ])
 
 </head>
