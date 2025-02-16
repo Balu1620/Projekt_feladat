@@ -15,7 +15,7 @@ class ToolController extends Controller
     {
         $tools = Tool::all();
 
-        return view('tools.Index', ['tools' => $tools]);
+        return view('tools.index', ['tools' => $tools]);
     }
 
     /**

@@ -5,7 +5,7 @@ use App\Http\Controllers\MotorcycleController;
 use App\Http\Controllers\ToolController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {return view('welcome');});
+Route::get('/', function () {return view('pages.welcome');});
 
 Auth::routes();
 
@@ -17,14 +17,14 @@ Route::get("/motors", [MotorcycleController::class, "index"])->name("motors.inde
 Route::get("/motors/{motor}", [MotorcycleController::class, "show"])->name("motors.show");
 
 
-Route::get("/tools", [MotorcycleController::class, "index"])->name("tools.index");
+Route::get("/tools", [ToolController::class, "index"])->name("tools.index");
 
-Route::get("/tools/{tool}", [MotorcycleController::class, "show"])->name("tools.show");
+Route::get("/tools/{tool}", [ToolController::class, "show"])->name("tools.show");
 
 
-Route::get('/about', function () {return view('about');})->name('about');
+Route::get('/about', function () {return view('pages.about');})->name('about');
 
-Route::get('/location', function () {return view('location');})->name('location');
+Route::get('/location', function () {return view('pages.location');})->name('location');
 
 Route::get('/privacy', function () {return view('layouts.privacy');})->name('privacy');
 
