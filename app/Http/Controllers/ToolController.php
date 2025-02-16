@@ -13,7 +13,9 @@ class ToolController extends Controller
      */
     public function index()
     {
-        //
+        $tools = Tool::all();
+
+        return view('tools.Index', ['tools' => $tools]);
     }
 
     /**

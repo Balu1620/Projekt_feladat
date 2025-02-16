@@ -9,7 +9,7 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');*/
 
-Route::apiResource("/apiMotorcycle", MotorcycleAPIController::class);
+//Route::apiResource("/apiMotorcycle", MotorcycleAPIController::class);
 
 Route::post("/proba", function(){
     return response()->json();
