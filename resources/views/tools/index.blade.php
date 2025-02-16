@@ -5,7 +5,7 @@
     <div class="container">
         <form action="" method="get">
             <div class="table-responsive">
-                <table>
+                <table class="table table-danger">
                     <tbody>
                         <tr class="">
                             <td>
@@ -30,11 +30,13 @@
                                 </div>
                             </td>
                         </tr>
+                        
                         <tr class="">
                             <td>Protektoros ruhák</td>
                             <td>
                                 <div>
-                                    <select name="" id="">
+                                    <select name="ruhadb" id="ruhadb" onchange="ruhameret(value)">
+                                        <option value="" disabled selected>Darabszám</option>    
                                         <option value="0">0 db</option>
                                         <option value="1">1 db</option>
                                         <option value="2">2 db</option>
