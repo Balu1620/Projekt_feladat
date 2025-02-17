@@ -18,8 +18,7 @@
 
 
     <script src="{{ asset('js/locationPage.js' ) }} " defer></script>
-	<script src="{{ asset('js/mainPageTimeline.js') }}" defer></script>
-	<script src="{{ asset('js/registPage.js') }}" defer></script>
+	<script src="{{ asset('js/mainPageTimeline.js') }}"></script>
     <!-- Scripts -->
     @vite([
     'resources/sass/app.scss',
@@ -37,22 +36,22 @@
 	'public/css/Terms.css',
 	'public/css/privacy.css',
 	'public/css/location.css',
+	'public/css/tools.css',
 ])
 
 </head>
 
 <body class="">
-	<nav class="relative px-4 py-2 flex justify-between items-center bg-[#3f4a54]">
+	<nav class="relative px-4 py-2 flex justify-between items-center bg-white">
 		<a class="text-3xl font-bold leading-none" href="/">
 			<div id="logo">
 				<img src="{{ asset('storage/img/logo.png') }}" alt="logo">
-			</div>
             @auth
-                <h2 style="color:red; padding-top:10px;">
+                <h2 style="color:red; padding-top:15px; padding-left:10px;">
                     {{ Str::of(auth()->user()->name)->explode(' ')->last() }}
                 </h2>
             @endauth
-
+			</div>
 		</a>
 		<div class="lg:hidden">
 			<button class="navbar-burger flex items-center text-blue-600 p-3">
