@@ -64,7 +64,8 @@ slider.addEventListener("input", () => {
         slider.classList.remove("bouncing");
     }, 3000); // 0.3 másodperc után eltűnik az animáció
 });
-/*
+
+
 // Burger menus
 document.addEventListener('DOMContentLoaded', function() {
     // open
@@ -105,4 +106,3 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
-*/

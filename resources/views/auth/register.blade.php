@@ -39,6 +39,14 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                                <div class="mb-3">
+                                    <div id="atError" class="form-text text-danger" style="display: none;">
+                                        Az email címnek tartalmaznia kell '@' karaktert.
+                                    </div>
+                                    <div id="domainError" class="form-text text-danger" style="display: none;">
+                                        Az email címnek '.com' vagy '.hu' végződéssel kell rendelkeznie.
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -56,6 +64,10 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                                <div class="strength-bar">
+                                    <div class="bar" id="strength-bar"></div>
+                                </div>
+                                <small id="strength-text"></small>
                             </div>
                         </div>
 
@@ -135,13 +147,16 @@
                         </div>
 
 
-                        
+
                         <div class="row mb-3">
-                            <label for="drivingLicenceImage" class="col-md-4 col-form-label text-md-end">Jogosítvány kártya feltöltés</label>
+                            <label for="drivingLicenceImage" class="col-md-4 col-form-label text-md-end">Jogosítvány
+                                kártya feltöltés</label>
 
                             <div class="col-md-6">
-                                <input id="drivingLicenceImage" type="file" class="form-control @error('drivingLicenceImage') is-invalid @enderror"
-                                    name="drivingLicenceImage" value="{{ old('drivingLicenceImage') }}" required autocomplete="drivingLicenceImage" autofocus>
+                                <input id="drivingLicenceImage" type="file"
+                                    class="form-control @error('drivingLicenceImage') is-invalid @enderror"
+                                    name="drivingLicenceImage" value="{{ old('drivingLicenceImage') }}" required
+                                    autocomplete="drivingLicenceImage" autofocus>
 
                                 @error('drivingLicenceImage')
                                     <span class="invalid-feedback" role="alert">

@@ -18,7 +18,8 @@
 
 
     <script src="{{ asset('js/locationPage.js' ) }} " defer></script>
-	<script src="{{ asset('js/mainPageTimeline.js') }}"></script>
+	<script src="{{ asset('js/mainPageTimeline.js') }}" defer></script>
+	<script src="{{ asset('js/registPage.js') }}" defer></script>
     <!-- Scripts -->
     @vite([
     'resources/sass/app.scss',
@@ -41,7 +42,7 @@
 </head>
 
 <body class="">
-	<nav class="relative px-4 py-2 flex justify-between items-center bg-white">
+	<nav class="relative px-4 py-2 flex justify-between items-center bg-[#3f4a54]">
 		<a class="text-3xl font-bold leading-none" href="/">
 			<div id="logo">
 				<img src="{{ asset('storage/img/logo.png') }}" alt="logo">
@@ -105,9 +106,9 @@
 		<nav class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
 			<div class="flex items-center mb-8">
 				<a class="mr-auto text-3xl font-bold leading-none" href="#">
-				<div id="logo">
-				<img src="{{ asset('storage/img/logo.png') }}"  alt="logo">
-			</div>
+					<div id="logo">
+						<img src="{{ asset('storage/img/logo.png') }}"  alt="logo">
+					</div>
 				</a>
 				<button class="navbar-close">
 					<svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -142,6 +143,7 @@
 			</div>
 		</nav>
 	</div>
+	
     <main class="mt-4">
         @yield('content')
     </main>
