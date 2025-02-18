@@ -18,7 +18,8 @@
 
 
     <script src="{{ asset('js/locationPage.js' ) }} " defer></script>
-	<script src="{{ asset('js/mainPageTimeline.js') }}"></script>
+	<script src="{{ asset('js/mainPageTimeline.js') }}" defer></script>
+	<script src="{{ asset('js/tools.js') }}" defer></script>
     <!-- Scripts -->
     @vite([
     'resources/sass/app.scss',
