@@ -17,9 +17,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 
+
+
     <script src="{{ asset('js/locationPage.js' ) }} " defer></script>
 	<script src="{{ asset('js/mainPageTimeline.js') }}" defer></script>
 	<script src="{{ asset('js/tools.js') }}" defer></script>
+	<script src="{{ asset('js/calendar.js') }}" defer></script>
+	
     <!-- Scripts -->
     @vite([
     'resources/sass/app.scss',

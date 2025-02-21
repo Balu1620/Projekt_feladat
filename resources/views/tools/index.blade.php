@@ -4,6 +4,13 @@
 
     <div class="container">
         <form action="" method="get">
+
+            <div>
+            <input type="text" name="datetimes" />
+            </div>
+
+            <br>
+
             <div class="table-responsive">
                 <table class="table table-danger">
                     <tbody>
@@ -30,13 +37,13 @@
                                 </div>
                             </td>
                         </tr>
-                        
+
                         <tr class="text-center">
                             <td>Protektoros ruhák</td>
                             <td>
                                 <div>
                                     <select name="ruhadb" id="ruhadb" onchange="ruhameret(value)">
-                                        <option value="" disabled selected>Darabszám</option>    
+                                        <option value="" disabled selected>Darabszám</option>
                                         <option value="0">0 db</option>
                                         <option value="1">1 db</option>
                                         <option value="2">2 db</option>
@@ -55,7 +62,7 @@
                     </tbody>
                 </table>
             </div>
-
+            <button type="button" class="btn btn-outline-secondary">Tovább</button>
         </form>
     </div>
 
