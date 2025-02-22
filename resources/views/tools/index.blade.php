@@ -5,8 +5,9 @@
     <div class="container">
         <form action="" method="get">
 
-            <div>
-            <input type="text" name="datetimes" />
+            <div class="x-flex justify-center">
+                <div id="myDateRangePickerDisabledDates" data-coreui-footer="true" data-coreui-locale="hu" data-coreui-toggle="date-range-picker">
+                </div>
             </div>
 
             <br>
