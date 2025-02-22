@@ -1,7 +1,7 @@
 const today = new Date(); // Mai dátum
 today.setDate(today.getDate() - 1);
 
-
+let StartDate;
 const myDateRangePickerDisabledDates = document.getElementById('myDateRangePickerDisabledDates')
 if (myDateRangePickerDisabledDates) {
     const optionsDateRangePickerDisabledDates = {
@@ -18,12 +18,27 @@ if (myDateRangePickerDisabledDates) {
 
 const myEndDateRangePicker = document.getElementById('myDateRangePickerDisabledDates')
 myEndDateRangePicker.addEventListener('endDateChange.coreui.date-range-picker', date => {
-  console.log(date.date);
+  //console.log(date.date);
   
 })
 
 const myStartDateRangePicker = document.getElementById('myDateRangePickerDisabledDates')
 myStartDateRangePicker.addEventListener('startDateChange.coreui.date-range-picker', date => {
-  console.log(date.date);
+  //console.log(date.date);
+
+  StartDate = date.date;
   
-})
+  StartDate;
+  
+
+});
+
+function init() {
+  
+  console.log("sda");
+  
+}
+
+init();
+
+

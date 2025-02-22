@@ -13,7 +13,18 @@ class MotorcycleController extends Controller
     
     public function index(Request $request)
     {
+        
+
+
         $query = DB::table('motorcycles');
+
+        /* $UserRentalQuery = DB::table('loans')->
+        select('rentalDate')->
+        join('motorcycles', 'motorcycles.id', '=','loans.motorcycles_id')->get();
+
+        $UserReturnQuery = DB::table('loans')->
+        select('returnDate')->
+        join('motorcycles', 'motorcycles.id', '=','loans.motorcycles_id')->get(); */
 
         // Feltételek hozzáadása
         if ($request->has('brand')) {
@@ -31,6 +42,9 @@ class MotorcycleController extends Controller
         if ($request->has('location')) {
             $query->where('location', 'LIKE', "_{$request->input('location')}%");
         }
+        /* if ($request->has('dateInterval')) {
+            $UserRentalQuery->where("rentalDate", $request->input())
+        } */
 
         // Lekérdezés végrehajtása
         $motorcycles = $query->get();
