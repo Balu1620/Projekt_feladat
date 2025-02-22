@@ -54,7 +54,7 @@ function shadow() {
     document.getElementById("c4_h5").style.textShadow = "0 0 0px rgb(218, 165, 32)"
   }
 }
-
+/*
 const slider = document.querySelector(".slider");
 
 slider.addEventListener("input", () => {
@@ -64,7 +64,7 @@ slider.addEventListener("input", () => {
         slider.classList.remove("bouncing");
     }, 3000); // 0.3 másodperc után eltűnik az animáció
 });
-
+*/
 
 // Burger menus
 document.addEventListener('DOMContentLoaded', function() {
