@@ -66,43 +66,30 @@ slider.addEventListener("input", () => {
 });
 */
 
-// Burger menus
-document.addEventListener('DOMContentLoaded', function() {
-    // open
-    const burger = document.querySelectorAll('.navbar-burger');
-    const menu = document.querySelectorAll('.navbar-menu');
+//menus
+function setupProfileDropdown(toggleButtonId, menuSelector) {
+   
+}
 
-    if (burger.length && menu.length) {
-        for (var i = 0; i < burger.length; i++) {
-            burger[i].addEventListener('click', function() {
-                for (var j = 0; j < menu.length; j++) {
-                    menu[j].classList.toggle('hidden');
-                }
-            });
-        }
+
+
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const isMenuHidden = menu.classList.contains('hidden');
+    const menuIcons = document.querySelectorAll('.menu-closed, .menu-open');
+
+    // Menü láthatóság váltása
+    if (isMenuHidden) {
+        menu.classList.remove('hidden');
+        menu.classList.add('block');
+    } else {
+        menu.classList.remove('block');
+        menu.classList.add('hidden');
     }
 
-    // close
-    const close = document.querySelectorAll('.navbar-close');
-    const backdrop = document.querySelectorAll('.navbar-backdrop');
-
-    if (close.length) {
-        for (var i = 0; i < close.length; i++) {
-            close[i].addEventListener('click', function() {
-                for (var j = 0; j < menu.length; j++) {
-                    menu[j].classList.toggle('hidden');
-                }
-            });
-        }
-    }
-
-    if (backdrop.length) {
-        for (var i = 0; i < backdrop.length; i++) {
-            backdrop[i].addEventListener('click', function() {
-                for (var j = 0; j < menu.length; j++) {
-                    menu[j].classList.toggle('hidden');
-                }
-            });
-        }
-    }
-});
+    // Ikon váltása
+    menuIcons.forEach((icon) => {
+        icon.classList.toggle('hidden');
+        icon.classList.toggle('block');
+    });
+}
