@@ -27,19 +27,19 @@ class MotorcycleController extends Controller
         join('motorcycles', 'motorcycles.id', '=','loans.motorcycles_id')->get(); */
 
         // Feltételek hozzáadása
-        if ($request->has('brand')) {
+        if ($request->filled('brand')) {
             $query->where('brand', $request->input('brand'));
         }
-        if ($request->has('year')) {
+        if ($request->filled('year')) {
             $query->where('year', $request->input('year'));
         }
-        if ($request->has('gearbox')) {
+        if ($request->filled('gearbox')) {
             $query->where('gearbox', $request->input('gearbox'));
         }
-        if ($request->has('fuel')) {
+        if ($request->filled('fuel')) {
             $query->where('fuel', $request->input('fuel'));
         }
-        if ($request->has('location')) {
+        if ($request->filled('location')) {
             $query->where('location', 'LIKE', "_{$request->input('location')}%");
         }
         /* if ($request->has('dateInterval')) {
