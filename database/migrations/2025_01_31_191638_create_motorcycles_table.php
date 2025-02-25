@@ -27,6 +27,7 @@ return new class extends Migration
             $table->unsignedInteger("deposit");
             $table->date("trafficDate");
             $table->string("location")->nullable();
+            $table->string('image')->default("placeholder.png");
             $table->timestamps();
             $table->softDeletes();
         });
