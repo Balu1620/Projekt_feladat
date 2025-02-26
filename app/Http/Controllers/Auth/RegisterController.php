@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -53,7 +55,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'phoneNumber' => ['required', 'string', 'max:255'],
-            'drivingLicenceNumber'=> ['required', 'string', 'size:8', 'max:255'],
+            'drivingLicenceNumber' => ['required', 'string', 'size:8', 'max:255'],
             'drivingLicenceType' => ['required', 'string', 'max:255'],
             'drivingLicenceImage' => ['required', 'nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048']
         ]);
@@ -67,14 +69,21 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        // Ellenőrizzük, hogy van-e feltöltött fájl
+        if (isset($data['drivingLicenceImage'])) {
+            // A fájl feltöltése és a fájl elérési útjának mentése
+            $filePath = $data['drivingLicenceImage']->store('driving_licence_images', 'public');
+        }
+
+        
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'phoneNumber'=> $data['phoneNumber'],
-            'drivingLicenceNumber'=> $data['drivingLicenceNumber'],
-            'drivingLicenceType'=> $data['drivingLicenceType'],
-            'drivingLicenceImage' => $data['drivingLicenceImage'],
+            'phoneNumber' => $data['phoneNumber'],
+            'drivingLicenceNumber' => $data['drivingLicenceNumber'],
+            'drivingLicenceType' => $data['drivingLicenceType'],
+            'drivingLicenceImage' => isset($filePath) ? $filePath : null, 
         ]);
     }
 }

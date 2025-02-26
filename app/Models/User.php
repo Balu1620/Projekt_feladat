@@ -49,4 +49,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function getDrivingLicenceImagePathAttribute()
+    {
+        return $this->drivingLicenceImage
+            ? asset('storage/' . $this->drivingLicenceImage)
+            : null;
+    }
 }
