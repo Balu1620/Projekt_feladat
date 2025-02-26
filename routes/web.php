@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\MotorcycleAPIController;
 use App\Http\Controllers\MotorcycleController;
 use App\Http\Controllers\ToolController;
@@ -20,7 +21,6 @@ Route::get("/motors/{motor}", [MotorcycleController::class, "show"])->name("moto
 Route::get("/tools", [ToolController::class, "index"])->name("tools.index");
 
 Route::get("/tools/{tool}", [ToolController::class, "show"])->name("tools.show");
-
 
 Route::get('/about', function () {return view('about');})->name('about');
 
