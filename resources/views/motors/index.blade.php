@@ -25,52 +25,56 @@
         <div class="filter offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
             aria-labelledby="offcanvasWithBothOptionsLabel">
             <div class="offcanvas-header">
-                <h4 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Szűrés</h4>
+                <h4 class="offcanvas-title fw-bold" id="offcanvasWithBothOptionsLabel" >Szűrés</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
-                <form method="GET">
+            <form method="GET">
                     <div class="row container-fluid">
-                        <div class="col-12 mb-2">
+                        <div class="col-12 mb-3">
+                            <p class="fw-medium">Márka:</p>
                             <select class="form-control" name="brand">
-                                <option value="" disabled selected>Márka</option>
+                                <option value="" >Nincs kiválasztva</option>
                                 @foreach($brands as $brand)
-                                    <option value="{{ $brand->brand }}">{{ $brand->brand }}</option>
+                                    <option value="{{ $brand->brand }}" {{ request('brand', old('brand')) == $brand->brand ? 'selected' : '' }}>{{ $brand->brand }}</option>
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-12 mb-2">
+                        <div class="col-12 mb-3">
+                            <p class="fw-medium">Kerület:</p>
                             <select class="form-control" name="location">
-                                <option value="" disabled selected>Kerület</option>
+                                <option value="">Nincs kiválasztva</option>
                                 @foreach($locations as $location)
-                                    <option value="{{ $location->location }}">{{ $location->location }}</option>
+                                    <option value="{{ $location->location }}" {{ request('location', old('location')) == $location->location ? 'selected' : '' }}>{{ $location->location }}</option>
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-12 mb-2">
+                        <div class="col-12 mb-3">
+                            <p class="fw-medium">Kor:</p>
                             <select class="form-control" name="year">
-                                <option value="" disabled selected>Kor</option>
+                                <option value="">Nincs kiválasztva</option>
                                 @foreach($years as $year)
-                                    <option value="{{ $year->year }}">{{ $year->year }}</option>
+                                    <option value="{{ $year->year }}" {{ request('year', old('year')) == $year->year ? 'selected' : '' }}>{{ $year->year }}</option>
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-12 mb-2">
+                        <div class="col-12 mb-3">
+                            <p class="fw-medium">Sebesség váltó:</p>
                             <select class="form-control" name="gearbox">
-                                <option value="" disabled selected>Sebesség váltó</option>
+                                <option value="">Nincs kiválasztva</option>
                                 @foreach($gearboxes as $gearbox)
-                                    <option value="{{ $gearbox->gearbox }}">{{ $gearbox->gearbox }}</option>
+                                    <option value="{{ $gearbox->gearbox }}" {{ request('gearbox', old('gearbox')) == $gearbox->gearbox ? 'selected' : '' }}>{{ $gearbox->gearbox }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div id="radio" class="mt-3">
                             <div class="form-check form-switch form-check-reverse text-left">
-                                <label for="B">Benzin:</label>
-                                <input class="form-check-input" type="checkbox" name="fuel" value="B">
+                                <label for="B" class="fw-medium">Benzin:</label>
+                                <input class="form-check-input" type="checkbox" name="fuel" value="B" {{ request('fuel', old('fuel')) == 'B' ? 'checked' : '' }}>
                             </div>
                             <div class="form-check form-switch form-check-reverse">
-                                <label for="E">Elektromos:</label>
-                                <input class="form-check-input" type="checkbox" name="fuel" value="E">
+                                <label for="E" class="fw-medium">Elektromos:</label>
+                                <input class="form-check-input" type="checkbox" name="fuel" value="E" {{ request('fuel', old('fuel')) == 'E' ? 'checked' : '' }}>
                             </div>
                         </div>
                         <div class="col-12 mt-2">
