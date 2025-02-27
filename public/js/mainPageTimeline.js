@@ -93,3 +93,34 @@ function toggleMobileMenu() {
         icon.classList.toggle('block');
     });
 }
+
+
+
+  const slider = document.getElementById("slider");
+  let isAnimating = false; // Animációs állapot figyelése
+
+  slider.addEventListener("mouseenter", function () {
+    if (isAnimating) return; // Ha már fut az animáció, ne induljon újra
+    isAnimating = true;
+
+    slider.classList.add("animate");
+
+    setTimeout(() => {
+      slider.classList.remove("animate");
+      isAnimating = false; // Engedélyezzük az új animációt
+    }, 500); // 0.5 másodperces animáció
+  });
+  
+/*
+  const slider = document.getElementById("slider");
+
+  slider.addEventListener("mouseenter", function () {
+    if (!slider.classList.contains("animate")) {
+      slider.classList.add("animate");
+
+      setTimeout(() => {
+        slider.classList.remove("animate"); // Visszaállítás
+      }, 500); // 0.5 másodperces animáció után
+    }
+  }, { once: true }); // Egyszeri végrehajtás
+*/

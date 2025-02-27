@@ -141,9 +141,9 @@
         <hr>
         <!--         TimeLine       -->
         <section id="timeline_alap">
-            <h3 style="text-align: center; font-size:40px">A motorbérlés menete</h3>
+            <h3 style="text-align: center; ">A motorbérlés menete</h3>
             <div class="slidecontainer ">
-                <input class="slider " id="slider" list="markers" type="range" min="0" max="3" step="1" value="0"
+                <input class="slider" id="slider" list="markers" type="range" min="0" max="3" step="1" value="0"
                     onchange="shadow()">
             </div>
             <div class="timeline">

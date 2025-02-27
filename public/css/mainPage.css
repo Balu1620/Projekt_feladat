@@ -144,7 +144,6 @@ h3 {
 
 .slider {
     -webkit-appearance: none;
-    width: 100vw;
     background: #d3d3d3;
     outline: none;
 }
@@ -158,12 +157,22 @@ input[type="range"] {
     width: 20px;
     border-radius: 20px;
     left: 50%;
+    transition: all 1s ease-in-out;
 }
 
 
 input[type="range"]:hover::-webkit-slider-thumb {
-    background: blueviolet;
+
+    transition: box-shadow 0.1s ease-in-out, transform 0.5s ease-out ;
+    box-shadow: 0px 0px 0px #1e1e1e;
 }
+input[type="range"].animate::-webkit-slider-thumb {
+    /*background-color: black;*/
+    box-shadow: 0px -10px 10px rgba(0, 0, 0, 0.5); /* Box shadow a thumb tetején */
+    transform: translateY(50px);
+    
+  }
+
 
 
 .slider::-webkit-slider-thumb {
