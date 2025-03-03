@@ -11,12 +11,10 @@
     </div>
 
     <div class="money-list">
-            <button class="btn btn-dark">1 nap ~  <span>{{ $motor->price }} Ft</span></button>
-
-            <ul>
-                <li></li>
-                <li></li>
-                <li></li>
+            <ul> 🏍️ Minél tovább bérelsz, annál többet spórolsz! 🏍️
+                <li><b>1 nap ~  <span>{{ number_format($motor->price, 0, '.', ' ') }} Ft</b></li>                    
+                <li><b>3 nap ~  <span>{{ number_format(floor($motor->price * 0.8), 0, '.', ' ') }} Ft</b> (-20%)</li>
+                <li><b>7 nap ~  <span>{{ number_format(FLOOR($motor->price*0.7), 0, '.', ' ') }} Ft</b> (-30%)</li>
             </ul>
     </div>
 
@@ -30,7 +28,7 @@
             <li><i class="fa fa-users"></i> A Jármű {{ $motor->places }} személyes</li>
             <li><i class="fa fa-map-marker-alt"></i> Location {{ $motor->location }}</li>
         </ul>
-
+<hr>
         
 
         <div class="pricing-buttons">
