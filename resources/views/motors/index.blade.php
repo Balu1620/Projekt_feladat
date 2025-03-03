@@ -5,36 +5,32 @@
     <div class="mcontent" id="filter">
         <h2 class="text-center fs-2">A Motorok</h2>
 
-        <div class="flex flex-row gap-20">
+        <div class="flex flex-row gap-1">
 
-        <button class="open-btn btn btn-primary m-4" type="button" data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
-            Szűrés <i class="bi bi-sliders"></i>
-        </button>
+            <button class="open-btn btn btn-primary m-4" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                Szűrés <i class="bi bi-sliders"></i>
+            </button>
 
-        <!-- TODO: Hiba nem működik lekérdezés -->
-        <div class="m-4 ps-60">
-            <div id="myDateRangePickerDisabledDates" name="dateInterval" data-coreui-footer="true" data-coreui-locale="hu"
-                data-coreui-toggle="date-range-picker">
+            <div style="margin-top: 5%;">
+                <input type="datetime-local" id="dateStart">
+
+                <input type="datetime-local" id="dateEnd">
             </div>
-        </div>
-        
-
-        
         </div>
         <div class="filter offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
             aria-labelledby="offcanvasWithBothOptionsLabel">
             <div class="offcanvas-header">
-                <h4 class="offcanvas-title fw-bold" id="offcanvasWithBothOptionsLabel" >Szűrés</h4>
+                <h4 class="offcanvas-title fw-bold" id="offcanvasWithBothOptionsLabel">Szűrés</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
-            <form method="GET">
+                <form method="GET">
                     <div class="row container-fluid">
                         <div class="col-12 mb-3">
                             <p class="fw-medium">Márka:</p>
                             <select class="form-control" name="brand">
-                                <option value="" >Nincs kiválasztva</option>
+                                <option value="">Nincs kiválasztva</option>
                                 @foreach($brands as $brand)
                                     <option value="{{ $brand->brand }}" {{ request('brand', old('brand')) == $brand->brand ? 'selected' : '' }}>{{ $brand->brand }}</option>
                                 @endforeach
@@ -45,7 +41,8 @@
                             <select class="form-control" name="location">
                                 <option value="">Nincs kiválasztva</option>
                                 @foreach($locations as $location)
-                                    <option value="{{ $location->location }}" {{ request('location', old('location')) == $location->location ? 'selected' : '' }}>{{ $location->location }}</option>
+                                    <option value="{{ $location->location }}" {{ request('location', old('location')) == $location->location ? 'selected' : '' }}>{{ $location->location }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>

@@ -14,7 +14,18 @@
     margin-top: 25px;
     margin-bottom: 120px;
 }
+.motor-image{
+    height: 400px;
+    width: 500px;
+}
 
+.money-list {
+
+    margin-right: 500px;
+    margin-top: 20px;
+    font-size: 18px;
+
+}
 .motor-image img {
     width: 100%;
     height: auto;
@@ -32,6 +43,8 @@
     width: 50%;
     line-height: 1.8;
     padding-left: 20px;
+    margin-left: 700px;
+    margin-top: -450px;
 }
 
 .details-text h2 {
