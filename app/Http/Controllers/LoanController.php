@@ -29,7 +29,8 @@ class LoanController extends Controller
     public function store(StoreLoanRequest $request)
     {
         
-        $request->validate([
+         
+         $request->validate([
             'rentalDate' => 'required|date|after_or_equal:today',
             'returnDate' => 'required|date|after:rentalDate',
             'comment' => 'nullable|string|max:255',
@@ -42,11 +43,12 @@ class LoanController extends Controller
             'returnDate' => $request->returnDate,
             'comment' => $request->comment,
             'motorcycles_id' => $request->motorcycles_id,
-            'users_id' => Auth::id(), 
+            'users_id' => Auth::id(), // Bejelentkezett felhasználó ID-ja
+            'status' => 'pending', // Alapértelmezett státusz
         ]);
 
-        
-        return redirect()->route('rentals.success')->with('message', 'A bérlés sikeresen létrejött!');
+        // Visszaigazolás megjelenítése
+        return redirect()->route('rentals.pending')->with('message', 'A bérlési szándékot rögzítettük. Hamarosan visszajelzünk!');
     }
 
     /**
