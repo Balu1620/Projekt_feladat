@@ -29,3 +29,5 @@ Route::get('/location', function () {return view('location');})->name('location'
 Route::get('/privacy', function () {return view('layouts.privacy');})->name('privacy');
 
 Route::get('/termsOfUse', function () {return view('layouts.termsOfUse');})->name('termsOfUse');
+
+Route::get('/summary_page', function () {return view('pages.summary_page');})->name('summary_page');
