@@ -28,7 +28,25 @@ class LoanController extends Controller
      */
     public function store(StoreLoanRequest $request)
     {
-        //
+        
+        $request->validate([
+            'rentalDate' => 'required|date|after_or_equal:today',
+            'returnDate' => 'required|date|after:rentalDate',
+            'comment' => 'nullable|string|max:255',
+            'motorcycles_id' => 'required|exists:motorcycles,id',
+        ]);
+
+        
+        $rental = Loan::create([
+            'rentalDate' => $request->rentalDate,
+            'returnDate' => $request->returnDate,
+            'comment' => $request->comment,
+            'motorcycles_id' => $request->motorcycles_id,
+            'users_id' => Auth::id(), 
+        ]);
+
+        
+        return redirect()->route('rentals.success')->with('message', 'A bérlés sikeresen létrejött!');
     }
 
     /**
