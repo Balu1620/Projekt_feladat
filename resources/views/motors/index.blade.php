@@ -5,20 +5,14 @@
     <div class="mcontent" id="filter">
         <h2 class="text-center fs-2">A Motorok</h2>
 
-        <div class="flex flex-row gap-20">
+        <div class="flex flex-row gap-1">
 
             <button class="open-btn btn btn-primary m-4" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                 Szűrés <i class="bi bi-sliders"></i>
             </button>
 
-            <!-- TODO: Hiba nem működik lekérdezés -->
-            <!-- <div class="m-4 ps-60">
-                <div id="myDateRangePickerDisabledDates" name="dateInterval" data-coreui-footer="true" data-coreui-locale="hu"
-                    data-coreui-toggle="date-range-picker">
-                </div>
-            </div> -->
-            <div>
+            <div style="margin-top: 5%;">
                 <input type="datetime-local" id="dateStart">
 
                 <input type="datetime-local" id="dateEnd">
