@@ -63,7 +63,7 @@
                     </tbody>
                 </table>
             </div>
-            <button type="button" class="btn btn-outline-secondary">Tovább</button>
+            <a href={{ route("summary_page") }}><button type="button" class="btn btn-outline-secondary">Tovább</button></a>
         </form>
     </div>
 
