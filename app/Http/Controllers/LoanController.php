@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Loan;
 use App\Http\Requests\StoreLoanRequest;
 use App\Http\Requests\UpdateLoanRequest;
+use Illuminate\Support\Facades\Auth;
 class LoanController extends Controller
 {
     /**
