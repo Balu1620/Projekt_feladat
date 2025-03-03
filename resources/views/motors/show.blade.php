@@ -9,6 +9,17 @@
     <div class="motor-image">
         <img src="{{ asset('storage/img/placeholder.png') }}" alt="Motor image" />
     </div>
+
+    <div class="money-list">
+            <button class="btn btn-dark">1 nap ~  <span>{{ $motor->price }} Ft</span></button>
+
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+    </div>
+
     <div class="details-text">
         <h2>{{ $motor->brand }} - {{ $motor->type }}</h2>
         <ul>
@@ -19,8 +30,11 @@
             <li><i class="fa fa-users"></i> A Jármű {{ $motor->places }} személyes</li>
             <li><i class="fa fa-map-marker-alt"></i> Location {{ $motor->location }}</li>
         </ul>
+
+        
+
         <div class="pricing-buttons">
-            <a href="{{ route("tools.index") }}"><button class="btn btn-dark">1 nap <span>{{ $motor->price }} Ft</span></button></a>
+            <a href="{{ route("tools.index") }}"><button class="btn btn-dark">Bérlés</button></a>
         </div>
     </div>
 </div>
