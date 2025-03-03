@@ -26,9 +26,6 @@
                                         <option value="0">0 db</option>
                                         <option value="1">1 db</option>
                                         <option value="2">2 db</option>
-                                        <option value="3">3 db</option>
-                                        <option value="4">4 db</option>
-                                        <option value="5">5 db</option>
                                     </select>
                                 </div>
                             </td>
@@ -48,9 +45,6 @@
                                         <option value="0">0 db</option>
                                         <option value="1">1 db</option>
                                         <option value="2">2 db</option>
-                                        <option value="3">3 db</option>
-                                        <option value="4">4 db</option>
-                                        <option value="5">5 db</option>
                                     </select>
                                 </div>
                             </td>
