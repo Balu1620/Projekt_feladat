@@ -57,7 +57,7 @@
                     </tbody>
                 </table>
             </div>
-            <a href={{ route("summary_page") }}><button type="button" class="btn btn-outline-secondary">Tovább</button></a>
+            <a href={{ route("pages.summary_page", ['motor' => $motor->id]) }}><button type="button" class="btn btn-outline-secondary">Tovább</button></a>
         </form>
     </div>
 

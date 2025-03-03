@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Motorcycle;
 use App\Models\Tool;
 use App\Http\Requests\StoreToolRequest;
 use App\Http\Requests\UpdateToolRequest;
@@ -11,11 +12,18 @@ class ToolController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($motor)
     {
-        $tools = Tool::all();
+        // Motor adatainak lekérése az id alapján
+        $motorData = Motorcycle::findOrFail($motor);
 
-        return view('pages.tools', ['tools' => $tools]);
+        // Eszközök lekérése
+        $tools = Tool::all();  // Ez lehet a tools listájának lekérése
+
+        // Motor adatainak és eszközök átadása a nézetnek
+        return view('pages.tools', ['tools' => $tools, 'motor' => $motorData]);
+
+
     }
 
     /**
