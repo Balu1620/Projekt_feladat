@@ -13,9 +13,6 @@ class MotorcycleController extends Controller
     
     public function index(Request $request)
     {
-        
-
-
         $query = DB::table('motorcycles');
 
         /* $UserRentalQuery = DB::table('loans')->

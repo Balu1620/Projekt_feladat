@@ -22,7 +22,7 @@
         <h2>{{ $motor->brand }} - {{ $motor->type }}</h2>
         <ul>
             <li><i class="fa fa-motorcycle"></i> V2-es {{ $motor->brand }} motor</li>
-            <li><i class="fa fa-plug"></i> {{ $motor->power }} LE</li> <!-- A 'fa-plug' ikon -->
+            <li><i class="fa fa-plug"></i> {{ $motor->powerLe }} LE és {{ $motor->powerkW }} kW</li> <!-- A 'fa-plug' ikon -->
             <li><i class="fa fa-calendar-alt"></i> Évjárat: {{ $motor->year }}</li>
             <li><i class="fa fa-cogs"></i> {{ $motor->gearbox }} sebességes váltó</li>
             <li><i class="fa fa-users"></i> A Jármű {{ $motor->places }} személyes</li>

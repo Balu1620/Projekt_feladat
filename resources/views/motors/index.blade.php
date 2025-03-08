@@ -94,7 +94,7 @@
                             </h5>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">{{ $motorcycle->brand }} {{ $motorcycle->type }}</li>
-                                <li class="list-group-item">{{ $motorcycle->power }}</li>
+                                <li class="list-group-item">{{ $motorcycle->powerLe }} LE és {{ $motorcycle->powerkW }} kW</li>
                                 <li class="list-group-item">{{ $motorcycle->gearbox }}</li>
                                 <li class="list-group-item">{{ $motorcycle->location }}</li>
                             </ul>
