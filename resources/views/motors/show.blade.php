@@ -32,7 +32,7 @@
         
 
         <div class="pricing-buttons">
-            <a href="{{ route("tools.index") }}"><button class="btn btn-dark">Bérlés</button></a>
+            <a href="{{ route("tools.index",['motor' => $motor->id]) }}"><button class="btn btn-dark">Bérlés</button></a>
         </div>
     </div>
 </div>

@@ -17,8 +17,11 @@ Route::get("/motors", [MotorcycleController::class, "index"])->name("motors.inde
 
 Route::get("/motors/{motor}", [MotorcycleController::class, "show"])->name("motors.show");
 
+Route::get('motors/{motor}/tools', [ToolController::class, 'index'])->name('tools.index');
 
-Route::get("/tools", [ToolController::class, "index"])->name("tools.index");
+Route::get('motors/{motor}/tools/summary_page', [MotorcycleController::class, 'showData'])->name('pages.summary_page');
+
+//Route::get("/tools", [ToolController::class, "index"])->name("tools.index");
 
 Route::get("/tools/{tool}", [ToolController::class, "show"])->name("tools.show");
 
@@ -30,4 +33,5 @@ Route::get('/privacy', function () {return view('layouts.privacy');})->name('pri
 
 Route::get('/termsOfUse', function () {return view('layouts.termsOfUse');})->name('termsOfUse');
 
-Route::get('/summary_page', function () {return view('pages.summary_page');})->name('summary_page');
+//Route::get('/summary_page', function() {return view('pages.summary_page');})->name('summary_page');
+
