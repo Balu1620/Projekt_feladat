@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -19,8 +18,9 @@ return new class extends Migration
             $table->unsignedSmallInteger("year");
             $table->string("gearbox", 25);
             $table->string("fuel", 1);
-            $table->string("power", 20);
-            $table->float("engineSize");
+            $table->float("powerLe");
+            $table->float("powerkW");
+            $table->float( "engineSize");
             $table->string("drivingLicence", 4);
             $table->unsignedTinyInteger("places");
             $table->unsignedInteger("price");
