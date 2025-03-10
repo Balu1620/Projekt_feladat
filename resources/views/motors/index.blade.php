@@ -5,14 +5,14 @@
     <div class="mcontent" id="filter">
         <h2 class="text-center fs-2">A Motorok</h2>
 
-        <div class="flex flex-row gap-1">
+        <div class="flex flex-row gap-10">
 
             <button class="open-btn btn btn-primary m-4" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                 Szűrés <i class="bi bi-sliders"></i>
             </button>
 
-            <div style="margin-top: 5%;">
+            <div class="content-center self-center">
                 <input type="datetime-local" id="dateStart">
 
                 <input type="datetime-local" id="dateEnd">
