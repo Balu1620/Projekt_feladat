@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Motorcycle;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class MotorcycleAPIController extends Controller
@@ -12,7 +13,7 @@ class MotorcycleAPIController extends Controller
      */
     public function index()
     {
-        return response()->json(Motorcycle::all(), 200);
+        return response()->json(User::all(), 200);
     }
 
     /**
@@ -34,7 +35,7 @@ class MotorcycleAPIController extends Controller
      */
     public function show(string $id)
     {
-        $motor = Motorcycle::find($id);
+        $motor = User::find($id);
         if (!$motor) {
             return response()->json(['message' => 'User not found'], 404);
         }
