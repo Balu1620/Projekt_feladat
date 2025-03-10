@@ -105,11 +105,11 @@ h5{
      height: 40px;
      overflow: hidden;
     border-radius: 50%;
- }
+ }s
   
  .profile-pic img{
     width: 100%;
-    height: auto;
+    height: 25px;
     object-fit: cover;
  }
  .profile-menu .dropdown-menu {
