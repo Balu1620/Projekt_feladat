@@ -7,7 +7,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.motor-image {
+/*.motor-image {  változtas nevet össze akad a motorAbout.css-el
     width: 100%;
     height: 200px;
     background: #ccc;
@@ -18,7 +18,7 @@
     font-weight: bold;
     border: 2px solid #000;
     margin-bottom: 10px;
-}
+}*/
 
 .motor-name {
     text-align: center;

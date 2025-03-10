@@ -204,14 +204,12 @@
     
     .details-text h2 {
         font-size: 28px;
-        color: #333;
         margin-bottom: 10px;
         font-weight: 700;
     }
     
     .details-text p {
         font-size: 18px;
-        color: #777;
         margin-bottom: 20px;
     }
     
@@ -224,15 +222,9 @@
     
     .details-text li {
         font-size: 16px;
-        color: #555;
         margin-bottom: 8px;
         display: flex;
         align-items: center;
-    }
-    
-    .details-text li i {
-        margin-right: 10px;
-        color: #ffcc00;
     }
 }
 
@@ -300,12 +292,6 @@
     .pricing-buttons button {
         font-size: 13px;
         width: 130px;
-        height: 40px;
-    }
-
-    .vissza{
-        font-size: 11px;
-        width: 120px;
         height: 40px;
     }
 }
@@ -378,7 +364,9 @@
 
     .vissza{
         font-size: 10px;
-        width: 110px;
+        width: 130px;
         height: 40px;
     }
+
+    
 }
