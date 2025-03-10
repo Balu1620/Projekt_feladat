@@ -75,6 +75,10 @@
     object-fit: cover;
 }
 
+#motorabouthr{
+    border: 3px solid black ;
+}
+
 .blueDots {
     position: absolute;
     top: 150px;

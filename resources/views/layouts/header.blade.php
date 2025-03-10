@@ -90,16 +90,33 @@
           </svg>
         </button>
 
-        <!-- Profile dropdown -->
-        <div class="relative ml-3">
-          <div>
-            <button type="button" onclick="setupProfileDropdown()" class="relative flex rounded-full bg-gray-800 text-sm focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                <span class="absolute -inset-1.5"></span>
-                <span class="sr-only">Open user menu</span>
-                <img class="size-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-            </button>
-          </div>
-        </div>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 profile-menu"> 
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="profile-pic">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Profile Picture">
+             </div>
+         
+          
+
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            @guest
+            <li><a class="dropdown-item" href="{{ route('login') }}"><i class="fas fa-sliders-h fa-fw"></i> Bejelentkezs</a><li>
+            <li><a class="dropdown-item" href="{{ route('register') }}"><i class="fas fa-cog fa-fw"></i> Regisztráció</a></li>
+            @endguest
+            <li><a class="dropdown-item" href="#"><i class="fas fa-cog fa-fw"></i> Beállítások</a></li> 
+            @auth
+            
+            <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+              document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt fa-fw"></i>Kijelentkezés</a></li>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+              @csrf
+              </form>
+            @endauth
+          </ul>
+        </li>
+      </ul>  
       </div>
     </div>
   </div>
