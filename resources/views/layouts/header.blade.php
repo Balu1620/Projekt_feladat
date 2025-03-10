@@ -86,7 +86,6 @@
 
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 profile-menu"> 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <div class="profile-pic">
                 <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="Profile Picture">
              </div>
