@@ -56,7 +56,8 @@ class RegisterController extends Controller
             'phoneNumber' => ['required', 'string', 'max:255'],
             'drivingLicenceNumber' => ['required', 'string', 'size:8', 'max:255'],
             'drivingLicenceType' => ['required', 'string', 'max:255'],
-            'drivingLicenceImage' => ['required', 'nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048']
+            'drivingLicenceImage' => ['required', 'nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
+            'drivingLicenceImageBack' => ['required', 'nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048']
         ]);
     }
 
@@ -69,9 +70,10 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         // Ellenőrizzük, hogy van-e feltöltött fájl
-        if (isset($data['drivingLicenceImage'])) {
+        if (isset($data['drivingLicenceImage']) && isset($data['drivingLicenceImageBack'])) {
             // A fájl feltöltése és a fájl elérési útjának mentése
             $filePath = $data['drivingLicenceImage']->store('driving_licence_images', 'public');
+            $filePathBack = $data['drivingLicenceImageBack']->store('driving_licence_images', 'public');
         }
 
         
@@ -83,6 +85,7 @@ class RegisterController extends Controller
             'drivingLicenceNumber' => $data['drivingLicenceNumber'],
             'drivingLicenceType' => $data['drivingLicenceType'],
             'drivingLicenceImage' => isset($filePath) ? $filePath : null, 
+            'drivingLicenceImageBack' => isset($filePathBack) ? $filePathBack : null, 
         ]);
     }
 }

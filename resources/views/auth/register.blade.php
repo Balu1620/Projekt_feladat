@@ -150,7 +150,7 @@
 
                         <div class="row mb-3">
                             <label for="drivingLicenceImage" class="col-md-4 col-form-label text-md-end">Jogosítvány
-                                kártya feltöltés</label>
+                                kártya Eleje</label>
 
                             <div class="col-md-6">
                                 <input id="drivingLicenceImage" type="file"
@@ -159,6 +159,24 @@
                                     autocomplete="drivingLicenceImage" autofocus>
 
                                 @error('drivingLicenceImage')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="drivingLicenceImage" class="col-md-4 col-form-label text-md-end">Jogosítvány
+                                kártya Hátulja</label>
+
+                            <div class="col-md-6">
+                                <input id="drivingLicenceImageBack" type="file"
+                                    class="form-control @error('drivingLicenceImageBack') is-invalid @enderror"
+                                    name="drivingLicenceImageBack" value="{{ old('drivingLicenceImageBack') }}" required
+                                    autocomplete="drivingLicenceImageBack" autofocus>
+
+                                @error('drivingLicenceImageBack')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
