@@ -13,9 +13,8 @@
             </button>
 
             <div class="content-center self-center">
-                <input type="datetime-local" id="dateStart">
 
-                <input type="datetime-local" id="dateEnd">
+
             </div>
         </div>
         <div class="filter offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
@@ -74,8 +73,18 @@
                                 <input class="form-check-input" type="checkbox" name="fuel" value="E" {{ request('fuel', old('fuel')) == 'E' ? 'checked' : '' }}>
                             </div>
                         </div>
+                        <div class="my-3 w-full text-center">
+                            <div class="mb-2 ">
+                                <span>Kölcsönzés kezdete: </span><input type="date" value="def" id="dateStart">
+                            </div>
+                            
+                            <div>
+                                <span>Kölcsönzés vége: </span> <input type="date" id="dateEnd">
+                            </div>
+                            
+                        </div>
                         <div class="col-12 mt-2">
-                            <button class="btn btn-secondary w-100">Szűrés</button>
+                            <button class="btn btn-secondary w-100" onclick="date()">Szűrés</button>
                         </div>
                     </div>
                 </form>
