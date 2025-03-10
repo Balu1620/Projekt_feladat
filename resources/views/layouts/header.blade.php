@@ -45,6 +45,7 @@
 	'public/css/privacy.css',
 	'public/css/location.css',
 	'public/css/tools.css',
+  'public/css/loan.css',
 ])
 
 </head>

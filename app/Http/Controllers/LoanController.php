@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Loan;
 use App\Http\Requests\StoreLoanRequest;
 use App\Http\Requests\UpdateLoanRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 class LoanController extends Controller
 {
@@ -29,16 +30,16 @@ class LoanController extends Controller
      */
     public function store(StoreLoanRequest $request)
     {
-        
-         
-         $request->validate([
+
+
+        $request->validate([
             'rentalDate' => 'required|date|after_or_equal:today',
             'returnDate' => 'required|date|after:rentalDate',
             'comment' => 'nullable|string|max:255',
             'motorcycles_id' => 'required|exists:motorcycles,id',
         ]);
 
-        
+
         $rental = Loan::create([
             'rentalDate' => $request->rentalDate,
             'returnDate' => $request->returnDate,
