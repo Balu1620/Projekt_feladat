@@ -76,6 +76,8 @@
           <img class="redDots" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/cw3.svg">
         </div>
           <div class="csatlakozz-hozzank">
+            <hr id="motorabouthr">
+            <br>
             <h1>🚀 Csatlakozz hozzánk, és fedezd fel a motorozás új élményét!</h1>
             <p>A <strong>Motorkirálya</strong> nemcsak egy motorbérlő szolgáltatás, hanem egy <strong>kényelmes, modern és közösségközpontú megoldás</strong> azok számára, akik gyorsan és rugalmasan szeretnének közlekedni. 🏍️</p>
             
