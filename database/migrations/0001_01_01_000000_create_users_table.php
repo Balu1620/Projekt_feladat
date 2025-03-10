@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string("drivingLicenceNumber");
             $table->string("drivingLicenceType");
             $table->string('drivingLicenceImage')->nullable();
+            $table->string('drivingLicenceImageBack')->nullable();
 
             $table->rememberToken();
             $table->timestamps();

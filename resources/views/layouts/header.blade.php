@@ -86,6 +86,7 @@
 
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 profile-menu"> 
         <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <div class="profile-pic">
                 <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="Profile Picture">
              </div>
@@ -93,8 +94,8 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             @guest
-            <li><a class="dropdown-item" href="{{ route('login') }}"><i class="fas fa-sliders-h fa-fw"></i> Bejelentkezs</a><li>
-            <li><a class="dropdown-item" href="{{ route('register') }}"><i class="fas fa-cog fa-fw"></i> Regisztráció</a></li>
+            <li><a class="dropdown-item" href="{{ route('login') }}"><i class="bi bi-person-circle"></i> Bejelentkezés</a><li>
+            <li><a class="dropdown-item" href="{{ route('register') }}"><i class="bi bi-person-add"></i> Regisztráció</a></li>
             @endguest
             <li><a class="dropdown-item" href="#"><i class="fas fa-cog fa-fw"></i> Beállítások</a></li> 
             @auth
