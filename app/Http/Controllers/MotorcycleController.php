@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Motorcycle;
 use App\Http\Requests\StoreMotorcycleRequest;
 use App\Http\Requests\UpdateMotorcycleRequest;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -97,13 +98,53 @@ class MotorcycleController extends Controller
      * Display the specified resource.
      */
 
-    public function showData(Motorcycle $motor, Request $request){
-        //NE SZEDDDDDD KIIIIIIIIII
-        $sisakdb = $request->query('sisakdb');
-        $ruhadb = $request->query('ruhadb');
-        
-        return view('pages.summary_page', compact('motor', 'sisakdb', 'ruhadb'));
-
+     public function showData(Motorcycle $motor, Request $request)
+     {
+         //NE SZEDDDDDD KIIIIIIIIII
+         $sisakdb = $request->query('sisakdb');
+         $ruhadb = $request->query('ruhadb');
+     
+         $startDateRaw = $request->query('date-range-picker-start-date-myDateRangePickerDisabledDates');
+         $endDateRaw = $request->query('date-range-picker-end-date-myDateRangePickerDisabledDates');
+         $startDate = Carbon::createFromFormat('Y. m. d.', $startDateRaw);
+         $endDate = Carbon::createFromFormat('Y. m. d.', $endDateRaw);
+     
+         if ($startDate && $endDate) {
+             // Napok száma kiszámítása
+             $days = $startDate->diffInDays($endDate) + 1; // Mindkét napot beleszámítjuk
+     
+             // Motor napi ár
+             $dailyPrice = $motor->price;
+     
+             // Motor alapár kiszámítása
+             $motorBasePrice = $days * $dailyPrice;
+     
+             // Sisak árak
+             $helmetDeposit = 20000;
+             $helmetDailyPrice = 5000;
+             $helmetCost = $sisakdb * ($helmetDeposit + ($days * $helmetDailyPrice));
+     
+             // Ruházat árak
+             $clothingDeposit = 30000;
+             $clothingDailyPrice = 10000;
+             $clothingCost = $ruhadb * ($clothingDeposit + ($days * $clothingDailyPrice));
+     
+             // Alapár (motor + eszközök)
+             $basePrice = $motorBasePrice + $helmetCost + $clothingCost;
+     
+             // Kedvezmény kiszámítása
+             $discount = 0;
+             if ($days >= 7) {
+                 $discount = $basePrice * 0.30; // 30% kedvezmény
+             } elseif ($days >= 3) {
+                 $discount = $basePrice * 0.20; // 20% kedvezmény
+             }
+     
+             // Fizetendő ár
+             $payable = $basePrice - $discount;
+     
+             return view('pages.summary_page', compact('motor', 'sisakdb', 'ruhadb', 'startDate', 'endDate', 'startDateRaw', 'endDateRaw', 'discount', 'payable', 'basePrice', 'helmetCost', 'clothingCost', 'helmetDeposit', 'clothingDeposit', 'clothingDailyPrice', 'helmetDailyPrice'));
+         }
      }
     public function show($id)
     {

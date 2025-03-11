@@ -1,52 +1,77 @@
-#filter .filter{
+.modal-footer {
+    display: flex;
+    justify-content: space-between;  
+    width: 100%;
+}
+
+.modal-footer p {
+    margin: 0; 
+    text-align: left;  
+    flex-grow: 1;  
+}
+
+.modal-footer button {
+    margin-left: 10px;  
+}
+
+.modal-body {
+    font-size: 16px;
+    text-align: center;
+}
+
+#filter .filter {
     width: 250px;
 }
-.mCard{
+
+.mCard {
     margin-left: auto;
     margin-right: auto;
 }
-.motorGrid{
+
+.motorGrid {
     display: grid;
     grid-template-columns: auto auto auto auto auto;
 }
 
-.brand{
-    font-weight:900;
+.brand {
+    font-weight: 900;
 }
 
-@media screen and (max-width: 576px){
-    .motorGrid{
+@media screen and (max-width: 576px) {
+    .motorGrid {
         display: grid;
         grid-template-columns: auto;
     }
 }
 
-@media screen and (min-width: 578px) and (max-width: 999px){
-    .motorGrid{
+@media screen and (min-width: 578px) and (max-width: 999px) {
+    .motorGrid {
         display: grid;
         grid-template-columns: auto auto;
     }
 }
 
-@media screen and (min-width: 1000px) and (max-width: 1024px){
-    .motorGrid{
+@media screen and (min-width: 1000px) and (max-width: 1024px) {
+    .motorGrid {
         display: grid;
         grid-template-columns: auto auto;
     }
 }
-@media screen and (min-width: 1025px) and (max-width: 1400px){
-    .motorGrid{
+
+@media screen and (min-width: 1025px) and (max-width: 1400px) {
+    .motorGrid {
         display: grid;
         grid-template-columns: auto auto auto;
     }
 }
-@media screen and (min-width: 1401px) and (max-width: 2000px){
-    .motorGrid{
+
+@media screen and (min-width: 1401px) and (max-width: 2000px) {
+    .motorGrid {
         display: grid;
         grid-template-columns: auto auto auto auto;
     }
 }
 
-.form-check-reverse{
+.form-check-reverse {
     text-align: start;
 }
