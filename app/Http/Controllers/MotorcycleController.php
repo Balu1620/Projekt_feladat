@@ -97,11 +97,13 @@ class MotorcycleController extends Controller
      * Display the specified resource.
      */
 
-    public function showData($id){
-        $motor = Motorcycle::findOrFail($id); 
-        return view('pages.summary_page', compact('motor'));
-        //NEHOGY KISZEDJ!!!!!!!!!!!!!!!!!!!!
-        //A fő bérléshez kell, külön írtam hozzá egy functiont mert máshogy csak átdobott a showra.
+    public function showData(Motorcycle $motor, Request $request){
+        //NE SZEDDDDDD KIIIIIIIIII
+        $sisakdb = $request->query('sisakdb');
+        $ruhadb = $request->query('ruhadb');
+        
+        return view('pages.summary_page', compact('motor', 'sisakdb', 'ruhadb'));
+
      }
     public function show($id)
     {

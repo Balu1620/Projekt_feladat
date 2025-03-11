@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="container" id="loanContainer">
         <div class="motor-image">
             <img src="{{ asset('storage/img/placeholder.png') }}" alt="">
         </div>
