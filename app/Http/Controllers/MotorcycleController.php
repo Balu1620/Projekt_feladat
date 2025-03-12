@@ -101,15 +101,15 @@ class MotorcycleController extends Controller
     public function showData(Motorcycle $motor, Request $request)
     {
         //NE SZEDDDDDD KIIIIIIIIII
-        $sisakdb = $request->query('sisakdb');
-        $ruhadb = $request->query('ruhadb');
+        $sisakdb = $request->query('sisakdb', 0);
+        $ruhadb = $request->query('ruhadb', 0);
 
         $startDateRaw = $request->query('date-range-picker-start-date-myDateRangePickerDisabledDates');
         $endDateRaw = $request->query('date-range-picker-end-date-myDateRangePickerDisabledDates');
         $startDate = Carbon::createFromFormat('Y. m. d.', $startDateRaw);
         $endDate = Carbon::createFromFormat('Y. m. d.', $endDateRaw);
-        $sisakmeret = $request->input('sisakmeret'); 
-        $ruhameret = $request->input('ruhameret');
+        $sisakmeret = $request->input('sisakmeret', []); 
+        $ruhameret = $request->input('ruhameret', []);
 
         if ($startDate && $endDate) {
             //Napok száma kiszámítása
