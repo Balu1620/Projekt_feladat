@@ -38,7 +38,7 @@
         <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header" style="background-color: #333; color: white;">
+                    <div class="modal-header" style="background-color: #6F6C6C; color: white;">
                         <h5 class="modal-title" id="loginModalLabel">Bejelentkezés szükséges</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
