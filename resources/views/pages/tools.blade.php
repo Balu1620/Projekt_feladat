@@ -21,7 +21,7 @@
                         </td>
                         <td>
                             <div>
-                                <select name="sisakdb" id="sisakdb">
+                                <select name="sisakdb" id="sisakdb" onchange="sisakmeret()">
                                     <option value="" disabled selected>Darabszám</option>
                                     <option value="0">0 db</option>
                                     <option value="1">1 db</option>
@@ -29,19 +29,25 @@
                                 </select>
                             </div>
                         </td>
+                        <td id="Ssize" style="display: none" class="flex flex-row ">
+                            
+                        </td>
                     </tr>
 
                     <tr class="text-center">
                         <td>Protektoros ruhák</td>
                         <td>
                             <div>
-                                <select name="ruhadb" id="ruhadb">
+                                <select name="ruhadb" id="ruhadb" onchange="ruhameret()">
                                     <option value="" disabled selected>Darabszám</option>
                                     <option value="0">0 db</option>
                                     <option value="1">1 db</option>
                                     <option value="2">2 db</option>
                                 </select>
                             </div>
+                        </td>
+                        <td id="Rsize" style="display: none" class="flex flex-row ">
+                            
                         </td>
                     </tr>
                 </tbody>
