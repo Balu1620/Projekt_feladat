@@ -138,8 +138,16 @@ class MotorcycleController extends Controller
 
             $payable = $basePrice - $discount;
 
-            return view('pages.summary_page', compact('motor', 'sisakdb', 'ruhadb', 'startDate', 'endDate', 'startDateRaw', 'endDateRaw', 'discount', 'payable', 'basePrice', 'helmetCost', 'clothingCost', 'helmetDeposit', 'clothingDeposit', 'clothingDailyPrice', 'helmetDailyPrice', 'sisakmeret', 'ruhameret'));
+            return app(LoanController::class)->processData(
+                $motor, $sisakdb, $ruhadb, $startDate, $endDate, 
+                $startDateRaw, $endDateRaw, $discount, $payable, 
+                $basePrice, $helmetCost, $clothingCost, 
+                $helmetDeposit, $clothingDeposit, $clothingDailyPrice, 
+                $helmetDailyPrice, $sisakmeret, $ruhameret
+            );
+
         }
+        
     }
     public function show($id)
     {

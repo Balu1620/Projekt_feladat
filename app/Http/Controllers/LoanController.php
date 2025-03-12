@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Loan;
 use App\Http\Requests\StoreLoanRequest;
 use App\Http\Requests\UpdateLoanRequest;
+use App\Models\Motorcycle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 class LoanController extends Controller
@@ -17,6 +18,19 @@ class LoanController extends Controller
         //
     }
 
+    public function processData(
+        $motor, $sisakdb, $ruhadb, $startDate, $endDate,
+        $startDateRaw, $endDateRaw, $discount, $payable, $basePrice,
+        $helmetCost, $clothingCost, $helmetDeposit, $clothingDeposit,
+        $clothingDailyPrice, $helmetDailyPrice, $sisakmeret, $ruhameret
+    ) {
+        return view('pages.summary_page', compact(
+            'motor', 'sisakdb', 'ruhadb', 'startDate', 'endDate',
+            'startDateRaw', 'endDateRaw', 'discount', 'payable', 'basePrice',
+            'helmetCost', 'clothingCost', 'helmetDeposit', 'clothingDeposit',
+            'clothingDailyPrice', 'helmetDailyPrice', 'sisakmeret', 'ruhameret'
+        ));
+    }
     /**
      * Show the form for creating a new resource.
      */
