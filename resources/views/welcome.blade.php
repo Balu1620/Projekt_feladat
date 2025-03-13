@@ -151,13 +151,12 @@
                     <div class="content" id="c1">
                         <h5 class="timeright" id="c1_h5">Első Lépés</h5>
                         <hr class="line" id="line1">
-                        <h2>Foglás</h2>
-                        <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum,
-                            vim ea
-                            mazim
-                            fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo
-                            iusto primis
-                            ea eam.
+                        <h2>Regisztráció vagy bejelentkezés</h2><br>
+                        <p>A bérlés előtt először regisztrálnod kell a weboldalon, 
+                            ha még nem rendelkezel fiókkal. A regisztráció során add
+                            meg a szükséges adatokat, mint pl:. neved, e-mail címed,
+                            valamint a jogosítványod azonosítóját és kategóriáját.
+                            Ha már van fiókod, egyszerűen bejelentkezhetsz.
                         </p>
                     </div>
                 </div>
@@ -165,13 +164,13 @@
                     <div class="content" id="c2">
                         <h5 id="c2_h5">Második Lépés</h5>
                         <hr class="line" id="line2">
-                        <h2>2016</h2>
-                        <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum,
-                            vim ea
-                            mazim
-                            fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo
-                            iusto primis
-                            ea eam.
+                        <h2>Motor kiválasztása és bérlési időpont</h2><br>
+                        <p>A bérlés folyamata rugalmas, így először kiválaszthatod a
+                            motor márkáját, majd a kívánt bérlési időpontot. 
+                            Az időpontot később is módosíthatod, ha a motor 
+                            kiválasztása után szeretnél időpontot állítani. Fontos, 
+                            hogy figyelj a motor <b>teljesítményére, kényelmére</b> és a saját
+                            <b>vezetési tapasztalatodra</b>.
                         </p>
                     </div>
                 </div>
@@ -179,26 +178,24 @@
                     <div class="content " id="c3">
                         <h5 id="c3_h5">Harmadik Lépés</h5>
                         <hr class="line" id="line3">
-                        <h2>2015</h2>
-                        <p>Lorem ipsum dolor sit amet, quo ei55555555654656 656 456 6456 456 262626255555555555555555
-                            simul
-                            congue
-                            exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret
-                            expetendis his,
-                            te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+                        <h2>Ruházat kölcsönzése</h2><br>
+                        <p>A biztonság érdekében motoros ruházatot is kölcsönözhetsz. 
+                            Válaszd ki a megfelelő méretet a szükséges védőfelszerelésekhez,
+                             például bukósisakhoz, motoros ruhához és csizmához. Bár nem 
+                             kötelező, de erősen ajánlott, ha nincs saját motoros ruházatod.
+                        </p>
                     </div>
                 </div>
                 <div class="container right">
                     <div class="content " id="c4">
                         <h5 id="c4_h5">Utolsó Lépés</h5>
                         <hr class="line" id="line4">
-                        <h2>2012</h2>
-                        <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum,
-                            vim ea
-                            mazim
-                            fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo
-                            iusto primis
-                            ea eam.
+                        <h2>Számla ellenőrzése és fizetés</h2><br>
+                        <p>A bérlés véglegesítése előtt ellenőrizd a kiválasztott motor és 
+                            időpont részleteit. A fizetés <b>online történik</b>, bankkártyás vagy 
+                            átutalásos lehetőséggel. A sikeres tranzakció után visszaigazolást 
+                            kapsz, amely tartalmazza az átvételi helyszínt és időpontot. Ezzel 
+                            már fel is veheted a motort, és élvezheted a motorozást! 🏍️
                         </p>
                     </div>
                 </div>

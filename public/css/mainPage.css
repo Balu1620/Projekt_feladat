@@ -191,7 +191,10 @@ input[type="range"].animate::-webkit-slider-thumb {
     background-color: inherit;
     width: 30vw;
     height: 100%;
-}
+    background-color: white;
+/*  még eldöl mi lesz. sorkizárt vagy nem?
+     text-align: justify;
+ */}
 
 .left {
     right: 25%;
