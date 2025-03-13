@@ -1,16 +1,25 @@
 @extends('layouts.header')
 
 @section('content')
+    <div class="container" id="finalContainer">
+        <p>Start Date: {{ $startDate->format('Y-m-d') }}</p>
+        <p>End Date: {{ $endDate->format('Y-m-d') }}</p>
 
-    <H1>Sikeres Fizetés</H1>
+        <h3>Matching Tool IDs:</h3>
+        @foreach ($matchingToolIds as $toolId)
+            <p>{{ $toolId }}</p>
+        @endforeach
 
-    <form action="{{ route("loan.store") }}" method="post">
-    @csrf
+        <div>
+            <p>Sisak: {{ count($sisakmeret) }} db</p>
+            @if(count($sisakmeret) > 0)
+                <ul>
+                    @foreach($sisakmeret as $index => $size)
+                        <li>Sisak {{ $index + 1 }}: Méret - {{ $size }}</li>
+                    @endforeach
+                </ul>
+            @endif
+        </div>
 
-        <p>{{ session("Loandata")->rentalDate }}</p>
-
-        <input type="submit" class="btn btn-danger" value="Vissza">
-    </form>
-
-
+    </div>
 @endsection

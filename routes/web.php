@@ -37,3 +37,7 @@ Route::get('/termsOfUse', function () {return view('layouts.termsOfUse');})->nam
 
 //Route::get('/summary_page', function() {return view('pages.summary_page');})->name('summary_page');
 
+Route::post('motors/{motor}/tools/summary_page/final_page', [MotorcycleController::class, 'store'])->name('pages.final_page');
+
+
+

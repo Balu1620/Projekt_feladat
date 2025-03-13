@@ -18,19 +18,6 @@ class LoanController extends Controller
         //
     }
 
-    public function processData(
-        $motor, $sisakdb, $ruhadb, $startDate, $endDate,
-        $startDateRaw, $endDateRaw, $discount, $payable, $basePrice,
-        $helmetCost, $clothingCost, $helmetDeposit, $clothingDeposit,
-        $clothingDailyPrice, $helmetDailyPrice, $sisakmeret, $ruhameret
-    ) {
-        return view('pages.summary_page', compact(
-            'motor', 'sisakdb', 'ruhadb', 'startDate', 'endDate',
-            'startDateRaw', 'endDateRaw', 'discount', 'payable', 'basePrice',
-            'helmetCost', 'clothingCost', 'helmetDeposit', 'clothingDeposit',
-            'clothingDailyPrice', 'helmetDailyPrice', 'sisakmeret', 'ruhameret'
-        ));
-    }
     /**
      * Show the form for creating a new resource.
      */
@@ -44,23 +31,12 @@ class LoanController extends Controller
      */
     public function store(StoreLoanRequest $request)
     {
-
-
-        $request->validate([
-            'rentalDate' => 'required|date|after_or_equal:today',
-            'returnDate' => 'required|date|after:rentalDate',
-            'comment' => 'nullable|string|max:255',
-            'motorcycles_id' => 'required|exists:motorcycles,id',
-        ]);
-
-
         $rental = Loan::create([
             'rentalDate' => $request->rentalDate,
             'returnDate' => $request->returnDate,
-            'comment' => $request->comment,
             'motorcycles_id' => $request->motorcycles_id,
-            'users_id' => Auth::id(), // Bejelentkezett felhasználó ID-ja
-            'status' => 'pending', // Alapértelmezett státusz
+            'users_id' => Auth::id(), 
+             
         ]);
 
         // Visszaigazolás megjelenítése

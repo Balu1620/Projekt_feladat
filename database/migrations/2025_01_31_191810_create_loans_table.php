@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->date("rentalDate");
             $table->date("returnDate");
-            $table->longText("comment");
             $table->timestamps();
         });
     }

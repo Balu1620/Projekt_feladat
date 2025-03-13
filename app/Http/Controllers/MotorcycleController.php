@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DeviceSwitch;
 use App\Models\Motorcycle;
 use App\Http\Requests\StoreMotorcycleRequest;
 use App\Http\Requests\UpdateMotorcycleRequest;
+use App\Models\MotorRental;
+use App\Models\Tool;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MotorcycleController extends Controller
 {
@@ -89,10 +93,105 @@ class MotorcycleController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreMotorcycleRequest $request)
+    public function store($motorId)
     {
-        //
+        $userId = Auth::id();
+
+        $startDate = session('startDate');
+        $endDate = session('endDate');
+
+        $sisakdb = session('sisakdb');
+        $ruhadb = session('ruhadb');
+
+        $sisakmeret = session('sisakmeret');
+        $ruhameret = session('ruhameret');
+
+        $motorRental = new MotorRental();
+        $motorRental->users_id = $userId;
+        $motorRental->motorcycles_id = $motorId;
+        $motorRental->rentalDate = $startDate;
+        $motorRental->returnDate = $endDate;
+
+
+        $motorRental->save();
+
+        $loanId = 1;  //Példaként egy statikus érték.
+        //BÁLINT CSAK EZT KELL!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+        $tools = DB::table('tools')->get();
+
+
+        $matchingToolIds = [];
+
+
+        if ($ruhadb >= 1 && $sisakdb >= 1) {
+
+            foreach ($tools as $tool) {
+                
+                if ($tool->name == 'Sisak' && in_array($tool->size, $sisakmeret)) {
+                    $matchingToolIds[] = $tool->id;  
+                }
+               
+                if ($tool->name == 'Protektoros Ruha' && in_array($tool->size, $ruhameret)) {
+                    $matchingToolIds[] = $tool->id;  
+                }
+            }
+        }
+
+        foreach ($matchingToolIds as $toolId) {
+
+            $device_switches = new DeviceSwitch();
+            $device_switches->loans_id = $loanId;
+            $device_switches->tools_id = $toolId;
+            $device_switches->save();
+
+        }
+
+        dd($matchingToolIds);
+
+
+        return view('pages.final_page', ['motorId' => $motorId, 'startDate' => $startDate, 'endDate' => $endDate, 'matchingToolIds' => $matchingToolIds, 'sisakdb' => $sisakdb, 'sisakmeret' => $sisakmeret]);
     }
+
+    /*
+    public function ToolsId()
+    {
+        $sisakdb = session('sisakdb');
+        $ruhadb = session('ruhadb');
+
+        $sisakmeret = session('sisakmeret');
+        $ruhameret = session('ruhameret');
+
+        $tools = DB::table('tools')->get();
+
+
+        $matchingToolIds = [];
+
+        
+        if ($ruhadb >= 1 && $sisakdb >= 1) {
+
+            foreach ($tools as $tool) {
+        
+                // Ha a tool neve 'Sisak' és a méret megegyezik a keresett mérettel
+                if ($tool->name == 'Sisak' && $tool->size == $sisakmeret) {
+                    $matchingToolIds[] = $tool->id;  // Hozzáadjuk a tool id-ját
+                }
+        
+                // Ha a tool neve 'Protektoros Ruha' és a méret megegyezik a keresett mérettel
+                if ($tool->name == 'Protektoros Ruha' && $tool->size == $ruhameret) {
+                    $matchingToolIds[] = $tool->id;  // Hozzáadjuk a tool id-ját
+                }
+        
+            }
+        }
+        
+
+        session(['matchingToolIds' => $matchingToolIds]);
+
+    }
+    */
+
 
     /**
      * Display the specified resource.
@@ -108,12 +207,12 @@ class MotorcycleController extends Controller
         $endDateRaw = $request->query('date-range-picker-end-date-myDateRangePickerDisabledDates');
         $startDate = Carbon::createFromFormat('Y. m. d.', $startDateRaw);
         $endDate = Carbon::createFromFormat('Y. m. d.', $endDateRaw);
-        $sisakmeret = $request->input('sisakmeret', []); 
+        $sisakmeret = $request->input('sisakmeret', []);
         $ruhameret = $request->input('ruhameret', []);
 
         if ($startDate && $endDate) {
             //Napok száma kiszámítása
-            $days = $startDate->diffInDays($endDate) + 1; 
+            $days = $startDate->diffInDays($endDate) + 1;
 
             $dailyPrice = $motor->price;
 
@@ -131,24 +230,32 @@ class MotorcycleController extends Controller
 
             $discount = 0;
             if ($days >= 7) {
-                $discount = $basePrice * 0.30; 
+                $discount = $basePrice * 0.30;
             } elseif ($days >= 3) {
-                $discount = $basePrice * 0.20; 
+                $discount = $basePrice * 0.20;
             }
 
             $payable = $basePrice - $discount;
 
-            return app(LoanController::class)->processData(
-                $motor, $sisakdb, $ruhadb, $startDate, $endDate, 
-                $startDateRaw, $endDateRaw, $discount, $payable, 
-                $basePrice, $helmetCost, $clothingCost, 
-                $helmetDeposit, $clothingDeposit, $clothingDailyPrice, 
-                $helmetDailyPrice, $sisakmeret, $ruhameret
-            );
+
+            session([
+                'startDate' => $startDate,
+                'endDate' => $endDate,
+                'sisakdb' => $sisakdb,
+                'ruhadb' => $ruhadb,
+                'sisakmeret' => $sisakmeret,
+                'ruhameret' => $ruhameret
+            ]);
+
+
+            return view('pages.summary_page', compact('motor', 'sisakdb', 'ruhadb', 'startDate', 'endDate', 'startDateRaw', 'endDateRaw', 'discount', 'payable', 'basePrice', 'helmetCost', 'clothingCost', 'helmetDeposit', 'clothingDeposit', 'clothingDailyPrice', 'helmetDailyPrice', 'sisakmeret', 'ruhameret'));
+
+
 
         }
-        
+
     }
+
     public function show($id)
     {
         $motor = Motorcycle::findOrFail($id);
