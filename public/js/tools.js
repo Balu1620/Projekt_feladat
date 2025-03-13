@@ -1,15 +1,17 @@
 function sisakmeret() {
     let sdb = parseInt(document.getElementById("sisakdb").value) || 0;
-
     let list = document.getElementById("Ssize");
-
-
-    list.innerHTML = ""; // Régi elemek törlése
-
+    list.innerHTML = ""; 
+    if (sdb === 0) {
+        list.style.display = "none";
+    } else {
+        list.style.display = "flex";
+    }
     for (let index = 0; index < sdb; index++) {
         const select = document.createElement("select");
+        select.name = `sisakmeret[${index}]`; 
 
-        ["M", "L", "XL", "2XL", "3XL"].forEach(size => {
+        ["S", "M", "L", "XL", "2XL"].forEach(size => {
             let option = document.createElement("option");
             option.value = size;
             option.textContent = size;
@@ -22,15 +24,18 @@ function sisakmeret() {
 
 function ruhameret() {
     let sdb = parseInt(document.getElementById("ruhadb").value) || 0;
-
     let list = document.getElementById("Rsize");
-
-    list.innerHTML = ""; // Régi elemek törlése
-
+    list.innerHTML = ""; 
+    if (sdb === 0) {
+        list.style.display = "none";
+    } else {
+        list.style.display = "flex";
+    }
     for (let index = 0; index < sdb; index++) {
         const select = document.createElement("select");
+        select.name = `ruhameret[${index}]`; 
 
-        ["M", "L", "XL", "2XL", "3XL"].forEach(size => {
+        ["S", "M", "L", "XL", "2XL"].forEach(size => {
             let option = document.createElement("option");
             option.value = size;
             option.textContent = size;
