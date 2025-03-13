@@ -33,7 +33,7 @@
                                 <p>&#10555;</p>
                             </div>
                             <div class="flip-card-back">
-                                <p>Magas minőségű kabrióktól a prémium SUV-okig</p>
+                                <p>Nagy teljesítményű sportmotoroktól a kényelmes túrázókig.</p>
                                 <p>&#10554;</p>
                             </div>
                         </div>
