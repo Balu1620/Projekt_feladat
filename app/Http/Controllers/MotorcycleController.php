@@ -115,7 +115,7 @@ class MotorcycleController extends Controller
 
         $motorRental->save();
 
-        $loanId = 1;  //Példaként egy statikus érték.
+        //Példaként egy statikus érték.
         //BÁLINT CSAK EZT KELL!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
@@ -138,11 +138,13 @@ class MotorcycleController extends Controller
                 }
             }
         }
+        $maxId = DB::table('loans')->max('id');
+
 
         foreach ($matchingToolIds as $toolId) {
 
             $device_switches = new DeviceSwitch();
-            $device_switches->loans_id = $loanId;
+            $device_switches->loans_id = $maxId;
             $device_switches->tools_id = $toolId;
             $device_switches->save();
 
