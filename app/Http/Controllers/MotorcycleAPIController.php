@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DeviceSwitch;
+use App\Models\Loan;
 use App\Models\Motorcycle;
+use App\Models\Tool;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -13,7 +16,16 @@ class MotorcycleAPIController extends Controller
      */
     public function index()
     {
-        return response()->json(User::all(), 200);
+        $loans = Loan::all();
+        $users = User::all();
+        
+
+       
+        return response()->json([
+            'loans' => $loans,
+            'users' => $users,
+            "msg" => "sikeres lekérés"
+        ]);
     }
 
     /**
@@ -21,11 +33,6 @@ class MotorcycleAPIController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users'
-        ]);
-
         $user = Motorcycle::create($request->all());
         return response()->json($user, 201);
     }

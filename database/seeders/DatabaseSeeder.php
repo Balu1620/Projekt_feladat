@@ -24,7 +24,8 @@ class DatabaseSeeder extends Seeder
             'phoneNumber' => '06202222222',
             'drivingLicenceNumber' => 'NE2321',
             'drivingLicenceType' => 'B1',
-            'drivingLicenceImage' => 'placeholder.jpg'
+            'drivingLicenceImage' => 'placeholder.jpg',
+            'drivingLicenceImageBack' => 'placeholder.jpg'
         ]);
 
         Admin::factory()->create([

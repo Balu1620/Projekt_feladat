@@ -21,8 +21,8 @@ return new class extends Migration
             $table->string("phoneNumber");
             $table->string("drivingLicenceNumber");
             $table->string("drivingLicenceType");
-            $table->string('drivingLicenceImage')->nullable();
-            $table->string('drivingLicenceImageBack')->nullable();
+            $table->string('drivingLicenceImage');
+            $table->string('drivingLicenceImageBack');
 
             $table->rememberToken();
             $table->timestamps();
