@@ -56,4 +56,9 @@ class User extends Authenticatable
             ? asset('storage/' . $this->drivingLicenceImage)
             : null;
     }
+
+    public function loans()
+    {
+        return $this->hasMany(Loan::class, 'user_id');
+    }
 }
