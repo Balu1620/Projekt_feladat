@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\LoanController;
-use App\Http\Controllers\MotorcycleAPIController;
 use App\Http\Controllers\MotorcycleController;
 use App\Http\Controllers\ToolController;
 use Illuminate\Support\Facades\Route;
