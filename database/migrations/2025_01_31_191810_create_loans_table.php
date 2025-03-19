@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->date("rentalDate");
             $table->date("returnDate");
+            $table->boolean("gaveDown")->default(false);
             $table->timestamps();
         });
     }

@@ -14,7 +14,6 @@ class MotorcycleSeeder extends Seeder
     public function run(): void
     {
         DB::table('motorcycles')->insert([
-
             [
                 'brand' => 'Aprilia',
                 'type' => 'Caponord 1200',

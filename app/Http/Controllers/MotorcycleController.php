@@ -111,7 +111,9 @@ class MotorcycleController extends Controller
         $motorRental->motorcycles_id = $motorId;
         $motorRental->rentalDate = $startDate;
         $motorRental->returnDate = $endDate;
-
+        //----- Bálint -----
+        $motorRental->gaveDown = 0;
+        //----- Bálint -----
 
         $motorRental->save();
 

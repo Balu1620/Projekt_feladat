@@ -27,7 +27,7 @@
                                 </select>
                             </div>
                         </td>
-                        <td id="Ssize" style="display: none" class="flex flex-row">     
+                        <td id="Ssize" style="display: none" class="flex flex-row justify-around">     
                         </td>
                     </tr>
 
@@ -44,7 +44,23 @@
                                 </select>
                             </div>
                         </td>
-                        <td id="Rsize" style="display: none" class="flex flex-row">                            
+                        <td id="Rsize" style="display: none" class="flex flex-row justify-around">                            
+                        </td>
+                    </tr>
+
+                    <tr class="text-center">
+                        <td>Cipő</td>
+                        <td>
+                            <div>
+                                <select name="cipodb" id="cipodb" onchange="cipomeret()">
+                                    <option value="" disabled selected>Darabszám</option>
+                                    <option value="0">0 db/pár</option>
+                                    <option value="1">1 db/pár</option>
+                                    <option value="2">2 db/pár</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td id="Csize" style="display: none" class="flex flex-row justify-around">                            
                         </td>
                     </tr>
                 </tbody>
