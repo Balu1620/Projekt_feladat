@@ -134,19 +134,7 @@
   </div>
 </nav>
 
-@if (auth()->check() && !auth()->user()->email_verified_at)
-    <div style="background-color: #ffc107; color: #000; padding: 10px; text-align: center;">
-        <p>
-            Az email-címed még nincs megerősítve! 
-            <form method="POST" action="{{ route('verification.send') }}" style="display: inline;">
-                @csrf
-                <button type="submit" style="background: none; border: none; color: #007bff; text-decoration: underline; cursor: pointer;">
-                    Kattints ide az újraküldéshez
-                </button>
-            </form>
-        </p>
-    </div>
-@endif
+
 
 
 	
