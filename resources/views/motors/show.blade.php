@@ -8,7 +8,7 @@
     </div>
     <div class="motor-details">
         <div class="motor-image">
-            <img src="{{ asset('storage/img/apriliamana_013.jpg') }}" alt="Motor image" />
+            <img src="{{ asset('storage/motor_images/' . $motor->image) }}" alt="Motor image" />
         </div>
 
         <div class="details-text">

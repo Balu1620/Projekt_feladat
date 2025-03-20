@@ -1,0 +1,186 @@
+/* Alapstílusok */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+/* Rendelés összesítő konténer */
+.order-summary-container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Cím stílusa */
+.order-summary-container h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Összesítő doboz */
+.summary-box {
+    text-align: left;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Rendelési információk */
+.order-info {
+    margin-bottom: 20px;
+}
+
+.order-info h2 {
+    font-size: 18px;
+    margin-top: 0;
+}
+
+.order-info p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+/* Rendelt termékek */
+.order-items {
+    margin-bottom: 20px;
+}
+
+.order-items h2 {
+    font-size: 18px;
+    margin-top: 0;
+}
+
+.order-items ul {
+    list-style: none;
+    padding: 0;
+}
+
+.order-items li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.order-items li:last-child {
+    border-bottom: none;
+}
+
+.order-items span {
+    font-size: 16px;
+}
+
+/* Összesítés */
+.order-total {
+    margin-bottom: 20px;
+}
+
+.order-total h2 {
+    font-size: 18px;
+    margin-top: 0;
+}
+
+.order-total p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+/* Gomb stílusa */
+.confirm-button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.confirm-button:hover {
+    background-color: #45a049;
+}
+
+/* További információk */
+.additional-info {
+    margin-top: 20px;
+}
+
+.additional-info p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+/* Motor és felhasználói információk */
+.motor-and-user-info {
+    text-align: left;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.motor-and-user-info h2 {
+    font-size: 18px;
+    margin-top: 0;
+}
+
+.motor-and-user-info p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+/* Motor kép stílusa */
+.motor-image {
+    width: 200%; /* Kitölti az oszlop teljes szélességét */
+    height: 380px; /* Állítsd be a kívánt magasságot */
+    margin-left: 100px;
+    margin-right: 100px;
+    
+}   
+
+.motor-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px; /* Lekerekített sarkok */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Árnyék a kép alatt */
+}
+
+/* További információk (jobb alsó sarok) */
+.additional-info {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.additional-info h3 {
+    font-size: 18px;
+    color: #333;
+}
+
+.additional-info p {
+    font-size: 14px;
+    color: #555;
+}
+
+.additional-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.additional-info ul li {
+    font-size: 14px;
+    color: #555;
+}
+
+

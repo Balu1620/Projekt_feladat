@@ -102,13 +102,11 @@ class MotorcycleController extends Controller
 
         $sisakdb = session('sisakdb');
         $ruhadb = session('ruhadb');
+        $cipodb = session('cipodb');
 
         $sisakmeret = session('sisakmeret');
         $ruhameret = session('ruhameret');
-
-        $cipodb = session('cipodb');
         $cipomeret = session('cipomeret');
-
         $motorRental = new MotorRental();
         $motorRental->users_id = $userId;
         $motorRental->motorcycles_id = $motorId;
@@ -123,43 +121,54 @@ class MotorcycleController extends Controller
         //Példaként egy statikus érték.
         //BÁLINT CSAK EZT KELL!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-
-        $tools = DB::table('tools')->get();
-
-
         $matchingToolIds = [];
-
-
-        if ($ruhadb >= 1 && $sisakdb >= 1 && $cipodb >=1) {
+        // Ellenőrizzük, hogy legalább egy eszköz meg van-e adva
+        if ($ruhadb >= 1 || $sisakdb >= 1 || $cipodb >= 1) {
+            // Lekérjük az összes eszközt az adatbázisból
+            $tools = DB::table('tools')->get();
+            
 
             foreach ($tools as $tool) {
-                
-                if ($tool->name == 'Sisak' && in_array($tool->size, $sisakmeret)) {
-                    $matchingToolIds[] = $tool->id;  
+                // Sisak ellenőrzés
+                if ($tool->name === 'Sisak' && in_array($tool->size, $sisakmeret)) {
+                    $count = array_count_values($sisakmeret)[$tool->size] ?? 0; // Számoljuk, hányszor kell ez a méret
+                    for ($i = 0; $i < $count; $i++) {
+                        $matchingToolIds[] = $tool->id;
+                    }
                 }
-               
-                if ($tool->name == 'Protektoros Ruha' && in_array($tool->size, $ruhameret)) {
-                    $matchingToolIds[] = $tool->id;  
+
+                // Ruházat ellenőrzés
+                if ($tool->name === 'Protektoros Ruha' && in_array($tool->size, $ruhameret)) {
+                    $count = array_count_values($ruhameret)[$tool->size] ?? 0; // Számoljuk, hányszor kell ez a méret
+                    for ($i = 0; $i < $count; $i++) {
+                        $matchingToolIds[] = $tool->id;
+                    }
                 }
-                
-                if($tool->name == 'Cipő' && in_array($tool->size, $cipomeret)) {
-                    $matchingToolIds[] = $tool->id;
+
+                // Cipő ellenőrzés
+                if ($tool->name === 'Cipő' && in_array($tool->size, $cipomeret)) {
+                    $count = array_count_values($cipomeret)[$tool->size] ?? 0; // Számoljuk, hányszor kell ez a méret
+                    for ($i = 0; $i < $count; $i++) {
+                        $matchingToolIds[] = $tool->id;
+                    }
                 }
             }
-        }
-        $maxId = DB::table('loans')->max('id');
 
+            // Lekérjük a legnagyobb kölcsönzés ID-t
+            $maxLoanId = DB::table('loans')->max('id');
 
-        foreach ($matchingToolIds as $toolId) {
+            // A megfelelő eszközök hozzárendelése a kölcsönzéshez
+            foreach ($matchingToolIds as $toolId) {
+                DeviceSwitch::create([
+                    'loans_id' => $maxLoanId,
+                    'tools_id' => $toolId,
+                ]);
+            }
 
-            $device_switches = new DeviceSwitch();
-            $device_switches->loans_id = $maxId;
-            $device_switches->tools_id = $toolId;
-            $device_switches->save();
+            // Ellenőrzés céljából kiírjuk a megfelelő eszközök ID-it
+            dd($matchingToolIds);
+        } 
 
-        }
-
-        dd($matchingToolIds);
 
 
         return view('pages.final_page', ['motorId' => $motorId, 'startDate' => $startDate, 'endDate' => $endDate, 'matchingToolIds' => $matchingToolIds, 'sisakdb' => $sisakdb, 'sisakmeret' => $sisakmeret, 'cipodb' => $cipodb, 'cipomeret' => $cipomeret]);
@@ -174,13 +183,18 @@ class MotorcycleController extends Controller
         $sisakmeret = session('sisakmeret');
         $ruhameret = session('ruhameret');
 
+        $cipodb = session('cipodb');
+        $cipomeret = session('cipomeret');
+
+
+
         $tools = DB::table('tools')->get();
 
 
         $matchingToolIds = [];
 
         
-        if ($ruhadb >= 1 && $sisakdb >= 1) {
+        if ($ruhadb >= 1 && $sisakdb >= 1 && $cipodb >= 1) {
 
             foreach ($tools as $tool) {
         
@@ -193,6 +207,10 @@ class MotorcycleController extends Controller
                 if ($tool->name == 'Protektoros Ruha' && $tool->size == $ruhameret) {
                     $matchingToolIds[] = $tool->id;  // Hozzáadjuk a tool id-ját
                 }
+
+                if ($tool->name == 'Cipő' && $tool->size == $cipomeret) {
+                    $matchingToolIds[] = $tool->id;  // Hozzáadjuk a tool id-ját
+                }
         
             }
         }
@@ -202,6 +220,7 @@ class MotorcycleController extends Controller
 
     }
     */
+
 
 
     /**
@@ -231,7 +250,7 @@ class MotorcycleController extends Controller
 
             $motorBasePrice = $days * $dailyPrice;
 
-            
+
             $helmetDeposit = 20000;
             $helmetDailyPrice = 5000;
             $helmetCost = $sisakdb * ($helmetDeposit + ($days * $helmetDailyPrice));
@@ -268,7 +287,7 @@ class MotorcycleController extends Controller
             ]);
 
 
-            return view('pages.summary_page', compact('motor', 'sisakdb', 'ruhadb', 'cipodb', 'startDate', 'endDate', 'startDateRaw', 'endDateRaw', 'discount', 'payable', 'basePrice', 'helmetCost','bootCost', 'clothingCost', 'helmetDeposit', 'clothingDeposit', 'bootDeposit', 'clothingDailyPrice', 'helmetDailyPrice', 'bootDailyPrice', 'sisakmeret', 'ruhameret', 'cipomeret'));
+            return view('pages.summary_page', compact('motor', 'sisakdb', 'ruhadb', 'cipodb', 'startDate', 'endDate', 'startDateRaw', 'endDateRaw', 'discount', 'payable', 'basePrice', 'helmetCost', 'bootCost', 'clothingCost', 'helmetDeposit', 'clothingDeposit', 'bootDeposit', 'clothingDailyPrice', 'helmetDailyPrice', 'bootDailyPrice', 'sisakmeret', 'ruhameret', 'cipomeret'));
 
 
 

@@ -46,6 +46,7 @@
 	'public/css/location.css',
 	'public/css/tools.css',
   'public/css/loan.css',
+  'public/css/finalPage.css',
 ])
 
 </head>
