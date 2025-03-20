@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateLoanRequest;
+use App\Models\DeviceSwitch;
+use App\Models\Loan;
 use App\Models\Motorcycle;
+use App\Models\Tool;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -13,7 +17,19 @@ class MotorcycleAPIController extends Controller
      */
     public function index()
     {
-        return response()->json(User::all(), 200);
+    
+        // Minden kölcsönzési adat lekérése
+        $loans = Loan::with('motorcycle', 'user')->get();
+
+        // Minden felhasználó adatainak lekérése
+        //$deviceSwitches = DeviceSwitch::with('tool')->get();
+
+       
+        return response()->json([
+            'loans' => $loans,
+            //'users' => $deviceSwitches,
+            //"msg" => "sikeres lekérés",
+        ]);
     }
 
     /**
@@ -21,11 +37,6 @@ class MotorcycleAPIController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users'
-        ]);
-
         $user = Motorcycle::create($request->all());
         return response()->json($user, 201);
     }
@@ -45,15 +56,10 @@ class MotorcycleAPIController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateLoanRequest $request, Loan $loan)
     {
-        $motor = Motorcycle::find($id);
-        if (!$motor) {
-            return response()->json(['message' => 'User not found'], 404);
-        }
-
-        $motor->update($request->all());
-        return response()->json($motor, 200);
+        $loan->update($request->only(['gaveDown']));
+        return response()->json([$loan->id, $loan->gaveDown, "msg" => "sikeres Frissités!!!"]);
     }
 
     /**

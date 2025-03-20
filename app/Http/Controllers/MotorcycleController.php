@@ -106,16 +106,21 @@ class MotorcycleController extends Controller
         $sisakmeret = session('sisakmeret');
         $ruhameret = session('ruhameret');
 
+        $cipodb = session('cipodb');
+        $cipomeret = session('cipomeret');
+
         $motorRental = new MotorRental();
         $motorRental->users_id = $userId;
         $motorRental->motorcycles_id = $motorId;
         $motorRental->rentalDate = $startDate;
         $motorRental->returnDate = $endDate;
-
+        //----- Bálint -----
+        $motorRental->gaveDown = 0;
+        //----- Bálint -----
 
         $motorRental->save();
 
-        $loanId = 1;  //Példaként egy statikus érték.
+        //Példaként egy statikus érték.
         //BÁLINT CSAK EZT KELL!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
@@ -125,7 +130,7 @@ class MotorcycleController extends Controller
         $matchingToolIds = [];
 
 
-        if ($ruhadb >= 1 && $sisakdb >= 1) {
+        if ($ruhadb >= 1 && $sisakdb >= 1 && $cipodb >=1) {
 
             foreach ($tools as $tool) {
                 
@@ -136,13 +141,19 @@ class MotorcycleController extends Controller
                 if ($tool->name == 'Protektoros Ruha' && in_array($tool->size, $ruhameret)) {
                     $matchingToolIds[] = $tool->id;  
                 }
+                
+                if($tool->name == 'Cipő' && in_array($tool->size, $cipomeret)) {
+                    $matchingToolIds[] = $tool->id;
+                }
             }
         }
+        $maxId = DB::table('loans')->max('id');
+
 
         foreach ($matchingToolIds as $toolId) {
 
             $device_switches = new DeviceSwitch();
-            $device_switches->loans_id = $loanId;
+            $device_switches->loans_id = $maxId;
             $device_switches->tools_id = $toolId;
             $device_switches->save();
 
@@ -151,7 +162,7 @@ class MotorcycleController extends Controller
         dd($matchingToolIds);
 
 
-        return view('pages.final_page', ['motorId' => $motorId, 'startDate' => $startDate, 'endDate' => $endDate, 'matchingToolIds' => $matchingToolIds, 'sisakdb' => $sisakdb, 'sisakmeret' => $sisakmeret]);
+        return view('pages.final_page', ['motorId' => $motorId, 'startDate' => $startDate, 'endDate' => $endDate, 'matchingToolIds' => $matchingToolIds, 'sisakdb' => $sisakdb, 'sisakmeret' => $sisakmeret, 'cipodb' => $cipodb, 'cipomeret' => $cipomeret]);
     }
 
     /*
@@ -202,6 +213,7 @@ class MotorcycleController extends Controller
         //NE SZEDDDDDD KIIIIIIIIII
         $sisakdb = $request->query('sisakdb', 0);
         $ruhadb = $request->query('ruhadb', 0);
+        $cipodb = $request->query('cipodb', 0);
 
         $startDateRaw = $request->query('date-range-picker-start-date-myDateRangePickerDisabledDates');
         $endDateRaw = $request->query('date-range-picker-end-date-myDateRangePickerDisabledDates');
@@ -209,6 +221,7 @@ class MotorcycleController extends Controller
         $endDate = Carbon::createFromFormat('Y. m. d.', $endDateRaw);
         $sisakmeret = $request->input('sisakmeret', []);
         $ruhameret = $request->input('ruhameret', []);
+        $cipomeret = $request->input('cipomeret', []);
 
         if ($startDate && $endDate) {
             //Napok száma kiszámítása
@@ -218,15 +231,20 @@ class MotorcycleController extends Controller
 
             $motorBasePrice = $days * $dailyPrice;
 
+            
             $helmetDeposit = 20000;
             $helmetDailyPrice = 5000;
             $helmetCost = $sisakdb * ($helmetDeposit + ($days * $helmetDailyPrice));
+
+            $bootDeposit = 25000;
+            $bootDailyPrice = 8000;
+            $bootCost = $cipodb * ($bootDeposit + ($days * $bootDailyPrice));
 
             $clothingDeposit = 30000;
             $clothingDailyPrice = 10000;
             $clothingCost = $ruhadb * ($clothingDeposit + ($days * $clothingDailyPrice));
 
-            $basePrice = $motorBasePrice + $helmetCost + $clothingCost;
+            $basePrice = $motorBasePrice + $helmetCost + $clothingCost + $bootCost;
 
             $discount = 0;
             if ($days >= 7) {
@@ -244,11 +262,13 @@ class MotorcycleController extends Controller
                 'sisakdb' => $sisakdb,
                 'ruhadb' => $ruhadb,
                 'sisakmeret' => $sisakmeret,
-                'ruhameret' => $ruhameret
+                'ruhameret' => $ruhameret,
+                'cipodb' => $cipodb,
+                'cipomeret' => $cipomeret
             ]);
 
 
-            return view('pages.summary_page', compact('motor', 'sisakdb', 'ruhadb', 'startDate', 'endDate', 'startDateRaw', 'endDateRaw', 'discount', 'payable', 'basePrice', 'helmetCost', 'clothingCost', 'helmetDeposit', 'clothingDeposit', 'clothingDailyPrice', 'helmetDailyPrice', 'sisakmeret', 'ruhameret'));
+            return view('pages.summary_page', compact('motor', 'sisakdb', 'ruhadb', 'cipodb', 'startDate', 'endDate', 'startDateRaw', 'endDateRaw', 'discount', 'payable', 'basePrice', 'helmetCost','bootCost', 'clothingCost', 'helmetDeposit', 'clothingDeposit', 'bootDeposit', 'clothingDailyPrice', 'helmetDailyPrice', 'bootDailyPrice', 'sisakmeret', 'ruhameret', 'cipomeret'));
 
 
 

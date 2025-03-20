@@ -2,10 +2,10 @@
 
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\LoanController;
-use App\Http\Controllers\MotorcycleAPIController;
 use App\Http\Controllers\MotorcycleController;
 use App\Http\Controllers\ToolController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 Route::get('/', function () {return view('welcome');});
 
@@ -38,6 +38,5 @@ Route::get('/termsOfUse', function () {return view('layouts.termsOfUse');})->nam
 //Route::get('/summary_page', function() {return view('pages.summary_page');})->name('summary_page');
 
 Route::post('motors/{motor}/tools/summary_page/final_page', [MotorcycleController::class, 'store'])->name('pages.final_page');
-
 
 

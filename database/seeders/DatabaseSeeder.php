@@ -24,12 +24,15 @@ class DatabaseSeeder extends Seeder
             'phoneNumber' => '06202222222',
             'drivingLicenceNumber' => 'NE2321',
             'drivingLicenceType' => 'B1',
-            'drivingLicenceImage' => 'placeholder.jpg'
+            'drivingLicenceImage' => 'placeholder.jpg',
+            'drivingLicenceImageBack' => 'placeholder.jpg'
         ]);
 
         Admin::factory()->create([
             'email' => "admin@gmail.com",
-            'password' => 'alma.1234'
+            'password' => 'alma.1234',
+            'administrator' => 0,
+            'deactivation' => false
         ]);
 
         $this->call([

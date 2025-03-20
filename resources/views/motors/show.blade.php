@@ -3,8 +3,8 @@
 @section('content')
 
     <div class="ms-10 mt-5">
-        <a href="{{ url()->previous() }}" class="btn btn-primary vissza"><i class="bi bi-arrow-left"></i> View Back All
-            Categories</a>
+        <a href="{{ url()->previous() }}" class="btn btn-primary vissza"><i class="bi bi-arrow-left"></i> Vissza az előző
+            oldalra</a>
     </div>
     <div class="motor-details">
         <div class="motor-image">
@@ -16,7 +16,6 @@
             <ul>
                 <li><i class="fa fa-motorcycle"></i> V2-es {{ $motor->brand }} motor</li>
                 <li><i class="fa fa-plug"></i> {{ $motor->powerLe }} LE és {{ $motor->powerkW }} kW</li>
-                <!-- A 'fa-plug' ikon -->
                 <li><i class="fa fa-calendar-alt"></i> Évjárat: {{ $motor->year }}</li>
                 <li><i class="fa fa-cogs"></i> {{ $motor->gearbox }} sebességes váltó</li>
                 <li><i class="fa fa-users"></i> A Jármű {{ $motor->places }} személyes</li>
@@ -25,14 +24,45 @@
             <hr>
             <div class="pricing-buttons">
                 @auth
-                    <a href="{{ route('tools.index', ['motor' => $motor->id]) }}">
-                        <button class="btn btn-dark">Bérlés</button>
-                    </a>
+                    @if (auth()->user()->email_verified_at)
+                        <a href="{{ route('tools.index', ['motor' => $motor->id]) }}">
+                            <button class="btn btn-dark">Bérlés</button>
+                        </a>
+                    @else
+                        <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#verifyEmailModal">Bérlés</button>
+                    @endif
                 @else
                     <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#loginModal">Bérlés</button>
                 @endauth
             </div>
         </div>
+
+
+
+        <!-- Ha a felhasználó nem erősítette meg az emailjét. -->
+        <div class="modal fade" id="verifyEmailModal" tabindex="-1" aria-labelledby="verifyEmailModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="verifyEmailModalLabel">Email-cím megerősítése</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Kérjük, erősítse meg az email-címét a további használathoz!</p>
+                        <p>Amennyiben nem kapta meg az emailt, kattintson az alábbi gombra az újraküldéshez.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <form method="POST" action="{{ route('verification.send') }}">
+                            @csrf
+                            <button type="submit" class="btn btn-primary">Email újraküldése</button>
+                        </form>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Mégse</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        Í
 
         <!-- Hibaüzenet ha nincs bejelentkezve a felhasználó -->
         <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
