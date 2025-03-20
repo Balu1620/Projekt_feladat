@@ -15,7 +15,8 @@ class Loan extends Model
         'returnDate',
         'comment',
         'motorcycles_id',
-        'users_id',  
+        'users_id', 
+        'gaveDown' 
     ];
 
     

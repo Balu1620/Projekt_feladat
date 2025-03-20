@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateLoanRequest;
 use App\Models\DeviceSwitch;
 use App\Models\Loan;
 use App\Models\Motorcycle;
@@ -55,15 +56,10 @@ class MotorcycleAPIController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateLoanRequest $request, Loan $loan)
     {
-        $motor = Motorcycle::find($id);
-        if (!$motor) {
-            return response()->json(['message' => 'User not found'], 404);
-        }
-
-        $motor->update($request->all());
-        return response()->json($motor, 200);
+        $loan->update($request->only(['gaveDown']));
+        return response()->json([$loan->id, $loan->gaveDown, "msg" => "sikeres Frissités!!!"]);
     }
 
     /**

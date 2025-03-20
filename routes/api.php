@@ -16,4 +16,5 @@ Route::post("/proba", function(){
     return response()->json();
 });*/
 
-Route::get('usersData', [MotorcycleAPIController::class, 'index'])->name('apiUsers.index');
+Route::get('usersData', [MotorcycleAPIController::class, 'index']);
+Route::put('usersData/{loan}', [MotorcycleAPIController::class, 'update']);
