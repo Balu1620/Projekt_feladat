@@ -156,7 +156,7 @@
                             ha még nem rendelkezel fiókkal. A regisztráció során add
                             meg a szükséges adatokat, mint pl:. neved, e-mail címed,
                             valamint a jogosítványod azonosítóját és kategóriáját.
-                            Ha már van fiókod, egyszerűen bejelentkezhetsz.szia
+                            Ha már van fiókod, egyszerűen bejelentkezhetsz.
                         </p>
                     </div>
                 </div>
