@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="container toolssz" >
     <form action="{{ route('pages.summary_page', ['motor' => $motor->id]) }}" method="GET">
 
         <div class="x-flex justify-center">
@@ -15,9 +15,9 @@
             <table class="table table-danger">
                 <tbody>
                     
-                    <tr class="text-center">
-                        <td>Sisakok:</td>
-                        <td>
+                    <tr class="text-center" >
+                        <td class="firstcolum">Sisakok:</td>
+                        <td class="lastcolum">
                             <div>
                                 <select name="sisakdb" id="sisakdb" onchange="sisakmeret()">
                                     <option value="" disabled selected>Darabszám</option>
@@ -30,11 +30,10 @@
                         <td id="Ssize" style="display: none" class="flex flex-row justify-around">     
                         </td>
                     </tr>
-
-                    
+                    <tr class="spacer"><td colspan="3"></td></tr> <!-- Üres hely -->
                     <tr class="text-center">
-                        <td>Protektoros ruhák</td>
-                        <td>
+                        <td class="firstcolum">Protektoros ruhák</td>
+                        <td class="lastcolum">
                             <div>
                                 <select name="ruhadb" id="ruhadb" onchange="ruhameret()">
                                     <option value="" disabled selected>Darabszám</option>
@@ -47,10 +46,10 @@
                         <td id="Rsize" style="display: none" class="flex flex-row justify-around">                            
                         </td>
                     </tr>
-
+                    <tr class="spacer"><td colspan="3"></td></tr> <!-- Üres hely -->
                     <tr class="text-center">
-                        <td>Cipő</td>
-                        <td>
+                        <td class="firstcolum">Cipő</td>
+                        <td class="lastcolum">
                             <div>
                                 <select name="cipodb" id="cipodb" onchange="cipomeret()">
                                     <option value="" disabled selected>Darabszám</option>

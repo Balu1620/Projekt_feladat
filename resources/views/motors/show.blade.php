@@ -62,7 +62,7 @@
                 </div>
             </div>
         </div>
-        Í
+        
 
         <!-- Hibaüzenet ha nincs bejelentkezve a felhasználó -->
         <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
