@@ -87,7 +87,7 @@
         </button>
 
         @auth
-          <h2 class="text-gray-200 mr-3">Hi {{auth()->user()->name}}</h2>
+          <h2 class="text-gray-200 mr-3">Szia! {{auth()->user()->name}}</h2>
           @endauth
           @guest
           <h2 class="text-gray-200 mr-3"></h2>

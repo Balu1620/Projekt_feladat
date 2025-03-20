@@ -15,9 +15,10 @@
                         <h3>Termékek</h3>
                         <br>
                         <p><small>A sisak napi ára: <strong>{{ $helmetDailyPrice }}</strong> Ft-nak felel meg.</small></p>
-                        <p><small>A ruházat napi ára: <strong>{{ $clothingDailyPrice }}</strong> Ft-nak felel meg.</small>
-                        </p>
-                        <p><small>A sisak és a ruházatért kauciót számítunk fel, mely <strong>{{ $helmetDeposit }}</strong>
+                        <p><small>A ruházat napi ára: <strong>{{ $clothingDailyPrice }}</strong> Ft-nak felel meg.</small></p>
+                        <p><small>A cipők napi ára: <strong>{{ $bootDailyPrice }}</strong>Ft-nak felel meg</small></p>
+                        
+                        <p><small>A sisak, cipőért és a ruházatért kauciót számítunk fel, mely <strong>{{ $helmetDeposit }}, {{ $bootDeposit }}</strong>
                                 és <strong>{{ $clothingDeposit }}</strong> Ft.</small></p>
                         <br>
                         <p>Motor: {{ $motor->brand }} - {{ $motor->type }}</p>
@@ -44,6 +45,17 @@
                             @endif
                         </div>
 
+                        <div>
+                            <p>Cipők: {{ count($cipomeret) }} db</p>
+                            @if(count($cipomeret) > 0)
+                                <ul>
+                                    @foreach($cipomeret as $index => $size)
+                                        <li>Cipők {{ $index + 1 }}: Méret - {{ $size }}</li>
+                                    @endforeach
+                                </ul>
+                            @endif
+                        </div>
+
                         <br>
                         <p>Kezdő dátum: {{ $startDateRaw }}</p>
                         <p>Végső Dátum: {{ $endDateRaw }}</p>
@@ -55,10 +67,20 @@
                     <div class="summary">
                         <h3>Összesítés</h3>
                         <p>Motor napi összeg: <span id="total">{{ number_format($motor->price, 0, '.', ' ') }}</span> Ft</p>
-                        <p><small><strong>Sisak költsége:</strong> {{ number_format($helmetCost, 0, '.', ' ') }} Ft</small>
-                        </p>
-                        <p><small><strong>Ruházat költsége:</strong> {{ number_format($clothingCost, 0, '.', ' ') }}
-                                Ft</small></p>
+                        @if($helmetCost > 0)
+                            <p><small><strong>Sisak költsége:</strong> {{ number_format($helmetCost, 0, '.', ' ') }} Ft</small>
+                            </p>
+                        @endif
+                        @if($clothingCost > 0)
+                            <p><small><strong>Ruházat költsége:</strong> {{ number_format($clothingCost, 0, '.', ' ') }}
+                                    Ft</small></p>
+                        @endif
+                        @if ($bootCost > 0)
+                            <p><small><strong>Cipők költsége:</strong> {{ number_format($bootCost, 0, '.', ' ') }}
+                                    Ft</small></p>
+                        @endif
+
+
                         <p>Kedvezmény: <span id="discount">{{ number_format($discount, 0, '.', ' ') }} Ft</span></p>
                         <p>Fizetendő összeg: <span id="payable">{{ number_format($payable, 0, '.', ' ') }}</span> Ft</p>
                     </div>
