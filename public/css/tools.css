@@ -14,3 +14,43 @@
     display: flex;
     justify-content: space-evenly;
 }
+.spacer td {
+    height: 15px; /* Térköz mérete */
+    background-color: transparent !important; /* Átlátszó háttér */
+    border: none; /* Ha van kerete, eltünteti */
+    padding: 0; /* Térköz eltüntetése */
+}
+.toolssz{
+    padding-left: 150px;
+    padding-right: 150px;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0 10px; /* Kis tér a sorok között */
+}
+
+tr td.firstcolum {
+    border-top-left-radius: 10px;  /* Bal felső sarok */
+    border-bottom-left-radius: 10px; /* Bal alsó sarok */
+}
+
+tr td.lastcolum{
+    border-top-right-radius: 10px; /* Jobb felső sarok */
+    border-bottom-right-radius: 10px; /* Jobb alsó sarok */
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    .toolssz{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+
+@media (max-width: 767px) {
+    .toolssz{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
