@@ -132,3 +132,10 @@ function toggleMobileMenu() {
     }
   }, { once: true }); // Egyszeri végrehajtás
 */
+
+
+function valasztPlace(location) {
+  const urlParams = new URLSearchParams(window.location.search);
+  urlParams.set('location', location);
+  window.location.search = urlParams.toString();
+}

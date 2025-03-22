@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use App\Notifications\CustomEmailVerificationNotification;
+use App\Notifications\CustomPasswordResetNotification;
 use App\Notifications\CustomVerifyEmail;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable implements MustVerifyEmail
@@ -63,5 +66,24 @@ class User extends Authenticatable implements MustVerifyEmail
     public function loans()
     {
         return $this->hasMany(Loan::class, 'user_id');
+    }
+
+    public $notificationType = 'password_reset';
+    public $actionText = 'Jelszó visszaállítása';
+
+    public function toMail($notifiable)
+    {
+        $url = url(route('password.reset', [
+            'token' => $this->token,
+            'email' => $notifiable->getEmailForPasswordReset(),
+        ], false));
+
+        return (new MailMessage)
+            ->subject('Jelszó visszaállítása')
+            ->view('emails.custom-notification', [
+                'actionUrl' => $url,
+                'actionText' => $this->actionText,
+                'notificationType' => $this->notificationType,
+            ]);
     }
 }

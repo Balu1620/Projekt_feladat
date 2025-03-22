@@ -1,0 +1,44 @@
+.user-profile-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 1px #ccc;
+}
+
+.user-data-section, .license-images-section {
+    margin-bottom: 30px;
+}
+
+.section-title {
+    margin-top: 0;
+}
+
+.user-info-list {
+    list-style: none;
+    padding: 0;
+}
+
+.info-item {
+    margin-bottom: 10px;
+}
+
+.image-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.license-image {
+    width: 45%;
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}

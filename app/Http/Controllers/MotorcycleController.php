@@ -36,7 +36,7 @@ class MotorcycleController extends Controller
             $query->where('fuel', $request->input('fuel'));
         }
         if ($request->filled('location')) {
-            $query->where('location', 'LIKE', "_{$request->input('location')}%");
+            $query->where('location', $request->input('location'));
         }
 
         if ($request->filled('startDate') && $request->filled('endDate')) {
@@ -69,9 +69,8 @@ class MotorcycleController extends Controller
         // Kiegészítő lekérdezések
         $brands = DB::table('motorcycles')->select('brand')->distinct()->get();
         $locations = DB::table('motorcycles')
-            ->select(DB::raw('SUBSTRING(location, 2, 2) AS location'))
+            ->select('location')
             ->distinct()
-            ->orderBy('location', 'asc')
             ->get();
         $years = DB::table('motorcycles')->select('year')->distinct()->orderBy('year', 'asc')->get();
         $gearboxes = DB::table('motorcycles')
@@ -82,6 +81,7 @@ class MotorcycleController extends Controller
             ->get();
 
         return view('motors.index', compact('motorcycles', 'brands', 'locations', 'years', 'gearboxes'));
+
     }
 
 
@@ -126,7 +126,7 @@ class MotorcycleController extends Controller
         if ($ruhadb >= 1 || $sisakdb >= 1 || $cipodb >= 1) {
             // Lekérjük az összes eszközt az adatbázisból
             $tools = DB::table('tools')->get();
-            
+
 
             foreach ($tools as $tool) {
                 // Sisak ellenőrzés
@@ -167,7 +167,7 @@ class MotorcycleController extends Controller
 
             // Ellenőrzés céljából kiírjuk a megfelelő eszközök ID-it
             dd($matchingToolIds);
-        } 
+        }
 
 
 

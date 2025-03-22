@@ -138,7 +138,7 @@ body {
 
 /* Motor kép stílusa */
 .motor-image {
-    width: 200%; /* Kitölti az oszlop teljes szélességét */
+    width: 70%; /* Kitölti az oszlop teljes szélességét */
     height: 380px; /* Állítsd be a kívánt magasságot */
     margin-left: 100px;
     margin-right: 100px;

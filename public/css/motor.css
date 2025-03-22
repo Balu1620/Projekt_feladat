@@ -1,41 +1,53 @@
-.modal-footer {
-    display: flex;
-    justify-content: space-between;  
-    width: 100%;
-}
-
-.modal-footer p {
-    margin: 0; 
-    text-align: left;  
-    flex-grow: 1;  
-}
-
-.modal-footer button {
-    margin-left: 10px;  
-}
-
-.modal-body {
-    font-size: 16px;
-    text-align: center;
-}
-
-#filter .filter {
-    width: 250px;
+.motorGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
 }
 
 .mCard {
-    margin-left: auto;
-    margin-right: auto;
+    display: flex;
+    justify-content: center;
 }
 
-.motorGrid {
-    display: grid;
-    grid-template-columns: auto auto auto auto auto;
+.card {
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.brand {
-    font-weight: 900;
+.card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
+
+.card-title {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.list-group-item {
+    padding: 10px;
+    border: none;
+    background-color: #f0f0f0;
+}
+
+.list-group-item:not(:last-child) {
+    border-bottom: 1px solid #ddd;
+}
+
+.btn-outline-secondary {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #ddd;
+    color: #333;
+}
+
 
 @media screen and (max-width: 576px) {
     .motorGrid {

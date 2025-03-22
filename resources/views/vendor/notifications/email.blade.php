@@ -1,7 +1,7 @@
 <x-mail::message>
 # Hello!
 
-Az alábbi gomb megnyomásával erősítheted meg az email címedet:
+Az alábbi gomb megnyomásával hajthatod végre a műveletet:
 
 <x-mail::button :url="$actionUrl">
 {{ $actionText }}

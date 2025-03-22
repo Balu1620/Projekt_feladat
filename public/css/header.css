@@ -1,3 +1,49 @@
+.nav-link {
+    --primary-color: #111;
+    --hovered-color: #c84747;
+    position: relative;
+    display: flex;
+    font-weight: bold;
+    font-size: 16px;
+    gap: 0.5rem;
+    align-items: center;
+    text-decoration: none;
+}
+
+.nav-link p {
+    margin: 0;
+    position: relative;
+    font-size: inherit;
+    color: var(--primary-color);
+}
+
+.nav-link::after {
+    position: absolute;
+    content: "";
+    width: 0;
+    left: 0;
+    bottom: -5px;
+    background: var(--hovered-color);
+    height: 2px;
+    transition: width .3s ease-out;
+}
+
+.nav-link p::before {
+    position: absolute;
+    content: attr(data-hover);
+    /* Az animált szöveg */
+    width: 0%;
+    inset: -1px;
+    color: var(--hovered-color);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+
+
+
 /*------------------Header-------------------*/
 * {
     box-sizing: border-box;
@@ -8,10 +54,12 @@
     margin-left: auto;
     margin-right: auto;
 }
+
 .dropdown-item {
     font-size: 15px;
     width: 80%;
 }
+
 .dropdown-item {
     font-size: 15px;
     padding-left: 5px;
@@ -28,67 +76,69 @@
     margin-right: 5px;
 }
 
-.nav-link{
-font-size: 1rem;
+.nav-link {
+    font-size: 1rem;
 }
 
-.navbar-nav li:nth-child(3) .nav-link{
+.navbar-nav li:nth-child(3) .nav-link {
     padding-bottom: 3px;
 }
 
-.navbar-nav li:nth-child(4) .nav-link{
+.navbar-nav li:nth-child(4) .nav-link {
     padding-top: 3px;
 }
-.navbar-nav li:nth-child(6) .nav-link{
+
+.navbar-nav li:nth-child(6) .nav-link {
     padding-top: 0;
 }
-    
 
-h5{
+
+h5 {
     font-size: 1.25rem;
 }
+
 /*------------------/Header-------------------*/
 
-#logo{
+#logo {
     width: 5%;
     margin: 0;
     display: flex;
 }
 
-.navText li a{
+.navText li a {
     font-size: large;
 }
 
-@media screen and (max-width: 1030px){
-    #logo{
+@media screen and (max-width: 1030px) {
+    #logo {
         width: 7%;
         margin: 0;
     }
 }
 
-@media screen and (max-width: 880px){
-    #logo{
+@media screen and (max-width: 880px) {
+    #logo {
         width: 7%;
         margin: 0;
     }
 }
 
-@media screen and (max-width: 768px){
-    #logo{
+@media screen and (max-width: 768px) {
+    #logo {
         width: 10%;
         margin: 0;
     }
 }
 
-@media screen and (max-width: 540px){
-    #logo{
+@media screen and (max-width: 540px) {
+    #logo {
         width: 13%;
         margin: 0;
     }
 }
 
-@media screen and (max-width: 420px){
-    #logo{
+@media screen and (max-width: 420px) {
+    #logo {
         width: 17%;
         margin: 0;
     }
@@ -98,29 +148,31 @@ h5{
 
 
 /* Profile Picture */
-.profile-pic{
+.profile-pic {
     display: inline-block;
     vertical-align: middle;
-     width: 40px;
-     height: 40px;
-     overflow: hidden;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
     border-radius: 50%;
- }s
-  
- .profile-pic img{
+}
+
+s .profile-pic img {
     width: 100%;
     height: 25px;
     object-fit: cover;
- }
- .profile-menu .dropdown-menu {
-   right: 0;
-   left: unset;
- }
- .profile-menu .fa-fw {
-   margin-right: 10px;
- }
-  
- .toggle-change::after {
-   border-top: 0;
-   border-bottom: 0.3em solid;
- }
+}
+
+.profile-menu .dropdown-menu {
+    right: 0;
+    left: unset;
+}
+
+.profile-menu .fa-fw {
+    margin-right: 10px;
+}
+
+.toggle-change::after {
+    border-top: 0;
+    border-bottom: 0.3em solid;
+}
