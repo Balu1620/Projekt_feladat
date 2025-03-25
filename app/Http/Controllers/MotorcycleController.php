@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DeviceSwitch;
+use App\Models\Loan;
 use App\Models\Motorcycle;
 use App\Http\Requests\StoreMotorcycleRequest;
 use App\Http\Requests\UpdateMotorcycleRequest;
@@ -39,29 +40,9 @@ class MotorcycleController extends Controller
             $query->where('location', $request->input('location'));
         }
 
-        if ($request->filled('startDate') && $request->filled('endDate')) {
-            $startDate = $request->input('startDate');
-            $endDate = $request->input('endDate');
 
-            $query->whereNotExists(function ($q) use ($startDate, $endDate) {
-                $q->select(DB::raw(1))
-                    ->from('loans')
-                    ->whereRaw('loans.motorcycles_id = motorcycles.id')
-                    ->where(function ($subQuery) use ($startDate, $endDate) {
-                        $subQuery->where(function ($q1) use ($startDate, $endDate) {
-                            // Ha a foglalás kezdődik az időintervallumon belül
-                            $q1->whereBetween('loans.rentalDate', [$startDate, $endDate]);
-                        })->orWhere(function ($q2) use ($startDate, $endDate) {
-                            // Ha a foglalás befejeződik az időintervallumon belül
-                            $q2->whereBetween('loans.returnDate', [$startDate, $endDate]);
-                        })->orWhere(function ($q3) use ($startDate, $endDate) {
-                            // Ha a foglalás teljesen lefedi az adott időintervallumot
-                            $q3->where('loans.rentalDate', '<=', $startDate)
-                                ->where('loans.returnDate', '>=', $endDate);
-                        });
-                    });
-            });
-        }
+
+
 
         // Lekérdezés végrehajtása
         $motorcycles = $query->get();
@@ -83,7 +64,6 @@ class MotorcycleController extends Controller
         return view('motors.index', compact('motorcycles', 'brands', 'locations', 'years', 'gearboxes'));
 
     }
-
 
     public function create()
     {
@@ -175,55 +155,6 @@ class MotorcycleController extends Controller
 
         return view('pages.final_page', ['motorId' => $motorId, 'startDate' => $startDate, 'endDate' => $endDate, 'matchingToolIds' => $matchingToolIds, 'sisakdb' => $sisakdb, 'sisakmeret' => $sisakmeret, 'cipodb' => $cipodb, 'cipomeret' => $cipomeret]);
     }
-
-    /*
-    public function ToolsId()
-    {
-        $sisakdb = session('sisakdb');
-        $ruhadb = session('ruhadb');
-
-        $sisakmeret = session('sisakmeret');
-        $ruhameret = session('ruhameret');
-
-        $cipodb = session('cipodb');
-        $cipomeret = session('cipomeret');
-
-
-
-        $tools = DB::table('tools')->get();
-
-
-        $matchingToolIds = [];
-
-        
-        if ($ruhadb >= 1 && $sisakdb >= 1 && $cipodb >= 1) {
-
-            foreach ($tools as $tool) {
-        
-                // Ha a tool neve 'Sisak' és a méret megegyezik a keresett mérettel
-                if ($tool->name == 'Sisak' && $tool->size == $sisakmeret) {
-                    $matchingToolIds[] = $tool->id;  // Hozzáadjuk a tool id-ját
-                }
-        
-                // Ha a tool neve 'Protektoros Ruha' és a méret megegyezik a keresett mérettel
-                if ($tool->name == 'Protektoros Ruha' && $tool->size == $ruhameret) {
-                    $matchingToolIds[] = $tool->id;  // Hozzáadjuk a tool id-ját
-                }
-
-                if ($tool->name == 'Cipő' && $tool->size == $cipomeret) {
-                    $matchingToolIds[] = $tool->id;  // Hozzáadjuk a tool id-ját
-                }
-        
-            }
-        }
-        
-
-        session(['matchingToolIds' => $matchingToolIds]);
-
-    }
-    */
-
-
 
     /**
      * Display the specified resource.

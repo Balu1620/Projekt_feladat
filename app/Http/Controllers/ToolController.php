@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Loan;
 use App\Models\Motorcycle;
 use App\Models\Tool;
 use App\Http\Requests\StoreToolRequest;
 use App\Http\Requests\UpdateToolRequest;
+use Carbon\Carbon;
 
 class ToolController extends Controller
 {
@@ -14,17 +16,30 @@ class ToolController extends Controller
      */
     public function index($motor)
     {
-        // Motor adatainak lekérése az id alapján
+        //Motor adatainak lekérése az id alapján
         $motorData = Motorcycle::findOrFail($motor);
 
-        // Eszközök lekérése
-        $tools = Tool::all();  // Ez lehet a tools listájának lekérése
+        //Eszközök lekérése
+        $tools = Tool::all();  //Eszközök listája
 
-        // Motor adatainak és eszközök átadása a nézetnek
-        return view('pages.tools', ['tools' => $tools, 'motor' => $motorData]);
+        //Foglalt dátumok lekérése csak az adott motorhoz
+        $bookedDates = Loan::where('motorcycles_id', $motor) //Szűrés motor id alapján
+            ->get(['rentalDate', 'returnDate'])
+            ->flatMap(function ($loan) {
+                return collect(Carbon::parse($loan->rentalDate)->daysUntil($loan->returnDate))
+                    ->map(fn($date) => $date->format('Y-m-d'));
+            })
+            ->unique()
+            ->values();
 
-
+        //Motor adatainak és eszközök átadása a nézetnek
+        return view('pages.tools', [
+            'tools' => $tools,
+            'motor' => $motorData,
+            'bookedDates' => $bookedDates->toArray(), //JSON kompatibilis tömb átadása
+        ]);
     }
+
 
     /**
      * Show the form for creating a new resource.
