@@ -13,14 +13,17 @@ class DeviceSwitch extends Model
     protected $table = 'device_switches';
 
     protected $fillable = ['tools_id', 'loans_id'];
-
+/*
     public function motorRental()
     {
         return $this->belongsTo(MotorRental::class, 'loans_id');
     }
-   
+   */
     public function tool()
     {
         return $this->belongsTo(Tool::class, 'tools_id');
     }
+    public function loan()
+    {
+        return $this->belongsTo(Loan::class, 'loans_id');    }
 }

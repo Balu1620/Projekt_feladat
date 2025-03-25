@@ -10,5 +10,8 @@ class Motorcycle extends Model
     /** @use HasFactory<\Database\Factories\MotorcycleFactory> */
     use HasFactory;
 
-    
+    public function loans()
+    {
+        return $this->hasMany(Loan::class, 'motorcycles_id');
+    }
 }

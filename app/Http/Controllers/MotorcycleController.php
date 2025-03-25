@@ -114,6 +114,8 @@ class MotorcycleController extends Controller
         $motorRental->returnDate = $endDate;
         //----- Bálint -----
         $motorRental->gaveDown = 0;
+        $motorRental->jobStatus = 0;
+        $motorRental->problemDescription = NULL;
         //----- Bálint -----
 
         $motorRental->save();
@@ -130,7 +132,7 @@ class MotorcycleController extends Controller
 
             foreach ($tools as $tool) {
                 // Sisak ellenőrzés
-                if ($tool->name === 'Sisak' && in_array($tool->size, $sisakmeret)) {
+                if ($tool->toolName === 'Sisak' && in_array($tool->size, $sisakmeret)) {
                     $count = array_count_values($sisakmeret)[$tool->size] ?? 0; // Számoljuk, hányszor kell ez a méret
                     for ($i = 0; $i < $count; $i++) {
                         $matchingToolIds[] = $tool->id;
@@ -138,7 +140,7 @@ class MotorcycleController extends Controller
                 }
 
                 // Ruházat ellenőrzés
-                if ($tool->name === 'Protektoros Ruha' && in_array($tool->size, $ruhameret)) {
+                if ($tool->toolName === 'Protektoros Ruha' && in_array($tool->size, $ruhameret)) {
                     $count = array_count_values($ruhameret)[$tool->size] ?? 0; // Számoljuk, hányszor kell ez a méret
                     for ($i = 0; $i < $count; $i++) {
                         $matchingToolIds[] = $tool->id;
@@ -146,7 +148,7 @@ class MotorcycleController extends Controller
                 }
 
                 // Cipő ellenőrzés
-                if ($tool->name === 'Cipő' && in_array($tool->size, $cipomeret)) {
+                if ($tool->toolName === 'Cipő' && in_array($tool->size, $cipomeret)) {
                     $count = array_count_values($cipomeret)[$tool->size] ?? 0; // Számoljuk, hányszor kell ez a méret
                     for ($i = 0; $i < $count; $i++) {
                         $matchingToolIds[] = $tool->id;

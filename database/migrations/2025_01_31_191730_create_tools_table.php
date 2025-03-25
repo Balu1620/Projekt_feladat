@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('tools', function (Blueprint $table) {
             $table->id();
-            $table->string("name", 80);
+            $table->string("toolName", 80);
             $table->string('size');
             $table->timestamps();
             $table->softDeletes();

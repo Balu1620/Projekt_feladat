@@ -29,4 +29,9 @@ class Loan extends Model
     {
         return $this->belongsTo(User::class, 'users_id');
     }
+
+    public function deviceSwitches()
+    {
+        return $this->hasMany(DeviceSwitch::class, 'loans_id');
+    }
 }

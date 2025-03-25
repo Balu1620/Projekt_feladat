@@ -132,7 +132,7 @@
               @auth
               <li><a class="dropdown-item" href="{{ route('userProfile') }}"><i class="fas fa-cog fa-fw"></i> Profil</a></li> 
               <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt fa-fw"></i>Kijelentkezés</a></li>
+                document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt fa-fw"></i> Kijelentkezés</a></li>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf
                 </form>

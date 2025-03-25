@@ -17,4 +17,4 @@ Route::post("/proba", function(){
 });*/
 
 Route::get('usersData', [MotorcycleAPIController::class, 'index']);
-Route::put('usersData/{loan}', [MotorcycleAPIController::class, 'update']);
+Route::patch('usersData/{loan}', [MotorcycleAPIController::class, 'update']);

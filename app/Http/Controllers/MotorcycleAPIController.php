@@ -19,12 +19,17 @@ class MotorcycleAPIController extends Controller
     {
     
         // Minden kölcsönzési adat lekérése
-        $loans = Loan::with('motorcycle', 'user')->get();
+        //$loans = Loan::with('motorcycle', 'user')->get();
 
         // Minden felhasználó adatainak lekérése
-        //$deviceSwitches = DeviceSwitch::with('tool')->get();
+        //$deviceSwitches = DeviceSwitch::with('loan','tool')->get();
 
-       
+        $loans = Loan::with([
+            'user',
+            'motorcycle',
+            'deviceSwitches.tool'
+        ])->get();
+
         return response()->json([
             'loans' => $loans,
             //'users' => $deviceSwitches,
