@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('email')->unique();
             $table->string('password');
-            $table->tinyInteger("jobStatus");
+            $table->unsignedTinyInteger("jobStatus");
             $table->boolean("deactivation")->default(false);
             $table->timestamps();
         });

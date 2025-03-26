@@ -14,4 +14,9 @@ class Motorcycle extends Model
     {
         return $this->hasMany(Loan::class, 'motorcycles_id');
     }
+
+    protected $fillable = [
+        'location',
+        'motorcycleStatus',
+    ];
 }
