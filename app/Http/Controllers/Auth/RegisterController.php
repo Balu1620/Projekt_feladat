@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -74,9 +75,12 @@ class RegisterController extends Controller
             // A fájl feltöltése és a fájl elérési útjának mentése
             $filePath = $data['drivingLicenceImage']->store('driving_licence_images', 'public');
             $filePathBack = $data['drivingLicenceImageBack']->store('driving_licence_images', 'public');
+
+            // A fájlok teljes elérési útjának visszaadása a válaszban
+            $fileUrl = asset('storage/' . $filePath);
+            $fileUrlBack = asset('storage/' . $filePathBack);
         }
 
-        
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -84,8 +88,9 @@ class RegisterController extends Controller
             'phoneNumber' => $data['phoneNumber'],
             'drivingLicenceNumber' => $data['drivingLicenceNumber'],
             'drivingLicenceType' => $data['drivingLicenceType'],
-            'drivingLicenceImage' => isset($filePath) ? $filePath : null, 
-            'drivingLicenceImageBack' => isset($filePathBack) ? $filePathBack : null, 
+            'drivingLicenceImage' => isset($fileUrl) ? $fileUrl : null,
+            'drivingLicenceImageBack' => isset($fileUrlBack) ? $fileUrlBack : null,
         ]);
     }
+
 }

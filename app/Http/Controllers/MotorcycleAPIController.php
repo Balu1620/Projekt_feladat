@@ -105,4 +105,13 @@ class MotorcycleAPIController extends Controller
         return response()->json(['message' => 'User deleted'], 200);
         */
     }
+
+    public function Getuser(User $user)
+    {
+
+        if (!$user) {
+            return response()->json([$user, 'message' => 'Nem tudta frissiteni'], 404);
+        }
+        return response()->json([$user, "msg" => "sikeres Frissités!!!"]);
+    }
 }
