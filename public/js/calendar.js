@@ -1,29 +1,28 @@
-function date() {
-  
-  let date = document.getElementById("dateStart").value;
+document.addEventListener('DOMContentLoaded', () => {
+    const pickerElement = document.getElementById('myDateRangePickerDisabledDates');
+    
+    if (pickerElement) {
+        //A Laravel által átadott foglalt dátumok
+        const bookedDates = window.bookedDates || [];
 
-  let date2 = document.getElementById("dateEnd").value;
+        //A foglalt dátumok JavaScript Date formátumba konvertálása
+        const disabledDates = bookedDates.map(dateStr => {
+            const dateParts = dateStr.split('-'); //YYYY-MM-DD formátum
+            return new Date(dateParts[0], dateParts[1] - 1, dateParts[2]);
+        });
 
-  console.log(date);
-}
+        const today = new Date(); //Mai dátum
+        today.setDate(today.getDate() - 1); //Tegnapi dátum minimumként
 
-const today = new Date(); // Mai dátum
-today.setDate(today.getDate() - 1);
+        const optionsDateRangePickerDisabledDates = {
+            disabledDates: disabledDates, //Foglalt dátumok beállítása
+            minDate: today,
+            format: 'yyyy-mm-dd',
+            locale: 'hu',
+            autoApply: true,
+            linkedCalendars: false
+        }
 
-
-const myDateRangePickerDisabledDates = document.getElementById('myDateRangePickerDisabledDates')
-if (myDateRangePickerDisabledDates) {
-    const optionsDateRangePickerDisabledDates = {
-        disabledDates: [
-            [new Date(2022, 2, 4), new Date(2022, 2, 7)],
-            new Date(2022, 2, 16),
-            new Date(2022, 3, 16),
-        ],
-        minDate: new Date(today)
+        new coreui.DateRangePicker(pickerElement, optionsDateRangePickerDisabledDates);
     }
-
-    new coreui.DateRangePicker(document.getElementById('myDateRangePickerDisabledDates'), optionsDateRangePickerDisabledDates)
-}
-
-date();
-
+});
