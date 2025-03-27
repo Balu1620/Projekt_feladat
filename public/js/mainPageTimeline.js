@@ -82,25 +82,42 @@ document.querySelectorAll('.dropdown-toggle').forEach(item => {
 
 
 function toggleMobileMenu() {
-    const menu = document.getElementById('mobile-menu');
-    const isMenuHidden = menu.classList.contains('hidden');
-    const menuIcons = document.querySelectorAll('.menu-closed, .menu-open');
+  const menu = document.getElementById('mobile-menu');
+  const isMenuHidden = menu.classList.contains('hidden');
+  const menuIcons = document.querySelectorAll('.menu-closed, .menu-open');
 
-    // Menü láthatóság váltása
-    if (isMenuHidden) {
-        menu.classList.remove('hidden');
-        menu.classList.add('block');
-    } else {
-        menu.classList.remove('block');
-        menu.classList.add('hidden');
-    }
+  // Menü láthatóság váltása
+  if (isMenuHidden) {
+      menu.classList.remove('hidden');
+      menu.classList.add('block');
+  } else {
+      menu.classList.remove('block');
+      menu.classList.add('hidden');
+  }
 
-    // Ikon váltása
-    menuIcons.forEach((icon) => {
-        icon.classList.toggle('hidden');
-        icon.classList.toggle('block');
-    });
+  // Ikon váltása
+  menuIcons.forEach((icon) => {
+      icon.classList.toggle('hidden');
+      icon.classList.toggle('block');
+  });
+
+  // Linkekre kattintva bezárjuk a menüt
+  const menuLinks = document.querySelectorAll('#mobile-menu a');
+  menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+          if (!menu.classList.contains('hidden')) {
+              menu.classList.remove('block');
+              menu.classList.add('hidden');
+              menuIcons.forEach((icon) => {
+                  icon.classList.toggle('hidden');
+                  icon.classList.toggle('block');
+              });
+          }
+      });
+  });
 }
+
+
 
 
 
@@ -132,3 +149,10 @@ function toggleMobileMenu() {
     }
   }, { once: true }); // Egyszeri végrehajtás
 */
+
+
+function valasztPlace(location) {
+  const urlParams = new URLSearchParams(window.location.search);
+  urlParams.set('location', location);
+  window.location.search = urlParams.toString();
+}

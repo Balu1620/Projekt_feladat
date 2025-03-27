@@ -25,7 +25,14 @@
                                 
                 </div>
 
-            </div>
+        </div>
+        <div id="SelectLoc" class="my-3">
+            <select name="keruletek" id="keruletek" onchange="valasztPlace(this.value)">
+                <option value="..." selected disabled>Kerületek</option>
+                @foreach($locations as $location)
+                    <option value="{{ $location->location }}" {{ request('location', old('location')) == $location->location ? 'selected' : '' }}>{{ $location->location }}</option>
+                @endforeach
+            </select>
         </div>
         <div class="filter offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
             aria-labelledby="offcanvasWithBothOptionsLabel">

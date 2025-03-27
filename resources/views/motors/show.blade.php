@@ -11,7 +11,7 @@
              <img src="{{ asset('img/' . str_replace(' ', '', $motor->type) . '.jpg') }}" alt="Motor image" />
         </div>
 
-        <div class="details-text">
+        <div class="details-text-page">
             <h2>{{ $motor->brand }} - {{ $motor->type }}</h2>
             <ul>
                 <li><i class="fa fa-motorcycle"></i> V2-es {{ $motor->brand }} motor</li>
@@ -22,6 +22,7 @@
                 <li><i class="fa fa-map-marker-alt"></i> Location {{ $motor->location }}</li>
             </ul>
             <hr>
+            <br>
             <div class="pricing-buttons">
                 @auth
                     @if (auth()->user()->email_verified_at)
@@ -34,12 +35,11 @@
                 @else
                     <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#loginModal">Bérlés</button>
                 @endauth
+                <p><small>*Foglalás értelmezése: a bérlés időtartama 24 órára vonatkozik. Tehát ha egy adott napon 9 órakor átveszed a motort a bérlés a következő nap 9 óráig érvényes.</small></p>
             </div>
         </div>
 
 
-
-        <!-- Ha a felhasználó nem erősítette meg az emailjét. -->
         <div class="modal fade" id="verifyEmailModal" tabindex="-1" aria-labelledby="verifyEmailModalLabel"
             aria-hidden="true">
             <div class="modal-dialog">
@@ -62,7 +62,7 @@
                 </div>
             </div>
         </div>
-        
+
 
         <!-- Hibaüzenet ha nincs bejelentkezve a felhasználó -->
         <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
@@ -90,7 +90,7 @@
             </div>
         </div>
 
-        <div class="money-list">
+        <div class="money-list-page">
             <ul>
                 <p class="kicsi">🏍️ Minél tovább bérelsz, annál többet spórolsz! 🏍️</p>
                 <li><b>1 nap ~ <span>{{ number_format($motor->price, 0, '.', ' ') }} Ft</b></li>
@@ -98,12 +98,6 @@
                 <li><b>7 nap ~ <span>{{ number_format(FLOOR($motor->price * 0.7), 0, '.', ' ') }} Ft</b>(-30%)</li>
             </ul>
         </div>
-
-
-
     </div>
-
-
-
 
 @endsection

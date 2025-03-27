@@ -3,91 +3,124 @@
 @section('content')
     <form action="{{ route('pages.final_page', ['motor' => $motor->id]) }}" method="POST">
         @csrf
-        <div class="container" id="loanContainer">
-            <div class="motor-image">
-                <img src="{{ asset('storage/img/placeholder.png') }}" alt="">
-            </div>
-            <div class="motor-name">{{ $motor->brand }} - {{ $motor->type }}</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="order-summary-container">
+                        <h1>Rendelés Összesítő</h1>
+                        <div class="summary-box">
+                            <div class="order-info">
+                                <h2>Rendelési Információk</h2>
+                                <p><strong>Kezdő Dátum:</strong> {{ $startDateRaw }}</p>
+                                <p><strong>Végső Dátum:</strong> {{ $endDateRaw }}</p>
+                                <p><strong>Bérlési Napok Száma:</strong> {{ $startDate->diffInDays($endDate) + 1 }} nap</p>
+                            </div>
 
-            <div class="clearfix">
-                <div class="left-section">
-                    <div class="product-list">
-                        <h3>Termékek</h3>
-                        <br>
-                        <p><small>A sisak napi ára: <strong>{{ $helmetDailyPrice }}</strong> Ft-nak felel meg.</small></p>
-                        <p><small>A ruházat napi ára: <strong>{{ $clothingDailyPrice }}</strong> Ft-nak felel meg.</small></p>
-                        <p><small>A cipők napi ára: <strong>{{ $bootDailyPrice }}</strong>Ft-nak felel meg</small></p>
-                        
-                        <p><small>A sisak, cipőért és a ruházatért kauciót számítunk fel, mely <strong>{{ $helmetDeposit }}, {{ $bootDeposit }}</strong>
-                                és <strong>{{ $clothingDeposit }}</strong> Ft.</small></p>
-                        <br>
-                        <p>Motor: {{ $motor->brand }} - {{ $motor->type }}</p>
-
-                        <div>
-                            <p>Sisak: {{ count($sisakmeret) }} db</p>
-                            @if(count($sisakmeret) > 0)
+                            <div class="order-items">
+                                <h2>Bérelt Termékek</h2>
+                                <div class="additional-info">
+                                    <p><small>Sisak Kaució:</small> {{ $helmetDeposit }} Ft</p>
+                                    <p><small>Ruházat Kaució:</small> {{ $clothingDeposit }} Ft</p>
+                                    <p><small>Cipők Kaució:</small> {{ $bootDeposit }} Ft</p>
+                                </div>
                                 <ul>
-                                    @foreach($sisakmeret as $index => $size)
-                                        <li>Sisak {{ $index + 1 }}: Méret - {{ $size }}</li>
-                                    @endforeach
+                                    @if(count($sisakmeret) > 0)
+                                        <li>
+                                            <span>Sisak</span>
+                                            <span>Méretek:
+                                                @foreach($sisakmeret as $index => $size)
+                                                    {{ $size }}@if($index < count($sisakmeret) - 1), @endif
+                                                @endforeach
+                                            </span>
+                                            <span>Napi Ár: {{ $helmetDailyPrice }} Ft</span>
+                                            <span>Összesen: {{ number_format($helmetCost, 0, '.', ' ') }} Ft</span>
+                                        </li>
+                                    @endif
+
+                                    @if(count($ruhameret) > 0)
+                                        <li>
+                                            <span>Ruházat</span>
+                                            <span>Méretek:
+                                                @foreach($ruhameret as $index => $size)
+                                                    {{ $size }}@if($index < count($ruhameret) - 1), @endif
+                                                @endforeach
+                                            </span>
+                                            <span>Napi Ár: {{ $clothingDailyPrice }} Ft</span>
+                                            <span>Összesen: {{ number_format($clothingCost, 0, '.', ' ') }} Ft</span>
+                                        </li>
+                                    @endif
+
+                                    @if(count($cipomeret) > 0)
+                                        <li>
+                                            <span>Cipők</span>
+                                            <span>Méretek:
+                                                @foreach($cipomeret as $index => $size)
+                                                    {{ $size }}@if($index < count($cipomeret) - 1), @endif
+                                                @endforeach
+                                            </span>
+                                            <span>Napi Ár: {{ $bootDailyPrice }} Ft</span>
+                                            <span> Összesen: {{ number_format($bootCost, 0, '.', ' ') }} Ft</span>
+                                        </li>
+                                    @endif
+
+                                    <li>
+                                        <span>Motor</span>
+                                        <span>Napi Ár: {{ number_format($motor->price, 0, '.', ' ') }} Ft</span>
+                                        <span> Összesen:
+                                            {{ number_format($motor->price * ($startDate->diffInDays($endDate) + 1), 0, '.', ' ') }}
+                                            Ft</span>
+                                    </li>
                                 </ul>
-                            @endif
+                            </div>
+
+                            <div class="order-total">
+                                <h2>Összesítés</h2>
+                                <p><strong>Termékek Összesen:</strong>
+                                    {{ number_format($helmetCost + $clothingCost + $bootCost + $motor->price * ($startDate->diffInDays($endDate) + 1), 0, '.', ' ') }}
+                                    Ft</p>
+                                <p><strong>Kedvezmény: </strong><del style="color: red;"><span> {{ number_format($discount, 0, '.', ' ') }} Ft</del></span></p>
+                                <p><strong>Fizetendő Összeg:</strong> {{ number_format($payable, 0, '.', ' ') }} Ft</p>
+                            </div>
                         </div>
 
-                        <div>
-                            <p>Ruházat: {{ count($ruhameret) }} db</p>
-                            @if(count($ruhameret) > 0)
-                                <ul>
-                                    @foreach($ruhameret as $index => $size)
-                                        <li>Ruházat {{ $index + 1 }}: Méret - {{ $size }}</li>
-                                    @endforeach
-                                </ul>
-                            @endif
-                        </div>
-
-                        <div>
-                            <p>Cipők: {{ count($cipomeret) }} db</p>
-                            @if(count($cipomeret) > 0)
-                                <ul>
-                                    @foreach($cipomeret as $index => $size)
-                                        <li>Cipők {{ $index + 1 }}: Méret - {{ $size }}</li>
-                                    @endforeach
-                                </ul>
-                            @endif
-                        </div>
-
-                        <br>
-                        <p>Kezdő dátum: {{ $startDateRaw }}</p>
-                        <p>Végső Dátum: {{ $endDateRaw }}</p>
-                        <p><strong>Bérlési napok száma:</strong> {{ $startDate->diffInDays($endDate) + 1 }} nap</p>
+                        <button class="confirm-button">Rendelés Megerősítése</button>
                     </div>
                 </div>
 
-                <div class="right-section">
-                    <div class="summary">
-                        <h3>Összesítés</h3>
-                        <p>Motor napi összeg: <span id="total">{{ number_format($motor->price, 0, '.', ' ') }}</span> Ft</p>
-                        @if($helmetCost > 0)
-                            <p><small><strong>Sisak költsége:</strong> {{ number_format($helmetCost, 0, '.', ' ') }} Ft</small>
-                            </p>
-                        @endif
-                        @if($clothingCost > 0)
-                            <p><small><strong>Ruházat költsége:</strong> {{ number_format($clothingCost, 0, '.', ' ') }}
-                                    Ft</small></p>
-                        @endif
-                        @if ($bootCost > 0)
-                            <p><small><strong>Cipők költsége:</strong> {{ number_format($bootCost, 0, '.', ' ') }}
-                                    Ft</small></p>
-                        @endif
+                <div class="col-md-6">
+                    <div class="motor-and-user-info">
+                        <!-- Motor kép -->
+                        <div class="motor-image">
+                            <img src="{{ asset('storage/img/motor_about.webp') }}" alt="Motor Kép" />
+                        </div>
+                        <br>
+                        <h2>Motor Információk</h2>
+                        <p><strong>Motor Típus:</strong> {{ $motor->brand }} - {{ $motor->type }}</p>
+                        <p><strong>Napi Ár:</strong> {{ number_format($motor->price, 0, '.', ' ') }} Ft</p>
 
-
-                        <p>Kedvezmény: <span id="discount">{{ number_format($discount, 0, '.', ' ') }} Ft</span></p>
-                        <p>Fizetendő összeg: <span id="payable">{{ number_format($payable, 0, '.', ' ') }}</span> Ft</p>
+                        <h2>Felhasználói Információk</h2>
+                        <p><strong>Név: {{auth()->user()->name}}</strong> </p>
+                        <p><strong>Email: {{auth()->user()->email}}</strong> </p>
+                        <p><strong>Telefonszám: +{{auth()->user()->phoneNumber}}</strong> </p>
                     </div>
-                    <button class="payment-button">Fizetés</button>
+
+                    <!-- Új rész a jobb alsó sarokban -->
+                    <div class="additional-info">
+                        <h3>Köszönjük, hogy minket választott!</h3>
+                        <p>Kedves Ügyfelünk, reméljük, hogy elégedett lesz szolgáltatásainkkal. Ha bármilyen kérdése van,
+                            forduljon hozzánk bizalommal az alábbi elérhetőségeken:</p>
+                        <ul>
+                            <li><strong>Telefon:</strong> +36 1 123 4567</li>
+                            <li><strong>Email:</strong> info@example.com</li>
+                            <li><strong>Nyitvatartás:</strong> Hétfőtől Péntekig, 9:00 - 17:00</li>
+                        </ul>
+                    </div>
+
                 </div>
+
+
+
             </div>
         </div>
     </form>
-
 @endsection

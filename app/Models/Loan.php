@@ -16,7 +16,8 @@ class Loan extends Model
         'comment',
         'motorcycles_id',
         'users_id', 
-        'gaveDown' 
+        'gaveDown',
+        "problemDescription"
     ];
 
     
@@ -28,5 +29,10 @@ class Loan extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'users_id');
+    }
+
+    public function deviceSwitches()
+    {
+        return $this->hasMany(DeviceSwitch::class, 'loans_id');
     }
 }

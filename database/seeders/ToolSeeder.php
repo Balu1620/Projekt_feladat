@@ -14,28 +14,28 @@ class ToolSeeder extends Seeder
     public function run(): void
     {
         DB::table('tools')->insert([
-            ['name' => 'Sisak', 'size' => 'S'],
-            ['name' => 'Sisak', 'size' => 'M'],
-            ['name' => 'Sisak', 'size' => 'L'],
-            ['name' => 'Sisak', 'size' => 'XL'],
-            ['name' => 'Sisak', 'size' => '2XL'],
+            ['toolName' => 'Sisak', 'size' => 'S'],
+            ['toolName' => 'Sisak', 'size' => 'M'],
+            ['toolName' => 'Sisak', 'size' => 'L'],
+            ['toolName' => 'Sisak', 'size' => 'XL'],
+            ['toolName' => 'Sisak', 'size' => '2XL'],
 
 
-            ['name' => 'Protektoros Ruha', 'size' => 'S'],
-            ['name' => 'Protektoros Ruha', 'size' => 'M'],
-            ['name' => 'Protektoros Ruha', 'size' => 'L'],
-            ['name' => 'Protektoros Ruha', 'size' => 'XL'],
-            ['name' => 'Protektoros Ruha', 'size' => '2XL'],
+            ['toolName' => 'Protektoros Ruha', 'size' => 'S'],
+            ['toolName' => 'Protektoros Ruha', 'size' => 'M'],
+            ['toolName' => 'Protektoros Ruha', 'size' => 'L'],
+            ['toolName' => 'Protektoros Ruha', 'size' => 'XL'],
+            ['toolName' => 'Protektoros Ruha', 'size' => '2XL'],
 
 
-            ['name' => 'Cipő', 'size' => '39'],
-            ['name' => 'Cipő', 'size' => '40'],
-            ['name' => 'Cipő', 'size' => '41'],
-            ['name' => 'Cipő', 'size' => '42'],
-            ['name' => 'Cipő', 'size' => '43'],
-            ['name' => 'Cipő', 'size' => '44'],
-            ['name' => 'Cipő', 'size' => '45'],
-            ['name' => 'Cipő', 'size' => '46'],
+            ['toolName' => 'Cipő', 'size' => '39'],
+            ['toolName' => 'Cipő', 'size' => '40'],
+            ['toolName' => 'Cipő', 'size' => '41'],
+            ['toolName' => 'Cipő', 'size' => '42'],
+            ['toolName' => 'Cipő', 'size' => '43'],
+            ['toolName' => 'Cipő', 'size' => '44'],
+            ['toolName' => 'Cipő', 'size' => '45'],
+            ['toolName' => 'Cipő', 'size' => '46'],
         ]);
     }
 }

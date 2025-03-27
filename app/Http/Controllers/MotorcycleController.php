@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DeviceSwitch;
+use App\Models\Loan;
 use App\Models\Motorcycle;
 use App\Http\Requests\StoreMotorcycleRequest;
 use App\Http\Requests\UpdateMotorcycleRequest;
@@ -36,32 +37,12 @@ class MotorcycleController extends Controller
             $query->where('fuel', $request->input('fuel'));
         }
         if ($request->filled('location')) {
-            $query->where('location', 'LIKE', "_{$request->input('location')}%");
+            $query->where('location', $request->input('location'));
         }
 
-        if ($request->filled('startDate') && $request->filled('endDate')) {
-            $startDate = $request->input('startDate');
-            $endDate = $request->input('endDate');
 
-            $query->whereNotExists(function ($q) use ($startDate, $endDate) {
-                $q->select(DB::raw(1))
-                    ->from('loans')
-                    ->whereRaw('loans.motorcycles_id = motorcycles.id')
-                    ->where(function ($subQuery) use ($startDate, $endDate) {
-                        $subQuery->where(function ($q1) use ($startDate, $endDate) {
-                            // Ha a foglalás kezdődik az időintervallumon belül
-                            $q1->whereBetween('loans.rentalDate', [$startDate, $endDate]);
-                        })->orWhere(function ($q2) use ($startDate, $endDate) {
-                            // Ha a foglalás befejeződik az időintervallumon belül
-                            $q2->whereBetween('loans.returnDate', [$startDate, $endDate]);
-                        })->orWhere(function ($q3) use ($startDate, $endDate) {
-                            // Ha a foglalás teljesen lefedi az adott időintervallumot
-                            $q3->where('loans.rentalDate', '<=', $startDate)
-                                ->where('loans.returnDate', '>=', $endDate);
-                        });
-                    });
-            });
-        }
+
+
 
         // Lekérdezés végrehajtása
         $motorcycles = $query->get();
@@ -69,9 +50,8 @@ class MotorcycleController extends Controller
         // Kiegészítő lekérdezések
         $brands = DB::table('motorcycles')->select('brand')->distinct()->get();
         $locations = DB::table('motorcycles')
-            ->select(DB::raw('SUBSTRING(location, 2, 2) AS location'))
+            ->select('location')
             ->distinct()
-            ->orderBy('location', 'asc')
             ->get();
         $years = DB::table('motorcycles')->select('year')->distinct()->orderBy('year', 'asc')->get();
         $gearboxes = DB::table('motorcycles')
@@ -82,8 +62,8 @@ class MotorcycleController extends Controller
             ->get();
 
         return view('motors.index', compact('motorcycles', 'brands', 'locations', 'years', 'gearboxes'));
-    }
 
+    }
 
     public function create()
     {
@@ -102,13 +82,11 @@ class MotorcycleController extends Controller
 
         $sisakdb = session('sisakdb');
         $ruhadb = session('ruhadb');
+        $cipodb = session('cipodb');
 
         $sisakmeret = session('sisakmeret');
         $ruhameret = session('ruhameret');
-
-        $cipodb = session('cipodb');
         $cipomeret = session('cipomeret');
-
         $motorRental = new MotorRental();
         $motorRental->users_id = $userId;
         $motorRental->motorcycles_id = $motorId;
@@ -116,6 +94,8 @@ class MotorcycleController extends Controller
         $motorRental->returnDate = $endDate;
         //----- Bálint -----
         $motorRental->gaveDown = 0;
+        $motorRental->jobStatus = 0;
+        $motorRental->problemDescription = NULL;
         //----- Bálint -----
 
         $motorRental->save();
@@ -123,86 +103,58 @@ class MotorcycleController extends Controller
         //Példaként egy statikus érték.
         //BÁLINT CSAK EZT KELL!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-
-        $tools = DB::table('tools')->get();
-
-
         $matchingToolIds = [];
+        // Ellenőrizzük, hogy legalább egy eszköz meg van-e adva
+        if ($ruhadb >= 1 || $sisakdb >= 1 || $cipodb >= 1) {
+            // Lekérjük az összes eszközt az adatbázisból
+            $tools = DB::table('tools')->get();
 
-
-        if ($ruhadb >= 1 && $sisakdb >= 1 && $cipodb >=1) {
 
             foreach ($tools as $tool) {
-                
-                if ($tool->name == 'Sisak' && in_array($tool->size, $sisakmeret)) {
-                    $matchingToolIds[] = $tool->id;  
+                // Sisak ellenőrzés
+                if ($tool->toolName === 'Sisak' && in_array($tool->size, $sisakmeret)) {
+                    $count = array_count_values($sisakmeret)[$tool->size] ?? 0; // Számoljuk, hányszor kell ez a méret
+                    for ($i = 0; $i < $count; $i++) {
+                        $matchingToolIds[] = $tool->id;
+                    }
                 }
-               
-                if ($tool->name == 'Protektoros Ruha' && in_array($tool->size, $ruhameret)) {
-                    $matchingToolIds[] = $tool->id;  
+
+                // Ruházat ellenőrzés
+                if ($tool->toolName === 'Protektoros Ruha' && in_array($tool->size, $ruhameret)) {
+                    $count = array_count_values($ruhameret)[$tool->size] ?? 0; // Számoljuk, hányszor kell ez a méret
+                    for ($i = 0; $i < $count; $i++) {
+                        $matchingToolIds[] = $tool->id;
+                    }
                 }
-                
-                if($tool->name == 'Cipő' && in_array($tool->size, $cipomeret)) {
-                    $matchingToolIds[] = $tool->id;
+
+                // Cipő ellenőrzés
+                if ($tool->toolName === 'Cipő' && in_array($tool->size, $cipomeret)) {
+                    $count = array_count_values($cipomeret)[$tool->size] ?? 0; // Számoljuk, hányszor kell ez a méret
+                    for ($i = 0; $i < $count; $i++) {
+                        $matchingToolIds[] = $tool->id;
+                    }
                 }
             }
+
+            // Lekérjük a legnagyobb kölcsönzés ID-t
+            $maxLoanId = DB::table('loans')->max('id');
+
+            // A megfelelő eszközök hozzárendelése a kölcsönzéshez
+            foreach ($matchingToolIds as $toolId) {
+                DeviceSwitch::create([
+                    'loans_id' => $maxLoanId,
+                    'tools_id' => $toolId,
+                ]);
+            }
+
+            // Ellenőrzés céljából kiírjuk a megfelelő eszközök ID-it
+            dd($matchingToolIds);
         }
-        $maxId = DB::table('loans')->max('id');
 
-
-        foreach ($matchingToolIds as $toolId) {
-
-            $device_switches = new DeviceSwitch();
-            $device_switches->loans_id = $maxId;
-            $device_switches->tools_id = $toolId;
-            $device_switches->save();
-
-        }
-
-        dd($matchingToolIds);
 
 
         return view('pages.final_page', ['motorId' => $motorId, 'startDate' => $startDate, 'endDate' => $endDate, 'matchingToolIds' => $matchingToolIds, 'sisakdb' => $sisakdb, 'sisakmeret' => $sisakmeret, 'cipodb' => $cipodb, 'cipomeret' => $cipomeret]);
     }
-
-    /*
-    public function ToolsId()
-    {
-        $sisakdb = session('sisakdb');
-        $ruhadb = session('ruhadb');
-
-        $sisakmeret = session('sisakmeret');
-        $ruhameret = session('ruhameret');
-
-        $tools = DB::table('tools')->get();
-
-
-        $matchingToolIds = [];
-
-        
-        if ($ruhadb >= 1 && $sisakdb >= 1) {
-
-            foreach ($tools as $tool) {
-        
-                // Ha a tool neve 'Sisak' és a méret megegyezik a keresett mérettel
-                if ($tool->name == 'Sisak' && $tool->size == $sisakmeret) {
-                    $matchingToolIds[] = $tool->id;  // Hozzáadjuk a tool id-ját
-                }
-        
-                // Ha a tool neve 'Protektoros Ruha' és a méret megegyezik a keresett mérettel
-                if ($tool->name == 'Protektoros Ruha' && $tool->size == $ruhameret) {
-                    $matchingToolIds[] = $tool->id;  // Hozzáadjuk a tool id-ját
-                }
-        
-            }
-        }
-        
-
-        session(['matchingToolIds' => $matchingToolIds]);
-
-    }
-    */
-
 
     /**
      * Display the specified resource.
@@ -231,7 +183,7 @@ class MotorcycleController extends Controller
 
             $motorBasePrice = $days * $dailyPrice;
 
-            
+
             $helmetDeposit = 20000;
             $helmetDailyPrice = 5000;
             $helmetCost = $sisakdb * ($helmetDeposit + ($days * $helmetDailyPrice));
@@ -268,7 +220,7 @@ class MotorcycleController extends Controller
             ]);
 
 
-            return view('pages.summary_page', compact('motor', 'sisakdb', 'ruhadb', 'cipodb', 'startDate', 'endDate', 'startDateRaw', 'endDateRaw', 'discount', 'payable', 'basePrice', 'helmetCost','bootCost', 'clothingCost', 'helmetDeposit', 'clothingDeposit', 'bootDeposit', 'clothingDailyPrice', 'helmetDailyPrice', 'bootDailyPrice', 'sisakmeret', 'ruhameret', 'cipomeret'));
+            return view('pages.summary_page', compact('motor', 'sisakdb', 'ruhadb', 'cipodb', 'startDate', 'endDate', 'startDateRaw', 'endDateRaw', 'discount', 'payable', 'basePrice', 'helmetCost', 'bootCost', 'clothingCost', 'helmetDeposit', 'clothingDeposit', 'bootDeposit', 'clothingDailyPrice', 'helmetDailyPrice', 'bootDailyPrice', 'sisakmeret', 'ruhameret', 'cipomeret'));
 
 
 
