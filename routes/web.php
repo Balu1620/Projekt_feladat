@@ -30,7 +30,7 @@ Route::get("/tools/{tool}", [ToolController::class, "show"])->name("tools.show")
 
 Route::get('/about', function () {return view('about');})->name('about');
 
-Route::get('/userProfile', function () {return view('userProfile');})->name('userProfile');
+Route::get('/userProfile', [LoanController::class, 'showLoans'])->name('userProfile');
 
 Route::get('/location', function () {return view('location');})->name('location');
 

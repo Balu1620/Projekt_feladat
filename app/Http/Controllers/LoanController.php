@@ -35,13 +35,52 @@ class LoanController extends Controller
             'rentalDate' => $request->rentalDate,
             'returnDate' => $request->returnDate,
             'motorcycles_id' => $request->motorcycles_id,
-            'users_id' => Auth::id(), 
-             
+            'users_id' => Auth::id(),
+
         ]);
 
         // Visszaigazolás megjelenítése
         return redirect()->route('rentals.pending')->with('message', 'A bérlési szándékot rögzítettük. Hamarosan visszajelzünk!');
     }
+
+    public function showLoans()
+    {
+        $userId = auth()->id();
+
+        // Módosítsd a szűrést a helyes oszlopnévvel
+        $loans = Loan::with([
+            'deviceSwitches.tool',
+            'user',
+            'motorcycle'
+        ])
+            ->where('users_id', $userId)  // Használd a megfelelő oszlopot
+            ->get()
+            ->map(function ($loan) {
+                return [
+                    'user_name' => $loan->user->name,
+                    'motorcycle' => [
+                        'brand' => $loan->motorcycle->brand,
+                        'type' => $loan->motorcycle->type,
+                    ],
+                    'tools' => $loan->deviceSwitches->map(function ($switch) {
+                        return [
+                            'tool_name' => $switch->tool->toolName,
+                            'connected_at' => $switch->created_at->format('Y.m.d H:i'),
+                        ];
+                    }),
+                    'rental_period' => [
+                        'rentalDate' => $loan->rentalDate,
+                        'returnDate' => $loan->returnDate,
+                    ],
+                ];
+            });
+
+        return view('userProfile', compact('loans'));
+    }
+
+
+
+
 
     /**
      * Display the specified resource.

@@ -19,6 +19,7 @@
 	<link href="https://cdn.jsdelivr.net/npm/@coreui/coreui-pro@5.10.0/dist/css/coreui.min.css" rel="stylesheet" integrity="sha384-iFYnumxmAfPWEvBBHVgQ1pcH7Bj9XLrhznQ6DpVFtF3dGwlEAqe4cmd4NY4cJALM" crossorigin="anonymous">
 	<script src="https://cdn.jsdelivr.net/npm/@coreui/coreui-pro@5.10.0/dist/js/coreui.bundle.min.js" integrity="sha384-vaeoe43yarg/Wh3n+r4/PYyWggBr7VzI5l/1UeGOtIN4cgSvWlyBeZ7DlBEukNeq" crossorigin="anonymous"></script>
 	
+  
 
 
     <script src="{{ asset('js/locationPage.js' ) }} " defer></script>
@@ -52,14 +53,13 @@
 
 </head>
 
-<body class="" style="background-image: url('/storage/img/Background1.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<body style="background-image: url('/storage/img/Background1.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
 <nav class="bg-white-900 text-white shadow-md">
   <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
     <div class="relative flex h-16 items-center justify-between">
       <!-- Bal oldali elem: mobil menü gomb -->
       <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-        <!-- Mobile menu button-->
-        <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-blue-700 focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset" onclick="toggleMobileMenu()" aria-controls="mobile-menu" aria-expanded="false">
+        <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-blue-900 focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset bg-blue-700 border-2 border-blue-700 shadow-md transition duration-300" onclick="toggleMobileMenu()" aria-controls="mobile-menu" aria-expanded="false">
           <span class="absolute -inset-0.5"></span>
           <span class="sr-only">Nyisd ki</span>
           <svg class="block size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
@@ -70,44 +70,35 @@
       
       <!-- Középen a logo -->
       <div class="flex flex-1 items-center justify-between">
-  <!-- Logo -->
-  <div class="flex shrink-0 items-center">
-    <img class="h-8 w-auto" src="{{ asset('storage/img/logo.png') }}" alt="Your Company">
-  </div>
-  <!-- Navigációs gombok -->
-  <div class="hidden sm:block w-full">
-    <div class="flex justify-evenly items-center">
-      <a href="/" class="nav-link">
-        <p>Főoldal</p>
-        
-      </a>
-      <a href="{{ route('motors.index') }}" class="nav-link">
-        <p>Motorok</p>
-        
-      </a>
-      <a href="{{ route('location') }}" class="nav-link">
-        <p>Helyszínek</p>
-        
-      </a>
-      <a href="{{ route('about') }}" class="nav-link">
-        <p>Rólunk</p>
-        
-      </a>
-    </div>
-  </div>
-    <div class="flex items-center space-x-4">
+        <img class="h-8 w-auto hidden sm:block" src="{{ asset('storage/img/logo.png') }}" alt="Your Company">
+        <div class="hidden sm:block w-full">
+          <div class="flex justify-evenly items-center">
+            <a href="/" class="nav-link"><p>Főoldal</p></a>
+            <a href="{{ route('motors.index') }}" class="nav-link"><p>Motorok</p></a>
+            <a href="{{ route('location') }}" class="nav-link"><p>Helyszínek</p></a>
+            <a href="{{ route('about') }}" class="nav-link"><p>Rólunk</p></a>
+          </div>
+        </div>  
+      </div>
+
+      <div class="flex items-center space-x-4 ">
+    <div class="hidden sm:block">
         <a href="https://www.instagram.com" target="_blank" class="text-gray-500 hover:text-pink-500 transition duration-300 ease-in-out">
             <i class="fab fa-instagram fa-lg"></i>
         </a>
+        
+        
+    </div>
+    <div class="hidden sm:block">     
         <a href="https://www.facebook.com" target="_blank" class="text-gray-500 hover:text-blue-500 transition duration-300 ease-in-out">
             <i class="fab fa-facebook fa-lg"></i>
-        </a>
-        <a href="https://www.twitter.com" target="_blank" class="text-gray-500 hover:text-sky-500 transition duration-300 ease-in-out">
-            <i class="fab fa-twitter fa-lg"></i>
-        </a>
+        </a>     
     </div>
-</div>
-
+    <div class="hidden sm:block">     
+      <a href="https://www.twitter.com" target="_blank" class="text-gray-500 hover:text-sky-500 transition duration-300 ease-in-out">
+            <i class="fab fa-twitter fa-lg"></i>
+        </a>   
+    </div>
 
       <!-- Jobb oldali elem: értesítés és profil -->
       <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
@@ -132,26 +123,26 @@
               @auth
               <li><a class="dropdown-item" href="{{ route('userProfile') }}"><i class="fas fa-cog fa-fw"></i> Profil</a></li> 
               <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt fa-fw"></i> Kijelentkezés</a></li>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt fa-fw"></i> Kijelentkezés</a></li> 
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
                 </form>
               @endauth
             </ul>
           </li>
-        </ul>  
+        </ul>
       </div>
     </div>
   </div>
   
   <!-- Mobile menu, show/hide based on menu state. -->
-  <div class="sm:hidden" id="mobile-menu">
+  <div class="sm:hidden hidden" id="mobile-menu">
     <div class="space-y-1 px-2 pt-2 pb-3">
-      <a href="/" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-blue-700">Főoldal</a>
-      <a href="{{ route('motors.index') }}" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-blue-700">Motorok</a>
-      <a href="{{ route('location') }}" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-blue-700">Helyszínek</a>
-      <a href="{{ route('about') }}" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-blue-700">Rólunk</a>
-    </div>
+      <a href="/" class="block rounded-md px-3 py-2 text-base font-medium">Főoldal</a>
+      <a href="{{ route('motors.index') }}" class="block rounded-md px-3 py-2 text-base font-medium">Motorok</a>
+      <a href="{{ route('location') }}" class="block rounded-md px-3 py-2 text-base font-medium">Helyszínek</a>
+      <a href="{{ route('about') }}" class="block rounded-md px-3 py-2 text-base font-medium">Rólunk</a>
+         </div>
   </div>
 </nav>
 

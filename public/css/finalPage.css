@@ -138,15 +138,15 @@ body {
 
 /* Motor kép stílusa */
 .motor-image {
-    width: 70%; /* Kitölti az oszlop teljes szélességét */
-    height: 380px; /* Állítsd be a kívánt magasságot */
-    margin-left: 100px;
-    margin-right: 100px;
+    width: 100%; /* Kitölti az oszlop teljes szélességét */
+    height: 400px; /* Állítsd be a kívánt magasságot */
+    margin-left: 20px ;
+
     
 }   
 
 .motor-image img {
-    width: 100%;
+    width: 90%;
     height: 100%;
     object-fit: cover;
     border-radius: 10px; /* Lekerekített sarkok */
