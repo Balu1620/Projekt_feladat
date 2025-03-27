@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateLoanRequest;
 use App\Http\Requests\UpdateMotorcycleRequest;
+use App\Models\Admin;
 use App\Models\DeviceSwitch;
 use App\Models\Loan;
+use App\Models\Log;
 use App\Models\Motorcycle;
 use App\Models\Tool;
 use App\Models\User;
@@ -108,10 +110,29 @@ class MotorcycleAPIController extends Controller
 
     public function Getuser(User $user)
     {
-
         if (!$user) {
-            return response()->json([$user, 'message' => 'Nem tudta frissiteni'], 404);
+            return response()->json([$user, 'message' => 'lekérni'], 404);
         }
-        return response()->json([$user, "msg" => "sikeres Frissités!!!"]);
+        return response()->json([$user, "msg" => "sikeres lekérés!!!"]);
+    }
+
+    public function AllLogindex()
+    {
+        $logs = Admin::with(
+            "logs"
+        )->get();
+        if (!$logs) {
+            return response()->json([$logs, 'message' => 'Nem tudta frissiteni'], 404);
+        }
+        return response()->json([$logs, "msg" => "sikeres Frissités!!!"]);
+    }
+
+    public function AllAdminIndex()
+    {
+        $logs = Admin::all();
+        if (!$logs) {
+            return response()->json([$logs, 'message' => 'Nem tudta frissiteni'], 404);
+        }
+        return response()->json([$logs, "msg" => "sikeres Frissités!!!"]);
     }
 }

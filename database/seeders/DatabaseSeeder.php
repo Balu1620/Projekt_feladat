@@ -32,7 +32,6 @@ class DatabaseSeeder extends Seeder
             'email' => "admin@gmail.com",
             'password' => 'alma.1234',
             'jobStatus' => 0,
-            'deactivation' => false
         ]);
 
         $this->call([

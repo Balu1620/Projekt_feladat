@@ -17,8 +17,14 @@ Route::post("/proba", function(){
     return response()->json();
 });*/
 
+
+
 Route::get('usersData', [MotorcycleAPIController::class, 'index']);
 Route::put('retrieveData/{loan}/{motorcycle}', [MotorcycleAPIController::class, 'MotorRetrieveUpdate']);
 Route::put('receiptMotorData/{motorcycle}', [MotorcycleAPIController::class, 'MotorReceiptUpdate']);
 
 Route::get('/user/{user}', [MotorcycleAPIController::class, 'Getuser']);
+Route::get('/logs', [MotorcycleAPIController::class, 'AllLogindex']);
+
+Route::get('/admins', [MotorcycleAPIController::class, 'AllAdminIndex']);
+

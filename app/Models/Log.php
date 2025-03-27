@@ -9,4 +9,9 @@ class Log extends Model
 {
     /** @use HasFactory<\Database\Factories\LogFactory> */
     use HasFactory;
+
+    public function admin()
+    {
+        return $this->belongsTo(Admin::class);
+    }
 }
