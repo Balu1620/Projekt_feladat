@@ -12,27 +12,27 @@
                 Szűrés <i class="bi bi-sliders"></i>
             </button>
 
-            <div class="content-center self-center">
-                
-                <div class="my-3 w-full text-center">
-                    <div class="mb-2 ">
-                        <span>Kölcsönzés kezdete: </span><input type="date" value="def" id="dateStart">
-                    </div>
-                                
-                    <div>
-                        <span>Kölcsönzés vége: </span> <input type="date" id="dateEnd">
-                    </div>
-                                
+            <div class="my-3 w-full text-center custom-date-range">
+                <div class="mb-2">
+                    <span>Kölcsönzés kezdete: </span>
+                    <input type="date" value="def" id="dateStart">
                 </div>
+                            
+                <div>
+                    <span>Kölcsönzés vége: </span> 
+                    <input type="date" id="dateEnd">
+                </div>
+                <div >
+                <button class="btn btn-secondary w-100" onclick="date()">Dátum kiválasztása</button>
+            </div>                            
+            </div>
 
-        </div>
-        <div id="SelectLoc" class="my-3">
-            <select name="keruletek" id="keruletek" onchange="valasztPlace(this.value)">
-                <option value="..." selected disabled>Kerületek</option>
-                @foreach($locations as $location)
-                    <option value="{{ $location->location }}" {{ request('location', old('location')) == $location->location ? 'selected' : '' }}>{{ $location->location }}</option>
-                @endforeach
-            </select>
+            
+
+            <div class="content-center self-center">
+
+
+            </div>
         </div>
         <div class="filter offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
             aria-labelledby="offcanvasWithBothOptionsLabel">

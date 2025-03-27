@@ -7,7 +7,7 @@
             oldalra</a>
     </div>
     <div class="motor-details">
-        <div class="motor-image">
+        <div class="motor-image-page">
              <img src="{{ asset('img/' . str_replace(' ', '', $motor->type) . '.jpg') }}" alt="Motor image" />
         </div>
 

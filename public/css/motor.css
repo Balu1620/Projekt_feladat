@@ -101,3 +101,38 @@ div.card{
     padding: 10px; /* Kis térköz a kép körül */
 }
     
+
+/* Egyedi osztály, hogy biztosan ne ütközzön más oldalak stílusával */
+.custom-date-range {
+    display: flex;
+    justify-content: center; /* Középre igazítás */
+    gap: 1rem; /* Kisebb térköz a két mező között */
+    align-items: center; /* Vertikális középre igazítás */
+}
+
+/* A dátumválasztó input mezők stílusa */
+.custom-date-range input[type="date"] {
+    width: auto; /* Automatikus szélesség a tartalomhoz igazítva */
+    min-width: 150px; /* Minimum szélesség a megfelelő elhelyezéshez */
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.375rem;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.2s ease-in-out;
+}
+
+/* Ha a mező fókuszban van */
+.custom-date-range input[type="date"]:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+}
+
+/* A címkék stílusa */
+.custom-date-range span {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #333;
+    margin-right: 0.3rem; /* Kisebb távolság a címke és a mező között */
+}
