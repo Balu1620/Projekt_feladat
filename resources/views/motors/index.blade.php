@@ -13,7 +13,17 @@
             </button>
 
             <div class="content-center self-center">
-
+                
+                <div class="my-3 w-full text-center">
+                    <div class="mb-2 ">
+                        <span>Kölcsönzés kezdete: </span><input type="date" value="def" id="dateStart">
+                    </div>
+                                
+                    <div>
+                        <span>Kölcsönzés vége: </span> <input type="date" id="dateEnd">
+                    </div>
+                                
+                </div>
 
             </div>
         </div>
@@ -73,16 +83,7 @@
                                 <input class="form-check-input" type="checkbox" name="fuel" value="E" {{ request('fuel', old('fuel')) == 'E' ? 'checked' : '' }}>
                             </div>
                         </div>
-                        <div class="my-3 w-full text-center">
-                            <div class="mb-2 ">
-                                <span>Kölcsönzés kezdete: </span><input type="date" value="def" id="dateStart">
-                            </div>
-                            
-                            <div>
-                                <span>Kölcsönzés vége: </span> <input type="date" id="dateEnd">
-                            </div>
-                            
-                        </div>
+                        
                         <div class="col-12 mt-2">
                             <button class="btn btn-secondary w-100" onclick="date()">Szűrés</button>
                         </div>
@@ -95,8 +96,8 @@
             @foreach($motorcycles as $motorcycle)
                 <div class="mb-5 mCard">
                     <div class="card" style="width: 18rem;">
-                        <img src="{{ asset('storage/img/placeholder.png') }}" class="card-img-top" alt="Motor képe">
-                        <div class="card-body">
+                        <img class="img" src="{{ asset('img/' . str_replace(' ', '', $motorcycle->type) . '.jpg') }}" alt="Motor image" />
+                    <div class="card-body">
                             <h5 class="card-title">
                                 <span class="brand">{{ $motorcycle->brand }}</span> - {{ number_format($motorcycle->price) }}
                                 Ft/nap
