@@ -55,48 +55,32 @@
 </head>
 
 <body style="background-image: url('/storage/img/Background1.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-  <!-- Navigációs sáv -->
-  <nav class="bg-white-900 text-white shadow-md">
-    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-      <div class="relative flex h-16 items-center justify-between">
-        <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-          <button type="button" 
-                  class="relative inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-secondary focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset bg-secondary border-2 shadow-md transition duration-300" 
-                  onclick="toggleMobileMenu()" 
-                  aria-controls="mobile-menu" 
-                  aria-expanded="false">
-            <span class="absolute -inset-0.5"></span>
-            <span class="sr-only">Nyisd ki</span>
-            <svg class="block size-6 bg-secondary" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-          </button>
-          <div id="social_icons">
-          <a href="https://www.instagram.com" target="_blank" class="text-pink-500 hover:text-pink-500 transition duration-300 ease-in-out">
-              <i class="fab fa-instagram fa-lg"></i>
-            </a>
-            <a href="https://www.facebook.com" target="_blank" class="text-blue-500 hover:text-blue-500 transition duration-300 ease-in-out">
-              <i class="fab fa-facebook fa-lg"></i>
-            </a>
-            <a href="https://www.twitter.com" target="_blank" class="text-sky-500 hover:text-sky-500 transition duration-300 ease-in-out">
-              <i class="fab fa-twitter fa-lg"></i>
-            </a>     
+<nav class="bg-white-900 text-white shadow-md">
+  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+    <div class="relative flex h-16 items-center justify-between">
+      <!-- Bal oldali elem: mobil menü gomb -->
+      <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+        <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-blue-900 focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset bg-blue-700 border-2 border-blue-700 shadow-md transition duration-300" onclick="toggleMobileMenu()" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="absolute -inset-0.5"></span>
+          <span class="sr-only">Nyisd ki</span>
+          <svg class="block size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Középen a logo -->
+      <div class="flex flex-1 items-center justify-between">
+        <img class="h-8 w-auto hidden sm:block" src="{{ asset('storage/img/logo.png') }}" alt="Your Company">
+        <div class="hidden sm:block w-full">
+          <div class="flex justify-evenly items-center">
+            <a href="/" class="nav-link"><p>Főoldal</p></a>
+            <a href="{{ route('motors.index') }}" class="nav-link"><p>Motorok</p></a>
+            <a href="{{ route('location') }}" class="nav-link"><p>Helyszínek</p></a>
+            <a href="{{ route('about') }}" class="nav-link"><p>Rólunk</p></a>
           </div>
-        
-        </div>
-
-        <!-- Logo és navigációs linkek -->
-        <div class="flex flex-1 items-center justify-between">
-          <img class="h-8 w-auto hidden sm:block" src="{{ asset('storage/img/logo.png') }}" alt="Your Company">
-          <div class="hidden sm:block w-full">
-            <div class="flex justify-evenly items-center">
-              <a href="/" class="nav-link"><p>Főoldal</p></a>
-              <a href="{{ route('motors.index') }}" class="nav-link"><p>Motorok</p></a>
-              <a href="{{ route('location') }}" class="nav-link"><p>Helyszínek</p></a>
-              <a href="{{ route('about') }}" class="nav-link"><p>Rólunk</p></a>
-            </div>
-          </div>
-        </div>
+        </div>  
+      </div>
 
         <!-- Közösségi média ikonok -->
         <div class="flex items-center space-x-5">

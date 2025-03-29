@@ -26,5 +26,5 @@ Route::put('receiptMotorData/{motorcycle}', [MotorcycleAPIController::class, 'Mo
 Route::get('/user/{user}', [MotorcycleAPIController::class, 'Getuser']);
 Route::get('/logs', [MotorcycleAPIController::class, 'AllLogindex']);
 
-Route::get('/admins', [MotorcycleAPIController::class, 'AllAdminIndex']);
-
+Route::post('/admins', [MotorcycleAPIController::class, 'StoreAdmin']);
+Route::put('/admins/{admin}', [MotorcycleAPIController::class, 'UpdateAdmin']);

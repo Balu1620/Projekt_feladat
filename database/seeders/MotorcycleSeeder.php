@@ -1328,7 +1328,7 @@ class MotorcycleSeeder extends Seeder
             ],
             [
                 "brand" => "Super Soco",
-                "type" => "CT Titan",
+                "type" => "TC Titan",
                 "licencePlate" => "JLW-839",
                 "year" => 2022,
                 "gearbox" => "Automata",
@@ -1430,7 +1430,7 @@ class MotorcycleSeeder extends Seeder
             ],
             [
                 "brand" => "Yamaha",
-                "type" => "ECO Avantiz",
+                "type" => "EGO Avantiz",
                 "licencePlate" => "TXW-953",
                 "year" => 2020,
                 "gearbox" => "Manualis (6 fokozatu)",
@@ -1447,7 +1447,7 @@ class MotorcycleSeeder extends Seeder
             ],
             [
                 "brand" => "Yamaha",
-                "type" => "ECO Solariz",
+                "type" => "EGO Solariz",
                 "licencePlate" => "BZC-218",
                 "year" => 2020,
                 "gearbox" => "Manualis (6 fokozatu)",
