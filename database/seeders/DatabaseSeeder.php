@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Admin::factory()->create([
+            'name' => 'Admin Anna',
             'email' => "admin@gmail.com",
             'password' => 'alma.1234',
             'jobStatus' => 0,

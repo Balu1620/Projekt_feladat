@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateAdminRequest;
 use App\Http\Requests\UpdateLoanRequest;
 use App\Http\Requests\UpdateMotorcycleRequest;
 use App\Models\Admin;
@@ -60,13 +61,11 @@ class MotorcycleAPIController extends Controller
      */
     public function show(int $id)
     {
-       
         $motor = User::find($id);
         if (!$motor) {
             return response()->json(['message' => 'User not found'], 404);
         }
         return response()->json($motor, 200);
-        
     }
 
     /**
@@ -120,19 +119,27 @@ class MotorcycleAPIController extends Controller
     {
         $logs = Admin::with(
             "logs"
-        )->get();
+        )->orderBy("jobstatus", "asc")->get();
         if (!$logs) {
             return response()->json([$logs, 'message' => 'Nem tudta frissiteni'], 404);
         }
         return response()->json([$logs, "msg" => "sikeres Frissités!!!"]);
     }
 
-    public function AllAdminIndex()
+    public function UpdateAdmin(UpdateAdminRequest $request, Admin $admin)
     {
-        $logs = Admin::all();
-        if (!$logs) {
-            return response()->json([$logs, 'message' => 'Nem tudta frissiteni'], 404);
+        $admin->update($request->all());
+        if (!$admin) {
+            return response()->json(['message' => 'Nem tudta frissiteni'], 404);
         }
-        return response()->json([$logs, "msg" => "sikeres Frissités!!!"]);
+        return response()->json([$admin, "msg" => "sikeres Frissités!!!"]);
+    }
+    public function StoreAdmin(UpdateAdminRequest $request, Admin $admin)
+    {
+        $admin->create($request->all());
+        if (!$admin) {
+            return response()->json(['message' => 'Nem tudta frissiteni'], 404);
+        }
+        return response()->json([$admin, "msg" => "sikeres Frissités!!!"]);
     }
 }

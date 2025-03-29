@@ -13,7 +13,11 @@ class Admin extends Model
     use SoftDeletes;
 
     protected $fillable = [
+        "name",
+        "email",
+        "password",
         "jobStatus",
+        "deactive"
     ];
     public function logs()
     {
