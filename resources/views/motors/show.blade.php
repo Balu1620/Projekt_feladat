@@ -6,10 +6,9 @@
         <a href="{{ url()->previous() }}" class="btn btn-primary vissza"><i class="bi bi-arrow-left"></i> Vissza az előző
             oldalra</a>
     </div>
-
-    <div class="motor-details-page">
+    <div class="motor-details">
         <div class="motor-image-page">
-            <img src="{{ asset('storage/img/motor_about.webp') }}" alt="Motor image" />
+             <img src="{{ asset('img/' . str_replace(' ', '', $motor->type) . '.jpg') }}" alt="Motor image" />
         </div>
 
         <div class="details-text-page">
