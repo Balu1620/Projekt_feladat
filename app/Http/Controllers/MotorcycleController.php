@@ -13,6 +13,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class MotorcycleController extends Controller
 {
@@ -21,7 +22,8 @@ class MotorcycleController extends Controller
     {
         $query = DB::table('motorcycles')
             ->leftJoin('loans', 'motorcycles.id', '=', 'loans.motorcycles_id')
-            ->select('motorcycles.*', 'loans.rentalDate', 'loans.returnDate');
+            ->select('motorcycles.*', 'loans.rentalDate', 'loans.returnDate')
+            ->where('motorcycles.motorcycleStatus', 0);
 
         // Feltételek hozzáadása
         if ($request->filled('brand')) {
@@ -46,6 +48,7 @@ class MotorcycleController extends Controller
 
         // Lekérdezés végrehajtása
         $motorcycles = $query->get();
+
 
         // Kiegészítő lekérdezések
         $brands = DB::table('motorcycles')->select('brand')->distinct()->get();
@@ -87,11 +90,15 @@ class MotorcycleController extends Controller
         $sisakmeret = session('sisakmeret');
         $ruhameret = session('ruhameret');
         $cipomeret = session('cipomeret');
+
+        $orderId = 'ORD-' . Str::upper(Str::random(8));
+
         $motorRental = new MotorRental();
         $motorRental->users_id = $userId;
         $motorRental->motorcycles_id = $motorId;
         $motorRental->rentalDate = $startDate;
         $motorRental->returnDate = $endDate;
+        $motorRental->orders_id = $orderId;
         //----- Bálint -----
         $motorRental->gaveDown = 0;
         $motorRental->jobStatus = 0;
@@ -147,13 +154,12 @@ class MotorcycleController extends Controller
                 ]);
             }
 
-            // Ellenőrzés céljából kiírjuk a megfelelő eszközök ID-it
-            dd($matchingToolIds);
         }
 
+        
 
 
-        return view('pages.final_page', ['motorId' => $motorId, 'startDate' => $startDate, 'endDate' => $endDate, 'matchingToolIds' => $matchingToolIds, 'sisakdb' => $sisakdb, 'sisakmeret' => $sisakmeret, 'cipodb' => $cipodb, 'cipomeret' => $cipomeret]);
+        return view('pages.final_page', ['orderId' => $orderId, 'motorId' => $motorId, 'startDate' => $startDate, 'endDate' => $endDate, 'matchingToolIds' => $matchingToolIds, 'sisakdb' => $sisakdb, 'sisakmeret' => $sisakmeret, 'cipodb' => $cipodb, 'cipomeret' => $cipomeret]);
     }
 
     /**

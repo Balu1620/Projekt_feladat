@@ -2,7 +2,7 @@
 @section("footer")
 <footer class="lent">
         <div class="mt-5 ">
-            <div class="cell text-white text-center text-lg-start bg-primary">
+            <div class="cell text-white text-center text-lg-start bg-dark">
                 <!-- Grid container -->
                 <div class="container p-4">
                     <!--Grid row-->
@@ -34,7 +34,7 @@
 
                         <!--Grid column-->
                         <div class="col-lg-4 col-md-6 mb-4 mb-md-0 search">
-                            <h5 class="text-uppercase mb-4 pb-1 text-center">Search something</h5>
+                            <h5 class="text-uppercase mb-4 pb-1 text-center">Elérhetőségek</h5>
 
                             <ul class="fa-ul link" style="margin-left: 1.65em;">
                                 <li class="mb-3 text-start">
@@ -43,7 +43,7 @@
                                 </li>
                                 <li class="mb-3 text-start">
                                     <span class="fa-li"><i class="bi bi-envelope-at-fill"></i></span>
-                                    <a href="mailto:kapcsolat@motorkiralya.hu"><span class="ms-2">kapcsolat@motorkiralya.hu</span></a>
+                                    <a href="mailto:kapcsolat@motorkiralya.hu"><span class="ms-2">motorrentalproject@gmail.com</span></a>
 
                                     <!-- Emoji is link -->
                                     <!--<a href="mailto:info@example.com"><span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">info@example.com</span></a>-->
@@ -58,17 +58,17 @@
 
                         <!--Grid column-->
                         <div class="col-lg-4 col-md-6 mb-4 mb-md-0 opening">
-                            <h5 class="text-uppercase mb-4 text-center">Opening hours</h5>
+                            <h5 class="text-uppercase mb-4 text-center">Nyitvatartási idő</h5>
 
                             <table class="table text-center text-white">
                                 <tbody class="font-weight-normal">
                                     <tr>
-                                        <td>Mon - Fri:</td>
-                                        <td>8am - 9pm</td>
+                                        <td>Hetfő - Péntek:</td>
+                                        <td>7:00 - 21:00</td>
                                     </tr>
                                     <tr>
-                                        <td>Sat - Sun:</td>
-                                        <td>8am - 1am</td>
+                                        <td>Szombat - Vasárnap:</td>
+                                        <td>8:00 - 17:00</td>
                                     </tr>
                                 </tbody>
                             </table>

@@ -33,22 +33,24 @@
             <!-- Bérlések szakasz -->
             <div class="col-12 col-md-6">
                 <h1 class="text-center mb-7 text-black">Bérlések</h1>
-                <div class="menu-container my-5 rounded-2">
-                    <div class="row bg-gray-300">
+                <div class="menu-container my-5 rounded-2 bg-gray-300">
+                    <div class="row">
                         @if(count($loans) > 0)
                             @foreach($loans as $loan)
                                 <div class="col-12 mb-4">
-                                    <div class="card shadow-sm border-light rounded">
-                                        <div class="card-header bg-orange-400 text-white">
+                                    <div class="card shadow-sm rounded">
+                                        <div class="card-header bg-red-900 text-white">
                                             <div class="d-flex justify-content-between">
-                                                <h5 class="mb-0">{{ $loan['motorcycle']['brand'] }}
-                                                    {{ $loan['motorcycle']['type'] }}</h5>
-                                                <span class="text-muted">{{ $loan['rental_period']['rentalDate'] }} -
+                                                <h5>Rendelési azonosító: {{ $loan['orders_id'] }}</h5>
+                                                <span class="text-muted-primary">{{ $loan['rental_period']['rentalDate'] }} -
                                                     {{ $loan['rental_period']['returnDate'] }}</span>
                                             </div>
                                         </div>
                                         <div class="card-body">
                                             <h6><strong>Bérlő neve:</strong> {{ $loan['user_name'] }}</h6>
+                                            <h5 class="mb-0"><strong> Motor:</strong> {{ $loan['motorcycle']['brand'] }}
+                                                {{ $loan['motorcycle']['type'] }}
+                                            </h5>
 
                                             <div class="mt-3">
                                                 @if(count($loan['tools']) > 0)
