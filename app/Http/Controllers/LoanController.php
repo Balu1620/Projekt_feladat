@@ -47,17 +47,18 @@ class LoanController extends Controller
     {
         $userId = auth()->id();
 
-        // Módosítsd a szűrést a helyes oszlopnévvel
+        
         $loans = Loan::with([
             'deviceSwitches.tool',
             'user',
             'motorcycle'
         ])
-            ->where('users_id', $userId)  // Használd a megfelelő oszlopot
+            ->where('users_id', $userId)  
             ->get()
             ->map(function ($loan) {
                 return [
                     'user_name' => $loan->user->name,
+                    'orders_id' => $loan->orders_id,
                     'motorcycle' => [
                         'brand' => $loan->motorcycle->brand,
                         'type' => $loan->motorcycle->type,

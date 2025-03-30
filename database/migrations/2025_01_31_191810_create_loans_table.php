@@ -18,6 +18,7 @@ return new class extends Migration
             $table->boolean("gaveDown")->default(false);
             $table->boolean("jobStatus");
             $table->longText("problemDescription")->nullable();
+            $table->string('orders_id');
             $table->timestamps();
         });
     }

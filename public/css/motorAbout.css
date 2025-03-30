@@ -1,200 +1,96 @@
-.motor-details-page {
-    /* Alapstílusok */
-    display: flex;
-    justify-content: space-between;
-    padding: 40px;
-    padding-bottom: 5%;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #f4f4f4;
-    border-radius: 15px;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    max-width: 1200px;
-    flex-wrap: wrap;
-    margin-top: 25px;
-    margin-bottom: 120px;
-}
-
-.motor-image-page {
-    height: 400px;
-    width: 500px;
-}
-
-.money-list-page {
-    margin-top: 5px;
-    font-size: 18px;
-    margin-left: 30px;
-    margin-right: 100px;
-}
-
-.motor-image-page img {
-    width: 100%;
-    height: auto;
-    max-width: 500px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-}
-
-.motor-image-page img:hover {
-    transform: scale(1.05);
-}
-
-.details-text-page {
-    width: 50%;
-    line-height: 1.8;
-    padding-left: 20px;
-    padding-top: 20px;
-}
-
-.details-text-page h2 {
-    font-size: 28px;
+.motor-card {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 3px solid #ddd;
+    border-radius: 6px;  
+    font-family: 'Arial', sans-serif;
     color: #333;
-    margin-bottom: 10px;
-    font-weight: 700;
 }
 
-.details-text-page p {
-    font-size: 18px;
-    color: #777;
+.motor-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+.motor-image-container img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.motor-details-container {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+
+}
+
+.details-section,
+.pricing-section {
     margin-bottom: 20px;
 }
 
-.details-text-page ul {
+.details-section h4,
+.pricing-section h4 {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.details-section ul,
+.pricing-section ul {
     list-style: none;
     padding: 0;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    margin: 0;
 }
 
-.details-text-page li {
-    font-size: 16px;
-    color: #555;
+.details-section ul li,
+.pricing-section ul li {
+    font-size: 14px;
     margin-bottom: 8px;
     display: flex;
     align-items: center;
+    color: #666;
 }
 
-.details-text-page li i {
+.details-section ul li i {
     margin-right: 10px;
-    color: #ffcc00;
+    color: #888;
 }
 
-.pricing-buttons button {
-    background: linear-gradient(45deg, #ffcc00, #ff6600);
-    color: #fff;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 50px;
-    font-size: 16px;
+.discount-info {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.pricing-section ul li span {
+    color: #333;
     font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-    width: 200px;
-    height: 50px;
 }
 
-.pricing-buttons button:hover {
-    background: linear-gradient(45deg, #ff6600, #ffcc00);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-    transform: translateY(-5px);
+.pricing-section ul li b {
+    color: #444;
+}
+
+.details-section ul li i {
+    font-size: 1.2em; /* Az ikon mérete */
+    color: #060707; /* Kék szín */
+    margin-right: 10px; /* Térköz az ikon és a szöveg között */
+    vertical-align: middle; /* Középre igazítás a szöveggel */
+}
+
+.pricing-buttons .btn-dark {
+    border: 3px solid #5a5a5a; /* Piros szegély */
+    border-radius: 8px; /* Lekerekített sarkok */
+    padding: 10px; /* Extra belső margó */
+    transition: all 0.3s ease-in-out; /* Animáció hoverre */
 }
 
 
-/* Mobil és tablet méretek */
-@media (min-width: 768px) and (max-width: 1023px) {
-    .motor-details-page {
-        flex-direction: column;
-        margin-left: 5%;
-        margin-right: 5%;
-        padding: 20px;
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    }
-    .motor-image-page, .details-text-page {
-        width: 100%;
-    }
-
-    .motor-image-page {
-        height: 400px;
-        width: 700px;
-        place-items: center;
-        padding-right: 40px;
-    }
-    .motor-image-page img {
-        width: 500px;
-        max-width: none;
-        margin-bottom: 20px;
-    }
-    .details-text-page {
-        width: 100%;
-        text-align: center;
-        padding-left: 0;
-    }
-
-    .details-text-page h2 {
-        font-size: 24px;
-    }
-
-    .details-text-page p {
-        font-size: 16px;
-    }
-
-    .details-text-page li {
-        font-size: 14px;
-    }
-
-    .money-list-page {
-        font-size: 16px;
-        margin-right: 20px;
-        margin-left: 20px;
-    }
-}
-
-/* Mobil méretek (max 768px) */
-@media (max-width: 767px) {
-    .motor-details-page {
-        flex-direction: column;
-        margin-left: 5%;
-        margin-right: 5%;
-        padding: 20px;
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    }
-    .motor-image-page, .details-text-page {
-        width: 100%;
-    }
-
-    .motor-image-page {
-        height: 250px;
-    }
-    .motor-image-page img {
-        width: 100%;
-        max-width: none;
-        margin-bottom: 20px;
-    }
-    .details-text-page {
-        width: 100%;
-        text-align: center;
-        padding-left: 0;
-        margin-top: 0px;
-    }
-
-    .details-text-page h2 {
-        font-size: 20px;
-    }
-
-    .details-text-page p {
-        font-size: 13px;
-    }
-
-    .details-text-page li {
-        font-size: 11px;
-    }
-
-    .money-list-page {
-        font-size: 13px;
-        margin-right: 20px;
-        margin-left: 20px;
-    }
-}

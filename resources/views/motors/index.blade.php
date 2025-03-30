@@ -7,7 +7,7 @@
 
         <div class="flex flex-row gap-10">
 
-            <button class="open-btn btn btn-primary m-4" type="button" data-bs-toggle="offcanvas"
+            <button class="open-btn btn btn-dark m-4" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                 Szűrés <i class="bi bi-sliders"></i>
             </button>

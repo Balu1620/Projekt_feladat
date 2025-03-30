@@ -1,3 +1,9 @@
+#social_icons{
+    padding-left: 10px;
+}
+#social_icons a{
+    padding: 5px;
+}
 .nav-link {
     --primary-color: #111;
     --hovered-color: #c84747;
@@ -178,25 +184,20 @@ s .profile-pic img {
 }
 
 /* Mobile menu*/
-
-
-
-
-
-#mobile-menu .space-y-1 {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+#mobile-menu{
+    width: 100%;
 }
 
 #mobile-menu a {
-    padding: 10px 15px;
     font-size: 16px;
     font-weight: 500;
-    color: #333;
+    color: #7a7272;
     text-decoration: none;
-    background-color: #f1f1f1;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
+    background-color: #fcfafa;
+    transition: background-color 0.5s ease;
+    display: flex; /* Blokk szintűvé teszi a linket */
+    width: 100%; /* 100% szélesség */
+    text-align: center; /* Középre igazítja a szöveget */
 }
 
 #mobile-menu a:hover {
@@ -204,14 +205,18 @@ s .profile-pic img {
     color: white;
 }
 
-/* Külön stílusok a 'nav-link' osztályhoz */
-#mobile-menu a.nav-link {
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
 /* Aktív állapot */
 #mobile-menu a.active {
     background-color: #0056b3;
     color: white;
 }
+
+#mobile-menu hr{
+    color: #0c0d0e;
+}
+
+#mobile-menu-link{
+    width: 120%;
+}
+
+
