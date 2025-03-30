@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->unsignedTinyInteger("jobStatus");
-            $table->boolean("deactive")->default(1);
+            $table->boolean("deactive")->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

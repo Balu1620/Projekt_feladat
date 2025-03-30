@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreAdminRequest;
 use App\Http\Requests\UpdateAdminRequest;
 use App\Http\Requests\UpdateLoanRequest;
 use App\Http\Requests\UpdateMotorcycleRequest;
@@ -132,14 +133,23 @@ class MotorcycleAPIController extends Controller
         if (!$admin) {
             return response()->json(['message' => 'Nem tudta frissiteni'], 404);
         }
-        return response()->json([$admin, "msg" => "sikeres Frissités!!!"]);
+        return response()->json([$admin, "msg" => "sikeres Módosítás!!!"]);
     }
-    public function StoreAdmin(UpdateAdminRequest $request, Admin $admin)
+    public function StoreAdmin(StoreAdminRequest $request)
     {
-        $admin->create($request->all());
+        $newAdmin = Admin::create($request->all());
+        if (!$newAdmin) {
+            return response()->json(['message' => 'Nem tudta frissiteni'], 404);
+        }
+        return response()->json([$newAdmin, "msg" => "sikeres Frissités!!!"]);
+    }
+
+    public function DeactiveAdmin(UpdateAdminRequest $request, Admin $admin)
+    {
+        $admin->delete();
         if (!$admin) {
             return response()->json(['message' => 'Nem tudta frissiteni'], 404);
         }
-        return response()->json([$admin, "msg" => "sikeres Frissités!!!"]);
+        return response()->json([$admin, "msg" => "sikeres Deaktiválás!!!"]);
     }
 }

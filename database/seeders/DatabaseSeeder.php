@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Admin Anna',
             'email' => "admin@gmail.com",
             'password' => 'alma.1234',
+            
             'jobStatus' => 0,
         ]);
 
