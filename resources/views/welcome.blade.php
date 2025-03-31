@@ -4,7 +4,7 @@
     <div class=" mx-4 mt-2">
         <div class="justify-content-center ">
             <div id="uppictures">
-                <img src="{{ asset('storage/img/placeholder.png') }}" alt="Nature" id="onePhoto">
+                <img src="{{ asset('storage/img/HomePage.jpg') }}" alt="Nature" id="onePhoto">
             </div>
             <hr>
             <section>
@@ -72,13 +72,13 @@
                                 </div>
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
-                                        <img src="{{ asset('storage/img/placeholder.png') }}" alt="...">
+                                        <img src="{{ asset('storage/img/Motorshow1.jpg') }}" alt="...">
                                     </div>
                                     <div class="carousel-item">
-                                        <img src="{{ asset('storage/img/placeholder.png') }}" alt="...">
+                                        <img src="{{ asset('storage/img/Motorshow2.jpg') }}" alt="...">
                                     </div>
                                     <div class="carousel-item">
-                                        <img src="{{ asset('storage/img/placeholder.png') }}" alt="...">
+                                        <img src="{{ asset('storage/img/Motorshow3.jpg') }}" alt="...">
                                     </div>
                                 </div>
                                 <button class="carousel-control-prev" type="button"
@@ -145,7 +145,7 @@
                 <p>7 nap bérlésnél -30% kedvezmény!</p>
             </div>
             <!--         TimeLine       -->
-            <section id="timeline_alap">
+            <section id="timeline_alap" style="background-image: url('/storage/img/MotorBg.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
                 <h3 style="text-align: center; ">A motorbérlés menete</h3>
                 <div class="slidecontainer ">
                     <input class="slider" id="slider" list="markers" type="range" min="0" max="3" step="1" value="0"

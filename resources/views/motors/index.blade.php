@@ -1,39 +1,18 @@
 @extends('layouts.header')
 
 @section('content')
-
+<body>
     <div class="mcontent" id="filter">
         <h2 class="text-center fs-2">A Motorok</h2>
 
-        <div class="flex flex-row gap-10">
-
-            <button class="open-btn btn btn-dark m-4" type="button" data-bs-toggle="offcanvas"
+        <div class="flex flex-col md:flex-row gap-4 md:gap-10 items-center">
+            <!-- Szűrés gomb -->
+            <button class="open-btn btn btn-dark m-4 md:m-0" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                 Szűrés <i class="bi bi-sliders"></i>
             </button>
-
-            <div class="my-3 w-full text-center custom-date-range">
-                <div class="mb-2">
-                    <span>Kölcsönzés kezdete: </span>
-                    <input type="date" value="def" id="dateStart">
-                </div>
-                            
-                <div>
-                    <span>Kölcsönzés vége: </span> 
-                    <input type="date" id="dateEnd">
-                </div>
-                <div >
-                <button class="btn btn-secondary w-100" onclick="date()">Dátum kiválasztása</button>
-            </div>                            
-            </div>
-
-            
-
-            <div class="content-center self-center">
-
-
-            </div>
         </div>
+
         <div class="filter offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
             aria-labelledby="offcanvasWithBothOptionsLabel">
             <div class="offcanvas-header">
@@ -90,41 +69,61 @@
                                 <input class="form-check-input" type="checkbox" name="fuel" value="E" {{ request('fuel', old('fuel')) == 'E' ? 'checked' : '' }}>
                             </div>
                         </div>
-                        
+
+                        <!-- Dátum szűrő hozzáadása -->
+                        <div class="col-12 mb-3">
+                            <p class="fw-medium">Kölcsönzés kezdete:</p>
+                            <input type="date" name="dateStart" value="{{ request('dateStart', old('dateStart')) }}"
+                                class="form-control">
+                        </div>
+                        <div class="col-12 mb-3">
+                            <p class="fw-medium">Kölcsönzés vége:</p>
+                            <input type="date" name="dateEnd" value="{{ request('dateEnd', old('dateEnd')) }}"
+                                class="form-control">
+                        </div>
+
                         <div class="col-12 mt-2">
-                            <button class="btn btn-secondary w-100" onclick="date()">Szűrés</button>
+                            <button type="submit" class="btn btn-secondary w-100">Szűrés</button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
 
+
         <div class="motorGrid" id="margin">
-            @foreach($motorcycles as $motorcycle)
-                <div class="mb-5 mCard">
-                    <div class="card" style="width: 18rem;">
-                        <img class="img" src="{{ asset('img/' . str_replace(' ', '', $motorcycle->type) . '.jpg') }}" alt="Motor image" />
-                    <div class="card-body">
-                            <h5 class="card-title">
-                                <span class="brand">{{ $motorcycle->brand }}</span> - {{ number_format($motorcycle->price) }}
-                                Ft/nap
-                            </h5>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">{{ $motorcycle->brand }} {{ $motorcycle->type }}</li>
-                                <li class="list-group-item">{{ $motorcycle->powerLe }} LE és {{ $motorcycle->powerkW }} kW</li>
-                                <li class="list-group-item">{{ $motorcycle->gearbox }}</li>
-                                <li class="list-group-item">{{ $motorcycle->location }}</li>
-                            </ul>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+                @foreach($motorcycles as $motorcycle)
+                    <div class="col">
+                        <div class="card h-100">
+                            <img class="card-img-top"
+                                src="{{ asset('img/' . str_replace(' ', '', $motorcycle->type) . '.jpg') }}"
+                                alt="Motor image" />
                             <div class="card-body">
+                                <h5 class="card-title">
+                                    <span class="brand">{{ $motorcycle->brand }}</span> -
+                                    {{ number_format($motorcycle->price) }} Ft/nap
+                                </h5>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">{{ $motorcycle->brand }} {{ $motorcycle->type }}</li>
+                                    <li class="list-group-item">{{ $motorcycle->powerLe }} LE és {{ $motorcycle->powerkW }} kW
+                                    </li>
+                                    <li class="list-group-item">{{ $motorcycle->gearbox }}</li>
+                                    <li class="list-group-item">{{ $motorcycle->location }}</li>
+                                </ul>
+                            </div>
+                            <div class="card-footer text-center">
                                 <a href="{{ route('motors.show', $motorcycle->id) }}"
-                                    class="btn btn-outline-secondary">Részletek</a>
+                                    class="btn btn-outline-secondary w-100">Részletek</a>
                             </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            </div>
         </div>
+
     </div>
+</body>
 @endsection
 
 @extends('layouts.footer')

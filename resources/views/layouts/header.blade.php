@@ -27,6 +27,7 @@
 	<script src="{{ asset('js/tools.js') }}" defer></script>
 	<script src="{{ asset('js/calendar.js') }}" defer></script>
 	<script src="{{ asset('js/registPage.js') }}" defer></script>
+  <script src="{{ asset('js/userProfile.js') }}" defer></script>
 	
     <!-- Scripts -->
     @vite([
@@ -37,7 +38,7 @@
     'public/css/mainPageResponseTimeLime.css',
     'public/css/mainPageResponseCardsAndP_W.css',
     'public/css/mainPageFooter.css',
-    'public/css/regist.css',
+    'public/css/regist_login.css',
     'public/css/motor.css',
     'public/css/about.css',
     'public/css/motorAbout.css',
@@ -50,17 +51,18 @@
   'public/css/finalPage.css',
   'public/css/userProfile.css',
   'public/css/summaryPage.css',
+  'public/css/footer.css',
 ])
 
 </head>
 
-<body style="background-image: url('/storage/img/Background1.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-<nav class="bg-white-900 text-white shadow-md">
+<body> 
+<nav class="bg-light text-white shadow-md">
   <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
     <div class="relative flex h-16 items-center justify-between">
       <!-- Bal oldali elem: mobil menü gomb -->
       <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-        <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-blue-900 focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset bg-blue-700 border-2 border-blue-700 shadow-md transition duration-300" onclick="toggleMobileMenu()" aria-controls="mobile-menu" aria-expanded="false">
+        <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-gray-900 focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset bg-gray-700 border-2 border-gray-700 shadow-md transition duration-300" onclick="toggleMobileMenu()" aria-controls="mobile-menu" aria-expanded="false">
           <span class="absolute -inset-0.5"></span>
           <span class="sr-only">Nyisd ki</span>
           <svg class="block size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
