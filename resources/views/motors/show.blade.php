@@ -7,20 +7,44 @@
             oldalra</a>
     </div>
 
-    <div class="motor-details-page">
-        <div class="motor-image-page">
-            <img src="{{ asset('storage/img/motor_about.webp') }}" alt="Motor image" />
-        </div>
+    <div class="motor-card">
+        <!-- Motor neve és típusa -->
+        <h2 class="motor-title">{{ $motor->brand }} - {{ $motor->type }}</h2>
+
+        <div class="row">
+            <!-- Motor kép -->
+            <div class="col-md-8 motor-image-container">
+                <img src="{{ asset('img/' . str_replace(' ', '', $motor->type) . '.jpg') }}" alt="Motor image" />
+                <p class="reservation-info">
+                    <small>*Foglalás értelmezése: a bérlés időtartama 24 órára vonatkozik. Tehát ha egy adott napon 9
+                        órakor átveszed a motort, a bérlés a következő nap 9 óráig érvényes.</small>
+                </p>
+            </div>
+
+            <!-- Motor részletek és árlista -->
+            <div class="col-md-4 motor-details-container">
+                <!-- Motor részletek -->
+                <div class="details-section">
+                    <h4>Motor Részletek</h4>
+                    <ul>
+                        <li><i class="fa fa-motorcycle "></i> V2-es {{ $motor->brand }} motor</li>
+                        <li><i class="fa fa-plug "></i> {{ $motor->powerLe }} LE és {{ $motor->powerkW }} kW</li>
+                        <li><i class="fa fa-calendar-alt "></i> Évjárat: {{ $motor->year }}</li>
+                        <li><i class="fa fa-cogs "></i> {{ $motor->gearbox }} sebességes váltó</li>
+                        <li><i class="fa fa-users "></i> {{ $motor->places }} személyes</li>
+                        <li><i class="fa fa-map-marker-alt "></i> Lokáció: {{ $motor->location }}</li>
+                    </ul>
+                </div>
 
                 <!-- Árlista -->
                 <div class="pricing-section">
                     <h4>Árlista</h4>
                     <p class="discount-info">Minél tovább bérelsz, annál többet spórolsz!</p>
                     <ul>
-                        <li><b>1 nap:</b> <span>{{ number_format($motor->price, 0, '.', ' ') }} Ft</span></li>
-                        <li><b>3 nap:</b> <span>{{ number_format(floor($motor->price * 0.8), 0, '.', ' ') }} Ft</span>
+                        <li><b>1 nap </b> <span>: {{ number_format($motor->price, 0, '.', ' ') }} Ft</span></li>
+                        <li><b>3 nap </b> <span>: {{ number_format(floor($motor->price * 0.8), 0, '.', ' ') }} Ft</span>
                             (-20%)</li>
-                        <li><b>7 nap:</b> <span>{{ number_format(floor($motor->price * 0.7), 0, '.', ' ') }} Ft</span>
+                        <li><b>7 nap </b> <span>: {{ number_format(floor($motor->price * 0.7), 0, '.', ' ') }} Ft</span>
                             (-30%)</li>
                     </ul>
                 </div>

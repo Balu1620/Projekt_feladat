@@ -38,7 +38,7 @@
                         @if(count($loans) > 0)
                             @foreach($loans as $loan)
                                 <div class="col-12 mb-4">
-                                    <div class="card shadow-sm rounded">
+                                    <div class="card shadow-sm rounded h-auto">
                                         <div class="card-header bg-red-900 text-white">
                                             <div class="d-flex justify-content-between">
                                                 <h5>Rendelési azonosító: {{ $loan['orders_id'] }}</h5>

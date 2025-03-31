@@ -67,6 +67,17 @@
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
           </svg>
         </button>
+        <div id="social_icons">
+          <a href="https://www.instagram.com" target="_blank" class="text-pink-500 hover:text-pink-500 transition duration-300 ease-in-out">
+              <i class="fab fa-instagram fa-lg"></i>
+            </a>
+            <a href="https://www.facebook.com" target="_blank" class="text-blue-500 hover:text-blue-500 transition duration-300 ease-in-out">
+              <i class="fab fa-facebook fa-lg"></i>
+            </a>
+            <a href="https://www.twitter.com" target="_blank" class="text-sky-500 hover:text-sky-500 transition duration-300 ease-in-out">
+              <i class="fab fa-twitter fa-lg"></i>
+            </a>     
+          </div>  
       </div>
       
       <!-- Középen a logo -->

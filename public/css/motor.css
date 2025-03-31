@@ -52,6 +52,7 @@ div.card{
     height: 500px;
 }
 
+
 @media screen and (max-width: 576px) {
     .motorGrid {
         display: grid;

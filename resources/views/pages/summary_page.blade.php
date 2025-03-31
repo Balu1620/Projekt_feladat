@@ -91,7 +91,7 @@
                     <div class="motor-and-user-info">
                         <!-- Motor kép -->
                         <div class="motor-image">
-                            <img src="{{ asset('storage/img/motor_about.webp') }}" alt="Motor Kép" />
+                            <img src="{{ asset('img/' . str_replace(' ', '', $motor->type) . '.jpg') }}" alt="Motor Kép" />
                         </div>
                         <br>
                         <h2>Motor Információk</h2>
