@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string("drivingLicenceType");
             $table->string('drivingLicenceImage');
             $table->string('drivingLicenceImageBack');
-
+            $table->boolean("drivingLicenceReal")->default("0");
             $table->rememberToken();
             $table->timestamps();
         });
