@@ -35,7 +35,7 @@ class MotorcycleAPIController extends Controller
             'deviceSwitches.tool'
         ])->get();
 
-        if(!$loans){
+        if (!$loans) {
             return response()->json(["msg" => "nem sikerült a lekérés"], 404);
         }
         return response()->json([
@@ -76,7 +76,7 @@ class MotorcycleAPIController extends Controller
     {
         $loan->update($request->all());
         $motorcycle->update($motorRequest->all());
-        if (!$loan&&!$motorcycle) {
+        if (!$loan && !$motorcycle) {
             return response()->json(['message' => 'Nem tudta frissiteni'], 404);
         }
         return response()->json([$loan->id, $loan->gaveDown, $loan->problemDescription, $motorcycle, "msg" => "sikeres Frissités!!!"]);
@@ -108,6 +108,7 @@ class MotorcycleAPIController extends Controller
         */
     }
 
+    /*
     public function Getuser(User $user)
     {
         if (!$user) {
@@ -115,7 +116,7 @@ class MotorcycleAPIController extends Controller
         }
         return response()->json([$user, "msg" => "sikeres lekérés!!!"]);
     }
-
+*/
     public function AllLogindex()
     {
         $logs = Admin::with(
@@ -151,5 +152,14 @@ class MotorcycleAPIController extends Controller
             return response()->json(['message' => 'Nem tudta frissiteni'], 404);
         }
         return response()->json([$admin, "msg" => "sikeres Deaktiválás!!!"]);
+    }
+
+    public function AllUseres()
+    {
+        $admin = User::all();
+        if (!$admin) {
+            return response()->json(['message' => 'Nem tudta frissiteni'], 404);
+        }
+        return response()->json([$admin, "msg" => "sikeres Userek lekérése!!!"]);
     }
 }
