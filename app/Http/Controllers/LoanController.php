@@ -43,42 +43,6 @@ class LoanController extends Controller
         return redirect()->route('rentals.pending')->with('message', 'A bérlési szándékot rögzítettük. Hamarosan visszajelzünk!');
     }
 
-    public function showLoans()
-    {
-        $userId = auth()->id();
-
-        
-        $loans = Loan::with([
-            'deviceSwitches.tool',
-            'user',
-            'motorcycle'
-        ])
-            ->where('users_id', $userId)  
-            ->get()
-            ->map(function ($loan) {
-                return [
-                    'user_name' => $loan->user->name,
-                    'orders_id' => $loan->orders_id,
-                    'motorcycle' => [
-                        'brand' => $loan->motorcycle->brand,
-                        'type' => $loan->motorcycle->type,
-                    ],
-                    'tools' => $loan->deviceSwitches->map(function ($switch) {
-                        return [
-                            'tool_name' => $switch->tool->toolName,
-                            'connected_at' => $switch->created_at->format('Y.m.d H:i'),
-                        ];
-                    }),
-                    'rental_period' => [
-                        'rentalDate' => $loan->rentalDate,
-                        'returnDate' => $loan->returnDate,
-                    ],
-                ];
-            });
-
-        return view('userProfile', compact('loans'));
-    }
-
 
 
 

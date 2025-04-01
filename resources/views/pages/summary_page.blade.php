@@ -78,7 +78,8 @@
                                 <p><strong>Termékek Összesen:</strong>
                                     {{ number_format($helmetCost + $clothingCost + $bootCost + $motor->price * ($startDate->diffInDays($endDate) + 1), 0, '.', ' ') }}
                                     Ft</p>
-                                <p><strong>Kedvezmény: </strong><del style="color: red;"><span> {{ number_format($discount, 0, '.', ' ') }} Ft</del></span></p>
+                                <p><strong>Kedvezmény: </strong><del style="color: red;"><span>
+                                            {{ number_format($discount, 0, '.', ' ') }} Ft</del></span></p>
                                 <p><strong>Fizetendő Összeg:</strong> {{ number_format($payable, 0, '.', ' ') }} Ft</p>
                             </div>
                         </div>
@@ -89,9 +90,9 @@
 
                 <div class="col-md-6">
                     <div class="motor-and-user-info">
-                        <!-- Motor kép -->
                         <div class="motor-image">
-                            <img src="{{ asset('img/' . str_replace(' ', '', $motor->type) . '.jpg') }}" alt="Motor Kép" />
+                            <img src="{{ asset('img/' . str_replace(' ', '', $motor->type) . '.jpg') }}"
+                                id="motorImage" />
                         </div>
                         <br>
                         <h2>Motor Információk</h2>
@@ -104,7 +105,6 @@
                         <p><strong>Telefonszám: +{{auth()->user()->phoneNumber}}</strong> </p>
                     </div>
 
-                    <!-- Új rész a jobb alsó sarokban -->
                     <div class="additional-info">
                         <h3>Köszönjük, hogy minket választott!</h3>
                         <p>Kedves Ügyfelünk, reméljük, hogy elégedett lesz szolgáltatásainkkal. Ha bármilyen kérdése van,

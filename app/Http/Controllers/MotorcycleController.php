@@ -25,7 +25,7 @@ class MotorcycleController extends Controller
             ->select('motorcycles.*', 'loans.rentalDate', 'loans.returnDate')
             ->where('motorcycles.motorcycleStatus', 0);
 
-        // Feltételek hozzáadása
+        // Feltételek hozzáadása a többi szűrőhöz (brand, year, gearbox, fuel, location)
         if ($request->filled('brand')) {
             $query->where('brand', $request->input('brand'));
         }
@@ -42,20 +42,25 @@ class MotorcycleController extends Controller
             $query->where('location', $request->input('location'));
         }
 
+        // Dátum szűrés - Ha a két dátum elérhető a kérésben
+        if ($request->filled('dateStart') && $request->filled('dateEnd')) {
+            $dateStart = Carbon::parse($request->input('dateStart'));
+            $dateEnd = Carbon::parse($request->input('dateEnd'));
 
-
-
+            // Azokat a motorokat szűrjük, amelyek a kiválasztott időszakon kívül vannak lefoglalva
+            $query->where(function ($subQuery) use ($dateStart, $dateEnd) {
+                $subQuery->whereNull('loans.rentalDate')  // Nincs foglalás
+                    ->orWhere('loans.returnDate', '<', $dateStart) // Ha a motor visszakerült a dátum előtt
+                    ->orWhere('loans.rentalDate', '>', $dateEnd); // Ha a motor máskor van lefoglalva
+            });
+        }
 
         // Lekérdezés végrehajtása
         $motorcycles = $query->get();
 
-
-        // Kiegészítő lekérdezések
+        // Kiegészítő lekérdezések szűrőkhöz (brands, locations, years, gearboxes)
         $brands = DB::table('motorcycles')->select('brand')->distinct()->get();
-        $locations = DB::table('motorcycles')
-            ->select('location')
-            ->distinct()
-            ->get();
+        $locations = DB::table('motorcycles')->select('location')->distinct()->get();
         $years = DB::table('motorcycles')->select('year')->distinct()->orderBy('year', 'asc')->get();
         $gearboxes = DB::table('motorcycles')
             ->select(DB::raw("'Automata' AS gearbox"))
@@ -64,9 +69,10 @@ class MotorcycleController extends Controller
             )
             ->get();
 
+        // Motorok átadása a nézetnek
         return view('motors.index', compact('motorcycles', 'brands', 'locations', 'years', 'gearboxes'));
-
     }
+
 
     public function create()
     {
@@ -156,7 +162,7 @@ class MotorcycleController extends Controller
 
         }
 
-        
+
 
 
         return view('pages.final_page', ['orderId' => $orderId, 'motorId' => $motorId, 'startDate' => $startDate, 'endDate' => $endDate, 'matchingToolIds' => $matchingToolIds, 'sisakdb' => $sisakdb, 'sisakmeret' => $sisakmeret, 'cipodb' => $cipodb, 'cipomeret' => $cipomeret]);

@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\LoanController;
 use App\Http\Controllers\MotorcycleController;
 use App\Http\Controllers\ToolController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
@@ -30,7 +31,9 @@ Route::get("/tools/{tool}", [ToolController::class, "show"])->name("tools.show")
 
 Route::get('/about', function () {return view('about');})->name('about');
 
-Route::get('/userProfile', [LoanController::class, 'showLoans'])->name('userProfile');
+Route::get('/userProfile', [UserController::class, 'showLoans'])->name('userProfile');
+
+Route::post('/update-user', [UserController::class, 'update'])->name('updateUserData');
 
 Route::get('/location', function () {return view('location');})->name('location');
 
