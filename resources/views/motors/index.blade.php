@@ -6,8 +6,7 @@
         <div class="mcontent" id="filter">
             <h2 class="text-center fs-2">A Motorok</h2>
 
-            <div id="order-steps"
-                class="w-full h-auto flex flex-col md:flex-row items-center justify-center py-10">
+            <div id="order-steps" class="w-full h-auto flex flex-col md:flex-row items-center justify-center py-10">
                 <div class="flex flex-col items-center mx-3">
                     <div class="step-circle-no">
                         ?
@@ -142,7 +141,7 @@
                     <div class="col">
                         <div class="card h-100">
                             <img class="card-img-top"
-                                src="{{ asset('storage/img/' .$motorcycle->image) }}"
+                                src="{{ asset('storage/img/' . str_replace(' ', '', $motorcycle->type) . '.jpg') }}"
                                 alt="Motor image" />
                             <div class="card-body">
                                 <h5 class="card-title">
