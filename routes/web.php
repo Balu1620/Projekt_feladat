@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\LoanController;
+use App\Http\Controllers\LocationController;
 use App\Http\Controllers\MotorcycleController;
 use App\Http\Controllers\ToolController;
 use App\Http\Controllers\UserController;
@@ -35,7 +36,9 @@ Route::get('/userProfile', [UserController::class, 'showLoans'])->name('userProf
 
 Route::post('/update-user', [UserController::class, 'update'])->name('updateUserData');
 
-Route::get('/location', function () {return view('location');})->name('location');
+Route::get('/location/{location}', [LocationController::class, 'show'])->name('location.show');
+
+
 
 Route::get('/privacy', function () {return view('layouts.privacy');})->name('privacy');
 

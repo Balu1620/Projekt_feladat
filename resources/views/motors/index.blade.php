@@ -6,8 +6,7 @@
         <div class="mcontent" id="filter">
             <h2 class="text-center fs-2">A Motorok</h2>
 
-            <div id="order-steps"
-                class="w-full h-auto flex flex-col md:flex-row items-center justify-center py-10">
+            <div id="order-steps" class="w-full h-auto flex flex-col md:flex-row items-center justify-center py-10">
                 <div class="flex flex-col items-center mx-3">
                     <div class="step-circle-no">
                         ?
@@ -136,36 +135,42 @@
             </div>
 
 
-        <div class="motorGrid" id="margin">
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-                @foreach($motorcycles as $motorcycle)
-                    <div class="col">
-                        <div class="card h-100">
-                            <img class="card-img-top"
-                                src="{{ asset('storage/img/' . str_replace(' ', '', $motorcycle->type) . '.jpg') }}"
-                                alt="Motor image" />
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <span class="brand">{{ $motorcycle->brand }}</span> -
-                                    {{ number_format($motorcycle->price) }} Ft/nap
-                                </h5>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">{{ $motorcycle->brand }} {{ $motorcycle->type }}</li>
-                                    <li class="list-group-item">{{ $motorcycle->powerLe }} LE és {{ $motorcycle->powerkW }} kW
-                                    </li>
-                                    <li class="list-group-item">{{ $motorcycle->gearbox }}</li>
-                                    <li class="list-group-item">{{ $motorcycle->location }}</li>
-                                </ul>
-                            </div>
-                            <div class="card-footer text-center">
-                                <a href="{{ route('motors.show', $motorcycle->id) }}"
-                                    class="btn btn-outline-secondary w-100">Részletek</a>
+            <div class="motorGrid" id="margin">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+                    @foreach($motorcycles as $motorcycle)
+                        <div class="col">
+                            <div class="card h-100">
+                                <img class="card-img-top"
+                                    src="{{ asset('storage/img/' . str_replace(' ', '', $motorcycle->type) . '.jpg') }}"
+                                    alt="Motor image" />
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <span class="brand">{{ $motorcycle->brand }}</span> -
+                                        {{ number_format($motorcycle->price) }} Ft/nap
+                                    </h5>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">{{ $motorcycle->brand }} {{ $motorcycle->type }}</li>
+                                        <li class="list-group-item">{{ $motorcycle->powerLe }} LE és {{ $motorcycle->powerkW }}
+                                            kW
+                                        </li>
+                                        <li class="list-group-item">{{ $motorcycle->gearbox }}</li>
+                                        <li class="list-group-item">
+                                            <a href="{{ route('location.show', ['location' => $motorcycle->location]) }}">
+                                                {{ $motorcycle->location }}
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <div class="card-footer text-center">
+                                    <a href="{{ route('motors.show', $motorcycle->id) }}"
+                                        class="btn btn-outline-secondary w-100">Részletek</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
-        </div>
 
         </div>
     </body>
