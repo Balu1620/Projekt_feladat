@@ -202,6 +202,9 @@ body {
 
 .additional-info {
     margin-top: 20px;
+    background-color: #b8b3b3;
+    padding: 7px;
+    border-radius: 8px;
 }
 
 .additional-info p {

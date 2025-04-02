@@ -38,6 +38,8 @@ class ToolController extends Controller
             'motor' => $motorData,
             'bookedDates' => $bookedDates->toArray(), //JSON kompatibilis tömb átadása
         ]);
+        
+
     }
 
 

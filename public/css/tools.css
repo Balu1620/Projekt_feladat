@@ -1,3 +1,12 @@
+/* Inaktív select mezők szürkévé tétele */
+.size-select:disabled {
+    background-color: #e0e0e0;  /* Szürke háttér */
+    color: #a0a0a0;  /* Szürke szöveg */
+    pointer-events: none;  /* Nem reagál a felhasználói interakcióra */
+    opacity: 0.5;  /* Fényerő csökkentése, hogy vizuálisan is inaktív legyen */
+}
+
+
 #Ssize select{
     margin-right: 5px;
 }

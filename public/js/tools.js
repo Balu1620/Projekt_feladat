@@ -1,72 +1,41 @@
-function sisakmeret() {
-    let sdb = parseInt(document.getElementById("sisakdb").value) || 0;
-    let list = document.getElementById("Ssize");
-    list.innerHTML = "";
-    if (sdb === 0) {
-        list.style.display = "none";
-    } else {
-        list.style.display = "flex";
-    }
-    for (let index = 0; index < sdb; index++) {
-        const select = document.createElement("select");
-        select.name = `sisakmeret[${index}]`;
-
-        ["S", "M", "L", "XL", "2XL"].forEach(size => {
-            let option = document.createElement("option");
-            option.value = size;
-            option.textContent = size;
-            select.appendChild(option);
-        });
-
-        list.appendChild(select);
-    }
+function updateSisakMeret() {
+    var sisakdb = document.getElementById("sisakdb").value;
+    var sisakInputs = document.querySelectorAll("select[name^='sisakmeret']");
+    sisakInputs.forEach((input, index) => {
+        if (index < sisakdb) {
+            input.disabled = false;
+            input.classList.remove("disabled");
+        } else {
+            input.disabled = true;
+            input.classList.add("disabled");
+        }
+    });
 }
 
-function ruhameret() {
-    let sdb = parseInt(document.getElementById("ruhadb").value) || 0;
-    let list = document.getElementById("Rsize");
-    list.innerHTML = "";
-    if (sdb === 0) {
-        list.style.display = "none";
-    } else {
-        list.style.display = "flex";
-    }
-    for (let index = 0; index < sdb; index++) {
-        const select = document.createElement("select");
-        select.name = `ruhameret[${index}]`;
-
-        ["S", "M", "L", "XL", "2XL"].forEach(size => {
-            let option = document.createElement("option");
-            option.value = size;
-            option.textContent = size;
-            select.appendChild(option);
-        });
-
-        list.appendChild(select);
-    }
+function updateRuhaMeret() {
+    var ruhadb = document.getElementById("ruhadb").value;
+    var ruhaInputs = document.querySelectorAll("select[name^='ruhameret']");
+    ruhaInputs.forEach((input, index) => {
+        if (index < ruhadb) {
+            input.disabled = false;
+            input.classList.remove("disabled");
+        } else {
+            input.disabled = true;
+            input.classList.add("disabled");
+        }
+    });
 }
 
-
-function cipomeret() {
-    let sdb = parseInt(document.getElementById("cipodb").value) || 0;
-    let list = document.getElementById("Csize");
-    list.innerHTML = "";
-    if (sdb === 0) {
-        list.style.display = "none";
-    } else {
-        list.style.display = "flex";
-    }
-    for (let index = 0; index < sdb; index++) {
-        const select = document.createElement("select");
-        select.name = `cipomeret[${index}]`;
-
-        ["39", "40", "41", "42", "43", "44", "45", "46"].forEach(size => {
-            let option = document.createElement("option");
-            option.value = size;
-            option.textContent = size;
-            select.appendChild(option);
-        });
-
-        list.appendChild(select);
-    }
+function updateCipoMeret() {
+    var cipodb = document.getElementById("cipodb").value;
+    var cipoInputs = document.querySelectorAll("select[name^='cipomeret']");
+    cipoInputs.forEach((input, index) => {
+        if (index < cipodb) {
+            input.disabled = false;
+            input.classList.remove("disabled");
+        } else {
+            input.disabled = true;
+            input.classList.add("disabled");
+        }
+    });
 }

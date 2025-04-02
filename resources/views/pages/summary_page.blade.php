@@ -51,7 +51,8 @@
                 <div class="col-md-6">
                     <div class="motor-and-user-info">
                         <div class="motor-image">
-                            <img src="{{ asset('img/' . str_replace(' ', '', $motor->type) . '.jpg') }}" id="motorImage" />
+                            <img src="{{ asset('storage/img/' . str_replace(' ', '', $motor->type) . '.jpg') }}"
+                                id="motorImage" />
                         </div>
                         <div class="motor_summary">
                             <p><strong>Motor Típus:</strong> {{ $motor->brand }} - {{ $motor->type }}</p>
@@ -143,7 +144,20 @@
                             </div>
                         </div>
 
-                        <button class="confirm-button">Rendelés Megerősítése</button>
+                        <!-- Felhasználási feltételek elfogadása -->
+                        <div class="terms-acceptance">
+                            <label>
+                                <input type="checkbox" id="accept-terms"> Elolvastam és elfogadom a
+                                <a href="#">felhasználási feltételeket</a>.
+                            </label>
+                            <div id="terms-error" style="color: red; display: block;">
+                                * Kötelező elfogadni a felhasználási feltételeket.
+                            </div>
+                        </div>
+                        <br>
+
+                        <!-- Megrendelés gomb -->
+                        <button class="confirm-button" id="confirm-order" disabled>Rendelés Megerősítése</button>
                     </div>
                 </div>
             </div>
