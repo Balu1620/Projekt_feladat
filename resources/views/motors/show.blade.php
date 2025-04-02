@@ -16,7 +16,7 @@
             <div class="row">
                 <!-- Motor kép -->
                 <div class="col-md-8 motor-image-container">
-                    <img src="{{ asset('img/' . str_replace(' ', '', $motor->type) . '.jpg') }}" alt="Motor image" />
+                    <img src="{{ asset('storage/img/' . str_replace(' ', '', $motor->type) . '.jpg') }}" alt="Motor image" />
                     <p class="reservation-info">
                         <small>*Foglalás értelmezése: a bérlés időtartama 24 órára vonatkozik. Tehát ha egy adott napon 9
                             órakor átveszed a motort, a bérlés a következő nap 9 óráig érvényes.</small>
