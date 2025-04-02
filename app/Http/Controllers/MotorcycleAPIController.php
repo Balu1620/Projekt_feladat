@@ -6,6 +6,7 @@ use App\Http\Requests\StoreAdminRequest;
 use App\Http\Requests\UpdateAdminRequest;
 use App\Http\Requests\UpdateLoanRequest;
 use App\Http\Requests\UpdateMotorcycleRequest;
+use App\Http\Requests\UpdateUserRequest;
 use App\Models\Admin;
 use App\Models\DeviceSwitch;
 use App\Models\Loan;
@@ -161,5 +162,14 @@ class MotorcycleAPIController extends Controller
             return response()->json(['message' => 'Nem tudta frissiteni'], 404);
         }
         return response()->json([$admin, "msg" => "sikeres Userek lekérése!!!"]);
+    }
+
+    public function DriLicRealSetUpUseres(UpdateUserRequest $request, User $user)
+    {
+        $user->update($request->all());
+        if (!$user) {
+            return response()->json(['message' => 'Nem tudta frissiteni'], 404);
+        }
+        return response()->json([$user, "msg" => "sikeres Frissités!!!"]);
     }
 }

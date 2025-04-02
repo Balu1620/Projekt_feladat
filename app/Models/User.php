@@ -29,7 +29,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'drivingLicenceNumber',
         'drivingLicenceType',
         'drivingLicenceImage',
-        'drivingLicenceImageBack'
+        'drivingLicenceImageBack',
+        'drivingLicenceReal'
     ];
 
     
