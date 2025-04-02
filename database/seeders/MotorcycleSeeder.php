@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Str;
 
 class MotorcycleSeeder extends Seeder
 {
@@ -13,7 +14,7 @@ class MotorcycleSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('motorcycles')->insert([
+        $motorcycles =[
             [
                 'brand' => 'Aprilia',
                 'type' => 'Caponord 1200',
@@ -1802,8 +1803,15 @@ class MotorcycleSeeder extends Seeder
                 "trafficDate" => "2027-09-26",
                 "location" => "1103 Budapest, Gyömrői út 50."
             ]
+                
 
+        ];
 
-        ]);
+        foreach ($motorcycles as &$motorcycle) {
+            $motorcycle['image'] = str_replace(' ', '', $motorcycle['type']) . '.jpg';
+        }
+        
+        DB::table('motorcycles')->insert($motorcycles);
+        
     }
 }
