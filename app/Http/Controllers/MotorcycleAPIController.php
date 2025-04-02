@@ -6,6 +6,7 @@ use App\Http\Requests\StoreAdminRequest;
 use App\Http\Requests\UpdateAdminRequest;
 use App\Http\Requests\UpdateLoanRequest;
 use App\Http\Requests\UpdateMotorcycleRequest;
+use App\Http\Requests\UpdateUserRequest;
 use App\Models\Admin;
 use App\Models\DeviceSwitch;
 use App\Models\Loan;
@@ -35,7 +36,7 @@ class MotorcycleAPIController extends Controller
             'deviceSwitches.tool'
         ])->get();
 
-        if(!$loans){
+        if (!$loans) {
             return response()->json(["msg" => "nem sikerült a lekérés"], 404);
         }
         return response()->json([
@@ -76,7 +77,7 @@ class MotorcycleAPIController extends Controller
     {
         $loan->update($request->all());
         $motorcycle->update($motorRequest->all());
-        if (!$loan&&!$motorcycle) {
+        if (!$loan && !$motorcycle) {
             return response()->json(['message' => 'Nem tudta frissiteni'], 404);
         }
         return response()->json([$loan->id, $loan->gaveDown, $loan->problemDescription, $motorcycle, "msg" => "sikeres Frissités!!!"]);
@@ -108,6 +109,7 @@ class MotorcycleAPIController extends Controller
         */
     }
 
+    /*
     public function Getuser(User $user)
     {
         if (!$user) {
@@ -115,7 +117,7 @@ class MotorcycleAPIController extends Controller
         }
         return response()->json([$user, "msg" => "sikeres lekérés!!!"]);
     }
-
+*/
     public function AllLogindex()
     {
         $logs = Admin::with(
@@ -151,5 +153,23 @@ class MotorcycleAPIController extends Controller
             return response()->json(['message' => 'Nem tudta frissiteni'], 404);
         }
         return response()->json([$admin, "msg" => "sikeres Deaktiválás!!!"]);
+    }
+
+    public function AllUseres()
+    {
+        $admin = User::all();
+        if (!$admin) {
+            return response()->json(['message' => 'Nem tudta frissiteni'], 404);
+        }
+        return response()->json([$admin, "msg" => "sikeres Userek lekérése!!!"]);
+    }
+
+    public function DriLicRealSetUpUseres(UpdateUserRequest $request, User $user)
+    {
+        $user->update($request->all());
+        if (!$user) {
+            return response()->json(['message' => 'Nem tudta frissiteni'], 404);
+        }
+        return response()->json([$user, "msg" => "sikeres Frissités!!!"]);
     }
 }

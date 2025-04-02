@@ -136,37 +136,36 @@
             </div>
 
 
-            <div class="motorGrid" id="margin">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-                    @foreach($motorcycles as $motorcycle)
-                        <div class="col">
-                            <div class="card h-100">
-                                <img class="card-img-top"
-                                    src="{{ asset('img/' . str_replace(' ', '', $motorcycle->type) . '.jpg') }}"
-                                    alt="Motor image" />
-                                <div class="card-body">
-                                    <h5 class="card-title">
-                                        <span class="brand">{{ $motorcycle->brand }}</span> -
-                                        {{ number_format($motorcycle->price) }} Ft/nap
-                                    </h5>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">{{ $motorcycle->brand }} {{ $motorcycle->type }}</li>
-                                        <li class="list-group-item">{{ $motorcycle->powerLe }} LE és {{ $motorcycle->powerkW }}
-                                            kW
-                                        </li>
-                                        <li class="list-group-item">{{ $motorcycle->gearbox }}</li>
-                                        <li class="list-group-item">{{ $motorcycle->location }}</li>
-                                    </ul>
-                                </div>
-                                <div class="card-footer text-center">
-                                    <a href="{{ route('motors.show', $motorcycle->id) }}"
-                                        class="btn btn-outline-secondary w-100">Részletek</a>
-                                </div>
+        <div class="motorGrid" id="margin">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+                @foreach($motorcycles as $motorcycle)
+                    <div class="col">
+                        <div class="card h-100">
+                            <img class="card-img-top"
+                                src="{{ asset('img/' . str_replace(' ', '', $motorcycle->type) . '.jpg') }}"
+                                alt="Motor image" />
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <span class="brand">{{ $motorcycle->brand }}</span> -
+                                    {{ number_format($motorcycle->price) }} Ft/nap
+                                </h5>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">{{ $motorcycle->brand }} {{ $motorcycle->type }}</li>
+                                    <li class="list-group-item">{{ $motorcycle->powerLe }} LE és {{ $motorcycle->powerkW }} kW
+                                    </li>
+                                    <li class="list-group-item">{{ $motorcycle->gearbox }}</li>
+                                    <li class="list-group-item">{{ $motorcycle->location }}</li>
+                                </ul>
+                            </div>
+                            <div class="card-footer text-center">
+                                <a href="{{ route('motors.show', $motorcycle->id) }}"
+                                    class="btn btn-outline-secondary w-100">Részletek</a>
                             </div>
                         </div>
-                    @endforeach
-                </div>
+                    </div>
+                @endforeach
             </div>
+        </div>
 
         </div>
     </body>
