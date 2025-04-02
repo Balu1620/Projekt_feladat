@@ -28,18 +28,13 @@ class DatabaseSeeder extends Seeder
             'drivingLicenceImageBack' => 'placeholder.jpg'
         ]);
 
-        Admin::factory()->create([
-            'name' => 'Admin Anna',
-            'email' => "admin@gmail.com",
-            'password' => 'alma.1234',
-            
-            'jobStatus' => 0,
-        ]);
+        
 
         $this->call([
             MotorcycleSeeder::class,
-            ToolSeeder::class
-    ]);
+            ToolSeeder::class,
+            AdminSeeder::class
+        ]);
 
     }
 }
