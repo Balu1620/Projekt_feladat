@@ -142,7 +142,7 @@
                     <div class="col">
                         <div class="card h-100">
                             <img class="card-img-top"
-                                src="{{ asset('img/' . str_replace(' ', '', $motorcycle->type) . '.jpg') }}"
+                                src="{{ asset('storage/img/' . str_replace(' ', '', $motorcycle->type) . '.jpg') }}"
                                 alt="Motor image" />
                             <div class="card-body">
                                 <h5 class="card-title">
