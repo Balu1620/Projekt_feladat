@@ -141,7 +141,7 @@
                     <div class="col">
                         <div class="card h-100">
                             <img class="card-img-top"
-                                src="{{ asset('storage/img/' . str_replace(' ', '', $motorcycle->type) . '.jpg') }}"
+                                src="{{ asset('storage/img/' .$motorcycle->image) }}"
                                 alt="Motor image" />
                             <div class="card-body">
                                 <h5 class="card-title">
@@ -161,10 +161,9 @@
                                     class="btn btn-outline-secondary w-100">Részletek</a>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
-        </div>
 
         </div>
     </body>
