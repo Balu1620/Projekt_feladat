@@ -38,7 +38,6 @@
                         </div>
                     </div>
 
-                    <!--Gomb kisebb képernyőn középre igazítva-->
                     <div class="d-md-none text-center mt-3">
                         <button type="button" id="EditBtn" class="btn btn-primary w-100" data-bs-toggle="modal"
                             data-bs-target="#editUserModal">
@@ -76,7 +75,6 @@
                                         value="{{ auth()->user()->phoneNumber }}" required>
                                 </div>
 
-                                <!-- Jogosítvány első oldala -->
                                 <div class="mb-3 text-center">
                                     <label for="drivingLicenceImage" class="form-label">Jogosítvány (elöl)</label>
                                     <input type="file" class="form-control" id="drivingLicenceImage"
@@ -88,7 +86,6 @@
                                     </div>
                                 </div>
 
-                                <!-- Jogosítvány hátsó oldala -->
                                 <div class="mb-3 text-center">
                                     <label for="drivingLicenceImageBack" class="form-label">Jogosítvány (hátul)</label>
                                     <input type="file" class="form-control" id="drivingLicenceImageBack"

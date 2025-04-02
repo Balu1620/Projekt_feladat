@@ -2,7 +2,8 @@
 
 @section('content')
 
-    <body style="background-image: url('/storage/img/Hatter.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <body
+        style="background-image: url('/storage/img/Hatter.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
         <div class="container mt-5">
             <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-6">
@@ -18,7 +19,7 @@
 
 
                                 <div class="mb-3">
-                                    <label for="name" class="form-label">{{ __('Name') }}</label>
+                                    <label for="name" class="form-label">{{ __('Név') }}</label>
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
                                         name="name" value="{{ old('name') }}" required autofocus>
                                     @error('name')
@@ -28,7 +29,7 @@
 
 
                                 <div class="mb-3">
-                                    <label for="email" class="form-label">{{ __('Email Address') }}</label>
+                                    <label for="email" class="form-label">{{ __('Email cím') }}</label>
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
                                         name="email" value="{{ old('email') }}" required>
                                     @error('email')
@@ -38,25 +39,29 @@
 
 
                                 <div class="mb-3">
-                                    <label for="password" class="form-label">{{ __('Password') }}</label>
+                                    <label for="password" class="form-label">{{ __('Jelszó') }}</label>
                                     <input id="password" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
                                         required>
                                     @error('password')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
+                                    <div class="strength-bar">
+                                        <div class="bar" id="strength-bar"></div>
+                                    </div>
+                                    <small id="strength-text"></small>
                                 </div>
 
 
                                 <div class="mb-3">
-                                    <label for="password-confirm" class="form-label">{{ __('Confirm Password') }}</label>
+                                    <label for="password-confirm" class="form-label">{{ __('Jelszó ellenörzés') }}</label>
                                     <input id="password-confirm" type="password" class="form-control"
                                         name="password_confirmation" required>
                                 </div>
 
 
                                 <div class="mb-3">
-                                    <label for="phoneNumber" class="form-label">{{ __('Phone Number') }}</label>
+                                    <label for="phoneNumber" class="form-label">{{ __('Telefonszám') }}</label>
                                     <input id="phoneNumber" type="text"
                                         class="form-control @error('phoneNumber') is-invalid @enderror" name="phoneNumber"
                                         value="{{ old('phoneNumber') }}" required>
@@ -68,7 +73,7 @@
 
                                 <div class="mb-3">
                                     <label for="drivingLicenceNumber"
-                                        class="form-label">{{ __('Driving Licence Number') }}</label>
+                                        class="form-label">{{ __('Jogosítvány azonosító') }}</label>
                                     <input id="drivingLicenceNumber" maxlength="8" type="text"
                                         class="form-control @error('drivingLicenceNumber') is-invalid @enderror"
                                         name="drivingLicenceNumber" value="{{ old('drivingLicenceNumber') }}" required>
@@ -79,7 +84,7 @@
 
                                 <div class="mb-3">
                                     <label for="drivingLicenceType"
-                                        class="form-label">{{ __('Driving Licence Type') }}</label>
+                                        class="form-label">{{ __('Jogosítvány típusa') }}</label>
                                     <select name="drivingLicenceType" id="drivingLicenceType"
                                         class="form-control @error('drivingLicenceType') is-invalid @enderror" required>
                                         <option selected disabled value="">{{ __('Choose a Category') }}</option>
@@ -97,7 +102,7 @@
 
                                 <div class="mb-3">
                                     <label for="drivingLicenceImage"
-                                        class="form-label">{{ __('Driving Licence Front Image') }}</label>
+                                        class="form-label">{{ __('Jogosítvány eleje') }}</label>
                                     <input id="drivingLicenceImage" type="file"
                                         class="form-control @error('drivingLicenceImage') is-invalid @enderror"
                                         name="drivingLicenceImage" required>
@@ -108,7 +113,7 @@
 
                                 <div class="mb-3">
                                     <label for="drivingLicenceImageBack"
-                                        class="form-label">{{ __('Driving Licence Back Image') }}</label>
+                                        class="form-label">{{ __('Jogosítvány hátulja') }}</label>
                                     <input id="drivingLicenceImageBack" type="file"
                                         class="form-control @error('drivingLicenceImageBack') is-invalid @enderror"
                                         name="drivingLicenceImageBack" required>
@@ -121,7 +126,7 @@
                                 <div class="row mb-0">
                                     <div class="col text-center">
                                         <button type="submit" class="btn btn-dark w-100 py-2">
-                                            {{ __('Register') }}
+                                            {{ __('Regisztráció') }}
                                         </button>
                                     </div>
                                 </div>

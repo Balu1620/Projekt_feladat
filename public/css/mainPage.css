@@ -7,7 +7,7 @@
     padding: 20px 0;
     font-size: 1.5em;
     font-weight: bold;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 10px 10px 8px #888888;
     position: relative;
 }
 
@@ -150,6 +150,8 @@
     position: relative;
     margin-top: 6vw;
     margin-bottom: 120px;
+    background-color: #f3eded;
+    border-radius: 10px;
 }
 
 h3 {

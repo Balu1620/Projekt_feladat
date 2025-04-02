@@ -2,6 +2,49 @@
 
 @section('content')
 
+    <div id="order-steps" class="w-full h-auto flex flex-col md:flex-row items-center justify-center py-10">
+        <div class="flex flex-col items-center mx-4">
+            <div class="step-circle">
+                ✓
+            </div>
+            <span class="mt-2 step-title">1. lépés</span>
+            <p class="step-description">Motor kiválasztása</p>
+        </div>
+
+        <!-- Vonal -->
+        <div class="hidden md:block w-20 step-line mx-3"></div>
+
+        <div class="flex flex-col items-center mx-3">
+            <div class="step-circle">
+                ✓
+            </div>
+            <span class="mt-2 step-title">2. lépés</span>
+            <p class="step-description">Motor adatok</p>
+        </div>
+
+        <div class="hidden md:block w-20 step-line mx-3"></div>
+
+        <div class="flex flex-col items-center mx-3">
+            <div class="step-circle-no">
+                ?
+            </div>
+            <span class="mt-2 step-title">3. lépés</span>
+            <p class="step-description">Eszközök és időpont</p>
+        </div>
+
+        <!-- Vonal -->
+        <div class="hidden md:block w-20 step-line mx-3"></div>
+
+        <div class="flex flex-col items-center mx-3">
+            <div class="step-circle-no">
+                ?
+            </div>
+            <span class="mt-2 step-title">3. lépés</span>
+            <p class="step-description">Összesítés</p>
+        </div>
+    </div>
+    <br>
+
     <div class="container toolssz">
         <form action="{{ route('pages.summary_page', ['motor' => $motor->id]) }}" method="GET">
 

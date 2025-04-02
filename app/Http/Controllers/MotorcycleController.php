@@ -42,16 +42,16 @@ class MotorcycleController extends Controller
             $query->where('location', $request->input('location'));
         }
 
-        // Dátum szűrés - Ha a két dátum elérhető a kérésben
+        
         if ($request->filled('dateStart') && $request->filled('dateEnd')) {
             $dateStart = Carbon::parse($request->input('dateStart'));
             $dateEnd = Carbon::parse($request->input('dateEnd'));
 
-            // Azokat a motorokat szűrjük, amelyek a kiválasztott időszakon kívül vannak lefoglalva
+           
             $query->where(function ($subQuery) use ($dateStart, $dateEnd) {
-                $subQuery->whereNull('loans.rentalDate')  // Nincs foglalás
-                    ->orWhere('loans.returnDate', '<', $dateStart) // Ha a motor visszakerült a dátum előtt
-                    ->orWhere('loans.rentalDate', '>', $dateEnd); // Ha a motor máskor van lefoglalva
+                $subQuery->whereNull('loans.rentalDate')  
+                    ->orWhere('loans.returnDate', '<', $dateStart) 
+                    ->orWhere('loans.rentalDate', '>', $dateEnd); 
             });
         }
 

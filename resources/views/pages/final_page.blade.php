@@ -1,6 +1,47 @@
 @extends('layouts.header')
 
 @section('content')
+    <div id="order-steps" class="w-full h-auto flex flex-col md:flex-row items-center justify-center py-10">
+        <div class="flex flex-col items-center mx-4">
+            <div class="step-circle">
+                ✓
+            </div>
+            <span class="mt-2 step-title">1. lépés</span>
+            <p class="step-description">Motor kiválasztása</p>
+        </div>
+
+        <!-- Vonal -->
+        <div class="hidden md:block w-20 step-line mx-2"></div>
+
+        <div class="flex flex-col items-center mx-3">
+            <div class="step-circle">
+                ✓
+            </div>
+            <span class="mt-2 step-title">2. lépés</span>
+            <p class="step-description">Motor adatok</p>
+        </div>
+
+        <div class="hidden md:block w-20 step-line mx-2"></div>
+
+        <div class="flex flex-col items-center mx-3">
+            <div class="step-circle">
+                ✓
+            </div>
+            <span class="mt-2 step-title">3. lépés</span>
+            <p class="step-description">Eszközök és időpont</p>
+        </div>
+
+        <!-- Vonal -->
+        <div class="hidden md:block w-20 step-line mx-2"></div>
+
+        <div class="flex flex-col items-center mx-3">
+            <div class="step-circle">
+                ✓
+            </div>
+            <span class="mt-2 step-title">3. lépés</span>
+            <p class="step-description">Összesítés</p>
+        </div>
+    </div>
     <div class="custom-order-container">
         <div class="custom-order-card">
             <h1 class="custom-order-heading"><strong>Köszönjük a foglalásod!</strong></h1>

@@ -1,38 +1,130 @@
-/* Alapstílusok */
+#order-steps {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 2px; 
+    padding: 3px 0;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+#order-steps .step-line {
+    height: 4px; 
+    background-color: #ccc;
+    width: 30px; 
+    flex-shrink: 0;
+}
+
+#order-steps .step-circle-no,
+#order-steps .step-circle {
+    width: 40px; 
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px; 
+    font-weight: bold;
+    min-width: 40px;
+    flex-shrink: 0;
+}
+
+#order-steps .step-circle {
+    background-color: #28a745;
+    color: white;
+}
+
+#order-steps .step-circle-no {
+    background-color: #f5a107;
+    color: white;
+}
+
+#order-steps .step-title {
+    font-weight: bold;
+    color: #333;
+    font-size: 12px; 
+    flex-shrink: 0;
+    margin-top: 5px;
+}
+
+#order-steps .step-description {
+    color: #666;
+    font-size: 10px; 
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+
+@media screen and (max-width: 768px) {
+    #order-steps {
+        padding: 2px 0;
+        gap: 2px; 
+    }
+
+    #order-steps .step-circle,
+    #order-steps .step-circle-no {
+        width: 30px; 
+        height: 30px;
+        font-size: 12px;
+    }
+
+    #order-steps .step-title {
+        font-size: 10px; 
+    }
+
+    #order-steps .step-description {
+        font-size: 9px; 
+    }
+
+    #order-steps .step-line {
+        width: 8px; 
+        height: 1px;
+    }
+}
+
+
+
+.motor_summary{
+    padding: 5px;
+    border: 10px black;
+    background-color: rgb(240, 242, 245);
+    border-radius: 8px;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f9f9f9;
 }
-
-/* Rendelés összesítő konténer */
 .order-summary-container {
     text-align: center;
-    background-color: #fff;
+    background-color: #ffffff;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Cím stílusa */
+
 .order-summary-container h1 {
     font-size: 24px;
     color: #333;
     margin-bottom: 20px;
 }
 
-/* Összesítő doboz */
+
 .summary-box {
     text-align: left;
     margin-bottom: 20px;
     padding: 15px;
     border: 1px solid #ddd;
+    background-color: rgb(240, 242, 245);
     border-radius: 5px;
 }
-
-/* Rendelési információk */
 .order-info {
     margin-bottom: 20px;
 }
@@ -47,7 +139,7 @@ body {
     font-size: 16px;
 }
 
-/* Rendelt termékek */
+
 .order-items {
     margin-bottom: 20px;
 }
@@ -76,7 +168,7 @@ body {
     font-size: 16px;
 }
 
-/* Összesítés */
+
 .order-total {
     margin-bottom: 20px;
 }
@@ -91,7 +183,7 @@ body {
     font-size: 16px;
 }
 
-/* Gomb stílusa */
+
 .confirm-button {
     background-color: #4caf50;
     color: white;
@@ -100,13 +192,14 @@ body {
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
+    margin-left: 60%;
 }
 
 .confirm-button:hover {
     background-color: #45a049;
 }
 
-/* További információk */
+
 .additional-info {
     margin-top: 20px;
 }
@@ -116,7 +209,7 @@ body {
     font-size: 16px;
 }
 
-/* Motor és felhasználói információk */
+
 .motor-and-user-info {
     text-align: left;
     background-color: #fff;
@@ -136,46 +229,11 @@ body {
     font-size: 16px;
 }
 
-/* Motor kép stílusa */
 .motor-image {
-    width: 100%; /* Kitölti az oszlop teljes szélességét */
-    height: 400px; /* Állítsd be a kívánt magasságot */
+    width: 100%; 
+    height: 400px; 
     margin-left: 20px ;
-
-    
-}   
-
-
-
-/* További információk (jobb alsó sarok) */
-.additional-info {
-    margin-top: 20px;
-    padding: 15px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.additional-info h3 {
-    font-size: 18px;
-    color: #333;
-}
-
-.additional-info p {
-    font-size: 14px;
-    color: #555;
-}
-
-.additional-info ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.additional-info ul li {
-    font-size: 14px;
-    color: #555;
-}
+}  
 
 #motorImage {
     width: 100%;  

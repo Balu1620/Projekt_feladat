@@ -3,8 +3,67 @@
 @section('content')
     <form action="{{ route('pages.final_page', ['motor' => $motor->id]) }}" method="POST">
         @csrf
+        <div id="order-steps" class="w-full h-auto flex flex-col md:flex-row items-center justify-center py-10">
+            <div class="flex flex-col items-center mx-3">
+                <div class="step-circle">
+                    ✓
+                </div>
+                <span class="mt-2 step-title">1. lépés</span>
+                <p class="step-description">Motor kiválasztása</p>
+            </div>
+
+            <!-- Vonal -->
+            <div class="hidden md:block w-20 step-line mx-4"></div>
+
+            <div class="flex flex-col items-center mx-3">
+                <div class="step-circle">
+                    ✓
+                </div>
+                <span class="mt-2 step-title">2. lépés</span>
+                <p class="step-description">Motor adatok</p>
+            </div>
+
+            <div class="hidden md:block w-20 step-line mx-4"></div>
+
+            <div class="flex flex-col items-center mx-3">
+                <div class="step-circle">
+                    ✓
+                </div>
+                <span class="mt-2 step-title">3. lépés</span>
+                <p class="step-description">Eszközök és időpont</p>
+            </div>
+
+            <!-- Vonal -->
+            <div class="hidden md:block w-20 step-line mx-3"></div>
+
+            <div class="flex flex-col items-center mx-3">
+                <div class="step-circle-no">
+                    ?
+                </div>
+                <span class="mt-2 step-title">3. lépés</span>
+                <p class="step-description">Összesítés</p>
+            </div>
+        </div>
+
+        <br>
         <div class="container">
             <div class="row">
+                <div class="col-md-6">
+                    <div class="motor-and-user-info">
+                        <div class="motor-image">
+                            <img src="{{ asset('img/' . str_replace(' ', '', $motor->type) . '.jpg') }}" id="motorImage" />
+                        </div>
+                        <div class="motor_summary">
+                            <p><strong>Motor Típus:</strong> {{ $motor->brand }} - {{ $motor->type }}</p>
+                            <p><strong>Napi Ár:</strong> {{ number_format($motor->price, 0, '.', ' ') }} Ft</p>
+
+                            <h2>Felhasználói Információk</h2>
+                            <p><strong>Név: {{auth()->user()->name}}</strong> </p>
+                            <p><strong>Email: {{auth()->user()->email}}</strong> </p>
+                            <p><strong>Telefonszám: +{{auth()->user()->phoneNumber}}</strong> </p>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-md-6">
                     <div class="order-summary-container">
                         <h1>Rendelés Összesítő</h1>
@@ -87,39 +146,6 @@
                         <button class="confirm-button">Rendelés Megerősítése</button>
                     </div>
                 </div>
-
-                <div class="col-md-6">
-                    <div class="motor-and-user-info">
-                        <div class="motor-image">
-                            <img src="{{ asset('img/' . str_replace(' ', '', $motor->type) . '.jpg') }}"
-                                id="motorImage" />
-                        </div>
-                        <br>
-                        <h2>Motor Információk</h2>
-                        <p><strong>Motor Típus:</strong> {{ $motor->brand }} - {{ $motor->type }}</p>
-                        <p><strong>Napi Ár:</strong> {{ number_format($motor->price, 0, '.', ' ') }} Ft</p>
-
-                        <h2>Felhasználói Információk</h2>
-                        <p><strong>Név: {{auth()->user()->name}}</strong> </p>
-                        <p><strong>Email: {{auth()->user()->email}}</strong> </p>
-                        <p><strong>Telefonszám: +{{auth()->user()->phoneNumber}}</strong> </p>
-                    </div>
-
-                    <div class="additional-info">
-                        <h3>Köszönjük, hogy minket választott!</h3>
-                        <p>Kedves Ügyfelünk, reméljük, hogy elégedett lesz szolgáltatásainkkal. Ha bármilyen kérdése van,
-                            forduljon hozzánk bizalommal az alábbi elérhetőségeken:</p>
-                        <ul>
-                            <li><strong>Telefon:</strong> +36 1 123 4567</li>
-                            <li><strong>Email:</strong> info@example.com</li>
-                            <li><strong>Nyitvatartás:</strong> Hétfőtől Péntekig, 9:00 - 17:00</li>
-                        </ul>
-                    </div>
-
-                </div>
-
-
-
             </div>
         </div>
     </form>

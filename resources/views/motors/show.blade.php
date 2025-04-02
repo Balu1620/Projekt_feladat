@@ -2,11 +2,56 @@
 
 @section('content')
 
-    <body style="background-image: url('/storage/img/MotorShowPage.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <body
+        style="background-image: url('/storage/img/MotorShowPage.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+
         <div class="ms-10 mt-5">
             <a href="{{ url()->previous() }}" class="btn btn-dark vissza"><i class="bi bi-arrow-left"></i> Vissza az
                 előző
                 oldalra</a>
+        </div>
+        <br>
+
+        <div id="order-steps" class="w-full h-auto flex flex-col md:flex-row items-center justify-center py-10 bg-white">
+            <div class="flex flex-col items-center mx-3">
+                <div class="step-circle">
+                    ✓
+                </div>
+                <span class="mt-2 step-title">1. lépés</span>
+                <p class="step-description">Motor kiválasztása</p>
+            </div>
+
+            <!-- Vonal -->
+            <div class="hidden md:block w-20 step-line mx-3"></div>
+
+            <div class="flex flex-col items-center mx-3">
+                <div class="step-circle-no">
+                    ?
+                </div>
+                <span class="mt-2 step-title">2. lépés</span>
+                <p class="step-description">Motor adatok</p>
+            </div>
+
+            <div class="hidden md:block w-20 step-line mx-3"></div>
+
+            <div class="flex flex-col items-center mx-3">
+                <div class="step-circle-no">
+                    ?
+                </div>
+                <span class="mt-2 step-title">3. lépés</span>
+                <p class="step-description">Eszközök és időpont</p>
+            </div>
+
+            <!-- Vonal -->
+            <div class="hidden md:block w-20 step-line mx-3"></div>
+
+            <div class="flex flex-col items-center mx-3">
+                <div class="step-circle-no">
+                    ?
+                </div>
+                <span class="mt-2 step-title">3. lépés</span>
+                <p class="step-description">Összesítés</p>
+            </div>
         </div>
 
         <div class="motor-card">
@@ -55,9 +100,16 @@
                     <div class="pricing-buttons">
                         @auth
                             @if (auth()->user()->email_verified_at)
-                                <a href="{{ route('tools.index', ['motor' => $motor->id]) }}">
-                                    <button class="btn btn-dark w-100">Bérlés</button>
-                                </a>
+                                @if (auth()->user()->drivingLicenceReal == 0)
+                                    <!-- Ha nincs érvényes jogosítvány -->
+                                    <button class="btn btn-dark w-100" data-bs-toggle="modal" data-bs-target="#noLicenceModal">
+                                        Bérlés
+                                    </button>
+                                @else
+                                    <a href="{{ route('tools.index', ['motor' => $motor->id]) }}">
+                                        <button class="btn btn-dark w-100">Bérlés</button>
+                                    </a>
+                                @endif
                             @else
                                 <button class="btn btn-dark w-100" data-bs-toggle="modal"
                                     data-bs-target="#verifyEmailModal">Bérlés</button>
@@ -67,14 +119,30 @@
                                 data-bs-target="#loginModal">Bérlés</button>
                         @endauth
                     </div>
-
                 </div>
             </div>
         </div>
 
+        <!-- Modális ablak a hibaüzenethez -->
+        <div class="modal fade" id="noLicenceModal" tabindex="-1" aria-labelledby="noLicenceModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="noLicenceModalLabel">Hiba</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Kérjük várd meg amíg amíg le ellenőrizzük a jogosítványodat.</p>
+                        <p><small>Ez legfeljebb 5 percet vehet igénybe.</small></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezárás</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-
-
+        <!-- Hibaüzenet ha nincs megerősítve az email-->
         <div class="modal fade" id="verifyEmailModal" tabindex="-1" aria-labelledby="verifyEmailModalLabel"
             aria-hidden="true">
             <div class="modal-dialog">
