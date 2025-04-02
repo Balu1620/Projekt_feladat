@@ -18,7 +18,22 @@ class Motorcycle extends Model
     }
 
     protected $fillable = [
-        'location',
-        'motorcycleStatus',
+        `brand`,
+        `type`,
+        `licencePlate`,
+        `year`,
+        `gearbox`,
+        `fuel`,
+        `powerLe`,
+        `powerkW`,
+        `engineSize`,
+        `drivingLicence`,
+        `places`,
+        `price`,
+        `deposit`,
+        `trafficDate`,
+        `location`,
+        `image`,
+        `motorcycleStatus`
     ];
 }
