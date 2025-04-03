@@ -6,7 +6,6 @@
 
 <!-- resources/views/location.blade.php -->
 <div id="SelectLoc" class="my-3">
-    <h3>Válaszd ki a helyet: {{ $location }}</h3>
     <select name="keruletek" id="keruletek" onchange="valaszt(value)">
         <option value="..." selected disabled>Kerületek</option>
         <option value="1">I. kerület – Logodi utca 34.</option>

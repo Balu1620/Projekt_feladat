@@ -29,6 +29,7 @@
 	<script src="{{ asset('js/registPage.js') }}" defer></script>
   <script src="{{ asset('js/userProfile.js') }}" defer></script>
   <script src="{{ asset('js/summary_page.js') }}" defer></script>
+  <script src="{{ asset('js/motor.js') }}" defer></script>
 	
     <!-- Scripts -->
     @vite([

@@ -48,6 +48,16 @@
                 </div>
             </div>
 
+            <!--Google maps -->
+            <div id="location-container" class="d-none position-relative">
+                <button id="close-map" class="close-btn">&times;</button>
+                <div id="map-container">
+                    <iframe id="google-map" class="map-iframe" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+
+
+
             <div class="flex flex-col md:flex-row gap-4 md:gap-10 items-center">
                 <!-- Szűrés gomb -->
                 <button class="open-btn btn btn-dark m-4 md:m-0" type="button" data-bs-toggle="offcanvas"
@@ -154,7 +164,15 @@
                                             kW
                                         </li>
                                         <li class="list-group-item">{{ $motorcycle->gearbox }}</li>
-                                        <li class="list-group-item">{{ $motorcycle->location }}</li>
+                                        <li class="list-group-item">
+                                            <strong>
+                                            <span class="motor-location"
+                                                style="cursor: pointer; color: black; text-decoration: underline;">
+                                                {{ $motorcycle->location }}
+                                            </span>
+                                            </strong>
+                                        </li>
+
                                     </ul>
                                 </div>
                                 <div class="card-footer text-center">
