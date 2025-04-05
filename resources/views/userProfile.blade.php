@@ -104,25 +104,37 @@
                 </div>
             </div>
 
-            <!-- Bérlések szakasz -->
-            <div class="col-12 col-md-6">
-                <h1 class="text-center mb-7 text-black" id="LoansUser"><Strong>Bérlések</Strong></h1>
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+                <h1 class="text-center mb-7 text-black" id="LoansUser"><strong>Bérlések</strong></h1>
                 <div class="menu-container my-5 rounded-2 bg-gray-300">
                     <div class="row">
                         @if(count($loans) > 0)
                             @foreach($loans as $loan)
                                 <div class="col-12 mb-4">
-                                    <div class="card shadow-sm rounded h-auto">
+                                    <div class="card shadow-sm rounded h-auto position-relative">
                                         <div class="card-header bg-red-900 text-white">
                                             <div class="d-flex justify-content-between">
-                                                <h5>Rendelési azonosító: {{ $loan['orders_id'] }}</h5>
-                                                <span class="text-muted-primary">{{ $loan['rental_period']['rentalDate'] }} -
+                                                <h5 class="fs-6 fs-md-5">Rendelési azonosító: {{ $loan['orders_id'] }}</h5>
+                                                <span class="text-muted-primary fs-6">{{ $loan['rental_period']['rentalDate'] }} -
                                                     {{ $loan['rental_period']['returnDate'] }}</span>
                                             </div>
                                         </div>
+                                        <!-- Törlés gomb -->
+                                        <div class="position-absolute bottom-0 end-0">
+                                            <form class="delete-order-form" method="POST"
+                                                action="{{ route('deleteOrder', $loan['orders_id']) }}"
+                                                data-rental-date="{{ \Carbon\Carbon::parse($loan['rental_period']['rentalDate'])->toIso8601String() }}">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="button" class="delete-btn btn" data-bs-toggle="modal"
+                                                    data-bs-target="#deleteModal{{ $loan['orders_id'] }}"
+                                                    style="margin-left: 10px;">
+                                                    <i class="bi bi-trash text-danger" style="font-size: 1.5rem;"></i>
+                                                </button>
+                                            </form>
+                                        </div>
                                         <div class="card-body">
-                                            <h6><strong>Bérlő neve:</strong> {{ $loan['user_name'] }}</h6>
-                                            <h5 class="mb-0"><strong> Motor:</strong> {{ $loan['motorcycle']['brand'] }}
+                                            <h5 class="mb-0"><strong>Motor:</strong> {{ $loan['motorcycle']['brand'] }}
                                                 {{ $loan['motorcycle']['type'] }}
                                             </h5>
 
@@ -154,6 +166,33 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Törlés megerősítő ablak -->
+            <div class="modal fade" id="deleteModal{{ $loan['orders_id'] }}" tabindex="-1"
+                aria-labelledby="deleteModalLabel{{ $loan['orders_id'] }}" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered w-100" style="max-width: 600px;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deleteModalLabel{{ $loan['orders_id'] }}">Rendelés törlése</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Biztosan törölni akarja ezt a rendelést? Ez a művelet nem visszavonható.
+                        </div>
+                        <div class="modal-footer d-flex justify-content-between w-100">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Mégse</button>
+                            <!-- A form az 'action' és a 'DELETE' metódus most itt megerősíti a törlést -->
+                            <form method="POST" action="{{ route('deleteOrder', $loan['orders_id']) }}"
+                                style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger w-100 w-sm-auto">Törlés megerősítése</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
         </div>
     </div>

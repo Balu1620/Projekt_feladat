@@ -33,6 +33,9 @@ Route::get('/about', function () {return view('about');})->name('about');
 
 Route::get('/userProfile', [UserController::class, 'showLoans'])->name('userProfile');
 
+Route::delete('/userProfile/delete-order/{ordersId}', [UserController::class, 'deleteOrder'])->name('deleteOrder');
+
+
 Route::post('/update-user', [UserController::class, 'update'])->name('updateUserData');
 
 Route::get('/location', function () {return view('location');})->name('location');

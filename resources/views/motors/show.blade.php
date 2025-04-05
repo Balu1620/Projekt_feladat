@@ -2,17 +2,14 @@
 
 @section('content')
 
-    <body
-        style="background-image: url('/storage/img/MotorShowPage.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    
 
         <div class="ms-10 mt-5">
-            <a href="{{ url()->previous() }}" class="btn btn-dark vissza"><i class="bi bi-arrow-left"></i> Vissza az
-                előző
-                oldalra</a>
+            <a href="/motors" class="btn btn-dark vissza"><i class="bi bi-arrow-left"></i> Vissza a
+               motorokhoz</a>
         </div>
-        <br>
 
-        <div id="order-steps" class="w-full h-auto flex flex-col md:flex-row items-center justify-center py-10 bg-white">
+        <div id="order-steps" class="w-full h-auto flex flex-col md:flex-row items-center justify-center py-10">
             <div class="flex flex-col items-center mx-3">
                 <div class="step-circle">
                     ✓
@@ -53,6 +50,7 @@
                 <p class="step-description">Összesítés</p>
             </div>
         </div>
+        <br>
 
         <div class="motor-card">
             <!-- Motor neve és típusa -->
@@ -191,6 +189,5 @@
                 </div>
             </div>
         </div>
-    </body>
 
 @endsection
