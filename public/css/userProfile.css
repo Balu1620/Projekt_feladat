@@ -1,36 +1,101 @@
+.delete-btn {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+/* Telefonos nézetre vonatkozó stílus */
+@media (max-width: 576px) {
+    .card-body h6, .card-body h5 {
+        font-size: 0.9rem; /* Csökkentett betűméret a fejlécekhez */
+    }
+
+    .card-body ul li {
+        font-size: 0.85rem; /* Kisebb betűméret a listában lévő eszközöknél */
+    }
+
+    .card-body ul li i {
+        font-size: 0.2rem; /* Kisebb ikonok */
+    }
+}
+
+
 #LoansUser{
     font-size: large;
+    text-align: center;
 }
-#EditBtn{
+#EditBtn {
     border-radius: 5px;
-    border: 3px rgb(82, 3, 3);
+    border: 3px solid rgb(82, 3, 3);
     background-color: rgb(33, 34, 32);
     color: white;
+    padding: 8px 16px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
 }
+
+#EditBtn:hover {
+    background-color: rgb(50, 50, 50);
+}
+
+@media (max-width: 767px) {
+    #EditBtn {
+        width: 100%;
+        font-size: 1.2rem;  /* Mobil nézetben nagyobb gomb */
+    }
+}
+
 .menu-container {
-    width: 120%;
-    max-height: 495px; 
-    overflow-y: auto; 
+    width: 160%;
+    max-width: 1400px;  /* Nagyobb szélesség normál nézetben */
+    max-height: 495px;
+    overflow-y: auto;
     border: 2px solid #ccc;
-    padding: 10px; 
+    padding: 10px;
     box-sizing: border-box;
+    margin: 0 auto; 
 }
+
+@media (max-width: 767px) {
+    .menu-container {
+        max-width: 100%;  /* Telefonos nézetben 100% szélesség */
+    }
+}
+
+
 .menu-item {
     padding: 10px;
     border-bottom: 1px solid #eee;
+    font-size: 1.1rem;
 }
+
 .menu-item:last-child {
     border-bottom: none;
 }
 
+@media (max-width: 767px) {
+    .menu-item {
+        font-size: 1rem;  
+    }
+}
+
+
 .user-profile-container {
     max-width: 800px;
+    width: 100%;
     margin: auto;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     border-radius: 10px;
 }
+
+@media (max-width: 767px) {
+    .user-profile-container {
+        padding: 15px;
+        max-width: 100%;
+    }
+}
+
 
 .profile-header {
     text-align: left;
@@ -43,6 +108,14 @@
     margin-bottom: 30px;
     margin-right: 30px;
 }
+
+@media (max-width: 767px) {
+    .user-data-section, .license-images-section {
+        margin-right: 0;
+        margin-bottom: 15px; 
+    }
+}
+
 
 .section-title {
     margin-top: 0;
@@ -68,4 +141,42 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.menu-container .list-unstyled li {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+
+@media (max-width: 576px) {
+    .menu-container .list-unstyled li {
+        font-size: 0.8rem; 
+    }
+    .menu-container .list-unstyled li i {
+        font-size: 1rem; 
+    }
+    .menu-container .list-unstyled li strong {
+        font-size: 1rem; 
+    }
+}
+
+@media (max-width: 767px) {
+    body {
+        padding: 10px;  /* Több tér a képernyőn */
+    }
+
+    .card {
+        margin-bottom: 10px;
+        width: 100%;  /* Kártyák teljes szélessége mobilon */
+    }
+
+    .text-center {
+        text-align: center;  /* Minden szöveg középre igazítása */
+    }
+
+    .row {
+        display: flex;
+        flex-direction: column;  /* A row elemeket mobilon oszlopként rendezi */
+    }
 }

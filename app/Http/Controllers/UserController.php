@@ -12,7 +12,7 @@ class UserController extends Controller
     {
         $user = Auth::user();
 
-        
+
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255|unique:users,email,' . $user->id,
@@ -21,18 +21,18 @@ class UserController extends Controller
             'drivingLicenceImageBack' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-       
+
         $user->name = $request->name;
         $user->email = $request->email;
         $user->phoneNumber = $request->phoneNumber;
 
-        
+
         if ($request->hasFile('drivingLicenceImage')) {
             $imagePath = $request->file('drivingLicenceImage')->store('uploads', 'public');
             $user->drivingLicenceImage = 'storage/' . $imagePath;
         }
 
-        
+
         if ($request->hasFile('drivingLicenceImageBack')) {
             $imagePathBack = $request->file('drivingLicenceImageBack')->store('uploads', 'public');
             $user->drivingLicenceImageBack = 'storage/' . $imagePathBack;
@@ -47,13 +47,13 @@ class UserController extends Controller
     {
         $userId = auth()->id();
 
-        
+
         $loans = Loan::with([
             'deviceSwitches.tool',
             'user',
             'motorcycle'
         ])
-            ->where('users_id', $userId)  
+            ->where('users_id', $userId)
             ->get()
             ->map(function ($loan) {
                 return [
@@ -77,5 +77,19 @@ class UserController extends Controller
             });
 
         return view('userProfile', compact('loans'));
+    }
+
+    public function deleteOrder($ordersId)
+    {
+        // A rendelést az orders_id alapján keresjük
+        $order = Loan::where('orders_id', $ordersId)->first();
+
+        // Ha a rendelés megtalálható
+        if ($order) {
+            // Töröljük a rendelést
+            $order->deviceSwitches()->delete();
+            $order->delete();
+            return redirect()->route('userProfile')->with('success', 'A rendelés sikeresen törölve!');
+        } 
     }
 }
