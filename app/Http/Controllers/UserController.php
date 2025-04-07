@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DeviceSwitch;
 use App\Models\Loan;
 use App\Models\Tool;
 use Illuminate\Http\Request;
@@ -50,14 +51,52 @@ class UserController extends Controller
         $order = Loan::where('orders_id', $ordersId)->first();
 
         if ($order) {
-            // Megkeressük az eszközt az ID alapján (a select ezt küldi el)
+            // Megkeressük az eszközt az ID alapján
             $tool = Tool::find($request->input('tool_id'));
 
             if ($tool) {
-                // Hozzákapcsoljuk az eszközt a rendeléshez a device_switches táblában
+                // Eszköztípusok ID alapú csoportosítása
+                // 1-5: Sisak
+                // 6-10: Ruha
+                // 11-18: Cipő
+                $ranges = [
+                    'sisak' => [1, 5],
+                    'protektoros ruha' => [6, 10],
+                    'cipő' => [11, 18]
+                ];
+
+                // Ellenőrizzük, hogy az eszköz id-je melyik típusba tartozik
+                $tulajdonosTípus = null;
+                foreach ($ranges as $type => $range) {
+                    if ($tool->id >= $range[0] && $tool->id <= $range[1]) {
+                        $tulajdonosTípus = $type;
+                        break;
+                    }
+                }
+
+                if ($tulajdonosTípus) {
+                    // Megszámoljuk, hány eszköz van már a rendeléshez kapcsolva az adott típusból
+                    $jelenlegiDarab = $order->deviceSwitches()
+                        ->whereHas('tool', function ($query) use ($tulajdonosTípus, $ranges) {
+                            $range = $ranges[$tulajdonosTípus];
+                            $query->where('id', '>=', $range[0]) // Minimum ID a típushoz
+                                ->where('id', '<=', $range[1]); // Maximum ID a típushoz
+                        })
+                        ->count();
+
+                    // Ha már elérte a maximumot (2 db), hibaüzenetet adunk vissza
+                    if ($jelenlegiDarab >= 2) {
+                        return redirect()->back()->with(
+                            'error',
+                            "Maximum 2 db {$tulajdonosTípus} eszköz bérelhető a rendeléshez!"
+                        );
+                    }
+                }
+
+                // Ha még nem érte el a maximumot, hozzáadjuk az eszközt
                 $order->deviceSwitches()->create([
                     'tools_id' => $tool->id,
-                    'loans_id' => $order->id, // ha szükséges manuálisan
+                    'loans_id' => $order->id,
                     'created_at' => now(),
                 ]);
 
@@ -69,6 +108,15 @@ class UserController extends Controller
 
         return redirect()->back()->with('error', 'Rendelés nem található.');
     }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -136,9 +184,19 @@ class UserController extends Controller
 
     public function destroy(Tool $tool)
     {
-        // Kapcsolódó rekordok törlése a device_switches táblából
-        $tool->deviceSwitches()->delete(); // Itt a megfelelő kapcsolatot kell használni
+        // Megkeressük az első device_switch rekordot, amelyhez az adott eszköz tartozik
+        $deviceSwitch = DeviceSwitch::where('tools_id', $tool->id)->first();
 
-        return redirect()->route('userProfile')->with('success', 'Eszköz törlésre került.');
+        if ($deviceSwitch) {
+            // Az első rekord törlése
+            $deviceSwitch->delete();
+
+            return redirect()->route('userProfile')->with('success', 'Eszköz törlésre került.');
+        } else {
+            return redirect()->route('userProfile')->with('error', 'Eszköz nem található a rendelésben.');
+        }
     }
+
+
+
 }

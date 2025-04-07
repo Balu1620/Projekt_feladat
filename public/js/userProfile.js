@@ -59,6 +59,65 @@ document.addEventListener("DOMContentLoaded", function () {
     */
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const toolSelect = document.getElementById("toolSelect");
+    const toolsList = document.getElementById("toolsList");
+    const errorMessage = document.getElementById("errorMessage");
+    const addToolForm = document.getElementById("addToolForm");
+
+    // Jelenlegi eszközök (képzelt adatbázis)
+    let currentTools = [
+        { name: "Cipő", size: "42", id: 1 },
+        { name: "Sisak", size: "M", id: 2 },
+        { name: "Cipő", size: "43", id: 3 },
+    ];
+
+    // Frissíti az eszközök listáját
+    function updateToolsList() {
+        toolsList.innerHTML = "";
+        currentTools.forEach(tool => {
+            const listItem = document.createElement("li");
+            listItem.textContent = `${tool.name} (${tool.size})`;
+            toolsList.appendChild(listItem);
+        });
+    }
+
+    // Frissíti az eszközök listáját kezdetben
+    updateToolsList();
+
+    // Eszközkiválasztás ellenőrzése a form beküldése előtt
+    addToolForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const selectedTool = toolSelect.value; // Kiválasztott eszköz neve
+        const toolLimit = 2; // Limitált darabszám
+        let toolCount = 0;
+
+        // Megszámoljuk, hány darab eszköz van az adott típusból
+        currentTools.forEach(tool => {
+            if (tool.name === selectedTool) {
+                toolCount++;
+            }
+        });
+
+        // Ha több mint 2 eszköze van, nem engedjük hozzáadni
+        if (toolCount >= toolLimit) {
+            errorMessage.style.display = "block";
+        } else {
+            errorMessage.style.display = "none";
+
+            // Új eszköz hozzáadása
+            const newTool = { name: selectedTool, size: "M", id: currentTools.length + 1 };
+            currentTools.push(newTool);
+
+            // Eszköz hozzáadása a listához
+            updateToolsList();
+
+            // Itt történhet a form tényleges elküldése a szerver felé, például AJAX hívással
+            console.log("Eszköz hozzáadva:", newTool);
+        }
+    });
+});
 
     
 

@@ -159,7 +159,10 @@
                                                             </li>
                                                         @endforeach
                                                     </ul>
-                                                    <form action="{{ route('addToolToOrder', $loan['orders_id']) }}" method="POST"
+                                                @else
+                                                    <p class="text-muted">Nincsenek kapcsolt eszközök.</p>
+                                                @endif
+                                                <form action="{{ route('addToolToOrder', $loan['orders_id']) }}" method="POST"
                                                         style="display:inline;">
                                                         @csrf
                                                         <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal"
@@ -167,10 +170,7 @@
                                                             Új eszköz hozzáadása
                                                         </button>
 
-                                                    </form>
-                                                @else
-                                                    <p class="text-muted">Nincsenek kapcsolt eszközök.</p>
-                                                @endif
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -233,6 +233,7 @@
                                                         </select>
                                                     </div>
                                                 </div>
+                                                <p class="text-danger text-center">Egy típusú eszközből maximum 2db-ot lehet kölcsönözni!</p>
                                                 <div class="modal-footer">
                                                     <button type="submit" class="btn btn-primary">Hozzáadás</button>
                                                     <button type="button" class="btn btn-secondary"
