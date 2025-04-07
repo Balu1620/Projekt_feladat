@@ -28,7 +28,8 @@ return new class extends Migration {
             $table->date("trafficDate");
             $table->string("location")->nullable();
             $table->string('image')->default("placeholder.png");
-            $table->boolean("motorcycleStatus")->default(0);
+            $table->boolean("isInService")->default(0);
+            $table->longText("problamComment")->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

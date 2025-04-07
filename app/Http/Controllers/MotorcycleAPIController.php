@@ -46,16 +46,25 @@ class MotorcycleAPIController extends Controller
         ], 200);
     }
 
+    public function indexMotors()
+    {
+        $motor = Motorcycle::all();
+        if (!$motor) {
+            return response()->json(['message' => 'Nem tudta eltárolni'], 404);
+        }
+        return response()->json([$motor, "msg" => "sikeres Userek lekérése!!!"], 201);
+    }
+
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function storeMotor(Request $request)
     {
-        $user = Motorcycle::create($request->all());
-        if (!$user) {
+        $motor = Motorcycle::create($request->all());
+        if (!$motor) {
             return response()->json(['message' => 'Nem tudta eltárolni'], 404);
         }
-        return response()->json($user, 201);
+        return response()->json($motor, 201);
     }
 
     /**
@@ -63,11 +72,11 @@ class MotorcycleAPIController extends Controller
      */
     public function show(int $id)
     {
-        $motor = User::find($id);
-        if (!$motor) {
+        $user = User::find($id);
+        if (!$user) {
             return response()->json(['message' => 'User not found'], 404);
         }
-        return response()->json($motor, 200);
+        return response()->json($user, 200);
     }
 
     /**
@@ -83,7 +92,7 @@ class MotorcycleAPIController extends Controller
         return response()->json([$loan->id, $loan->gaveDown, $loan->problemDescription, $motorcycle, "msg" => "sikeres Frissités!!!"]);
     }
 
-    public function MotorReceiptUpdate(UpdateMotorcycleRequest $request, Motorcycle $motorcycle)
+    public function MotorUpdate(UpdateMotorcycleRequest $request, Motorcycle $motorcycle)
     {
         $motorcycle->update($request->all());
         if (!$motorcycle) {
@@ -146,7 +155,7 @@ class MotorcycleAPIController extends Controller
         return response()->json([$newAdmin, "msg" => "sikeres Frissités!!!"]);
     }
 
-    public function DeactiveAdmin(UpdateAdminRequest $request, Admin $admin)
+    public function DeactiveAdmin(Admin $admin)
     {
         $admin->delete();
         if (!$admin) {
@@ -172,4 +181,22 @@ class MotorcycleAPIController extends Controller
         }
         return response()->json([$user, "msg" => "sikeres Frissités!!!"]);
     }
+
+    public function allMotorSearchInService()
+    {
+        $motor = Motorcycle::where('IsInService', 0)->get();
+        if (!$motor) {
+            return response()->json(['message' => 'Nem tudta frissiteni'], 404);
+        }
+        return response()->json([$motor, "msg" => "sikeres Frissités!!!"]);
+    }
+
+    public function MotorDelete(Motorcycle $motorcycle)
+{
+    if ($motorcycle->delete()) { // Soft Delete-et hajt végre
+        return response()->json(["msg" => "Sikeres törlés!"]);
+    }
+
+    return response()->json(['message' => 'Nem sikerült törölni'], 500);
+}
 }

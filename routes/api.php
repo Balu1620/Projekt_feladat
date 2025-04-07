@@ -20,9 +20,9 @@ Route::post("/proba", function(){
 
 
 
-Route::get('usersData', [MotorcycleAPIController::class, 'index']);
-Route::put('retrieveData/{loan}/{motorcycle}', [MotorcycleAPIController::class, 'MotorRetrieveUpdate']);
-Route::put('receiptMotorData/{motorcycle}', [MotorcycleAPIController::class, 'MotorReceiptUpdate']);
+Route::get('/usersData', [MotorcycleAPIController::class, 'index']);
+Route::put('/retrieveData/{loan}/{motorcycle}', [MotorcycleAPIController::class, 'MotorRetrieveUpdate']);
+Route::put('/receiptMotorData/{motorcycle}', [MotorcycleAPIController::class, 'MotorUpdate']);
 
 //Route::get('/user/{user}', [MotorcycleAPIController::class, 'Getuser']);
 Route::get('/logs', [MotorcycleAPIController::class, 'AllLogindex']);
@@ -35,3 +35,15 @@ Route::delete('/DeactiveAdmins/{admin}', [MotorcycleAPIController::class, 'Deact
 Route::get('/allUsers', [MotorcycleAPIController::class, 'AllUseres']);
 
 Route::put('/user/{user}', [MotorcycleAPIController::class, 'DriLicRealSetUpUseres']);
+
+
+
+Route::get('/motorInServices', [MotorcycleAPIController::class, 'allMotorSearchInService']);
+
+Route::get('/AllMotors', [MotorcycleAPIController::class, 'indexMotors']);
+
+Route::put('/UpdatesMotor/{motorcycle}', [MotorcycleAPIController::class, 'MotorUpdate']);
+
+Route::post('/AddMotor', [MotorcycleAPIController::class, 'storeMotor']);
+
+Route::delete('/DeleteMotor/{motorcycle}', [MotorcycleAPIController::class, 'MotorDelete']);

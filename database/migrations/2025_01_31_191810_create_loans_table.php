@@ -16,7 +16,6 @@ return new class extends Migration
             $table->date("rentalDate");
             $table->date("returnDate");
             $table->boolean("gaveDown")->default(false);
-            $table->boolean("jobStatus");
             $table->longText("problemDescription")->nullable();
             $table->string('orders_id');
             $table->timestamps();
