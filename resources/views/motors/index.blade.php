@@ -47,6 +47,7 @@
                     <p class="step-description">Összesítés</p>
                 </div>
             </div>
+            <br>
 
             <!--Google maps -->
             <div id="location-container" class="d-none position-relative">

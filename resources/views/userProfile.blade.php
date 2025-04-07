@@ -145,15 +145,100 @@
                                                         @foreach($loan['tools'] as $tool)
                                                             <li>
                                                                 <i class="bi bi-tools me-2 text-secondary"></i>
-                                                                <strong>{{ $tool['tool_name'] }}</strong> - Kapcsolva:
+                                                                <strong>{{ $tool['tool_name'] }} ({{ $tool['tool_size'] }})</strong> -
+                                                                Kapcsolva:
                                                                 {{ $tool['connected_at'] }}
+                                                                <form action="{{ route('deleteTool', $tool['tool_id']) }}" method="POST"
+                                                                    style="display:inline;">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <button type="submit" class="btn btn-danger btn-sm ms-2">
+                                                                        <i class="bi bi-trash"></i> Törlés
+                                                                    </button>
+                                                                </form>
                                                             </li>
                                                         @endforeach
                                                     </ul>
+                                                    <form action="{{ route('addToolToOrder', $loan['orders_id']) }}" method="POST"
+                                                        style="display:inline;">
+                                                        @csrf
+                                                        <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal"
+                                                            data-bs-target="#addToolModal{{ $loan['orders_id'] }}">
+                                                            Új eszköz hozzáadása
+                                                        </button>
+
+                                                    </form>
                                                 @else
                                                     <p class="text-muted">Nincsenek kapcsolt eszközök.</p>
                                                 @endif
                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!-- Törlés megerősítő ablak -->
+                                <div class="modal fade" id="deleteModal{{ $loan['orders_id'] }}" tabindex="-1"
+                                    aria-labelledby="deleteModalLabel{{ $loan['orders_id'] }}" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered w-100" style="max-width: 600px;">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="deleteModalLabel{{ $loan['orders_id'] }}">Rendelés
+                                                    törlése</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Biztosan törölni akarja ezt a rendelést? Ez a művelet nem visszavonható.
+                                            </div>
+                                            <div class="modal-footer d-flex justify-content-between w-100">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Mégse</button>
+                                                <!-- A form az 'action' és a 'DELETE' metódus most itt megerősíti a törlést -->
+                                                <form method="POST" action="{{ route('deleteOrder', $loan['orders_id']) }}"
+                                                    style="display:inline;">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger w-100 w-sm-auto">Törlés
+                                                        megerősítése</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!-- Tool Hozzáadás Ablak -->
+                                <div class="modal fade" id="addToolModal{{ $loan['orders_id'] }}" tabindex="-1"
+                                    aria-labelledby="addToolModalLabel{{ $loan['orders_id'] }}" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <form action="{{ route('addToolToOrder', $loan['orders_id']) }}" method="POST">
+                                                @csrf
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="addToolModalLabel{{ $loan['orders_id'] }}">Eszköz
+                                                        hozzáadása rendeléshez</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Bezárás"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="mb-3">
+                                                        <label for="tool_id" class="form-label">Válassz eszközt</label>
+                                                        <select class="form-select" name="tool_id" required>
+                                                            <option value="" disabled selected>-- Válassz egy eszközt --</option>
+                                                            @foreach ($availableTools as $tool)
+                                                                <option value="{{ $tool->id }}">{{ $tool->toolName }}
+                                                                    ({{ $tool->size }})</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-primary">Hozzáadás</button>
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Mégse</button>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -166,34 +251,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Törlés megerősítő ablak -->
-            <div class="modal fade" id="deleteModal{{ $loan['orders_id'] }}" tabindex="-1"
-                aria-labelledby="deleteModalLabel{{ $loan['orders_id'] }}" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered w-100" style="max-width: 600px;">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="deleteModalLabel{{ $loan['orders_id'] }}">Rendelés törlése</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            Biztosan törölni akarja ezt a rendelést? Ez a művelet nem visszavonható.
-                        </div>
-                        <div class="modal-footer d-flex justify-content-between w-100">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Mégse</button>
-                            <!-- A form az 'action' és a 'DELETE' metódus most itt megerősíti a törlést -->
-                            <form method="POST" action="{{ route('deleteOrder', $loan['orders_id']) }}"
-                                style="display:inline;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger w-100 w-sm-auto">Törlés megerősítése</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
         </div>
     </div>
 

@@ -35,6 +35,15 @@ Route::get('/userProfile', [UserController::class, 'showLoans'])->name('userProf
 
 Route::delete('/userProfile/delete-order/{ordersId}', [UserController::class, 'deleteOrder'])->name('deleteOrder');
 
+// Eszköz törlés route a felhasználói profil oldalához
+Route::delete('/user-profile/tools/{tool}', [UserController::class, 'destroy'])->name('deleteTool');
+
+Route::post('/user-profile/{ordersId}/add-tool', [UserController::class, 'addToolToOrder'])->name('addToolToOrder');
+
+
+
+
+
 
 Route::post('/update-user', [UserController::class, 'update'])->name('updateUserData');
 

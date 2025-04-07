@@ -7,11 +7,11 @@ function previewImage(event, previewId) {
     reader.readAsDataURL(event.target.files[0]);
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     // Kép előnézeti funkció
     function previewImage(event, previewId) {
         const reader = new FileReader();
-        reader.onload = function() {
+        reader.onload = function () {
             const output = document.getElementById(previewId);
             output.src = reader.result;
         };
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const rentalDateObj = new Date(rentalDate);
         const currentDate = new Date();
-        
+
         // Különbség számítása napokban
         const timeDifference = (rentalDateObj - currentDate) / (1000 * 60 * 60 * 24);
         console.log('Dátum különbség (napokban):', timeDifference);
@@ -40,14 +40,26 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Módosítjuk a modális ablak formját a törlés gomb megnyomásakor
+    // A modális gomb megnyomásakor nem kell JS-ben átállítani az action-t,
+    // mert minden modal formnak már külön actionje van Blade-ben.
+    // Ezt a részt tehát elhagyhatod.
+
+    // Ha viszont később közös modalra váltanál, ez az alap logika:
+    /*
     const deleteButtons = document.querySelectorAll('[data-bs-toggle="modal"]');
     deleteButtons.forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             const orderId = button.getAttribute('data-order-id');
-            const deleteForm = document.getElementById('deleteOrderForm');
-            deleteForm.action = `/delete-order/${orderId}`; // Törlés URL-jének beállítása
+            const deleteForm = document.getElementById(`deleteOrderForm${orderId}`);
+            if (deleteForm) {
+                deleteForm.action = `/delete-order/${orderId}`;
+            }
         });
     });
+    */
 });
+
+
+    
+
 
