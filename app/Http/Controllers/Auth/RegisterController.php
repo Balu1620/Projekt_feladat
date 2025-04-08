@@ -77,8 +77,8 @@ class RegisterController extends Controller
             $filePathBack = $data['drivingLicenceImageBack']->store('driving_licence_images', 'public');
 
             // A fájlok teljes elérési útjának visszaadása a válaszban
-            $fileUrl = asset('storage/' . $filePath);
-            $fileUrlBack = asset('storage/' . $filePathBack);
+            //$fileUrl = asset('storage/' . $filePath);
+            //$fileUrlBack = asset('storage/' . $filePathBack);
         }
 
         return User::create([
@@ -88,8 +88,8 @@ class RegisterController extends Controller
             'phoneNumber' => $data['phoneNumber'],
             'drivingLicenceNumber' => $data['drivingLicenceNumber'],
             'drivingLicenceType' => $data['drivingLicenceType'],
-            'drivingLicenceImage' => isset($fileUrl) ? $fileUrl : null,
-            'drivingLicenceImageBack' => isset($fileUrlBack) ? $fileUrlBack : null,
+            'drivingLicenceImage' => isset($filePath) ? $filePath : null, 
+            'drivingLicenceImageBack' => isset($filePathBack) ? $filePathBack : null, 
         ]);
     }
 
