@@ -46,14 +46,6 @@ class MotorcycleAPIController extends Controller
         ], 200);
     }
 
-    public function indexMotors()
-    {
-        $motor = Motorcycle::all();
-        if (!$motor) {
-            return response()->json(['message' => 'Nem tudta eltárolni'], 404);
-        }
-        return response()->json([$motor, "msg" => "sikeres Userek lekérése!!!"], 201);
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -165,13 +157,28 @@ class MotorcycleAPIController extends Controller
     }
 
     public function AllUseres()
-    {
-        $admin = User::all();
-        if (!$admin) {
-            return response()->json(['message' => 'Nem tudta frissiteni'], 404);
-        }
-        return response()->json([$admin, "msg" => "sikeres Userek lekérése!!!"]);
-    }
+{
+    $users = User::all();
+
+    // Minden userhez hozzátesszük az image URL-t
+    $users = $users->map(function ($user) {
+        $user->drivingLicenceImage = $user->drivingLicenceImage 
+            ? asset('storage/' . $user->drivingLicenceImage)
+            : null;
+
+        $user->drivingLicenceImageBack = $user->drivingLicenceImageBack 
+            ? asset('storage/' . $user->drivingLicenceImageBack)
+            : null;
+
+        return $user;
+    });
+
+    return response()->json([
+        'users' => $users,
+        'msg' => 'Sikeres felhasználók lekérése!'
+    ], 200);
+}
+
 
     public function DriLicRealSetUpUseres(UpdateUserRequest $request, User $user)
     {
@@ -200,7 +207,50 @@ class MotorcycleAPIController extends Controller
         return response()->json(['message' => 'Nem sikerült törölni'], 500);
     }
 
-    public function AllPhotos(){
-        
+
+    public function indexMotors()
+    {
+        // Lekérjük az összes motort
+        $motors = Motorcycle::all();
+
+        // Minden motorhoz hozzácsapunk egy image_url mezőt
+        $motors = $motors->map(function ($motor) {
+            $imagePath = 'img/' . $motor->image; // például: img/Gladiator.jpg
+            $fullPath = storage_path("app/public/{$imagePath}");
+
+            /*
+            $motor->image_url = file_exists($fullPath)
+                ? asset("storage/{$imagePath}")
+                : null; 
+            */
+            $motor->image = file_exists($fullPath)
+                ? asset("storage/{$imagePath}")
+                : null;
+
+            return $motor;
+        });
+
+
+        // Külön lekérjük az egyedi típusokat képpel együtt
+        $types = Motorcycle::distinct()->pluck('type');
+
+        $photos = $types->map(function ($type) {
+            $cleanType = str_replace(' ', '', strtolower($type));
+            $filePath = "img/{$cleanType}.jpg";
+            $fullPath = storage_path("app/public/{$filePath}");
+
+            return [
+                'type' => $type,
+                'image_url' => file_exists($fullPath)
+                    ? asset("storage/{$filePath}")
+                    : null
+            ];
+        });
+
+        return response()->json([
+            'motors' => $motors,
+            'msg' => 'Sikeres motor lekérés!'
+        ], 200);
     }
+
 }

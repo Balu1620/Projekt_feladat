@@ -40,10 +40,12 @@ Route::put('/user/{user}', [MotorcycleAPIController::class, 'DriLicRealSetUpUser
 
 Route::get('/motorInServices', [MotorcycleAPIController::class, 'allMotorSearchInService']);
 
-Route::get('/AllMotors', [MotorcycleAPIController::class, 'indexMotors']);
+Route::get('/allMotors', [MotorcycleAPIController::class, 'indexMotors']);
 
 Route::put('/UpdatesMotor/{motorcycle}', [MotorcycleAPIController::class, 'MotorUpdate']);
 
 Route::post('/AddMotor', [MotorcycleAPIController::class, 'storeMotor']);
 
 Route::delete('/DeleteMotor/{motorcycle}', [MotorcycleAPIController::class, 'MotorDelete']);
+
+//Route::get('/AllMotorsPhoto', [MotorcycleAPIController::class, "AllMotorPhotos"]);
