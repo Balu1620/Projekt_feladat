@@ -23,7 +23,7 @@ class MotorcycleController extends Controller
         $query = DB::table('motorcycles')
             ->leftJoin('loans', 'motorcycles.id', '=', 'loans.motorcycles_id')
             ->select('motorcycles.*', 'loans.rentalDate', 'loans.returnDate')
-            ->where('motorcycles.motorcycleStatus', 0);
+            ->where('motorcycles.isInService', 0);
 
         // Feltételek hozzáadása a többi szűrőhöz (brand, year, gearbox, fuel, location)
         if ($request->filled('brand')) {

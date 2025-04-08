@@ -192,11 +192,15 @@ class MotorcycleAPIController extends Controller
     }
 
     public function MotorDelete(Motorcycle $motorcycle)
-{
-    if ($motorcycle->delete()) { // Soft Delete-et hajt végre
-        return response()->json(["msg" => "Sikeres törlés!"]);
+    {
+        if ($motorcycle->delete()) { // Soft Delete-et hajt végre
+            return response()->json(["msg" => "Sikeres törlés!"]);
+        }
+
+        return response()->json(['message' => 'Nem sikerült törölni'], 500);
     }
 
-    return response()->json(['message' => 'Nem sikerült törölni'], 500);
-}
+    public function AllPhotos(){
+        
+    }
 }
