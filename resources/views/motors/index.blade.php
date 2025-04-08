@@ -5,6 +5,16 @@
     <body>
         <div class="mcontent" id="filter">
             <h2 class="text-center fs-2">A Motorok</h2>
+            <br>
+
+            <!--Google maps -->
+            <div id="location-container" class="d-none position-relative">
+                <button id="close-map" class="close-btn">&times;</button>
+                <div id="map-container">
+                    <iframe id="google-map" class="map-iframe" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            <br>
 
             <div id="order-steps" class="w-full h-auto flex flex-col md:flex-row items-center justify-center py-10">
                 <div class="flex flex-col items-center mx-3">
@@ -47,17 +57,6 @@
                     <p class="step-description">Összesítés</p>
                 </div>
             </div>
-            <br>
-
-            <!--Google maps -->
-            <div id="location-container" class="d-none position-relative">
-                <button id="close-map" class="close-btn">&times;</button>
-                <div id="map-container">
-                    <iframe id="google-map" class="map-iframe" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </div>
-
-
 
             <div class="flex flex-col md:flex-row gap-4 md:gap-10 items-center">
                 <!-- Szűrés gomb -->
