@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreAdminRequest;
+use App\Http\Requests\StoreMotorcycleRequest;
 use App\Http\Requests\UpdateAdminRequest;
 use App\Http\Requests\UpdateLoanRequest;
 use App\Http\Requests\UpdateMotorcycleRequest;
@@ -15,6 +16,7 @@ use App\Models\Motorcycle;
 use App\Models\Tool;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Storage;
 
 class MotorcycleAPIController extends Controller
 {
@@ -50,13 +52,48 @@ class MotorcycleAPIController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function storeMotor(Request $request)
+    public function store(StoreMotorcycleRequest $request)
     {
-        $motor = Motorcycle::create($request->all());
-        if (!$motor) {
-            return response()->json(['message' => 'Nem tudta eltárolni'], 404);
+
+        // Kép fájl kezelése
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $image = $request->file('image');
+            $imageName = str_replace(' ', '', $request->type) . "." . $image->getClientOriginalExtension();
+            // Kép fájl eltárolása a storage-ban
+            $imagePath = $image->storeAs('img', $imageName, 'public');
         }
-        return response()->json($motor, 201);
+        else {
+            return response()->json([
+                'message' => 'Hiba történt a kép feltöltésekor!',
+            ], 400); // Visszaküldheted a hibát 400-as státusszal
+        }
+
+        $motor = Motorcycle::create([
+            'brand' => $request->brand,
+            'type' => $request->type,
+            'licencePlate' => $request->licencePlate,
+            'year' => $request->year,
+            'gearbox' => $request->gearbox,
+            'fuel' => $request->fuel,
+            'powerLe' => $request->powerLe,
+            'powerkW' => $request->powerkW,
+            'engineSize' => $request->engineSize,
+            'drivingLicence' => $request->drivingLicence,
+            'places' => $request->places,
+            'price' => $request->price,
+            'deposit' => $request->deposit,
+            'trafficDate' => $request->trafficDate,
+            'location' => $request->location,
+            'image' => $imageName,  // Kép neve elmentése
+            'isInService' => $request->isInService,
+            'problamComment' => $request->problamComment,
+        ]);
+
+        return response()->json([
+            $motor,
+            'message' => 'Kép és adat sikeresen feltöltve!',
+            'image_path' => Storage::url($imagePath),
+        ], 200);
     }
 
     /**
@@ -157,27 +194,27 @@ class MotorcycleAPIController extends Controller
     }
 
     public function AllUseres()
-{
-    $users = User::all();
+    {
+        $users = User::all();
 
-    // Minden userhez hozzátesszük az image URL-t
-    $users = $users->map(function ($user) {
-        $user->drivingLicenceImage = $user->drivingLicenceImage 
-            ? asset('storage/' . $user->drivingLicenceImage)
-            : null;
+        // Minden userhez hozzátesszük az image URL-t
+        $users = $users->map(function ($user) {
+            $user->drivingLicenceImage = $user->drivingLicenceImage
+                ? asset('storage/' . $user->drivingLicenceImage)
+                : null;
 
-        $user->drivingLicenceImageBack = $user->drivingLicenceImageBack 
-            ? asset('storage/' . $user->drivingLicenceImageBack)
-            : null;
+            $user->drivingLicenceImageBack = $user->drivingLicenceImageBack
+                ? asset('storage/' . $user->drivingLicenceImageBack)
+                : null;
 
-        return $user;
-    });
+            return $user;
+        });
 
-    return response()->json([
-        'users' => $users,
-        'msg' => 'Sikeres felhasználók lekérése!'
-    ], 200);
-}
+        return response()->json([
+            'users' => $users,
+            'msg' => 'Sikeres felhasználók lekérése!'
+        ], 200);
+    }
 
 
     public function DriLicRealSetUpUseres(UpdateUserRequest $request, User $user)

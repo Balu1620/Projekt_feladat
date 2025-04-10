@@ -22,7 +22,24 @@ class StoreMotorcycleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'brand' => 'required',
+            'type' => 'required',
+            'licencePlate' => 'required',
+            'year' => 'required',
+            'gearbox' => 'required',
+            'fuel' => 'required',
+            'powerLe' => 'required',
+            'powerkW' => 'required',
+            'engineSize' => 'required',
+            'drivingLicence' => 'required',
+            'places' => 'required',
+            'price' => 'required',
+            'deposit' => 'required',
+            'trafficDate' => 'required',
+            'location' => 'required',
+            'image' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'isInService' => 'required',
+            'problamComment' => 'nullable'
         ];
     }
 }

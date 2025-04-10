@@ -44,7 +44,7 @@ Route::get('/allMotors', [MotorcycleAPIController::class, 'indexMotors']);
 
 Route::put('/UpdatesMotor/{motorcycle}', [MotorcycleAPIController::class, 'MotorUpdate']);
 
-Route::post('/AddMotor', [MotorcycleAPIController::class, 'storeMotor']);
+Route::post('/AddMotor', [MotorcycleAPIController::class, 'store']);
 
 Route::delete('/DeleteMotor/{motorcycle}', [MotorcycleAPIController::class, 'MotorDelete']);
 

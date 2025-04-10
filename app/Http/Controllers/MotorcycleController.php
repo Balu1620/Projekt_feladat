@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\DeviceSwitch;
 use App\Models\Loan;
 use App\Models\Motorcycle;
-use App\Http\Requests\StoreMotorcycleRequest;
 use App\Http\Requests\UpdateMotorcycleRequest;
 use App\Models\MotorRental;
 use App\Models\Tool;
