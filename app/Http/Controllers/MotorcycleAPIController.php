@@ -184,9 +184,21 @@ class MotorcycleAPIController extends Controller
         return response()->json([$newAdmin, "msg" => "sikeres Frissités!!!"]);
     }
 
-    public function DeactiveAdmin(Admin $admin)
+    public function ReStoreAdmin(Admin $admin, UpdateAdminRequest $request)
     {
-        $admin->delete();
+        $admin->update($request->all());
+        //$admin->restore();
+        if (!$admin) {
+            return response()->json(['message' => 'Nem tudta frissiteni'], 404);
+        }
+        return response()->json([$admin, "msg" => "sikeres Deaktiválás!!!"]);
+    }
+
+
+    public function DeactiveAdmin(Admin $admin, UpdateAdminRequest $request)
+    {
+        $admin->update($request->all());
+        //$admin->delete();
         if (!$admin) {
             return response()->json(['message' => 'Nem tudta frissiteni'], 404);
         }

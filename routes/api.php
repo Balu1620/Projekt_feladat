@@ -30,7 +30,10 @@ Route::get('/logs', [MotorcycleAPIController::class, 'AllLogindex']);
 Route::post('/admins', [MotorcycleAPIController::class, 'StoreAdmin']);
 Route::put('/admins/{admin}', [MotorcycleAPIController::class, 'UpdateAdmin']);
 
-Route::delete('/DeactiveAdmins/{admin}', [MotorcycleAPIController::class, 'DeactiveAdmin']);
+Route::put('/DeactiveAdmin/{admin}', [MotorcycleAPIController::class, 'DeactiveAdmin']);
+
+Route::put('/RestoreAdmin/{admin}', [MotorcycleAPIController::class, 'ReStoreAdmin']);
+
 
 Route::get('/allUsers', [MotorcycleAPIController::class, 'AllUseres']);
 
