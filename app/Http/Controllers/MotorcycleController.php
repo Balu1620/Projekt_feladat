@@ -106,8 +106,7 @@ class MotorcycleController extends Controller
         $motorRental->orders_id = $orderId;
         //----- Bálint -----
         $motorRental->gaveDown = 0;
-        $motorRental->jobStatus = 0;
-        $motorRental->problemDescription = NULL;
+        $motorRental->problemDescription = null;
         //----- Bálint -----
 
         $motorRental->save();

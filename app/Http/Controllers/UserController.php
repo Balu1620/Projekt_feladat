@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\DeviceSwitch;
 use App\Models\Loan;
 use App\Models\Tool;
+use Illuminate\Container\Attributes\Storage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,7 +15,7 @@ class UserController extends Controller
     {
         $user = Auth::user();
 
-
+        // Validálás
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255|unique:users,email,' . $user->id,
@@ -23,27 +24,43 @@ class UserController extends Controller
             'drivingLicenceImageBack' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-
+        // Felhasználói adatok frissítése
         $user->name = $request->name;
         $user->email = $request->email;
         $user->phoneNumber = $request->phoneNumber;
 
+        $updated = false; 
 
+        // Driving licence image feltöltés és törlés
         if ($request->hasFile('drivingLicenceImage')) {
-            $imagePath = $request->file('drivingLicenceImage')->store('uploads', 'public');
-            $user->drivingLicenceImage = 'storage/' . $imagePath;
+
+            // Új fájl mentése
+            $filePath = $request->file('drivingLicenceImage')->store('driving_licence_images', 'public');
+            $user->drivingLicenceImage = $filePath;
+            $updated = true; 
         }
 
-
+        // Driving licence image back feltöltés és törlés
         if ($request->hasFile('drivingLicenceImageBack')) {
-            $imagePathBack = $request->file('drivingLicenceImageBack')->store('uploads', 'public');
-            $user->drivingLicenceImageBack = 'storage/' . $imagePathBack;
+
+            // Új fájl mentése
+            $filePathBack = $request->file('drivingLicenceImageBack')->store('driving_licence_images', 'public');
+            $user->drivingLicenceImageBack = $filePathBack;
+            $updated = true; 
         }
 
+        // Ha történt módosítás (kép frissítés), akkor állítsuk a drivingLicenceReal értékét 0-ra
+        if ($updated) {
+            $user->drivingLicenceReal = 0; // Állítsuk 0-ra
+        }
+
+        // Mentés
         $user->save();
 
-        return redirect()->back()->with('success');
+        return redirect()->back()->with('success', 'Adatok frissítve!');
     }
+
+
 
     public function addToolToOrder(Request $request, $ordersId)
     {

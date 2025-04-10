@@ -290,4 +290,94 @@ class MotorcycleAPIController extends Controller
         ], 200);
     }
 
+    public function ReactDelete($ordersId){
+        $order = Loan::where('loans.id', $ordersId)->first();
+
+        // Ha a rendelés megtalálható
+        if ($order) {
+            // Töröljük a rendelést
+            $order->deviceSwitches()->delete();
+            $order->delete();
+            return response()->json([$order, "msg" => "Sikeresen töröltük"]);
+        }
+        else{
+            return response()->json([$order, "msg" => "Nem sikerült törölni"]);
+        }
+    }
+
+    public function ReactToolAddToOrder($ordersId, Request $request) {
+        // Megkeressük a rendelést az orders_id alapján
+        $order = Loan::where('loans.id', $ordersId)->first();
+
+        if ($order) {
+            // Megkeressük az eszközt az ID alapján
+            $tool = Tool::find($request->input('tool_id'));
+
+            if ($tool) {
+                // Eszköztípusok ID alapú csoportosítása
+                // 1-5: Sisak
+                // 6-10: Ruha
+                // 11-18: Cipő
+                $ranges = [
+                    'sisak' => [1, 5],
+                    'protektoros ruha' => [6, 10],
+                    'cipő' => [11, 18]
+                ];
+
+                // Ellenőrizzük, hogy az eszköz id-je melyik típusba tartozik
+                $tulajdonosTípus = null;
+                foreach ($ranges as $type => $range) {
+                    if ($tool->id >= $range[0] && $tool->id <= $range[1]) {
+                        $tulajdonosTípus = $type;
+                        break;
+                    }
+                }
+
+                if ($tulajdonosTípus) {
+                    // Megszámoljuk, hány eszköz van már a rendeléshez kapcsolva az adott típusból
+                    $jelenlegiDarab = $order->deviceSwitches()
+                        ->whereHas('tool', function ($query) use ($tulajdonosTípus, $ranges) {
+                            $range = $ranges[$tulajdonosTípus];
+                            $query->where('id', '>=', $range[0]) // Minimum ID a típushoz
+                                ->where('id', '<=', $range[1]); // Maximum ID a típushoz
+                        })
+                        ->count();
+
+                    // Ha már elérte a maximumot (2 db), hibaüzenetet adunk vissza
+                    if ($jelenlegiDarab >= 2) {
+                        return redirect()->back()->with(
+                            'error',
+                            "Maximum 2 db {$tulajdonosTípus} eszköz bérelhető a rendeléshez!"
+                        );
+                    }
+                }
+
+                // Ha még nem érte el a maximumot, hozzáadjuk az eszközt
+                $order->deviceSwitches()->create([
+                    'tools_id' => $tool->id,
+                    'loans_id' => $order->id,
+                    'created_at' => now(),
+                ]);
+
+                return response()->json([$order, "msg" => "Sikeresen Hozzáadtuk"]);
+            } else {
+                return response()->json([$order, "msg" => "Sikertelen hozzáadás"]);
+            }
+        }
+    }
+
+    public function ReactDestroyTool(Tool $tool){
+        // Megkeressük az első device_switch rekordot, amelyhez az adott eszköz tartozik
+        $deviceSwitch = DeviceSwitch::where('tools_id', $tool->id)->first();
+
+        if ($deviceSwitch) {
+            // Az első rekord törlése
+            $deviceSwitch->delete();
+
+            return response()->json([$tool, "msg" => "Eszköz törlése sikeres"]);
+        } else {
+            return response()->json([$tool, "msg" => "Eszköz törlése sikertelen"]);
+        }
+    }
+
 }

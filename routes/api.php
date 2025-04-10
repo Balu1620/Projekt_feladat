@@ -49,3 +49,10 @@ Route::post('/AddMotor', [MotorcycleAPIController::class, 'store']);
 Route::delete('/DeleteMotor/{motorcycle}', [MotorcycleAPIController::class, 'MotorDelete']);
 
 //Route::get('/AllMotorsPhoto', [MotorcycleAPIController::class, "AllMotorPhotos"]);
+
+//React
+Route::delete('delete-order/{ordersId}', [MotorcycleAPIController::class, 'ReactDelete']);
+
+Route::put('{ordersId}/add-tool/', [MotorcycleAPIController::class, 'ReactToolAddToOrder']);
+
+Route::delete('tools/{tool}', [MotorcycleAPIController::class, 'ReactDestroyTool']);

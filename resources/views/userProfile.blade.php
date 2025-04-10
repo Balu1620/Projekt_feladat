@@ -31,9 +31,8 @@
                     <div class="license-images-section pe-5">
                         <h2 class="section-title ps-3">Jogosítvány:</h2>
                         <div class="image-container">
-                            <img src="{{ asset(auth()->user()->drivingLicenceImage) }}" alt="Driving Licence"
-                                class="license-image img-fluid">
-                            <img src="{{ asset(auth()->user()->drivingLicenceImageBack) }}" alt="Jogosítvány hátsó oldala"
+                        <img src="{{ asset('storage/' . auth()->user()->drivingLicenceImage) }}" alt="Driving Licence" class="license-image img-fluid">
+                            <img src="{{ asset('storage/' . auth()->user()->drivingLicenceImageBack) }}" alt="Jogosítvány hátsó oldala"
                                 class="license-image img-fluid">
                         </div>
                     </div>
@@ -81,7 +80,7 @@
                                         name="drivingLicenceImage" accept="image/*"
                                         onchange="previewImage(event, 'previewFront')">
                                     <div class="d-flex justify-content-center mt-2">
-                                        <img id="previewFront" src="{{ asset(auth()->user()->drivingLicenceImage) }}"
+                                        <img id="previewFront" src="{{ asset('storage/' . auth()->user()->drivingLicenceImage) }}"
                                             alt="Jogosítvány elöl" class="img-fluid rounded shadow" width="150">
                                     </div>
                                 </div>
@@ -92,7 +91,7 @@
                                         name="drivingLicenceImageBack" accept="image/*"
                                         onchange="previewImage(event, 'previewBack')">
                                     <div class="d-flex justify-content-center mt-2">
-                                        <img id="previewBack" src="{{ asset(auth()->user()->drivingLicenceImageBack) }}"
+                                        <img id="previewBack" src="{{ asset('storage/' . auth()->user()->drivingLicenceImageBack) }}"
                                             alt="Jogosítvány hátul" class="img-fluid rounded shadow" width="150">
                                     </div>
                                 </div>
