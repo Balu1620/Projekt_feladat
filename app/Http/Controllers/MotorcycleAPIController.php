@@ -25,13 +25,6 @@ class MotorcycleAPIController extends Controller
      */
     public function index()
     {
-
-        // Minden kölcsönzési adat lekérése
-        //$loans = Loan::with('motorcycle', 'user')->get();
-
-        // Minden felhasználó adatainak lekérése
-        //$deviceSwitches = DeviceSwitch::with('loan','tool')->get();
-
         $loans = Loan::with([
             'user',
             'motorcycle',
@@ -41,13 +34,29 @@ class MotorcycleAPIController extends Controller
         if (!$loans) {
             return response()->json(["msg" => "nem sikerült a lekérés"], 404);
         }
+
+        // Hozzáadjuk az asset URL-t minden loan userének
+        $loans->map(function ($loan) {
+            if ($loan->user) {
+                $loan->user->drivingLicenceImage = $loan->user->drivingLicenceImage
+                ? (str_starts_with($loan->user->drivingLicenceImage, 'http') 
+                    ? $loan->user->drivingLicenceImage 
+                    : asset('storage/' . $loan->user->drivingLicenceImage))
+                : null;
+
+            $loan->user->drivingLicenceImageBack = $loan->user->drivingLicenceImageBack
+                ? (str_starts_with($loan->user->drivingLicenceImageBack, 'http') 
+                    ? $loan->user->drivingLicenceImageBack 
+                    : asset('storage/' . $loan->user->drivingLicenceImageBack))
+                : null;
+            }
+            return $loan;
+        });
+
         return response()->json([
             'loans' => $loans,
-            //'users' => $deviceSwitches,
-            //"msg" => "sikeres lekérés",
         ], 200);
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -61,8 +70,7 @@ class MotorcycleAPIController extends Controller
             $imageName = str_replace(' ', '', $request->type) . "." . $image->getClientOriginalExtension();
             // Kép fájl eltárolása a storage-ban
             $imagePath = $image->storeAs('img', $imageName, 'public');
-        }
-        else {
+        } else {
             return response()->json([
                 'message' => 'Hiba történt a kép feltöltésekor!',
             ], 400); // Visszaküldheted a hibát 400-as státusszal
@@ -302,7 +310,8 @@ class MotorcycleAPIController extends Controller
         ], 200);
     }
 
-    public function ReactDelete($ordersId){
+    public function ReactDelete($ordersId)
+    {
         $order = Loan::where('loans.id', $ordersId)->first();
 
         // Ha a rendelés megtalálható
@@ -311,13 +320,13 @@ class MotorcycleAPIController extends Controller
             $order->deviceSwitches()->delete();
             $order->delete();
             return response()->json([$order, "msg" => "Sikeresen töröltük"]);
-        }
-        else{
+        } else {
             return response()->json([$order, "msg" => "Nem sikerült törölni"]);
         }
     }
 
-    public function ReactToolAddToOrder($ordersId, Request $request) {
+    public function ReactToolAddToOrder($ordersId, Request $request)
+    {
         // Megkeressük a rendelést az orders_id alapján
         $order = Loan::where('loans.id', $ordersId)->first();
 
@@ -378,7 +387,8 @@ class MotorcycleAPIController extends Controller
         }
     }
 
-    public function ReactDestroyTool(Tool $tool){
+    public function ReactDestroyTool(Tool $tool)
+    {
         // Megkeressük az első device_switch rekordot, amelyhez az adott eszköz tartozik
         $deviceSwitch = DeviceSwitch::where('tools_id', $tool->id)->first();
 
