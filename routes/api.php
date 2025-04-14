@@ -24,7 +24,6 @@ Route::get('/usersData', [MotorcycleAPIController::class, 'index']);
 Route::put('/retrieveData/{loan}/{motorcycle}', [MotorcycleAPIController::class, 'MotorRetrieveUpdate']);
 Route::put('/receiptMotorData/{motorcycle}', [MotorcycleAPIController::class, 'MotorUpdate']);
 
-//Route::get('/user/{user}', [MotorcycleAPIController::class, 'Getuser']);
 Route::get('/logs', [MotorcycleAPIController::class, 'AllLogindex']);
 
 Route::post('/admins', [MotorcycleAPIController::class, 'StoreAdmin']);
@@ -54,7 +53,7 @@ Route::delete('/DeleteMotor/{motorcycle}', [MotorcycleAPIController::class, 'Mot
 //Route::get('/AllMotorsPhoto', [MotorcycleAPIController::class, "AllMotorPhotos"]);
 
 //React
-Route::delete('delete-order/{ordersId}', [MotorcycleAPIController::class, 'ReactDelete']);
+Route::delete('delete-order/{ordersId}', [MotorcycleAPIController::class, 'LoansDelete']);
 
 Route::put('{ordersId}/add-tool/', [MotorcycleAPIController::class, 'ReactToolAddToOrder']);
 

@@ -312,7 +312,10 @@ class MotorcycleAPIController extends Controller
         ], 200);
     }
 
-    public function ReactDelete($ordersId)
+
+//Reacthoz kell
+
+    public function LoansDelete($ordersId)
     {
         $order = Loan::where('loans.id', $ordersId)->first();
 
@@ -327,7 +330,7 @@ class MotorcycleAPIController extends Controller
         }
     }
 
-    public function ReactToolAddToOrder($ordersId, Request $request)
+    public function ToolAddToOrder($ordersId, Request $request)
     {
         // Megkeressük a rendelést az orders_id alapján
         $order = Loan::where('loans.id', $ordersId)->first();
