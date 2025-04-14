@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('password');
 
             $table->string("phoneNumber");
-            $table->string("drivingLicenceNumber");
+            $table->string("drivingLicenceNumber")->unique();
             $table->string("drivingLicenceType");
             $table->string('drivingLicenceImage');
             $table->string('drivingLicenceImageBack');

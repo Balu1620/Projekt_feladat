@@ -166,9 +166,11 @@ class MotorcycleAPIController extends Controller
 */
     public function AllLogindex()
     {
-        $logs = Admin::with(
-            "logs"
-        )->orderBy("jobstatus", "asc")->get();
+        $logs = Admin::with([
+            "logs" => function ($query){
+            $query->orderBy('date', 'desc');
+            }
+        ])->orderBy("jobstatus", "asc")->get();
         if (!$logs) {
             return response()->json([$logs, 'message' => 'Nem tudta frissiteni'], 404);
         }
