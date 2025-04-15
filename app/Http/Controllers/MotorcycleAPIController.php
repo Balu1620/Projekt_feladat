@@ -15,6 +15,7 @@ use App\Models\Log;
 use App\Models\Motorcycle;
 use App\Models\Tool;
 use App\Models\User;
+use Auth;
 use Illuminate\Http\Request;
 use Storage;
 
@@ -39,16 +40,16 @@ class MotorcycleAPIController extends Controller
         $loans->map(function ($loan) {
             if ($loan->user) {
                 $loan->user->drivingLicenceImage = $loan->user->drivingLicenceImage
-                ? (str_starts_with($loan->user->drivingLicenceImage, 'http') 
-                    ? $loan->user->drivingLicenceImage 
-                    : asset('storage/' . $loan->user->drivingLicenceImage))
-                : null;
+                    ? (str_starts_with($loan->user->drivingLicenceImage, 'http')
+                        ? $loan->user->drivingLicenceImage
+                        : asset('storage/' . $loan->user->drivingLicenceImage))
+                    : null;
 
-            $loan->user->drivingLicenceImageBack = $loan->user->drivingLicenceImageBack
-                ? (str_starts_with($loan->user->drivingLicenceImageBack, 'http') 
-                    ? $loan->user->drivingLicenceImageBack 
-                    : asset('storage/' . $loan->user->drivingLicenceImageBack))
-                : null;
+                $loan->user->drivingLicenceImageBack = $loan->user->drivingLicenceImageBack
+                    ? (str_starts_with($loan->user->drivingLicenceImageBack, 'http')
+                        ? $loan->user->drivingLicenceImageBack
+                        : asset('storage/' . $loan->user->drivingLicenceImageBack))
+                    : null;
             }
             return $loan;
         });
@@ -167,8 +168,8 @@ class MotorcycleAPIController extends Controller
     public function AllLogindex()
     {
         $logs = Admin::with([
-            "logs" => function ($query){
-            $query->orderBy('date', 'desc');
+            "logs" => function ($query) {
+                $query->orderBy('date', 'desc');
             }
         ])->orderBy("jobstatus", "asc")->get();
         if (!$logs) {
@@ -313,7 +314,7 @@ class MotorcycleAPIController extends Controller
     }
 
 
-//Reacthoz kell
+    //Reacthoz kell
 
     public function LoansDelete($ordersId)
     {
@@ -406,5 +407,69 @@ class MotorcycleAPIController extends Controller
             return response()->json([$tool, "msg" => "Eszköz törlése sikertelen"]);
         }
     }
+    public function ReactShowLoans($userId)
+    {
+        // Felhasználó adatainak lekérése
+        $user = User::find($userId);
+
+        // Ellenőrizzük, hogy létezik-e a felhasználó
+        if (!$user) {
+            return response()->json(["msg" => "A felhasználó nem található"], 404);
+        }
+
+        // Kölcsönzések lekérése a kapcsolatokkal együtt
+        $loans = Loan::with([
+            'motorcycle',
+            'deviceSwitches.tool'
+        ])
+            ->where('users_id', '=', $userId)
+            ->get();
+
+        // Asset URL-ek hozzáadása a felhasználói adatokhoz
+        $user->drivingLicenceImage = $user->drivingLicenceImage
+            ? (str_starts_with($user->drivingLicenceImage, 'http')
+                ? $user->drivingLicenceImage
+                : asset('storage/' . $user->drivingLicenceImage))
+            : null;
+
+        $user->drivingLicenceImageBack = $user->drivingLicenceImageBack
+            ? (str_starts_with($user->drivingLicenceImageBack, 'http')
+                ? $user->drivingLicenceImageBack
+                : asset('storage/' . $user->drivingLicenceImageBack))
+            : null;
+
+        // JSON válasz, amely tartalmazza a felhasználó adatait és a kölcsönzéseket
+        return response()->json([
+            'user' => $user,
+            'loans' => $loans,
+            'userId' => $user->id, // Külön visszaküldheted a userId-t
+        ], 200);
+
+
+
+    }
+
+    public function login(Request $request)
+    {
+        // Ellenőrizzük, hogy a felhasználó adatai helyesek-e
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user(); // A bejelentkezett felhasználó adatainak lekérése
+            $token = $user->createToken('YourAppName')->plainTextToken; // Token létrehozása
+
+            // A válasz tartalmazza a token-t és a felhasználó ID-ját
+            return response()->json([
+                'token' => $token,
+                'userId' => $user->id, // Az ID itt van
+            ]);
+        }
+
+        // Ha nem sikerült a bejelentkezés, akkor hibaüzenet
+        return response()->json(['message' => 'Invalid credentials'], 401);
+    }
 
 }
+
+
+
