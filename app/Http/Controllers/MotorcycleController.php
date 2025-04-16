@@ -20,7 +20,10 @@ class MotorcycleController extends Controller
     public function index(Request $request)
     {
         $query = DB::table('motorcycles')
-            ->leftJoin('loans', 'motorcycles.id', '=', 'loans.motorcycles_id')
+            ->leftJoin('loans', function ($join) {
+                $join->on('motorcycles.id', '=', 'loans.motorcycles_id')
+                    ->whereRaw('loans.id IN (SELECT MAX(id) FROM loans GROUP BY motorcycles_id)');
+            })
             ->select('motorcycles.*', 'loans.rentalDate', 'loans.returnDate')
             ->where('motorcycles.isInService', 0);
 
@@ -41,21 +44,21 @@ class MotorcycleController extends Controller
             $query->where('location', $request->input('location'));
         }
 
-        
+
         if ($request->filled('dateStart') && $request->filled('dateEnd')) {
             $dateStart = Carbon::parse($request->input('dateStart'));
             $dateEnd = Carbon::parse($request->input('dateEnd'));
 
-           
+
             $query->where(function ($subQuery) use ($dateStart, $dateEnd) {
-                $subQuery->whereNull('loans.rentalDate')  
-                    ->orWhere('loans.returnDate', '<', $dateStart) 
-                    ->orWhere('loans.rentalDate', '>', $dateEnd); 
+                $subQuery->whereNull('loans.rentalDate')
+                    ->orWhere('loans.returnDate', '<', $dateStart)
+                    ->orWhere('loans.rentalDate', '>', $dateEnd);
             });
         }
 
         // Lekérdezés végrehajtása
-        $motorcycles = $query->get();
+        $motorcycles = $query->distinct()->get();
 
         // Kiegészítő lekérdezések szűrőkhöz (brands, locations, years, gearboxes)
         $brands = DB::table('motorcycles')->select('brand')->distinct()->get();
@@ -106,7 +109,7 @@ class MotorcycleController extends Controller
         $motorRental->orders_id = $orderId;
         //----- Bálint -----
         $motorRental->gaveDown = 0;
-        $motorRental->problemDescription = null;
+        //$motorRental->problemDescription = null;
         //----- Bálint -----
 
         $motorRental->save();

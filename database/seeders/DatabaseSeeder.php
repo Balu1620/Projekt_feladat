@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             'password' => 'alma.1234',
             'phoneNumber' => '06202222222',
             'drivingLicenceNumber' => 'NE2321',
+            'drivingLicenceReal' => 1,
             'drivingLicenceType' => 'B1',
             'drivingLicenceImage' => 'placeholder.jpg',
             'drivingLicenceImageBack' => 'placeholder.jpg'

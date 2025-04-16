@@ -127,7 +127,7 @@ class MotorcycleAPIController extends Controller
         if (!$loan && !$motorcycle) {
             return response()->json(['message' => 'Nem tudta frissiteni'], 404);
         }
-        return response()->json([$loan->id, $loan->gaveDown, $loan->problemDescription, $motorcycle, "msg" => "sikeres Frissités!!!"]);
+        return response()->json([$loan->id, $loan->gaveDown, $motorcycle, "msg" => "sikeres Frissités!!!"]);
     }
 
     public function MotorUpdate(UpdateMotorcycleRequest $request, Motorcycle $motorcycle)
@@ -140,31 +140,7 @@ class MotorcycleAPIController extends Controller
     }
 
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        /*
-        $motor = Motorcycle::find($id);
-        if (!$motor) {
-            return response()->json(['message' => 'User not found'], 404);
-        }
-
-        $motor->delete();
-        return response()->json(['message' => 'User deleted'], 200);
-        */
-    }
-
-    /*
-    public function Getuser(User $user)
-    {
-        if (!$user) {
-            return response()->json([$user, 'message' => 'lekérni'], 404);
-        }
-        return response()->json([$user, "msg" => "sikeres lekérés!!!"]);
-    }
-*/
+   
     public function AllLogindex()
     {
         $logs = Admin::with([
@@ -314,7 +290,9 @@ class MotorcycleAPIController extends Controller
     }
 
 
-    //Reacthoz kell
+
+    
+//Reacthoz kell
 
     public function LoansDelete($ordersId)
     {
