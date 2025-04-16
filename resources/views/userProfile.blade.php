@@ -5,7 +5,7 @@
     <div class="container my-5">
         <div class="row">
             <!-- Felhasználói adatlap szakasz -->
-            <div class="col-12 col-md-6 mb-4 mb-md-0">
+            <div class="col-12 col-md-6 mb-4 mb-md-0 pt-5">
                 <div class="user-profile-container position-relative">
                     <!-- Gomb a jobb felső sarokban (csak nagyobb képernyőn) -->
                     <div class="d-none d-md-block position-absolute top-0 end-0 mt-2 me-2">
@@ -31,9 +31,10 @@
                     <div class="license-images-section pe-5">
                         <h2 class="section-title ps-3">Jogosítvány:</h2>
                         <div class="image-container">
-                        <img src="{{ asset('storage/' . auth()->user()->drivingLicenceImage) }}" alt="Driving Licence" class="license-image img-fluid">
-                            <img src="{{ asset('storage/' . auth()->user()->drivingLicenceImageBack) }}" alt="Jogosítvány hátsó oldala"
+                            <img src="{{ asset('storage/' . auth()->user()->drivingLicenceImage) }}" alt="Driving Licence"
                                 class="license-image img-fluid">
+                            <img src="{{ asset('storage/' . auth()->user()->drivingLicenceImageBack) }}"
+                                alt="Jogosítvány hátsó oldala" class="license-image img-fluid">
                         </div>
                     </div>
 
@@ -80,7 +81,8 @@
                                         name="drivingLicenceImage" accept="image/*"
                                         onchange="previewImage(event, 'previewFront')">
                                     <div class="d-flex justify-content-center mt-2">
-                                        <img id="previewFront" src="{{ asset('storage/' . auth()->user()->drivingLicenceImage) }}"
+                                        <img id="previewFront"
+                                            src="{{ asset('storage/' . auth()->user()->drivingLicenceImage) }}"
                                             alt="Jogosítvány elöl" class="img-fluid rounded shadow" width="150">
                                     </div>
                                 </div>
@@ -91,7 +93,8 @@
                                         name="drivingLicenceImageBack" accept="image/*"
                                         onchange="previewImage(event, 'previewBack')">
                                     <div class="d-flex justify-content-center mt-2">
-                                        <img id="previewBack" src="{{ asset('storage/' . auth()->user()->drivingLicenceImageBack) }}"
+                                        <img id="previewBack"
+                                            src="{{ asset('storage/' . auth()->user()->drivingLicenceImageBack) }}"
                                             alt="Jogosítvány hátul" class="img-fluid rounded shadow" width="150">
                                     </div>
                                 </div>
@@ -104,7 +107,6 @@
             </div>
 
             <div class="col-12 col-md-6 col-lg-4 mb-4">
-                <h1 class="text-center mb-7 text-black" id="LoansUser"><strong>Bérlések</strong></h1>
                 <div class="menu-container my-5 rounded-2 bg-gray-300">
                     <div class="row">
                         @if(count($loans) > 0)
@@ -132,10 +134,10 @@
                                                 </button>
                                             </form>
                                         </div>
+
                                         <div class="card-body">
                                             <h5 class="mb-0"><strong>Motor:</strong> {{ $loan['motorcycle']['brand'] }}
-                                                {{ $loan['motorcycle']['type'] }}
-                                            </h5>
+                                                {{ $loan['motorcycle']['type'] }}</h5>
 
                                             <div class="mt-3">
                                                 @if(count($loan['tools']) > 0)
@@ -145,13 +147,13 @@
                                                             <li>
                                                                 <i class="bi bi-tools me-2 text-secondary"></i>
                                                                 <strong>{{ $tool['tool_name'] }} ({{ $tool['tool_size'] }})</strong> -
-                                                                Kapcsolva:
-                                                                {{ $tool['connected_at'] }}
-                                                                <form action="{{ route('deleteTool', $tool['tool_id']) }}" method="POST"
+                                                                Kapcsolva: {{ $tool['connected_at'] }}
+                                                                <form class="delete-tool-form" action="{{ route('deleteTool', $tool['tool_id']) }}" method="POST"
                                                                     style="display:inline;">
                                                                     @csrf
                                                                     @method('DELETE')
-                                                                    <button type="submit" class="btn btn-danger btn-sm ms-2">
+                                                                    <button type="submit"
+                                                                        class="btn btn-danger delete-tool-btn btn-sm ms-2">
                                                                         <i class="bi bi-trash"></i> Törlés
                                                                     </button>
                                                                 </form>
@@ -161,17 +163,19 @@
                                                 @else
                                                     <p class="text-muted">Nincsenek kapcsolt eszközök.</p>
                                                 @endif
-                                                <form action="{{ route('addToolToOrder', $loan['orders_id']) }}" method="POST"
-                                                        style="display:inline;">
-                                                        @csrf
-                                                        <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal"
-                                                            data-bs-target="#addToolModal{{ $loan['orders_id'] }}">
-                                                            Új eszköz hozzáadása
-                                                        </button>
-
+                                                <form class="add-tool-form" action="{{ route('addToolToOrder', $loan['orders_id']) }}" method="POST"
+                                                    style="display:inline;">
+                                                    @csrf
+                                                    <button type="button" class="btn btn-success add-tool-btn btn-sm" data-bs-toggle="modal"
+                                                        data-bs-target="#addToolModal{{ $loan['orders_id'] }}">
+                                                        Új eszköz hozzáadása
+                                                    </button>
                                                 </form>
                                             </div>
                                         </div>
+
+
+
                                     </div>
                                 </div>
 
@@ -232,7 +236,8 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <p class="text-danger text-center">Egy típusú eszközből maximum 2db-ot lehet kölcsönözni!</p>
+                                                <p class="text-danger text-center">Egy típusú eszközből maximum 2db-ot lehet
+                                                    kölcsönözni!</p>
                                                 <div class="modal-footer">
                                                     <button type="submit" class="btn btn-primary">Hozzáadás</button>
                                                     <button type="button" class="btn btn-secondary"

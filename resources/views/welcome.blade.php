@@ -3,6 +3,9 @@
 @section('content')
     <div class=" mx-4 mt-2">
         <div class="justify-content-center ">
+            <div id="MainTitle">
+                <h1><strong>Motorkölcsönzés csak nálunk!</strong></h1>
+            </div>
             <div id="uppictures">
                 <img src="{{ asset('storage/img/HomePage.jpg') }}" alt="Nature" id="onePhoto">
             </div>

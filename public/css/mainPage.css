@@ -16,7 +16,10 @@
     line-height: 1.5;
 }
 
-
+#MainTitle{
+    text-align: center;
+    font-size: 40px;
+}
 
 /*------------------Pictures-------------------*/
 

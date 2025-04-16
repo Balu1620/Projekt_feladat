@@ -3,7 +3,7 @@
 @section('content')
   <!-- Main Content Div után-->
 
-  <h2 id="abultH2">Rólunk</h2>
+  <h2 id="abultH2">A Motorkirálya</h2>
 
   <div class="responsive-container-block bigContainer">
     <div class="responsive-container-block Container">
@@ -13,13 +13,11 @@
     </div>
 
     <div class="responsive-container-block textSide">
-      <p class="text-blk heading">A Motorkirálya</p>
       <p class="text-blk subHeading">
       Szenvedélyünk a motorozás és a szabad mozgás! A Motorkirálya egy innovatív motorkölcsönző szolgáltatás, amelyet
       azoknak hoztunk létre, akik szeretik a kétkerekűek nyújtotta élményt, de nem akarnak saját motort fenntartani.
       Nálunk a bérlés épp olyan egyszerű, mint egy Lime vagy Bubi esetében – nincs szükség fix leadási pontra,
       bármelyik telephelyünkön visszaadhatod a járművet!
-      <br><br>🌍 Miért válassz minket?
       </p>
 
       <!-- Teljesítmény -->
@@ -82,8 +80,6 @@
       </div>
       </div>
     </div>
-
-    <img class="redDots" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/cw3.svg">
     </div>
 
     <div class="csatlakozz-hozzank">

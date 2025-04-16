@@ -18,26 +18,68 @@ document.addEventListener("DOMContentLoaded", function () {
         reader.readAsDataURL(event.target.files[0]);
     }
 
-    // Törlés gomb megjelenítésének kezelése a bérlés dátuma alapján
     const deleteForms = document.querySelectorAll('.delete-order-form');
+    const deleteToolForms = document.querySelectorAll('.delete-tool-form');
+    const addToolForms = document.querySelectorAll('.add-tool-form');
 
+    
+
+    // 1. Átvisszük a data-rental-date-et a deleteToolForms-ra ÉS az addToolForms-ra
+    deleteForms.forEach((orderForm, index) => {
+        const rentalDate = orderForm.getAttribute('data-rental-date');
+        if (deleteToolForms[index] && rentalDate) {
+            deleteToolForms[index].setAttribute('data-rental-date', rentalDate);
+        }
+            if (addToolForms[index] && rentalDate) {
+            addToolForms[index].setAttribute('data-rental-date', rentalDate);
+        }
+    });
+
+
+    //2. Törlés gombok megjelenítése a rendelés formoknál
     deleteForms.forEach(form => {
-        const rentalDate = form.getAttribute('data-rental-date');
         const deleteButton = form.querySelector('.delete-btn');
+        const rentalDate = form.getAttribute('data-rental-date');
+        if (!deleteButton || !rentalDate) return;
 
         const rentalDateObj = new Date(rentalDate);
         const currentDate = new Date();
 
-        // Különbség számítása napokban
         const timeDifference = (rentalDateObj - currentDate) / (1000 * 60 * 60 * 24);
-        console.log('Dátum különbség (napokban):', timeDifference);
 
-        // Ha több mint 1 nap van hátra, mutassuk a törlés gombot
-        if (timeDifference > 1) {
-            deleteButton.style.display = 'inline-block';
-        } else {
-            deleteButton.style.display = 'none';
-        }
+        deleteButton.style.display = (timeDifference > 1) ? 'inline-block' : 'none';
+    });
+
+    //3. Törlés gombok megjelenítése az eszköz formoknál
+    deleteToolForms.forEach(form => {
+        const deleteButton = form.querySelector('.delete-tool-btn');
+        const rentalDate = form.getAttribute('data-rental-date');
+        if (!deleteButton || !rentalDate) return;
+
+        const rentalDateObj = new Date(rentalDate);
+        const currentDate = new Date();
+
+        //Különbség számítása napokban
+        const timeDifference = (rentalDateObj - currentDate) / (1000 * 60 * 60 * 24);
+
+        //Ha több mint 1 nap van hátra, mutassuk a törlés gombot
+        deleteButton.style.display = (timeDifference > 1) ? 'inline-block' : 'none';
+    });
+
+    //4. Eszköz hozzáadása gomb megjelenítése
+    addToolForms.forEach(form => {
+        const addButton = form.querySelector('.add-tool-btn');
+        const rentalDate = form.getAttribute('data-rental-date');
+        if (!addButton || !rentalDate) return;
+
+        const rentalDateObj = new Date(rentalDate);
+        const currentDate = new Date();
+
+        //Különbség számítása napokban
+        const timeDifference = (rentalDateObj - currentDate) / (1000 * 60 * 60 * 24);
+
+        //Ha több mint 1 nap van hátra, mutassuk a hozzáadás gombot
+        addButton.style.display = (timeDifference > 1) ? 'inline-block' : 'none';
     });
 
     // A modális gomb megnyomásakor nem kell JS-ben átállítani az action-t,
