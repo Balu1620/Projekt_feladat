@@ -130,7 +130,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>Kérjük várd meg amíg amíg le ellenőrizzük a jogosítványodat.</p>
+                        <p>Kérjük várd meg amíg le ellenőrizzük a jogosítványodat.</p>
                         <p><small>Ez legfeljebb 5 percet vehet igénybe.</small></p>
                     </div>
                     <div class="modal-footer">
