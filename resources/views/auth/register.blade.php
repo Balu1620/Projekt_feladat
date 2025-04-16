@@ -89,7 +89,6 @@
                                         class="form-control @error('drivingLicenceType') is-invalid @enderror" required>
                                         <option selected disabled value="">{{ __('Choose a Category') }}</option>
                                         <option value="AM">AM</option>
-                                        <option value="A">A</option>
                                         <option value="A1">A1</option>
                                         <option value="A2">A2</option>
                                         <option value="B">B</option>

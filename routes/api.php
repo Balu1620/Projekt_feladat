@@ -53,8 +53,19 @@ Route::delete('/DeleteMotor/{motorcycle}', [MotorcycleAPIController::class, 'Mot
 //Route::get('/AllMotorsPhoto', [MotorcycleAPIController::class, "AllMotorPhotos"]);
 
 //React
+Route::get('/userProfile/{userId}', [MotorcycleAPIController::class, 'ReactShowLoans']);
+
 Route::delete('delete-order/{ordersId}', [MotorcycleAPIController::class, 'LoansDelete']);
 
 Route::put('{ordersId}/add-tool/', [MotorcycleAPIController::class, 'ReactToolAddToOrder']);
 
 Route::delete('tools/{tool}', [MotorcycleAPIController::class, 'ReactDestroyTool']);
+
+Route::post('login', [MotorcycleAPIController::class, 'login']); 
+
+
+Route::middleware('auth:sanctum')->get('/userProfile', function () {
+    return response()->json([
+        'user' => Auth::user(),
+    ]);
+});
