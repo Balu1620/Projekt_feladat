@@ -6,60 +6,55 @@
             <div id="MainTitle">
                 <h1><strong>Motorkölcsönzés csak nálunk!</strong></h1>
             </div>
+            <br>
+            
             <div id="uppictures">
                 <img src="{{ asset('storage/img/HomePage.jpg') }}" alt="Nature" id="onePhoto">
             </div>
+            <div class="discount-banner">
+                <p>3 nap bérlésnél -20% kedvezmény!</p>
+                <p>7 nap bérlésnél -30% kedvezmény!</p>
+            </div>
             <hr>
-            <section>
-                <div class="row py-4 justify-content-center bg-white ">
-                    <div class="col p-0 col-sm-3 col-md-3 col-lg-3 col-xl-3">
-                        <div class="flip-card">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-front">
-                                    <h2><i class="bi bi-globe2"></i></h2>
-                                    <h2>Globális elérhetőség</h2>
-                                    <p>&#10555;</p>
-                                </div>
-                                <div class="flip-card-back">
-                                    <p>Több mint 2.000 SIXT állomás több mint 105 országban</p>
-                                    <p>&#10554;</p>
-                                </div>
+            <section id="custom-flip-cards">
+                <div id="cards-container">
+                    <div class="custom-flip-card">
+                        <div class="custom-flip-card-inner">
+                            <div class="custom-flip-card-front">
+                                <h2><i class="bi bi-globe2"></i></h2>
+                                <h3>Globális elérhetőség</h3>
+                            </div>
+                            <div class="custom-flip-card-back">
+                                <p>Több mint 2.000 SIXT állomás több mint 105 országban</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col p-0 col-sm-3 col-md-3 col-lg-3 col-xl-3">
-                        <div class="flip-card">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-front">
-                                    <h2>&#x1F3CD;</h2>
-                                    <h2>Különleges flotta</h2>
-                                    <p>&#10555;</p>
-                                </div>
-                                <div class="flip-card-back">
-                                    <p>Nagy teljesítményű sportmotoroktól a kényelmes túrázókig.</p>
-                                    <p>&#10554;</p>
-                                </div>
+                    <div class="custom-flip-card">
+                        <div class="custom-flip-card-inner">
+                            <div class="custom-flip-card-front">
+                                <h2>&#x1F3CD;</h2>
+                                <h3>Különleges flotta</h3>
+                            </div>
+                            <div class="custom-flip-card-back">
+                                <p>Nagy teljesítményű sportmotoroktól a kényelmes túrázókig.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col p-0 col-sm-3 col-md-3 col-lg-3 col-xl-3">
-                        <div class="flip-card">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-front">
-                                    <h2><i class="bi bi-person-hearts"></i></h2>
-                                    <h2>Kivételes szolgáltatás</h2>
-                                    <p>&#10555;</p>
-                                </div>
-                                <div class="flip-card-back">
-                                    <p>Stresszmentes, megbízható, nincsenek rejtett költségek</p>
-                                    <p>&#10554;</p>
-                                </div>
+                    <div class="custom-flip-card">
+                        <div class="custom-flip-card-inner">
+                            <div class="custom-flip-card-front">
+                                <h2><i class="bi bi-person-hearts"></i></h2>
+                                <h3>Kivételes szolgáltatás</h3>
+                            </div>
+                            <div class="custom-flip-card-back">
+                                <p>Stresszmentes, megbízható, nincsenek rejtett költségek</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-            
+
+
             <section class="pt-4 bg-white">
                 <div id="pw">
                     <div class="d-flex justify-content-around align-items-center mb-3">
@@ -141,15 +136,9 @@
                 </div>
             </section>
             <!--         /Kép&Szöveg       -->
-            <hr>
-
-            <div class="discount-banner">
-                <p>3 nap bérlésnél -20% kedvezmény!</p>
-                <p>7 nap bérlésnél -30% kedvezmény!</p>
-            </div>
             <!--         TimeLine       -->
-            <section id="timeline_alap" style="background-image: url('/storage/img/MotorBg.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-                <h3 style="text-align: center; ">A motorbérlés menete</h3>
+            <section id="timeline_alap">
+                <h1 style="text-align: center; font-size: 200%; padding-top: 10px; ">A motorbérlés menete</h1>
                 <div class="slidecontainer ">
                     <input class="slider" id="slider" list="markers" type="range" min="0" max="3" step="1" value="0"
                         onchange="shadow()">

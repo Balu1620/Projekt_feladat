@@ -36,79 +36,112 @@
 
 /*------------------/Pictures-------------------*/
 /*------------------Cards-------------------*/
-.flip-card {
+/* Általános szekcióstílus */
+#custom-flip-cards {
+    padding: 2rem;
+    background: #f9f9f9; /* Semleges világos szürke háttér */
+}
+
+#cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5rem;
+}
+
+/* Flip-kártyák alapstílus */
+.custom-flip-card {
     background-color: transparent;
-    width: 12vw;
-    height: 8vw;
-    perspective: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 100%;
-    max-height: 100%;
+    width: 300px;
+    height: 200px;
+    perspective: 1000px;
 }
 
-.row {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.flip-card-front h2 {
-    font-size: 1vw;
-    margin: 10px 10px 0px 10px;
-}
-
-.flip-card-front h2:last-of-type {
-    font-size: 1.2vw;
-    margin: 10px 10px 0 10px;
-}
-
-.flip-card-front p {
-    font-size: 1.5vw;
-}
-
-.flip-card-back p:first-of-type {
-    font-size: 1vw;
-    margin: 10px 10px 0px 10px;
-}
-
-.flip-card-back p:last-of-type {
-    font-size: 1.5vw;
-}
-
-.flip-card-inner {
+.custom-flip-card-inner {
     position: relative;
     width: 100%;
     height: 100%;
-    text-align: center;
-    transition: transform 0.6s;
     transform-style: preserve-3d;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Finom árnyék */
+    border-radius: 10px;
 }
 
-.flip-card:hover .flip-card-inner {
+.custom-flip-card:hover .custom-flip-card-inner {
     transform: rotateY(180deg);
 }
 
-.flip-card-front,
-.flip-card-back {
+/* Kártya előlap */
+.custom-flip-card-front {
     position: absolute;
     width: 100%;
     height: 100%;
-    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: #ffffff; /* Fehér háttér */
+    border: 1px solid #ddd; /* Finom szegély */
+    color: #333; /* Sötétszürke szöveg */
+    text-align: center;
+    transition: transform 0.4s;
 }
 
-.flip-card-front {
-    background-color: #bbb;
-    color: black;
+.custom-flip-card-front h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #3e2050; /* Elegáns kék árnyalat */
 }
 
-.flip-card-back {
-    background-color: #2980b9;
-    color: white;
+.custom-flip-card-front h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #555; /* Középszürke szöveg */
+}
+
+/* Kártya hátlap */
+.custom-flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: #8d9cac; /* Elegáns kék árnyalat */
+    color: #ffffff; /* Fehér szöveg */
+    text-align: center;
     transform: rotateY(180deg);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Finom árnyék */
 }
+
+.custom-flip-card-back p {
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* Reszponzív nézetek */
+@media (max-width: 768px) {
+    .custom-flip-card {
+        width: 90%;
+        height: 180px;
+    }
+
+    .custom-flip-card-front h2 {
+        font-size: 2rem;
+    }
+
+    .custom-flip-card-front h3,
+    .custom-flip-card-back p {
+        font-size: 0.9rem;
+    }
+}
+
 
 /*-------------------/Cards-------------------*/
 /*--------------------Sz&P--------------------*/
@@ -153,7 +186,7 @@
     position: relative;
     margin-top: 6vw;
     margin-bottom: 120px;
-    background-color: #f3eded;
+    background-color: #ffffff;
     border-radius: 10px;
 }
 

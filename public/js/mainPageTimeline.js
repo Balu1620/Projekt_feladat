@@ -120,7 +120,7 @@ function toggleMobileMenu() {
 
 
 
-
+/*
   const slider = document.getElementById("slider");
   let isAnimating = false; // Animációs állapot figyelése
 
@@ -135,8 +135,8 @@ function toggleMobileMenu() {
       isAnimating = false; // Engedélyezzük az új animációt
     }, 500); // 0.5 másodperces animáció
   });
-  
-/*
+*/
+
   const slider = document.getElementById("slider");
 
   slider.addEventListener("mouseenter", function () {
@@ -148,7 +148,7 @@ function toggleMobileMenu() {
       }, 500); // 0.5 másodperces animáció után
     }
   }, { once: true }); // Egyszeri végrehajtás
-*/
+
 
 
 function valasztPlace(location) {

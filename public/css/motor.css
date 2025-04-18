@@ -1,3 +1,100 @@
+.motorGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 24px;
+    padding: 32px 24px;
+    max-width: 1900px;
+    margin: 0 auto;
+}
+
+.card {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    background: #fff;
+    overflow: hidden;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.card-title {
+    font-weight: bold;
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+.list-group {
+    margin-bottom: 12px;
+}
+
+.list-group-item {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+.card-footer {
+    background: none;
+    border-top: 1px solid #eee;
+    padding: 12px 16px;
+}
+
+.btn-outline-secondary {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 100%;
+    transition: background 0.2s;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #ddd;
+    color: #222;
+}
+
+.motor-location {
+    cursor: pointer;
+    color: #222;
+    text-decoration: underline;
+}
+
+@media (max-width: 700px) {
+    .motorGrid {
+        grid-template-columns: 1fr;
+        padding: 10px 2px;
+        gap: 16px;
+    }
+    .card {
+        height: auto;
+    }
+    .card-img-top {
+        height: 160px;
+    }
+}
+
+/* Egyéb elemek, ha szükséges */
 #location-container {
     position: relative;
     background: #fff;
@@ -44,127 +141,30 @@
     }
 }
 
-
-.motorGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    /*gap: 20px;*/
-    padding: 20px;
-}
-
-.mCard {
-    display: flex;
-    justify-content: center;
-}
-
-.card {
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.card-img-top {
-    height: 300px;
-    width: auto;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-
-.card-title {
-    font-weight: bold;
-    font-size: 18px;
-}
-
-.list-group-item {
-    padding: 10px;
-    border: 1px;
-    border-radius: 4px;
-    background-color: #f0f0f0;
-}
-
-.list-group-item:not(:last-child) {
-    border-bottom: 1px solid #ddd;
-}
-
-.btn-outline-secondary {
-    background-color: #f0f0f0;
-    color: #333;
-    border: 1px solid #ddd;
-    padding: 10px 20px;
-    border-radius: 5px;
-}
-
-.btn-outline-secondary:hover {
-    background-color: #ddd;
-    color: #333;
-}
-
-div.card{
-    height: 500px;
-}
-
-
-@media screen and (max-width: 576px) {
-    .motorGrid {
-        display: grid;
-        grid-template-columns: auto;
-    }
-}
-
-@media screen and (min-width: 578px) and (max-width: 999px) {
-    .motorGrid {
-        display: grid;
-        grid-template-columns: auto auto;
-    }
-}
-
-@media screen and (min-width: 1000px) and (max-width: 1024px) {
-    .motorGrid {
-        display: grid;
-        grid-template-columns: auto auto;
-    }
-}
-
-@media screen and (min-width: 1025px) and (max-width: 1400px) {
-    .motorGrid {
-        display: grid;
-        grid-template-columns: auto auto auto;
-    }
-}
-
-@media screen and (min-width: 1401px) and (max-width: 2000px) {
-    .motorGrid {
-        display: grid;
-        grid-template-columns: auto auto auto auto;
-    }
-}
-
 .form-check-reverse {
     text-align: start;
 }
 
-.img{
-    width: 100%; /* A kártya teljes szélességét kitölti */
-    max-width: 280px; /* Maximális szélesség beállítása */
-    height: 200px; /* Fix magasság */
-    object-fit: contain; /* Megőrzi az arányokat, nem vágja le a széleket */
+.img {
+    width: 100%;
+    max-width: 280px;
+    height: 200px;
+    object-fit: contain;
     display: block;
-    margin: 0 auto; /* Középre igazítás */
-    padding: 10px; /* Kis térköz a kép körül */
+    margin: 0 auto;
+    padding: 10px;
 }
-    
-
 
 .custom-date-range {
     display: flex;
-    justify-content: center; 
-    gap: 1rem; 
-    align-items: center; 
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
 }
 
-
 .custom-date-range input[type="date"] {
-    width: auto; 
-    min-width: 150px; 
+    width: auto;
+    min-width: 150px;
     padding: 0.375rem 0.75rem;
     border-radius: 0.375rem;
     border: 1px solid #ccc;
@@ -173,31 +173,24 @@ div.card{
     transition: border-color 0.2s ease-in-out;
 }
 
-
 .custom-date-range input[type="date"]:focus {
     border-color: #007bff;
     outline: none;
     box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
 }
 
-
 .custom-date-range span {
     font-weight: bold;
     font-size: 1rem;
     color: #333;
-    margin-right: 0.3rem; 
+    margin-right: 0.3rem;
 }
-
 
 @media (max-width: 768px) {
     .custom-date-range {
         text-align: left;
-        
-        
     }
     .btn {
         width: 30%;
     }
 }
-
-
