@@ -19,6 +19,8 @@
 #MainTitle{
     text-align: center;
     font-size: 40px;
+    font-style: initial;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 /*------------------Pictures-------------------*/
@@ -32,6 +34,7 @@
 #onePhoto {
     width: 100%; /* Képarány megtartása mellett 100%-os szélesség */
     max-height: 750px;
+    border-radius: 10px;
 }
 
 /*------------------/Pictures-------------------*/

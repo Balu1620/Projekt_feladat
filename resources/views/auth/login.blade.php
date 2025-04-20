@@ -17,7 +17,7 @@
                                     <input placeholder="" id="floatingInput" type="email"
                                         class="form-control @error('email') is-invalid @enderror" name="email"
                                         value="{{ old('email') }}" required autocomplete="email" autofocus>
-                                    <label for="floatingInput">{{ __('Email Address') }}</label>
+                                    <label for="floatingInput">{{ __('Email cím') }}</label>
 
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -32,7 +32,7 @@
                                     <input placeholder="" id="password" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
                                         required autocomplete="current-password">
-                                    <label for="password">{{ __('Password') }}</label>
+                                    <label for="password">{{ __('Jelszó') }}</label>
 
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">

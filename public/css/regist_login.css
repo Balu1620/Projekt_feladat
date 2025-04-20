@@ -1,3 +1,20 @@
+.card-reset-email{
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding-bottom: 90px;
+}
+
+.card-header-reset{
+  background-color: #c2baba;
+  border-radius: 5px 5px 0px 0px;
+  padding-bottom: 10px;
+  padding-top: 3px;
+  color: #000000;
+  padding-left: 5px;
+  font-size: large;
+}
+
 #LoginBtn {
   background-color: #fff; 
   color: #000; 

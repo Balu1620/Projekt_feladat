@@ -49,8 +49,18 @@
                                     <div class="strength-bar">
                                         <div class="bar" id="strength-bar"></div>
                                     </div>
-                                    <small id="strength-text"></small>
+                                    <strong id="strength-text"></strong>
+                                    <small class="form-text text-muted">
+                                        <ul class="mt-1">
+                                            <li><strong>A jelszónak meg kell felelnie az alábbi követelményeknek:</strong></li>
+                                            <li class="text-danger">Legalább 8 karakter hosszú legyen</li>
+                                            <li class="text-danger">Tartalmazzon kisbetűt</li>
+                                            <li class="text-danger">Tartalmazzon nagybetűt</li>
+                                            <li class="text-danger">Tartalmazzon legalább egy számot</li>
+                                        </ul>
+                                    </small>
                                 </div>
+
 
 
                                 <div class="mb-3">

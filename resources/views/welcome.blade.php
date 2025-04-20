@@ -25,7 +25,7 @@
                                 <h3>Globális elérhetőség</h3>
                             </div>
                             <div class="custom-flip-card-back">
-                                <p>Több mint 2.000 SIXT állomás több mint 105 országban</p>
+                                <p>Több mint 100 állomás 3 országban</p>
                             </div>
                         </div>
                     </div>

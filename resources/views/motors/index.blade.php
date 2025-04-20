@@ -58,13 +58,15 @@
                 </div>
             </div>
 
-            <div class="flex flex-col md:flex-row gap-4 md:gap-10 items-center">
+            <div class="flex flex-col md:flex-row gap-4 md:gap-10 items-center md:ml-40">
                 <!-- Szűrés gomb -->
                 <button class="open-btn btn btn-dark m-4 md:m-0" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                     Szűrés <i class="bi bi-sliders"></i>
                 </button>
             </div>
+
+
 
             <div class="filter offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
                 aria-labelledby="offcanvasWithBothOptionsLabel">
