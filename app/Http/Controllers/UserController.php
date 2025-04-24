@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\DeviceSwitch;
 use App\Models\Loan;
 use App\Models\Tool;
+use DB;
 use Illuminate\Container\Attributes\Storage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -29,7 +30,7 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->phoneNumber = $request->phoneNumber;
 
-        $updated = false; 
+        $updated = false;
 
         //Driving licence image feltöltés és törlés
         if ($request->hasFile('drivingLicenceImage')) {
@@ -37,7 +38,7 @@ class UserController extends Controller
             //Új fájl mentése
             $filePath = $request->file('drivingLicenceImage')->store('driving_licence_images', 'public');
             $user->drivingLicenceImage = $filePath;
-            $updated = true; 
+            $updated = true;
         }
 
         //Driving licence image back feltöltés és törlés
@@ -46,7 +47,7 @@ class UserController extends Controller
             //Új fájl mentése
             $filePathBack = $request->file('drivingLicenceImageBack')->store('driving_licence_images', 'public');
             $user->drivingLicenceImageBack = $filePathBack;
-            $updated = true; 
+            $updated = true;
         }
 
         //Ha történt módosítás (kép frissítés), akkor állítsuk a drivingLicenceReal értékét 0-ra
@@ -129,13 +130,13 @@ class UserController extends Controller
     {
         $userId = auth()->id();
 
-
         $loans = Loan::with([
             'deviceSwitches.tool',
             'user',
-            'motorcycle'
+            'motorcycle',
         ])
             ->where('users_id', $userId)
+            ->orderBy('created_at', 'desc') 
             ->get()
             ->map(function ($loan) {
                 return [
@@ -157,19 +158,26 @@ class UserController extends Controller
                         'rentalDate' => $loan->rentalDate,
                         'returnDate' => $loan->returnDate,
                     ],
+                    'created_at' => $loan->created_at, 
                 ];
             });
 
-        //Lekérjük az összes elérhető eszközt
+ 
         $availableTools = Tool::all();
 
-        //Méret csoportosítása eszközönként
         $availableSizesByTool = Tool::all()->groupBy('tool_name')->map(function ($tools) {
             return $tools->pluck('size', 'size');
         });
 
-        //Visszaküldjük a nézetbe az eszközöket és méreteket
-        return view('userProfile', compact('loans', 'availableTools', 'availableSizesByTool'));
+        return view('userProfile', [
+            'loans' => $loans, 
+            'availableTools' => $availableTools,
+            'availableSizesByTool' => $availableSizesByTool
+        ]);
+
+
+
+
     }
 
     public function deleteOrder($ordersId)

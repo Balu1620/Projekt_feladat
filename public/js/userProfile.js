@@ -50,37 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
         deleteButton.style.display = (timeDifference > 1) ? 'inline-block' : 'none';
     });
 
-    //3. Törlés gombok megjelenítése az eszköz formoknál
-    deleteToolForms.forEach(form => {
-        const deleteButton = form.querySelector('.delete-tool-btn');
-        const rentalDate = form.getAttribute('data-rental-date');
-        if (!deleteButton || !rentalDate) return;
-
-        const rentalDateObj = new Date(rentalDate);
-        const currentDate = new Date();
-
-        //Különbség számítása napokban
-        const timeDifference = (rentalDateObj - currentDate) / (1000 * 60 * 60 * 24);
-
-        //Ha több mint 1 nap van hátra, mutassuk a törlés gombot
-        deleteButton.style.display = (timeDifference > 1) ? 'inline-block' : 'none';
-    });
-
-    //4. Eszköz hozzáadása gomb megjelenítése
-    addToolForms.forEach(form => {
-        const addButton = form.querySelector('.add-tool-btn');
-        const rentalDate = form.getAttribute('data-rental-date');
-        if (!addButton || !rentalDate) return;
-
-        const rentalDateObj = new Date(rentalDate);
-        const currentDate = new Date();
-
-        //Különbség számítása napokban
-        const timeDifference = (rentalDateObj - currentDate) / (1000 * 60 * 60 * 24);
-
-        //Ha több mint 1 nap van hátra, mutassuk a hozzáadás gombot
-        addButton.style.display = (timeDifference > 1) ? 'inline-block' : 'none';
-    });
+    
 
     // A modális gomb megnyomásakor nem kell JS-ben átállítani az action-t,
     // mert minden modal formnak már külön actionje van Blade-ben.
