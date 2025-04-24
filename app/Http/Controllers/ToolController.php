@@ -20,7 +20,7 @@ class ToolController extends Controller
         $motorData = Motorcycle::findOrFail($motor);
 
         //Eszközök lekérése
-        $tools = Tool::all();  //Eszközök listája
+        $tools = Tool::all();
 
         //Foglalt dátumok lekérése csak az adott motorhoz
         $bookedDates = Loan::where('motorcycles_id', $motor) //Szűrés motor id alapján

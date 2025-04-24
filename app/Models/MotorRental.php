@@ -21,12 +21,12 @@ class MotorRental extends Model
 
     public function deviceSwitches()
     {
-        return $this->hasMany(DeviceSwitch::class, 'loans_id'); // kapcsolódás a DeviceSwitch táblához
+        return $this->hasMany(DeviceSwitch::class, 'loans_id'); //Kapcsolódás a DeviceSwitch táblához
     }
 
-    // A motor adatainak kapcsolása
+
     public function motor()
     {
-        return $this->belongsTo(Motorcycle::class, 'motor_id');
+        return $this->belongsTo(Motorcycle::class, 'motor_id'); //A motor adatainak kapcsolása
     }
 }

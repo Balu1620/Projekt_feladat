@@ -107,53 +107,48 @@ class MotorcycleController extends Controller
         $motorRental->rentalDate = $startDate;
         $motorRental->returnDate = $endDate;
         $motorRental->orders_id = $orderId;
-        //----- Bálint -----
+        
         $motorRental->gaveDown = 0;
-        //$motorRental->problemDescription = null;
-        //----- Bálint -----
 
         $motorRental->save();
 
-        //Példaként egy statikus érték.
-        //BÁLINT CSAK EZT KELL!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
         $matchingToolIds = [];
-        // Ellenőrizzük, hogy legalább egy eszköz meg van-e adva
+        //Ellenőrizzük, hogy legalább egy eszköz meg van-e adva
         if ($ruhadb >= 1 || $sisakdb >= 1 || $cipodb >= 1) {
-            // Lekérjük az összes eszközt az adatbázisból
+            //Lekérjük az összes eszközt az adatbázisból
             $tools = DB::table('tools')->get();
 
 
             foreach ($tools as $tool) {
-                // Sisak ellenőrzés
+                //Sisak ellenőrzés
                 if ($tool->toolName === 'Sisak' && in_array($tool->size, $sisakmeret)) {
-                    $count = array_count_values($sisakmeret)[$tool->size] ?? 0; // Számoljuk, hányszor kell ez a méret
+                    $count = array_count_values($sisakmeret)[$tool->size] ?? 0; //Számoljuk hányszor kell ez a méret
                     for ($i = 0; $i < $count; $i++) {
                         $matchingToolIds[] = $tool->id;
                     }
                 }
 
-                // Ruházat ellenőrzés
+                //Ruházat ellenőrzés
                 if ($tool->toolName === 'Protektoros Ruha' && in_array($tool->size, $ruhameret)) {
-                    $count = array_count_values($ruhameret)[$tool->size] ?? 0; // Számoljuk, hányszor kell ez a méret
+                    $count = array_count_values($ruhameret)[$tool->size] ?? 0; //Számoljuk hányszor kell ez a méret
                     for ($i = 0; $i < $count; $i++) {
                         $matchingToolIds[] = $tool->id;
                     }
                 }
 
-                // Cipő ellenőrzés
+                //Cipő ellenőrzés
                 if ($tool->toolName === 'Cipő' && in_array($tool->size, $cipomeret)) {
-                    $count = array_count_values($cipomeret)[$tool->size] ?? 0; // Számoljuk, hányszor kell ez a méret
+                    $count = array_count_values($cipomeret)[$tool->size] ?? 0; //Számoljuk hányszor kell ez a méret
                     for ($i = 0; $i < $count; $i++) {
                         $matchingToolIds[] = $tool->id;
                     }
                 }
             }
 
-            // Lekérjük a legnagyobb kölcsönzés ID-t
+            //Lekérjük a legnagyobb kölcsönzés ID-t
             $maxLoanId = DB::table('loans')->max('id');
 
-            // A megfelelő eszközök hozzárendelése a kölcsönzéshez
+            //A megfelelő eszközök hozzárendelése a kölcsönzéshez
             foreach ($matchingToolIds as $toolId) {
                 DeviceSwitch::create([
                     'loans_id' => $maxLoanId,

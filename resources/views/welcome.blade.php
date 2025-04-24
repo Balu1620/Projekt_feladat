@@ -25,7 +25,7 @@
                                 <h3>Globális elérhetőség</h3>
                             </div>
                             <div class="custom-flip-card-back">
-                                <p>Több mint 100 állomás 3 országban</p>
+                                <p>Minden kerületben legalább egy állomás</p>
                             </div>
                         </div>
                     </div>

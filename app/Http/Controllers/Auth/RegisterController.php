@@ -70,15 +70,12 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        // Ellenőrizzük, hogy van-e feltöltött fájl
+        //Ellenőrizzük, hogy van-e feltöltött fájl
         if (isset($data['drivingLicenceImage']) && isset($data['drivingLicenceImageBack'])) {
-            // A fájl feltöltése és a fájl elérési útjának mentése
+            //A fájl feltöltése és a fájl elérési útjának mentése
             $filePath = $data['drivingLicenceImage']->store('driving_licence_images', 'public');
             $filePathBack = $data['drivingLicenceImageBack']->store('driving_licence_images', 'public');
 
-            // A fájlok teljes elérési útjának visszaadása a válaszban
-            //$fileUrl = asset('storage/' . $filePath);
-            //$fileUrlBack = asset('storage/' . $filePathBack);
         }
 
         return User::create([
