@@ -25,7 +25,7 @@
                                 <h3>Globális elérhetőség</h3>
                             </div>
                             <div class="custom-flip-card-back">
-                                <p>Több mint 100 állomás Budapest szerte</p>
+                                <p>Több mint 20 állomás Budapest szerte</p>
                             </div>
                         </div>
                     </div>
