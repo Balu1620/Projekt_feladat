@@ -42,8 +42,6 @@ Route::post('/user-profile/{ordersId}/add-tool', [UserController::class, 'addToo
 
 
 
-
-
 Route::post('/update-user', [UserController::class, 'update'])->name('updateUserData');
 
 Route::get('/location', function () {return view('location');})->name('location');

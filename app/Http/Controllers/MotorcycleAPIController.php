@@ -16,6 +16,8 @@ use App\Models\Motorcycle;
 use App\Models\Tool;
 use App\Models\User;
 use Auth;
+use Carbon\Carbon;
+use DB;
 use Illuminate\Http\Request;
 use Storage;
 
@@ -140,7 +142,7 @@ class MotorcycleAPIController extends Controller
     }
 
 
-   
+
     public function AllLogindex()
     {
         $logs = Admin::with([
@@ -225,6 +227,7 @@ class MotorcycleAPIController extends Controller
         return response()->json([$user, "msg" => "sikeres Frissités!!!"]);
     }
 
+    /*
     public function allMotorSearchInService()
     {
         $motor = Motorcycle::where('IsInService', 0)->get();
@@ -232,7 +235,7 @@ class MotorcycleAPIController extends Controller
             return response()->json(['message' => 'Nem tudta frissiteni'], 404);
         }
         return response()->json([$motor, "msg" => "sikeres Frissités!!!"]);
-    }
+    }*/
 
     public function MotorDelete(Motorcycle $motorcycle)
     {
@@ -291,8 +294,8 @@ class MotorcycleAPIController extends Controller
 
 
 
-    
-//Reacthoz kell
+
+    //Reacthoz kell
 
     public function LoansDelete($ordersId)
     {
@@ -370,6 +373,68 @@ class MotorcycleAPIController extends Controller
             }
         }
     }
+
+    /*
+    public function Motorindex(Request $request)
+    {
+        // Alap lekérdezés az "motorcycles" táblára
+        $query = DB::table('motorcycles')
+            ->leftJoin('loans', function ($join) {
+                $join->on('motorcycles.id', '=', 'loans.motorcycles_id')
+                    ->whereRaw('loans.id IN (SELECT MAX(id) FROM loans GROUP BY motorcycles_id)');
+            })
+            ->select('motorcycles.*', 'loans.rentalDate', 'loans.returnDate')
+            ->where('motorcycles.isInService', 0);
+
+        // Szűrési feltételek hozzáadása
+        if ($request->filled('brand')) {
+            $query->where('motorcycles.brand', $request->input('brand'));
+        }
+        if ($request->filled('year')) {
+            $query->where('motorcycles.year', $request->input('year'));
+        }
+        if ($request->filled('gearbox')) {
+            $query->where('motorcycles.gearbox', $request->input('gearbox'));
+        }
+        if ($request->filled('fuel')) {
+            $query->where('motorcycles.fuel', $request->input('fuel'));
+        }
+        if ($request->filled('location')) {
+            $query->where('motorcycles.location', $request->input('location'));
+        }
+
+        // Időszak szűrés
+        if ($request->filled('dateStart') && $request->filled('dateEnd')) {
+            $dateStart = Carbon::parse($request->input('dateStart'));
+            $dateEnd = Carbon::parse($request->input('dateEnd'));
+
+            $query->where(function ($subQuery) use ($dateStart, $dateEnd) {
+                $subQuery->whereNull('loans.rentalDate')
+                    ->orWhere('loans.returnDate', '<', $dateStart)
+                    ->orWhere('loans.rentalDate', '>', $dateEnd);
+            });
+        }
+
+        // Lekérdezés végrehajtása
+        $motorcycles = $query->distinct()->get();
+
+        // Kiegészítő lekérdezések szűrőkhöz
+        $brands = DB::table('motorcycles')->select('brand')->distinct()->orderBy('brand', 'asc')->get();
+        $locations = DB::table('motorcycles')->select('location')->distinct()->orderBy('location', 'asc')->get();
+        $years = DB::table('motorcycles')->select('year')->distinct()->orderBy('year', 'asc')->get();
+        $gearboxes = DB::table('motorcycles')->select('gearbox')->distinct()->get();
+
+        return response()->json([
+            'motorcycles' => $motorcycles,
+            'filters' => [
+                'brands' => $brands,
+                'locations' => $locations,
+                'years' => $years,
+                'gearboxes' => $gearboxes,
+            ],
+        ]);
+    }
+*/
 
     public function ReactDestroyTool(Tool $tool)
     {
