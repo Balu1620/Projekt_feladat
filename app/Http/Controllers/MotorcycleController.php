@@ -213,7 +213,7 @@ class MotorcycleController extends Controller
                 $discount = $basePrice * 0.20;
             }
 
-            $payable = $basePrice - $discount;
+            $payable = $basePrice - $discount + $motor->deposit;            ;
 
 
             session([

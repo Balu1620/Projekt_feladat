@@ -91,8 +91,8 @@
                                                 @foreach($sisakmeret as $index => $size)
                                                     {{ $size }}@if($index < count($sisakmeret) - 1), @endif
                                                 @endforeach
-                                            </span>
-                                            <span>Napi Ár: {{ $helmetDailyPrice }} Ft</span>
+                                            </span><br>
+                                            <span>Napi Ár: {{ $helmetDailyPrice }} Ft</span><br>
                                             <span>Összesen: {{ number_format($helmetCost, 0, '.', ' ') }} Ft</span>
                                         </li>
                                     @endif
@@ -104,8 +104,8 @@
                                                 @foreach($ruhameret as $index => $size)
                                                     {{ $size }}@if($index < count($ruhameret) - 1), @endif
                                                 @endforeach
-                                            </span>
-                                            <span>Napi Ár: {{ $clothingDailyPrice }} Ft</span>
+                                            </span><br>
+                                            <span>Napi Ár: {{ $clothingDailyPrice }} Ft</span><br>
                                             <span>Összesen: {{ number_format($clothingCost, 0, '.', ' ') }} Ft</span>
                                         </li>
                                     @endif
@@ -117,8 +117,8 @@
                                                 @foreach($cipomeret as $index => $size)
                                                     {{ $size }}@if($index < count($cipomeret) - 1), @endif
                                                 @endforeach
-                                            </span>
-                                            <span>Napi Ár: {{ $bootDailyPrice }} Ft</span>
+                                            </span><br>
+                                            <span>Napi Ár: {{ $bootDailyPrice }} Ft</span><br>
                                             <span> Összesen: {{ number_format($bootCost, 0, '.', ' ') }} Ft</span>
                                         </li>
                                     @endif
@@ -126,9 +126,10 @@
                                     <li>
                                         <span>Motor</span>
                                         <span>Napi Ár: {{ number_format($motor->price, 0, '.', ' ') }} Ft</span>
-                                        <span> Összesen:
-                                            {{ number_format($motor->price * ($startDate->diffInDays($endDate) + 1), 0, '.', ' ') }}
-                                            Ft</span>
+                                        <br><span>Kaució: {{ number_format($motor->deposit, 0, '.', ' ') }} Ft</span>
+                                        <br><span> Összesen:
+                                            {{ number_format($motor->price * ($startDate->diffInDays($endDate) + 1) + $motor->deposit, 0, '.', ' ') }}
+                                            Ft</span><br>
                                     </li>
                                 </ul>
                             </div>
@@ -136,7 +137,7 @@
                             <div class="order-total">
                                 <h2>Összesítés</h2>
                                 <p><strong>Termékek Összesen:</strong>
-                                    {{ number_format($helmetCost + $clothingCost + $bootCost + $motor->price * ($startDate->diffInDays($endDate) + 1), 0, '.', ' ') }}
+                                    {{ number_format($motor->deposit + $helmetCost + $clothingCost + $bootCost + $motor->price * ($startDate->diffInDays($endDate) + 1), 0, '.', ' ') }}
                                     Ft</p>
                                 <p><strong>Kedvezmény: </strong><del style="color: red;"><span>
                                             {{ number_format($discount, 0, '.', ' ') }} Ft</del></span></p>
