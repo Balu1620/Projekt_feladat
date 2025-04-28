@@ -40,7 +40,7 @@ Route::put('/user/{user}', [MotorcycleAPIController::class, 'DriLicRealSetUpUser
 
 
 
-Route::get('/motorInServices', [MotorcycleAPIController::class, 'allMotorSearchInService']);
+//Route::get('/motorInServices', [MotorcycleAPIController::class, 'allMotorSearchInService']);
 
 Route::get('/allMotors', [MotorcycleAPIController::class, 'indexMotors']);
 
@@ -63,7 +63,7 @@ Route::delete('tools/{tool}', [MotorcycleAPIController::class, 'ReactDestroyTool
 
 Route::post('login', [MotorcycleAPIController::class, 'login']); 
 
-Route::get('/motorcycles', [MotorcycleAPIController::class, 'Motorindex']);
+Route::get('/motorcycles', [MotorcycleAPIController::class, 'Motorindex']); //
 
 
 Route::middleware('auth:sanctum')->get('/userProfile', function () {

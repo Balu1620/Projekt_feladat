@@ -227,6 +227,7 @@ class MotorcycleAPIController extends Controller
         return response()->json([$user, "msg" => "sikeres Frissités!!!"]);
     }
 
+    /*
     public function allMotorSearchInService()
     {
         $motor = Motorcycle::where('IsInService', 0)->get();
@@ -234,7 +235,7 @@ class MotorcycleAPIController extends Controller
             return response()->json(['message' => 'Nem tudta frissiteni'], 404);
         }
         return response()->json([$motor, "msg" => "sikeres Frissités!!!"]);
-    }
+    }*/
 
     public function MotorDelete(Motorcycle $motorcycle)
     {
@@ -373,6 +374,7 @@ class MotorcycleAPIController extends Controller
         }
     }
 
+    /*
     public function Motorindex(Request $request)
     {
         // Alap lekérdezés az "motorcycles" táblára
@@ -432,7 +434,7 @@ class MotorcycleAPIController extends Controller
             ],
         ]);
     }
-
+*/
 
     public function ReactDestroyTool(Tool $tool)
     {
