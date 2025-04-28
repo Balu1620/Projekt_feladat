@@ -63,6 +63,8 @@ Route::delete('tools/{tool}', [MotorcycleAPIController::class, 'ReactDestroyTool
 
 Route::post('login', [MotorcycleAPIController::class, 'login']); 
 
+Route::get('/motorcycles', [MotorcycleAPIController::class, 'Motorindex']);
+
 
 Route::middleware('auth:sanctum')->get('/userProfile', function () {
     return response()->json([

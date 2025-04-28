@@ -17,7 +17,8 @@ class Loan extends Model
         'motorcycles_id',
         'users_id', 
         'gaveDown',
-        "problemDescription"
+        "problemDescription",
+        "orders_id"
     ];
 
     
