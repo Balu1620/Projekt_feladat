@@ -21,25 +21,25 @@ class UpdateMotorcycleRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'brand' => 'required|string|max:20',
-            'type' => 'required|string|max:100',
-            'licencePlate' => 'required|string|unique:motorcycles,licencePlate',
-            'year' => 'required|integer|between:1900,2025',
-            'gearbox' => 'required|string|max:25',
-            'fuel' => 'required|string|size:1|in:B,E',
-            'powerLe' => 'required|numeric|min:0',
-            'powerkW' => 'required|numeric|min:0',
-            'engineSize' => 'required|numeric|min:0',
-            'drivingLicence' => 'required|string|max:4',
-            'places' => 'required|integer|between:1,10',
-            'price' => 'required|integer|min:0',
-            'deposit' => 'required|integer|min:0',
-            'trafficDate' => 'required|date',
+        return [/*
+            'brand' => 'string|max:20',
+            'type' => 'string|max:100',
+            'licencePlate' => 'string|unique:motorcycles,licencePlate',
+            'year' => 'integer|between:1900,2025',
+            'gearbox' => 'string|max:25',
+            'fuel' => 'string',
+            'powerLe' => 'numeric|min:0',
+            'powerkW' => 'numeric|min:0',
+            'engineSize' => 'numeric|min:0',
+            'drivingLicence' => 'string|max:4',
+            'places' => 'integer|between:1,10',
+            'price' => 'integer|min:0',
+            'deposit' => 'integer|min:0',
+            'trafficDate' => 'date',
             'location' => 'nullable|string|max:255',
-            'image' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'isInService' => 'required|boolean',
-            'problamComment' => 'nullable|string',
+            'image' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'isInService' => 'boolean',
+            'problamComment' => 'nullable|string',*/
         ];
     }
 }

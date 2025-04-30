@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreMotorcycleRequest extends FormRequest
+class StoreLogRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +22,9 @@ class StoreMotorcycleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'command' => 'required|string|max:255',
+            'date' => 'required|date',
+            'admin_id' => 'required|integer|exists:admins,id',
         ];
     }
 }

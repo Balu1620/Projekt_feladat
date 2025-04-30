@@ -12,6 +12,12 @@ class Log extends Model
     use HasFactory;
     use SoftDeletes;
 
+    protected $fillable = [
+        'command',
+        'date',
+        'admin_id'
+    ];
+
     public function admin()
     {
         return $this->belongsTo(Admin::class);

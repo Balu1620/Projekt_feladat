@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreAdminRequest;
+use App\Http\Requests\StoreLogRequest;
 use App\Http\Requests\StoreMotorcycleRequest;
 use App\Http\Requests\UpdateAdminRequest;
 use App\Http\Requests\UpdateLoanRequest;
@@ -154,6 +155,15 @@ class MotorcycleAPIController extends Controller
         }
         return response()->json([$logs, "msg" => "sikeres Frissités!!!"]);
     }
+
+    public function Addlog(StoreLogRequest $request) {
+        $newlog = Log::create($request->all());
+        if (!$newlog) {
+            return response()->json(['message' => 'Nem tudta frissiteni'], 404);
+        }
+        return response()->json([$newlog, "msg" => "sikeres Frissités!!!"]);
+    } 
+
 
     public function UpdateAdmin(UpdateAdminRequest $request, Admin $admin)
     {
