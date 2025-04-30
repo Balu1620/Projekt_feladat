@@ -29,9 +29,9 @@ Route::get('/logs', [MotorcycleAPIController::class, 'AllLogindex']);
 Route::post('/admins', [MotorcycleAPIController::class, 'StoreAdmin']);
 Route::put('/admins/{admin}', [MotorcycleAPIController::class, 'UpdateAdmin']);
 
-Route::put('/DeactiveAdmin/{admin}', [MotorcycleAPIController::class, 'DeactiveAdmin']);
+Route::delete('/DeactiveAdmin/{admin}', [MotorcycleAPIController::class, 'DeactiveAdmin']);
 
-Route::put('/RestoreAdmin/{admin}', [MotorcycleAPIController::class, 'ReStoreAdmin']);
+Route::post('/RestoreAdmin/{admin}', [MotorcycleAPIController::class, 'ReStoreAdmin']);
 
 
 Route::get('/allUsers', [MotorcycleAPIController::class, 'AllUseres']);
@@ -61,7 +61,7 @@ Route::put('{ordersId}/add-tool/', [MotorcycleAPIController::class, 'ReactToolAd
 
 Route::delete('tools/{tool}', [MotorcycleAPIController::class, 'ReactDestroyTool']);
 
-Route::post('login', [MotorcycleAPIController::class, 'login']); 
+Route::post('login', [MotorcycleAPIController::class, 'login']);
 
 Route::get('/motorcycles', [MotorcycleAPIController::class, 'Motorindex']); //
 

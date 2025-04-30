@@ -142,14 +142,13 @@ class MotorcycleAPIController extends Controller
     }
 
 
-
     public function AllLogindex()
     {
         $logs = Admin::with([
-            "logs" => function ($query) {
+            'logs' => function ($query) {
                 $query->orderBy('date', 'desc');
             }
-        ])->orderBy("jobstatus", "asc")->get();
+        ])->withTrashed()->orderBy('jobstatus', 'asc')->get();
         if (!$logs) {
             return response()->json([$logs, 'message' => 'Nem tudta frissiteni'], 404);
         }
@@ -173,21 +172,23 @@ class MotorcycleAPIController extends Controller
         return response()->json([$newAdmin, "msg" => "sikeres Frissités!!!"]);
     }
 
-    public function ReStoreAdmin(Admin $admin, UpdateAdminRequest $request)
+    public function ReStoreAdmin($id)
     {
-        $admin->update($request->all());
-        //$admin->restore();
+        $admin = Admin::withTrashed()->find($id); // Így kérjük le töröltekkel együtt
+
         if (!$admin) {
-            return response()->json(['message' => 'Nem tudta frissiteni'], 404);
+            return response()->json(['message' => 'Nem található admin'], 404);
         }
-        return response()->json([$admin, "msg" => "sikeres Deaktiválás!!!"]);
+
+        $admin->restore();
+
+        return response()->json([$admin, "msg" => "Sikeres visszaállítás!"]);
     }
 
 
-    public function DeactiveAdmin(Admin $admin, UpdateAdminRequest $request)
+    public function DeactiveAdmin(Admin $admin)
     {
-        $admin->update($request->all());
-        //$admin->delete();
+        $admin->delete();
         if (!$admin) {
             return response()->json(['message' => 'Nem tudta frissiteni'], 404);
         }

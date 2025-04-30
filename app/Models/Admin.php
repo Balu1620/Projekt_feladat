@@ -17,10 +17,9 @@ class Admin extends Model
         "email",
         "password",
         "jobStatus",
-        "deactive"
     ];
     public function logs()
     {
-        return $this->hasMany(Log::class);
+        return $this->hasMany(Log::class)->withTrashed();
     }
 }
